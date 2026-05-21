@@ -9,7 +9,7 @@ import polaroid4 from "../assets/images/polaroid-4.png";
 
 export default function About() {
   return (
-    <div className="relative min-h-[100dvh] w-full overflow-x-hidden bg-background text-foreground font-sans">
+    <div className="relative min-h-[100dvh] w-full overflow-x-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
       <Nav />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 min-h-[100dvh] flex flex-col md:flex-row items-center gap-12 lg:gap-24">

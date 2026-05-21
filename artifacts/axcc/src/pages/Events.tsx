@@ -37,7 +37,7 @@ const expeditions = [
 
 export default function Events() {
   return (
-    <div className="relative min-h-[100dvh] w-full bg-background text-foreground font-sans">
+    <div className="relative min-h-[100dvh] w-full text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
       <Nav />
 
       <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 min-h-[100dvh] flex flex-col">
