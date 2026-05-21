@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "a-X Cycling Club"
+version = "1.0.0"
+id = "artifacts/axcc"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23381
+
+[services.development]
+run = "pnpm --filter @workspace/axcc run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/axcc", "run", "build" ]
+publicDir = "artifacts/axcc/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23381"
+BASE_PATH = "/"

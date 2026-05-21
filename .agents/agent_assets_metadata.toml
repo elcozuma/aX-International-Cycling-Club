@@ -1,0 +1,44 @@
+uploads = []
+outputs = []
+
+[[generated]]
+id = "Tovi7YnUVN06VT_tU3Gfa"
+uri = "file://artifacts/axcc/src/assets/images/polaroid-1.png"
+type = "image"
+title = "dusty gravel road in mountains"
+
+[[generated]]
+id = "lbIhAb3dd-7pSs9sVkKhh"
+uri = "file://artifacts/axcc/src/assets/images/polaroid-2.png"
+type = "image"
+title = "muddy cycling gear"
+
+[[generated]]
+id = "lAOKJJyI-VpyQaEoaca05"
+uri = "file://artifacts/axcc/src/assets/images/polaroid-3.png"
+type = "image"
+title = "silhouette rider in desert"
+
+[[generated]]
+id = "VwRn9A6SUnoarTEknM-0s"
+uri = "file://artifacts/axcc/src/assets/images/polaroid-4.png"
+type = "image"
+title = "remote camp setup"
+
+[[generated]]
+id = "XIhXkPeKNL9D_Im6hqICR"
+uri = "file://artifacts/axcc/src/assets/images/morocco.png"
+type = "image"
+title = "morocco rugged mountains"
+
+[[generated]]
+id = "wU9XSCOgkJ73-lF5zH0wd"
+uri = "file://artifacts/axcc/src/assets/images/pamir.png"
+type = "image"
+title = "pamir highway mountains"
+
+[[generated]]
+id = "vsJ5atUDlT2rw1T_w-YcB"
+uri = "file://artifacts/axcc/src/assets/images/atlas.png"
+type = "image"
+title = "coastal cliffs desert"
