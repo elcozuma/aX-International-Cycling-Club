@@ -9,12 +9,10 @@ export default function Home() {
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover z-0 opacity-80"
+        className="absolute inset-0 w-full h-full object-cover z-0"
         src="/hero.mp4"
       />
       
-      {/* Dark Overlay */}
-      <div className="absolute inset-0 bg-black/40 z-10" />
 
       {/* Content Layer */}
       <div className="relative z-20 w-full h-full min-h-[100dvh] flex flex-col items-center pt-8">
