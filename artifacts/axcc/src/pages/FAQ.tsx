@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -312,7 +313,8 @@ export default function FAQ() {
           </div>
 
           {/* Right column — answer panel */}
-          <div className="flex-1 flex items-center justify-center px-8 md:px-14 py-10 overflow-y-auto">
+          <div className="flex-1 flex flex-col px-8 md:px-14 py-10 overflow-y-auto">
+            <div className="flex-1 flex items-center justify-center">
             <AnimatePresence mode="wait">
               {selectedItem ? (
                 <motion.div
@@ -363,6 +365,19 @@ export default function FAQ() {
                 </motion.p>
               )}
             </AnimatePresence>
+            </div>
+
+            {/* Footer note */}
+            <p className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
+              Have a question not answered here?{" "}
+              <Link href="/contact">
+                <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</span>
+              </Link>{" "}
+              Details about specific events can be found on the{" "}
+              <Link href="/events">
+                <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Events page.</span>
+              </Link>
+            </p>
           </div>
 
         </div>
