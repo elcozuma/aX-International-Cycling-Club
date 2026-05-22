@@ -25,7 +25,7 @@ export default function Home() {
         <Nav />
 
         {/* Mobile title — top, hidden on md+ */}
-        <div className="md:hidden absolute top-4 left-0 right-0 px-8 flex justify-center">
+        <div className="md:hidden absolute top-2 left-0 right-0 px-8 flex justify-center">
           <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
             <p className="text-2xl leading-tight normal-case">a-X</p>
             <p className="text-lg leading-snug normal-case">International</p>
@@ -36,8 +36,8 @@ export default function Home() {
         {/* Mobile tagline — bottom, hidden on md+ */}
         <div className="md:hidden absolute bottom-6 left-0 right-0 px-8 flex justify-center">
           <p
-            className="text-2xl normal-case tracking-wide"
-            style={{ fontFamily: "'Oswald', sans-serif", color: "#f5e530" }}
+            className="normal-case whitespace-nowrap"
+            style={{ fontFamily: "'Nunito', sans-serif", color: "#f5e530", fontSize: "clamp(1rem, 7.5vw, 2rem)", fontWeight: 700 }}
           >
             Comfort not included
           </p>
