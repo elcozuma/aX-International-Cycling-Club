@@ -25,7 +25,8 @@ export default function About() {
           />
 
           {/* Text content — right half column */}
-          <div className="absolute inset-0 flex flex-col justify-start pl-[52%] pr-8 md:pr-12 pt-8 pb-10 overflow-y-auto">
+          <div className="absolute inset-0 overflow-y-auto pl-[52%] pr-8 md:pr-12">
+          <div className="min-h-full flex flex-col justify-center py-8">
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
@@ -68,7 +69,8 @@ export default function About() {
               </a>
             </motion.div>
 
-          </div>
+          </div>{/* end inner centering wrapper */}
+          </div>{/* end scroll container */}
         </div>
       </div>
     </div>
