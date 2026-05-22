@@ -51,7 +51,7 @@ const sections: Section[] = [
       },
       {
         q: "Do I need to be an experienced cyclist?",
-        a: "You don't need to be elite, but you should already be comfortable riding long distances and spending long days on the bike. Many routes involve climbing, remote terrain and changing weather conditions, so a reasonable level of fitness and self-sufficiency is important."
+        a: ["You don't need to be elite, but you should already be comfortable riding long distances and spending long days on the bike. Many routes involve climbing, remote terrain and changing weather conditions, so a reasonable level of fitness and self-sufficiency is important.", "a-X event hosts are available to help with training plans and will monitor participants' progress in the months leading up to the event to help each rider make the most of their trip."]
       },
       {
         q: "Can I join alone?",
@@ -100,7 +100,7 @@ const sections: Section[] = [
       },
       {
         q: "What level of fitness is required?",
-        a: "Expeditions are physically demanding and require preparation. As a rough guide, you should already feel comfortable completing multiple long back-to-back rides over mixed terrain and significant climbing. Some events may include recommended benchmark distances or elevation targets."
+        a: ["Expeditions are physically demanding and require preparation. As a rough guide, you should already feel comfortable completing multiple long back-to-back rides over mixed terrain and significant climbing. Some events may include recommended benchmark distances or elevation targets.", "a-X event hosts are available to help with training plans and will monitor participants' progress in the months leading up to the event to help each rider make the most of their trip."]
       },
       {
         q: "Do I need previous bikepacking experience?",
