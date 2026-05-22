@@ -52,7 +52,7 @@ export default function Contact() {
   }
 
   return (
-    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
       <div className="max-w-3xl mx-auto px-6 pt-16 pb-6 h-full flex flex-col justify-center">
