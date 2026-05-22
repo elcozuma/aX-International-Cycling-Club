@@ -229,8 +229,10 @@ export default function FAQ() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
-          {/* Left column — scrollable questions list */}
+          {/* Left column — two independently scrollable sections */}
           <div className="w-full md:w-2/5 h-full flex flex-col overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+
+            {/* Title */}
             <div className="px-6 md:px-8 pt-8 pb-3 flex-shrink-0">
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
@@ -239,43 +241,74 @@ export default function FAQ() {
                 style={rubikOne}
                 className="text-base md:text-lg normal-case text-accent leading-tight"
               >
-                QUESTIONS & ANSWERS
+                FAQs
               </motion.h1>
             </div>
 
-            <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-6 space-y-5">
-              {sections.map((section, si) => (
-                <div key={si}>
-                  <p
-                    className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-2 mb-2"
-                    style={rubikOne}
-                  >
-                    {section.label}
-                  </p>
-                  <div className="flex flex-col gap-0.5">
-                    {section.items.map((item, ii) => {
-                      const isActive =
-                        selected?.section === si && selected?.item === ii;
-                      return (
-                        <button
-                          key={ii}
-                          onClick={() => toggle(si, ii)}
-                          className={[
-                            "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
-                            isActive
-                              ? "bg-white/15 text-foreground"
-                              : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
-                          ].join(" ")}
-                          style={nunito}
-                        >
-                          {item.q}
-                        </button>
-                      );
-                    })}
-                  </div>
+            {/* Section 0 — General FAQs (top half) */}
+            <div className="flex-1 flex flex-col overflow-hidden border-b border-white/10">
+              <p
+                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-1 flex-shrink-0"
+                style={rubikOne}
+              >
+                {sections[0].label}
+              </p>
+              <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-4">
+                <div className="flex flex-col gap-0.5">
+                  {sections[0].items.map((item, ii) => {
+                    const isActive = selected?.section === 0 && selected?.item === ii;
+                    return (
+                      <button
+                        key={ii}
+                        onClick={() => toggle(0, ii)}
+                        className={[
+                          "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
+                          isActive
+                            ? "bg-white/15 text-foreground"
+                            : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
+                        ].join(" ")}
+                        style={nunito}
+                      >
+                        {item.q}
+                      </button>
+                    );
+                  })}
                 </div>
-              ))}
+              </div>
             </div>
+
+            {/* Section 1 — Expedition / Event FAQs (bottom half) */}
+            <div className="flex-1 flex flex-col overflow-hidden">
+              <p
+                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-1 flex-shrink-0"
+                style={rubikOne}
+              >
+                {sections[1].label}
+              </p>
+              <div className="flex-1 overflow-y-auto px-4 md:px-6 pb-4">
+                <div className="flex flex-col gap-0.5">
+                  {sections[1].items.map((item, ii) => {
+                    const isActive = selected?.section === 1 && selected?.item === ii;
+                    return (
+                      <button
+                        key={ii}
+                        onClick={() => toggle(1, ii)}
+                        className={[
+                          "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
+                          isActive
+                            ? "bg-white/15 text-foreground"
+                            : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
+                        ].join(" ")}
+                        style={nunito}
+                      >
+                        {item.q}
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
           </div>
 
           {/* Right column — answer panel */}
