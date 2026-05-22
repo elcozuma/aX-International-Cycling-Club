@@ -10,7 +10,7 @@ export function Nav() {
     { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "events", path: "/events" },
-    { name: "FAQs", path: "/faq" },
+    { name: "faqs", path: "/faq" },
     { name: "contact", path: "/contact" }
   ];
 
