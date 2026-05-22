@@ -201,7 +201,12 @@ const sections: Section[] = [
 type SelectionKey = { section: number; item: number } | null;
 
 export default function FAQ() {
+  // Desktop state
   const [selected, setSelected] = useState<SelectionKey>(null);
+
+  // Mobile accordion state
+  const [openSections, setOpenSections] = useState<Set<number>>(new Set([0]));
+  const [mobileSelected, setMobileSelected] = useState<SelectionKey>(null);
 
   const selectedItem =
     selected !== null
@@ -209,11 +214,23 @@ export default function FAQ() {
       : null;
 
   function toggle(si: number, ii: number) {
-    if (selected?.section === si && selected?.item === ii) {
-      setSelected(null);
-    } else {
-      setSelected({ section: si, item: ii });
-    }
+    setSelected(prev =>
+      prev?.section === si && prev?.item === ii ? null : { section: si, item: ii }
+    );
+  }
+
+  function toggleSection(si: number) {
+    setOpenSections(prev => {
+      const next = new Set(prev);
+      if (next.has(si)) next.delete(si); else next.add(si);
+      return next;
+    });
+  }
+
+  function toggleMobile(si: number, ii: number) {
+    setMobileSelected(prev =>
+      prev?.section === si && prev?.item === ii ? null : { section: si, item: ii }
+    );
   }
 
   return (
@@ -222,15 +239,147 @@ export default function FAQ() {
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row">
 
-          {/* Logo — bottom-right */}
+          {/* Logo */}
           <img src="/ax-logo.png" alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
 
-          {/* Left column — two independently scrollable sections */}
-          <div className="w-full md:w-2/5 h-full flex flex-col overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+          {/* ── MOBILE ACCORDION (hidden on md+) ── */}
+          <div className="md:hidden px-5 pt-6 pb-28 flex flex-col gap-3">
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              style={rubikOne}
+              className="text-base normal-case text-accent leading-tight mb-2"
+            >
+              FAQs
+            </motion.h1>
 
-            {/* Title */}
+            {sections.map((section, si) => {
+              const isSectionOpen = openSections.has(si);
+              return (
+                <div key={si}>
+                  {/* Section header toggle */}
+                  <button
+                    onClick={() => toggleSection(si)}
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white/8 border border-white/10 text-left"
+                  >
+                    <span
+                      className="text-[10px] uppercase tracking-widest text-foreground/50"
+                      style={rubikOne}
+                    >
+                      {section.label}
+                    </span>
+                    <motion.span
+                      animate={{ rotate: isSectionOpen ? 45 : 0 }}
+                      transition={{ duration: 0.2 }}
+                      className="text-foreground/40 text-base leading-none"
+                    >
+                      +
+                    </motion.span>
+                  </button>
+
+                  <AnimatePresence initial={false}>
+                    {isSectionOpen && (
+                      <motion.div
+                        key="section-content"
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.25 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="flex flex-col gap-0.5 pt-1 pb-1">
+                          {section.items.map((item, ii) => {
+                            const isOpen =
+                              mobileSelected?.section === si &&
+                              mobileSelected?.item === ii;
+                            return (
+                              <div key={ii} className="rounded-lg overflow-hidden">
+                                <button
+                                  onClick={() => toggleMobile(si, ii)}
+                                  className={[
+                                    "w-full text-left px-3 py-2.5 text-xs leading-snug transition-colors flex items-start justify-between gap-2",
+                                    isOpen
+                                      ? "text-accent"
+                                      : "text-foreground/55"
+                                  ].join(" ")}
+                                  style={nunito}
+                                >
+                                  <span>{item.q}</span>
+                                  <span className="flex-shrink-0 text-foreground/30 mt-0.5">
+                                    {isOpen ? "−" : "›"}
+                                  </span>
+                                </button>
+
+                                <AnimatePresence initial={false}>
+                                  {isOpen && (
+                                    <motion.div
+                                      key="answer"
+                                      initial={{ height: 0, opacity: 0 }}
+                                      animate={{ height: "auto", opacity: 1 }}
+                                      exit={{ height: 0, opacity: 0 }}
+                                      transition={{ duration: 0.2 }}
+                                      className="overflow-hidden"
+                                    >
+                                      <div className="px-3 pb-3 pt-0.5 border-l-2 border-accent/30 ml-3 mb-1">
+                                        {Array.isArray(item.a) ? (
+                                          <div className="flex flex-col gap-2">
+                                            {item.a.map((para, i) => (
+                                              <p
+                                                key={i}
+                                                className="text-xs text-foreground/75 leading-relaxed"
+                                                style={nunito}
+                                              >
+                                                {para}
+                                              </p>
+                                            ))}
+                                          </div>
+                                        ) : (
+                                          <p
+                                            className="text-xs text-foreground/75 leading-relaxed"
+                                            style={nunito}
+                                          >
+                                            {item.a}
+                                          </p>
+                                        )}
+                                      </div>
+                                    </motion.div>
+                                  )}
+                                </AnimatePresence>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+
+            {/* Footer links */}
+            <div className="mt-2 text-xs text-foreground/35 leading-relaxed" style={nunito}>
+              <p>
+                Have a question not answered here?{" "}
+                <Link href="/contact">
+                  <span className="underline underline-offset-2 cursor-pointer">Send us a message.</span>
+                </Link>
+              </p>
+              <p className="mt-1">
+                Details about specific events can be found on the{" "}
+                <Link href="/events">
+                  <span className="underline underline-offset-2 cursor-pointer">Events page.</span>
+                </Link>
+              </p>
+            </div>
+          </div>
+
+          {/* ── DESKTOP LAYOUT (hidden on mobile) ── */}
+
+          {/* Left column — two independently scrollable sections */}
+          <div className="hidden md:flex flex-col w-full md:w-2/5 h-full overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+
             <div className="px-6 md:px-8 pt-8 pb-3 flex-shrink-0">
               <motion.h1
                 initial={{ opacity: 0, y: 10 }}
@@ -243,137 +392,108 @@ export default function FAQ() {
               </motion.h1>
             </div>
 
-            {/* Section 0 — General FAQs (top half, exactly 50% of remaining space) */}
+            {/* Section 0 */}
             <div className="flex-1 min-h-0 flex flex-col border-b border-white/10">
-              <p
-                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0"
-                style={rubikOne}
-              >
+              <p className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
                 {sections[0].label}
               </p>
               <div className="relative flex-1 min-h-0">
-              <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
-
-                <div className="flex flex-col gap-0.5">
-                  {sections[0].items.map((item, ii) => {
-                    const isActive = selected?.section === 0 && selected?.item === ii;
-                    return (
-                      <button
-                        key={ii}
-                        onClick={() => toggle(0, ii)}
-                        className={[
-                          "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
-                          isActive
-                            ? "bg-white/15 text-foreground"
-                            : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
-                        ].join(" ")}
-                        style={nunito}
-                      >
-                        {item.q}
-                      </button>
-                    );
-                  })}
+                <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
+                  <div className="flex flex-col gap-0.5">
+                    {sections[0].items.map((item, ii) => {
+                      const isActive = selected?.section === 0 && selected?.item === ii;
+                      return (
+                        <button
+                          key={ii}
+                          onClick={() => toggle(0, ii)}
+                          className={[
+                            "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
+                            isActive ? "bg-white/15 text-foreground" : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
+                          ].join(" ")}
+                          style={nunito}
+                        >
+                          {item.q}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-              {/* Scroll fade — section 0 */}
-              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
+                <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
               </div>
             </div>
 
-            {/* Section 1 — Expedition / Event FAQs (bottom half, exactly 50% of remaining space) */}
+            {/* Section 1 */}
             <div className="flex-1 min-h-0 flex flex-col">
-              <p
-                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0"
-                style={rubikOne}
-              >
+              <p className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
                 {sections[1].label}
               </p>
               <div className="relative flex-1 min-h-0">
-              <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
-                <div className="flex flex-col gap-0.5">
-                  {sections[1].items.map((item, ii) => {
-                    const isActive = selected?.section === 1 && selected?.item === ii;
-                    return (
-                      <button
-                        key={ii}
-                        onClick={() => toggle(1, ii)}
-                        className={[
-                          "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
-                          isActive
-                            ? "bg-white/15 text-foreground"
-                            : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
-                        ].join(" ")}
-                        style={nunito}
-                      >
-                        {item.q}
-                      </button>
-                    );
-                  })}
+                <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
+                  <div className="flex flex-col gap-0.5">
+                    {sections[1].items.map((item, ii) => {
+                      const isActive = selected?.section === 1 && selected?.item === ii;
+                      return (
+                        <button
+                          key={ii}
+                          onClick={() => toggle(1, ii)}
+                          className={[
+                            "text-left px-3 py-2 rounded-lg text-xs md:text-sm transition-all leading-snug",
+                            isActive ? "bg-white/15 text-foreground" : "text-foreground/55 hover:text-foreground/85 hover:bg-white/8"
+                          ].join(" ")}
+                          style={nunito}
+                        >
+                          {item.q}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-              {/* Scroll fade — section 1 */}
-              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
+                <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
               </div>
             </div>
-
           </div>
 
           {/* Right column — answer panel */}
-          <div className="flex-1 flex flex-col px-8 md:px-14 pt-10 pb-6 overflow-y-auto">
+          <div className="hidden md:flex flex-1 flex-col px-8 md:px-14 pt-10 pb-6 overflow-y-auto">
             <div className="flex-1 flex items-center justify-center">
-            <AnimatePresence mode="wait">
-              {selectedItem ? (
-                <motion.div
-                  key={`${selected!.section}-${selected!.item}`}
-                  initial={{ opacity: 0, y: 12 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -8 }}
-                  transition={{ duration: 0.2 }}
-                  className="max-w-md w-full"
-                >
-                  <p
-                    className="text-sm md:text-base font-semibold text-accent mb-4 leading-snug"
+              <AnimatePresence mode="wait">
+                {selectedItem ? (
+                  <motion.div
+                    key={`${selected!.section}-${selected!.item}`}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.2 }}
+                    className="max-w-md w-full"
+                  >
+                    <p className="text-sm md:text-base font-semibold text-accent mb-4 leading-snug" style={nunito}>
+                      {selectedItem.q}
+                    </p>
+                    {Array.isArray(selectedItem.a) ? (
+                      <div className="flex flex-col gap-3">
+                        {selectedItem.a.map((para, i) => (
+                          <p key={i} className="text-sm md:text-base text-foreground/80 leading-relaxed" style={nunito}>{para}</p>
+                        ))}
+                      </div>
+                    ) : (
+                      <p className="text-sm md:text-base text-foreground/80 leading-relaxed" style={nunito}>{selectedItem.a}</p>
+                    )}
+                  </motion.div>
+                ) : (
+                  <motion.p
+                    key="placeholder"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="text-sm text-foreground/30 italic"
                     style={nunito}
                   >
-                    {selectedItem.q}
-                  </p>
-                  {Array.isArray(selectedItem.a) ? (
-                    <div className="flex flex-col gap-3">
-                      {selectedItem.a.map((para, i) => (
-                        <p
-                          key={i}
-                          className="text-sm md:text-base text-foreground/80 leading-relaxed"
-                          style={nunito}
-                        >
-                          {para}
-                        </p>
-                      ))}
-                    </div>
-                  ) : (
-                    <p
-                      className="text-sm md:text-base text-foreground/80 leading-relaxed"
-                      style={nunito}
-                    >
-                      {selectedItem.a}
-                    </p>
-                  )}
-                </motion.div>
-              ) : (
-                <motion.p
-                  key="placeholder"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  className="text-sm text-foreground/30 italic"
-                  style={nunito}
-                >
-                  Select a question to read the answer.
-                </motion.p>
-              )}
-            </AnimatePresence>
+                    Select a question to read the answer.
+                  </motion.p>
+                )}
+              </AnimatePresence>
             </div>
 
-            {/* Footer note */}
             <div className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
               <p>
                 Have a question not answered here?{" "}
