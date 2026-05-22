@@ -37,7 +37,7 @@ export default function Home() {
         <div className="md:hidden absolute bottom-6 left-0 right-0 px-8 flex justify-center">
           <p
             className="normal-case whitespace-nowrap"
-            style={{ fontFamily: "'Nunito', sans-serif", color: "#f5e530", fontSize: "clamp(1rem, 7.5vw, 2rem)", fontWeight: 700 }}
+            style={{ fontFamily: "'Oswald', sans-serif", color: "#f5e530", fontSize: "clamp(1.2rem, 9.5vw, 2.5rem)", fontWeight: 500, letterSpacing: "0.02em" }}
           >
             Comfort not included
           </p>
