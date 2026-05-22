@@ -1,6 +1,5 @@
 import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
-import { SiStrava } from "react-icons/si";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const dmSans = { fontFamily: "'Nunito', sans-serif" };
@@ -63,9 +62,8 @@ export default function About() {
               className="mt-8 flex items-center gap-4"
             >
               <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
-              <a href="#" className="flex items-center gap-2 group" data-testid="link-strava">
-                <span className="text-lg md:text-xl tracking-widest" style={{ color: '#FC4C02', ...rubikOne }}>STRAVA</span>
-                <SiStrava className="text-lg md:text-xl transition-transform group-hover:scale-110" style={{ color: '#FC4C02' }} />
+              <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
+                <img src="/strava-logo.png" alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
               </a>
             </motion.div>
 
