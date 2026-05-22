@@ -63,7 +63,7 @@ export default function Contact() {
           <img
             src="/ax-logo.png"
             alt="a-X"
-            className="absolute bottom-1 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
+            className="absolute -bottom-2 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
           <motion.h1

@@ -231,7 +231,7 @@ export default function FAQ() {
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
           {/* Logo — bottom-right */}
-          <img src="/ax-logo.png" alt="a-X" className="absolute bottom-1 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src="/ax-logo.png" alt="a-X" className="absolute -bottom-2 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* Left column — two independently scrollable sections */}
           <div className="w-full md:w-2/5 h-full flex flex-col overflow-hidden border-b md:border-b-0 md:border-r border-white/10">

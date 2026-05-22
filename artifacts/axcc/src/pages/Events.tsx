@@ -32,7 +32,7 @@ export default function Events() {
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 py-8">
 
           {/* Logo — bottom-right */}
-          <img src="/ax-logo.png" alt="a-X" className="absolute bottom-1 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src="/ax-logo.png" alt="a-X" className="absolute -bottom-2 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* Club Rides */}
           <motion.div
