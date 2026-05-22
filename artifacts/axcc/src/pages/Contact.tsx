@@ -154,7 +154,7 @@ export default function Contact() {
                         name="reason"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Title</FormLabel>
+                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Subject</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger className="bg-white/5 border-white/15 rounded-lg h-10 text-sm" style={nunito} data-testid="select-expedition">
