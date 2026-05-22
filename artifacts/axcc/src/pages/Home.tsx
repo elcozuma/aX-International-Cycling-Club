@@ -25,7 +25,7 @@ export default function Home() {
         <Nav />
 
         {/* Mobile title — top, hidden on md+ */}
-        <div className="md:hidden absolute top-20 left-0 right-0 px-8 flex justify-center">
+        <div className="md:hidden absolute top-10 left-0 right-0 px-8 flex justify-center">
           <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
             <p className="text-2xl leading-tight normal-case">a-X</p>
             <p className="text-lg leading-snug normal-case">International</p>
