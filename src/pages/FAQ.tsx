@@ -227,14 +227,14 @@ export default function FAQ() {
 
   return (
     <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans bg-black">
-      <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: "url('page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row">
 
           {/* Logo — desktop only (absolute) */}
-          <img src="/ax-logo.png" alt="a-X" className="hidden md:block absolute md:-bottom-2 md:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src=import.meta.env.BASE_URL + "ax-logo.png" alt="a-X" className="hidden md:block absolute md:-bottom-2 md:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
           <div className="md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
@@ -368,7 +368,7 @@ export default function FAQ() {
 
             {/* Logo — in-flow on mobile so it stays below content */}
             <div className="flex justify-center pt-2">
-              <img src="/ax-logo.png" alt="a-X" className="h-20 w-auto opacity-75 pointer-events-none select-none" />
+              <img src=import.meta.env.BASE_URL + "ax-logo.png" alt="a-X" className="h-20 w-auto opacity-75 pointer-events-none select-none" />
             </div>
           </div>
 

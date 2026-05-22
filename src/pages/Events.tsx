@@ -1,7 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
 
-const moroccoImg = "/morocco-event.jpeg";
+const moroccoImg = import.meta.env.BASE_URL + "morocco-event.jpeg";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
@@ -28,14 +28,14 @@ const expeditions = [
 export default function Events() {
   return (
     <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans bg-black">
-      <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
+      <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: "url('page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 py-8">
 
           {/* Logo — bottom-right */}
-          <img src="/ax-logo.png" alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src=import.meta.env.BASE_URL + "ax-logo.png" alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* Club Rides */}
           <motion.div
