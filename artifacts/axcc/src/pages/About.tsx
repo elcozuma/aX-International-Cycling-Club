@@ -10,8 +10,8 @@ export default function About() {
     <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
-      <div className="relative z-10 w-full h-full flex flex-col items-center justify-center p-6 md:p-10">
-        <div className="w-full bg-black/55 backdrop-blur-sm rounded-xl px-10 py-12 flex flex-col md:flex-row items-center gap-10">
+      <div className="absolute inset-6 md:inset-10 z-10 flex items-center justify-center">
+        <div className="w-full h-full bg-black/55 backdrop-blur-sm rounded-xl px-8 py-6 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
 
           {/* Collage image */}
           <motion.div
