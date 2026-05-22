@@ -65,7 +65,7 @@ export default function Contact() {
 
           {/* Logo — bottom-right */}
           <img
-            src="/ax-logo.png"
+            src=import.meta.env.BASE_URL + "ax-logo.png"
             alt="a-X"
             className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
@@ -212,7 +212,7 @@ export default function Contact() {
                       rel="noopener noreferrer"
                       className="inline-block opacity-40 hover:opacity-70 transition-opacity"
                     >
-                      <img src="/strava-logo.png" alt="Strava" className="h-4 w-auto" />
+                      <img src=import.meta.env.BASE_URL + "strava-logo.png" alt="Strava" className="h-4 w-auto" />
                     </a>
                   </div>
                 </motion.div>

@@ -10,12 +10,12 @@ export default function Home() {
         muted
         playsInline
         className="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
-        src="/hero.mp4"
+        src=import.meta.env.BASE_URL + "hero.mp4"
       />
 
       {/* Static image — mobile only, central crop */}
       <img
-        src="/home-mobile.png"
+        src=import.meta.env.BASE_URL + "home-mobile.png"
         alt=""
         className="md:hidden absolute inset-0 w-full h-full object-cover z-0"
         style={{ objectPosition: "calc(50% + 14px) center" }}
