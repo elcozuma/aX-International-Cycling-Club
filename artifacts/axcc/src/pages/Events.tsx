@@ -15,7 +15,8 @@ const expeditions = [
     distance: "440KM",
     elevation: "9,000M",
     terrain: "GRAVEL+",
-    image: moroccoImg
+    image: moroccoImg,
+    formUrl: "https://forms.gle/4M9eEvEsidtxkPbd9"
   }
 ];
 
@@ -41,7 +42,7 @@ export default function Events() {
               CLUB RIDES
             </h2>
             <p className="text-sm text-foreground/70 leading-relaxed max-w-2xl" style={nunito}>
-              a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds</span> and <span className="text-foreground/90">Málaga</span>. Club rides are open to the public and free to attend.{" "}
+              a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds, UK</span> and <span className="text-foreground/90">Málaga, Spain</span>. Club rides are open to the public and free to attend.{" "}
               <a
                 href="https://www.strava.com/clubs/a-xcc"
                 target="_blank"
@@ -71,26 +72,28 @@ export default function Events() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 + index * 0.1 }}
-                className="flex flex-col border border-white/10 bg-white/5 group hover:border-accent transition-colors overflow-hidden rounded-lg"
+                className="relative overflow-hidden rounded-lg border border-white/10 group hover:border-accent/60 transition-colors"
+                style={{ minHeight: "280px" }}
               >
-                <div className="h-32 md:h-40 overflow-hidden relative flex-shrink-0">
-                  <div className="absolute inset-0 bg-black/20 z-10 transition-opacity group-hover:opacity-0" />
-                  <img
-                    src={exp.image}
-                    alt={exp.title}
-                    className="w-full h-full object-cover grayscale-[0.4] group-hover:grayscale-0 transition-all duration-700"
-                  />
-                </div>
+                {/* Background image */}
+                <img
+                  src={exp.image}
+                  alt={exp.title}
+                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
+                />
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
 
-                <div className="p-4 md:p-5 flex flex-col flex-grow">
+                {/* Content */}
+                <div className="relative z-10 flex flex-col h-full p-5" style={{ minHeight: "280px" }}>
                   <h2
-                    className="text-sm md:text-base normal-case mb-4 text-foreground"
+                    className="text-sm md:text-base normal-case text-white leading-tight mb-auto"
                     style={rubikOne}
                   >
                     {exp.title}
                   </h2>
 
-                  <div className="flex-grow space-y-2 mb-4" style={nunito}>
+                  <div className="mt-4 space-y-1.5" style={nunito}>
                     {[
                       { label: "DATE", value: exp.date },
                       { label: "DURATION", value: exp.duration },
@@ -98,20 +101,23 @@ export default function Events() {
                       { label: "ELEVATION", value: exp.elevation },
                       { label: "TERRAIN", value: exp.terrain }
                     ].map(({ label, value }) => (
-                      <div key={label} className="flex justify-between border-b border-white/10 pb-2 text-xs uppercase">
-                        <span className="text-foreground/40">{label}</span>
-                        <span className="text-foreground/80">{value}</span>
+                      <div key={label} className="flex justify-between text-xs uppercase">
+                        <span className="text-white/40">{label}</span>
+                        <span className="text-white/85">{value}</span>
                       </div>
                     ))}
                   </div>
 
-                  <button
-                    className="w-full py-2 border border-accent/60 text-accent hover:bg-accent hover:text-background transition-colors uppercase text-xs rounded tracking-widest"
+                  <a
+                    href={exp.formUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-4 block w-full py-2 text-center border border-accent/70 text-accent hover:bg-accent hover:text-background transition-colors uppercase text-xs rounded tracking-widest"
                     style={rubikOne}
                     data-testid={`btn-interest-${exp.id}`}
                   >
                     EXPRESS INTEREST
-                  </button>
+                  </a>
                 </div>
               </motion.div>
             ))}
