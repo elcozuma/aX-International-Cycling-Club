@@ -252,12 +252,14 @@ export default function FAQ() {
             {/* Section 0 — General FAQs (top half, exactly 50% of remaining space) */}
             <div className="flex-1 min-h-0 flex flex-col border-b border-white/10">
               <p
-                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-1 flex-shrink-0"
+                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0"
                 style={rubikOne}
               >
                 {sections[0].label}
               </p>
-              <div className="flex-1 min-h-0 overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
+              <div className="relative flex-1 min-h-0">
+              <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
+
                 <div className="flex flex-col gap-0.5">
                   {sections[0].items.map((item, ii) => {
                     const isActive = selected?.section === 0 && selected?.item === ii;
@@ -279,17 +281,21 @@ export default function FAQ() {
                   })}
                 </div>
               </div>
+              {/* Scroll fade — section 0 */}
+              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/40 to-transparent rounded-b-sm" />
+              </div>
             </div>
 
             {/* Section 1 — Expedition / Event FAQs (bottom half, exactly 50% of remaining space) */}
             <div className="flex-1 min-h-0 flex flex-col">
               <p
-                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-1 flex-shrink-0"
+                className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0"
                 style={rubikOne}
               >
                 {sections[1].label}
               </p>
-              <div className="flex-1 min-h-0 overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
+              <div className="relative flex-1 min-h-0">
+              <div className="h-full overflow-y-scroll faq-scroll px-4 md:px-6 pb-4">
                 <div className="flex flex-col gap-0.5">
                   {sections[1].items.map((item, ii) => {
                     const isActive = selected?.section === 1 && selected?.item === ii;
@@ -310,6 +316,9 @@ export default function FAQ() {
                     );
                   })}
                 </div>
+              </div>
+              {/* Scroll fade — section 1 */}
+              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/40 to-transparent rounded-b-sm" />
               </div>
             </div>
 

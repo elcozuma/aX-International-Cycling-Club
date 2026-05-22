@@ -44,7 +44,7 @@ export default function Events() {
             <h2 style={rubikOne} className="text-base md:text-lg normal-case text-accent leading-tight mb-3">
               CLUB RIDES
             </h2>
-            <p className="text-sm text-foreground/70 leading-relaxed max-w-2xl" style={nunito}>
+            <p className="text-sm text-foreground/70 leading-relaxed" style={nunito}>
               a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds, UK</span> and <span className="text-foreground/90">Málaga, Spain</span>. Club rides are open to the public and free to attend.{" "}
               <a
                 href="https://www.strava.com/clubs/a-xcc"
