@@ -75,7 +75,7 @@ export default function Contact() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
             style={rubikOne}
-            className="text-base md:text-lg normal-case text-accent leading-tight mb-1 flex-shrink-0"
+            className="hidden md:block text-lg normal-case text-accent leading-tight mb-1 flex-shrink-0"
           >
             GET IN TOUCH
           </motion.h1>
@@ -84,13 +84,18 @@ export default function Contact() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.2 }}
-            className="text-xs text-foreground/45 mb-6 flex-shrink-0"
+            className="hidden md:block text-xs text-foreground/45 mb-6 flex-shrink-0"
             style={nunito}
           >
             Questions about the club or events? Send us a message.
           </motion.p>
 
-          <div className="flex-1 flex flex-col justify-center max-w-xl w-full mx-auto">
+          <div className="flex-1 flex flex-col md:justify-center max-w-xl w-full mx-auto pt-4 md:pt-0">
+            {/* Mobile-only title — sits directly above the form */}
+            <div className="md:hidden mb-4">
+              <h1 style={rubikOne} className="text-base normal-case text-accent leading-tight mb-1">GET IN TOUCH</h1>
+              <p className="text-xs text-foreground/45" style={nunito}>Questions about the club or events? Send us a message.</p>
+            </div>
             <AnimatePresence mode="wait">
               {!submitted ? (
                 <motion.div
