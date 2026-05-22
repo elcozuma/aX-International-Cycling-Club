@@ -14,7 +14,6 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import {
   Select,
   SelectContent,
@@ -30,7 +29,7 @@ const nunito = { fontFamily: "'Nunito', sans-serif" };
 const formSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.string().email("Valid email is required"),
-  expedition: z.string().min(1, "Please select an expedition"),
+  reason: z.string().min(1, "Please select a reason"),
   message: z.string().optional()
 });
 
@@ -41,7 +40,7 @@ export default function Contact() {
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
-    defaultValues: { name: "", email: "", expedition: "", message: "" }
+    defaultValues: { name: "", email: "", reason: "", message: "" }
   });
 
   function onSubmit(data: FormValues) {
@@ -59,7 +58,7 @@ export default function Contact() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col px-8 md:px-16 py-8 overflow-y-auto">
 
-          {/* Logo — top-left of block */}
+          {/* Logo — bottom-right */}
           <img
             src="/ax-logo.png"
             alt="a-X"
@@ -142,19 +141,21 @@ export default function Contact() {
 
                       <FormField
                         control={form.control}
-                        name="expedition"
+                        name="reason"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Expedition interest</FormLabel>
+                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Title</FormLabel>
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger className="bg-white/5 border-white/15 rounded-lg h-10 text-sm" style={nunito} data-testid="select-expedition">
-                                  <SelectValue placeholder="Select a route" />
+                                  <SelectValue placeholder="Select reason" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent className="bg-card border-white/15 rounded-lg">
                                 <SelectItem value="anti-atlas" className="text-sm" style={nunito}>March 2027 — Anti-Atlas Morocco</SelectItem>
-
+                                <SelectItem value="membership" className="text-sm" style={nunito}>Membership</SelectItem>
+                                <SelectItem value="events" className="text-sm" style={nunito}>Events</SelectItem>
+                                <SelectItem value="collaboration" className="text-sm" style={nunito}>Collaboration</SelectItem>
                                 <SelectItem value="general" className="text-sm" style={nunito}>General enquiry</SelectItem>
                               </SelectContent>
                             </Select>
@@ -168,11 +169,11 @@ export default function Contact() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Message / riding experience</FormLabel>
+                            <FormLabel className="text-xs uppercase tracking-widest text-foreground/50" style={rubikOne}>Message</FormLabel>
                             <FormControl>
-                              <Textarea
-                                placeholder="Tell us about your setup and experience..."
-                                className="bg-white/5 border-white/15 rounded-lg min-h-[80px] resize-none text-sm focus:border-accent"
+                              <textarea
+                                placeholder="Your message..."
+                                className="w-full bg-white/5 border border-white/15 rounded-lg min-h-[80px] resize-none text-sm focus:border-accent focus:outline-none px-3 py-2 text-foreground placeholder:text-foreground/30"
                                 style={nunito}
                                 {...field}
                                 data-testid="input-message"
@@ -194,9 +195,15 @@ export default function Contact() {
                     </form>
                   </Form>
 
-                  <div className="mt-5 flex items-center justify-between text-xs text-foreground/30 pt-4 border-t border-white/10" style={nunito}>
-                    <a href="mailto:contact@a-x.cc" className="hover:text-foreground/60 transition-colors">contact@a-x.cc</a>
-                    <a href="https://instagram.com/a_x_cc" target="_blank" rel="noopener noreferrer" className="hover:text-foreground/60 transition-colors">@a_x_cc</a>
+                  <div className="mt-5 pt-4 border-t border-white/10">
+                    <a
+                      href="https://www.strava.com/clubs/a-xcc"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block opacity-40 hover:opacity-70 transition-opacity"
+                    >
+                      <img src="/strava-logo.png" alt="Strava" className="h-4 w-auto" />
+                    </a>
                   </div>
                 </motion.div>
               ) : (
