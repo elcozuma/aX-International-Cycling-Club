@@ -32,7 +32,7 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               style={rubikOne}
-              className="text-sm md:text-base normal-case text-accent leading-tight mb-6 whitespace-nowrap"
+              className="text-base md:text-lg normal-case text-accent leading-tight mb-6 whitespace-nowrap"
             >
               a-X INTERNATIONAL CYCLING CLUB
             </motion.h1>
@@ -44,13 +44,13 @@ export default function About() {
               className="space-y-4 text-foreground/90"
               style={dmSans}
             >
-              <p className="text-xs md:text-sm text-foreground font-light italic leading-snug">
+              <p className="text-sm md:text-base text-foreground font-light italic leading-snug">
                 a-X (Across) is a cycling club that bridges club ride culture and A-to-B adventure cycling.
               </p>
-              <p className="text-xs md:text-sm">
+              <p className="text-sm md:text-base">
                 We curate small-group multi-day group rides designed around challenge, autonomy, and shared experience.
               </p>
-              <p className="text-xs md:text-sm">
+              <p className="text-sm md:text-base">
                 Routes are designed for capable riders who value exploration over luxury and experience over itinerary.
               </p>
             </motion.div>
