@@ -23,22 +23,22 @@ export function Nav() {
         aria-label="Toggle navigation"
         data-testid="nav-toggle"
         style={avenir}
-        className="fixed top-5 right-6 z-[100] flex flex-col gap-[5px] group cursor-pointer bg-transparent border-none p-1"
+        className="fixed top-5 right-6 z-[100] flex flex-col gap-[7px] group cursor-pointer bg-transparent border-none p-2"
       >
         <motion.span
-          animate={open ? { rotate: 45, y: 7 } : { rotate: 0, y: 0 }}
+          animate={open ? { rotate: 45, y: 10 } : { rotate: 0, y: 0 }}
           transition={{ duration: 0.25 }}
-          className="block w-6 h-[1.5px] bg-white origin-center"
+          className="block w-9 h-[2px] bg-white origin-center"
         />
         <motion.span
           animate={open ? { opacity: 0 } : { opacity: 1 }}
           transition={{ duration: 0.15 }}
-          className="block w-6 h-[1.5px] bg-white"
+          className="block w-9 h-[2px] bg-white"
         />
         <motion.span
-          animate={open ? { rotate: -45, y: -7 } : { rotate: 0, y: 0 }}
+          animate={open ? { rotate: -45, y: -10 } : { rotate: 0, y: 0 }}
           transition={{ duration: 0.25 }}
-          className="block w-6 h-[1.5px] bg-white origin-center"
+          className="block w-9 h-[2px] bg-white origin-center"
         />
       </button>
 
