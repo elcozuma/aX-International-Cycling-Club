@@ -21,11 +21,11 @@ export default function About() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="absolute bottom-0 left-0 w-[42%] object-contain drop-shadow-2xl translate-y-[12%] -translate-x-[8%] pointer-events-none select-none"
+            className="absolute bottom-0 left-0 w-[52%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
           />
 
-          {/* Text content — right side, padded so it never overlaps the image */}
-          <div className="absolute inset-0 flex flex-col justify-center pl-[46%] pr-8 md:pr-12 py-10 overflow-hidden">
+          {/* Text content — right half column */}
+          <div className="absolute inset-0 flex flex-col justify-center pl-[52%] pr-8 md:pr-12 py-10 overflow-hidden">
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
