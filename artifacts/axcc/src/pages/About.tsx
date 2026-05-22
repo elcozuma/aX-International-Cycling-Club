@@ -21,7 +21,7 @@ export default function About() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="absolute bottom-0 left-0 w-[52%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
+            className="absolute bottom-0 left-0 w-[50%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
           />
 
           {/* Text content — right half column */}
