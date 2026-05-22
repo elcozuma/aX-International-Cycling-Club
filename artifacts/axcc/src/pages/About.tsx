@@ -7,7 +7,8 @@ const dmSans = { fontFamily: "'Nunito', sans-serif" };
 
 export default function About() {
   return (
-    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans bg-black">
+      <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }} />
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
