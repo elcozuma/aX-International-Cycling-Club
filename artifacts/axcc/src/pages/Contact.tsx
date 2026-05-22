@@ -162,8 +162,8 @@ export default function Contact() {
                                 <SelectItem value="anti-atlas" className="text-sm" style={nunito}>Anti-Atlas Morocco (March 2027)</SelectItem>
                                 <SelectItem value="collaboration" className="text-sm" style={nunito}>Collaboration</SelectItem>
                                 <SelectItem value="events" className="text-sm" style={nunito}>Events</SelectItem>
-                                <SelectItem value="general" className="text-sm" style={nunito}>General enquiry</SelectItem>
                                 <SelectItem value="membership" className="text-sm" style={nunito}>Membership</SelectItem>
+                                <SelectItem value="general" className="text-sm" style={nunito}>General enquiry</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage className="text-xs" />
