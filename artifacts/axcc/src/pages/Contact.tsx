@@ -59,6 +59,13 @@ export default function Contact() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col px-8 md:px-16 py-8 overflow-y-auto">
 
+          {/* Logo — top-left of block */}
+          <img
+            src="/ax-logo.png"
+            alt="a-X"
+            className="absolute top-4 left-5 z-20 h-7 md:h-8 w-auto opacity-75 pointer-events-none select-none"
+          />
+
           <motion.h1
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}

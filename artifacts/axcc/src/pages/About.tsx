@@ -14,6 +14,13 @@ export default function About() {
         {/* Block */}
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden">
 
+          {/* Logo — top-left of block */}
+          <img
+            src="/ax-logo.png"
+            alt="a-X"
+            className="absolute top-4 left-5 z-20 h-7 md:h-8 w-auto opacity-75 pointer-events-none select-none"
+          />
+
           {/* Collage image — anchored to bottom-left, hanging slightly outside */}
           <motion.img
             src="/about-collage.png"
