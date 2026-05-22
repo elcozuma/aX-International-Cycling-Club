@@ -163,6 +163,10 @@ const sections: Section[] = [
         a: "Usually yes. Where practical, participants are generally free to organise accommodation and logistics independently. Full accommodation information and recommendations will normally be provided before each event."
       },
       {
+        q: "Can I camp?",
+        a: "Yes, of course. As long as you bring all the equipment you need and are happy locating your own campsite. Hosts may be able to point out interesting locations and maybe some private campsites. You could even take advantage of optional logistical support to transfer camping equipment between points (where available)."
+      },
+      {
         q: "Are accommodation and meals included?",
         a: "This depends on the event. Some expeditions may include optional accommodation, meals or logistics packages via local partners, while others may operate on a more independent basis. Full details will always be included within the event information."
       },
