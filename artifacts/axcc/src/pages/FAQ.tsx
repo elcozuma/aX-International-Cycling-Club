@@ -61,7 +61,7 @@ const sections: Section[] = [
         a: "No. The emphasis is on exploration, shared experience and completing challenging routes — not competition."
       },
       {
-        q: "What makes a-X different from a normal cycling holiday?",
+        q: "What makes a-X different from a cycling tour operator?",
         a: "The goal is to create a middle ground between fully self-supported bikepacking and expensive, highly structured tours. The emphasis is on autonomy, flexibility, challenge and community rather than luxury or rigid schedules."
       },
       {
@@ -325,7 +325,7 @@ export default function FAQ() {
                 >
                   <p
                     className="text-sm md:text-base font-semibold text-accent mb-4 leading-snug"
-                    style={rubikOne}
+                    style={nunito}
                   >
                     {selectedItem.q}
                   </p>
