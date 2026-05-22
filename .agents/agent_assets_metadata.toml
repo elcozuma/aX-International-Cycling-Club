@@ -42,3 +42,9 @@ id = "vsJ5atUDlT2rw1T_w-YcB"
 uri = "file://artifacts/axcc/src/assets/images/atlas.png"
 type = "image"
 title = "coastal cliffs desert"
+
+[[generated]]
+id = "a6YNpcjt4KRNy7rSBoMkZ"
+uri = "file://artifacts/axcc/public/page-bg.png"
+type = "image"
+title = "plain taupe olive wall background"
