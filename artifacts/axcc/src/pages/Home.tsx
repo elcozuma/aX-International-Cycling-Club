@@ -23,6 +23,16 @@ export default function Home() {
       {/* Content Layer */}
       <div className="relative z-20 w-full h-full min-h-[100dvh] flex flex-col items-center pt-8">
         <Nav />
+
+        {/* Mobile title — hidden on md+ */}
+        <div className="md:hidden absolute bottom-16 left-0 right-0 px-8">
+          <h1
+            className="text-3xl leading-tight normal-case"
+            style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}
+          >
+            a-X International Cycling Club
+          </h1>
+        </div>
       </div>
     </div>
   );
