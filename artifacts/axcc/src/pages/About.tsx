@@ -12,7 +12,8 @@ export default function About() {
     <div className="relative min-h-[100dvh] w-full overflow-x-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
       <Nav />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 min-h-[100dvh] flex flex-col md:flex-row items-center gap-12 lg:gap-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-24 pb-20 min-h-[100dvh] flex flex-col items-center justify-center">
+      <div className="w-full flex flex-col md:flex-row items-center gap-12 lg:gap-24 bg-black/55 backdrop-blur-sm rounded-xl px-10 py-12">
         
         {/* Left Side: Photo Collage */}
         <div className="w-full md:w-5/12 relative h-[500px] lg:h-[700px] flex items-center justify-center">
@@ -97,6 +98,7 @@ export default function About() {
           </motion.div>
         </div>
 
+      </div>
       </div>
     </div>
   );
