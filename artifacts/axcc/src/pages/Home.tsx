@@ -24,13 +24,23 @@ export default function Home() {
       <div className="relative z-20 w-full h-full min-h-[100dvh] flex flex-col items-center pt-8">
         <Nav />
 
-        {/* Mobile title — hidden on md+ */}
-        <div className="md:hidden absolute bottom-6 left-0 right-0 px-8 flex justify-center">
+        {/* Mobile title — top, hidden on md+ */}
+        <div className="md:hidden absolute top-20 left-0 right-0 px-8 flex justify-center">
           <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
             <p className="text-2xl leading-tight normal-case">a-X</p>
             <p className="text-lg leading-snug normal-case">International</p>
             <p className="text-lg leading-snug normal-case">Cycling Club</p>
           </div>
+        </div>
+
+        {/* Mobile tagline — bottom, hidden on md+ */}
+        <div className="md:hidden absolute bottom-6 left-0 right-0 px-8 flex justify-center">
+          <p
+            className="text-2xl normal-case tracking-wide"
+            style={{ fontFamily: "'Oswald', sans-serif", color: "#f5e530" }}
+          >
+            Comfort not included
+          </p>
         </div>
       </div>
     </div>
