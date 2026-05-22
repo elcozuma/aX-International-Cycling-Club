@@ -60,25 +60,25 @@ export default function About() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="mt-8 flex items-center gap-4"
-            >
-              <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
-              <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
-                <img src="/strava-logo.png" alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
-              </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="mt-4"
+              className="mt-8"
             >
               <Link href="/faq">
                 <span className="text-xs md:text-sm text-foreground/50 hover:text-foreground/80 underline underline-offset-4 transition-colors cursor-pointer" style={dmSans}>
                   Have questions about the club? →
                 </span>
               </Link>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="mt-4 flex items-center gap-4"
+            >
+              <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
+              <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
+                <img src="/strava-logo.png" alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
+              </a>
             </motion.div>
 
           </div>{/* end inner centering wrapper */}
