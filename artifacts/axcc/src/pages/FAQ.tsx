@@ -33,6 +33,10 @@ const sections: Section[] = [
         a: "Yes. Alongside hosted events, there may also be local/public rides organised around wherever the club is based or travelling at the time. Public club rides are generally open to anyone at no cost."
       },
       {
+        q: "How do I become a member?",
+        a: "At present, membership is available to customers who join a paid expedition or event — all of whom receive a complimentary club membership as part of their entry. Wider membership options may be introduced as the club grows."
+      },
+      {
         q: "How does membership work?",
         a: [
           "a-X membership is designed to support the long-term growth of the club and community rather than function like a traditional cycling subscription service.",
@@ -61,18 +65,18 @@ const sections: Section[] = [
         a: "No. The emphasis is on exploration, shared experience and completing challenging routes — not competition."
       },
       {
-        q: "Who hosts the rides and expeditions?",
+        q: "Who hosts the rides and events?",
         a: "Events are hosted by experienced endurance and adventure cyclists with first-hand knowledge of the routes and riding style involved. The aim is not to provide a luxury guided tour, but to empower participants to curate their own memorable riding experiences built around autonomy, challenge and shared adventure."
       },
-      {
-        q: "Why are group sizes small?",
-        a: "Smaller groups create a better balance between social riding, flexibility and independence, while also reducing logistical complexity and preserving the overall atmosphere of the experience."
-      }
     ]
   },
   {
     label: "Expedition / Event FAQs",
     items: [
+      {
+        q: "Why are group sizes small?",
+        a: "Smaller groups create a better balance between social riding, flexibility and independence, while also reducing logistical complexity and preserving the overall atmosphere of the experience."
+      },
       {
         q: "What is a hosted expedition?",
         a: "A hosted expedition is a small-group multi-day riding experience where routes, general coordination and optional logistics support may be provided, while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
