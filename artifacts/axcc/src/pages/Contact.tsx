@@ -90,7 +90,7 @@ export default function Contact() {
             Questions about the club or events? Send us a message.
           </motion.p>
 
-          <div className="flex-1 flex flex-col md:justify-center max-w-xl w-full mx-auto pt-4 md:pt-0">
+          <div className="flex-1 flex flex-col justify-center max-w-xl w-full mx-auto">
             {/* Mobile-only title — sits directly above the form */}
             <div className="md:hidden mb-4">
               <h1 style={rubikOne} className="text-base normal-case text-accent leading-tight mb-1">GET IN TOUCH</h1>
