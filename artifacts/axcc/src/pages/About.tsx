@@ -44,13 +44,13 @@ export default function About() {
               className="space-y-4 text-foreground/90"
               style={dmSans}
             >
-              <p className="text-base md:text-lg text-foreground font-light italic leading-snug">
+              <p className="text-sm md:text-base text-foreground font-light italic leading-snug">
                 a-X (Across) is a cycling club that bridges club ride culture and A-to-B adventure cycling.
               </p>
-              <p className="text-base md:text-lg">
+              <p className="text-sm md:text-base">
                 We curate small-group multi-day group rides designed around challenge, autonomy, and shared experience.
               </p>
-              <p className="text-base md:text-lg">
+              <p className="text-sm md:text-base">
                 Routes are designed for capable riders who value exploration over luxury and experience over itinerary.
               </p>
             </motion.div>
