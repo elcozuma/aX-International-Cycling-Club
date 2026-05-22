@@ -21,18 +21,18 @@ export default function About() {
             className="absolute -bottom-2 right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
-          {/* Collage image — anchored to bottom-left, hanging slightly outside */}
+          {/* Collage image — anchored to bottom-left, hanging slightly outside — desktop only */}
           <motion.img
             src="/about-collage.png"
             alt="a-X collage"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="absolute bottom-0 left-0 w-[50%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
+            className="hidden md:block absolute bottom-0 left-0 w-[50%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
           />
 
-          {/* Text content — right half column */}
-          <div className="absolute inset-0 overflow-y-auto pl-[52%] pr-8 md:pr-12">
+          {/* Text content — full width on mobile, right half on desktop */}
+          <div className="absolute inset-0 overflow-y-auto pl-6 pr-6 md:pl-[52%] md:pr-12">
           <div className="min-h-full flex flex-col justify-center py-8">
 
             <motion.h1
