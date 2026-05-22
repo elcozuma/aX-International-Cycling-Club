@@ -164,7 +164,7 @@ const sections: Section[] = [
       },
       {
         q: "Can I camp?",
-        a: "Yes, of course. As long as you bring all the equipment you need and are happy locating your own campsite. Hosts may be able to point out interesting locations and maybe some private campsites. You could even take advantage of optional logistical support to transfer camping equipment between points (where available)."
+        a: "Yes. Bring everything you need and be prepared to source your own campsite. Hosts may be able to suggest interesting spots or nearby private sites. Where available, optional logistical support can also be used to transfer camping equipment between stages."
       },
       {
         q: "Are accommodation and meals included?",
