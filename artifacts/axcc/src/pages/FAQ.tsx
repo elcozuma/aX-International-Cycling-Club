@@ -241,11 +241,11 @@ export default function FAQ() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row">
 
-          {/* Logo */}
-          <img src="/ax-logo.png" alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
+          {/* Logo — desktop only (absolute) */}
+          <img src="/ax-logo.png" alt="a-X" className="hidden md:block absolute md:-bottom-2 md:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
-          <div className="md:hidden px-5 pt-6 pb-28 flex flex-col gap-3">
+          <div className="md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -372,6 +372,11 @@ export default function FAQ() {
                   <span className="underline underline-offset-2 cursor-pointer">Events page.</span>
                 </Link>
               </p>
+            </div>
+
+            {/* Logo — in-flow on mobile so it stays below content */}
+            <div className="flex justify-center pt-2">
+              <img src="/ax-logo.png" alt="a-X" className="h-20 w-auto opacity-75 pointer-events-none select-none" />
             </div>
           </div>
 
