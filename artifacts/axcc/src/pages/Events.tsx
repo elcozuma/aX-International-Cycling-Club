@@ -82,7 +82,7 @@ export default function Events() {
                   className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
                 />
                 {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-black/20" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/15" />
 
                 {/* Content */}
                 <div className="relative z-10 flex flex-col h-full p-5" style={{ minHeight: "280px" }}>
@@ -93,7 +93,7 @@ export default function Events() {
                     {exp.title}
                   </h2>
 
-                  <div className="mt-4 space-y-1.5" style={nunito}>
+                  <div className="mt-4 space-y-1.5 bg-black/30 rounded-md px-3 py-2.5" style={nunito}>
                     {[
                       { label: "DATE", value: exp.date },
                       { label: "DURATION", value: exp.duration },
@@ -102,8 +102,8 @@ export default function Events() {
                       { label: "TERRAIN", value: exp.terrain }
                     ].map(({ label, value }) => (
                       <div key={label} className="flex justify-between text-xs uppercase">
-                        <span className="text-white/40">{label}</span>
-                        <span className="text-white/85">{value}</span>
+                        <span className="text-white/55">{label}</span>
+                        <span className="text-white font-semibold">{value}</span>
                       </div>
                     ))}
                   </div>
