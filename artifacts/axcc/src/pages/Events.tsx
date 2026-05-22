@@ -127,7 +127,7 @@ export default function Events() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex-shrink-0 mt-5 text-xs text-foreground/35 italic text-center"
+            className="flex-shrink-0 mt-10 text-xs text-foreground/35 italic text-center"
             style={nunito}
           >
             All routes are designed for self-sufficient riders. Minimal support. Maximum experience.

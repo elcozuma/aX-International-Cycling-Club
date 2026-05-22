@@ -18,6 +18,15 @@ export function Nav() {
 
   return (
     <>
+      {/* Logo — top left */}
+      <Link href="/">
+        <img
+          src="/ax-logo.png"
+          alt="a-X"
+          className="fixed top-4 left-5 z-[100] h-8 md:h-9 w-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer select-none"
+        />
+      </Link>
+
       {/* Toggle button — top right */}
       <button
         onClick={() => setOpen((o) => !o)}
