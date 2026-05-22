@@ -15,8 +15,10 @@ const expeditions = [
     distance: "440KM",
     elevation: "9,000M",
     terrain: "GRAVEL+",
-    cost: "FROM €400* (Self-supported) / €600–€1,000* (Logistical support and various accommodation options)",
+    cost: "FROM €400* (Event Fee + Self Supported) / €600–€1,000** (Event Fee + Logistical support and various accommodation options)",
     costNote: "*Flights not included",
+    costNote2: "**Additional services to be sourced independently or via a local delivery partner",
+    costNote3: "Receive 50% discount on Entry Fee for next event",
     image: moroccoImg,
     formUrl: "https://forms.gle/4M9eEvEsidtxkPbd9"
   }
@@ -115,6 +117,8 @@ export default function Events() {
                       <span className="text-white/55 text-xs uppercase">Expected Cost</span>
                       <p className="text-white text-xs font-semibold mt-0.5 leading-relaxed">{exp.cost}</p>
                       <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote}</p>
+                      <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote2}</p>
+                      <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote3}</p>
                     </div>
                   </div>
 
