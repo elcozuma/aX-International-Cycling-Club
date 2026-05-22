@@ -61,10 +61,6 @@ const sections: Section[] = [
         a: "No. The emphasis is on exploration, shared experience and completing challenging routes — not competition."
       },
       {
-        q: "What makes a-X different from a cycling tour operator?",
-        a: "The goal is to create a middle ground between fully self-supported bikepacking and expensive, highly structured tours. The emphasis is on autonomy, flexibility, challenge and community rather than luxury or rigid schedules."
-      },
-      {
         q: "Who hosts the rides and expeditions?",
         a: "Events are hosted by experienced endurance and adventure cyclists with first-hand knowledge of the routes and riding style involved. The aim is not to provide a luxury guided tour, but to empower participants to curate their own memorable riding experiences built around autonomy, challenge and shared adventure."
       },
