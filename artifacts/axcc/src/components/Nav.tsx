@@ -13,7 +13,7 @@ export function Nav() {
   ];
 
   return (
-    <nav className="absolute top-8 left-0 right-0 z-50 flex justify-center w-full px-6">
+    <nav className="absolute top-4 left-0 right-0 z-50 flex justify-center w-full px-6">
       <div className="flex gap-2">
         {navItems.map((item) => {
           const isActive = location === item.path;
@@ -22,8 +22,9 @@ export function Nav() {
               <motion.div 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                style={{ fontFamily: "'Avenir Next', 'Avenir', 'Century Gothic', sans-serif" }}
                 className={cn(
-                  "px-6 py-2 rounded-full text-sm font-display tracking-widest border transition-colors cursor-pointer select-none",
+                  "px-6 py-2 rounded-full text-sm border transition-colors cursor-pointer select-none lowercase tracking-normal",
                   isActive 
                     ? "bg-accent border-accent text-accent-foreground" 
                     : "bg-transparent border-foreground/30 text-foreground hover:border-foreground/60"
