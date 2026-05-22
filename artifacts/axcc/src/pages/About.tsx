@@ -10,64 +10,65 @@ export default function About() {
     <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
-      <div className="absolute inset-6 md:inset-10 z-10 flex items-center justify-center">
-        <div className="w-full h-full bg-black/55 backdrop-blur-sm rounded-xl px-8 py-6 flex flex-col md:flex-row items-center gap-8 overflow-hidden">
+      <div className="absolute inset-6 md:inset-10 z-10">
+        {/* Block */}
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden">
 
-          {/* Collage image */}
-          <motion.div
+          {/* Collage image — anchored to bottom-left, hanging slightly outside */}
+          <motion.img
+            src="/about-collage.png"
+            alt="a-X collage"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="w-full md:w-1/2 flex-shrink-0 flex items-center justify-center"
-          >
-            <img src="/about-collage.png" alt="a-X collage" className="w-full object-contain drop-shadow-2xl" />
-          </motion.div>
+            className="absolute bottom-0 left-0 w-[42%] object-contain drop-shadow-2xl translate-y-[12%] -translate-x-[8%] pointer-events-none select-none"
+          />
 
-          {/* Text content */}
-          <div className="w-full md:w-3/5 flex flex-col">
+          {/* Text content — right side, padded so it never overlaps the image */}
+          <div className="absolute inset-0 flex flex-col justify-center pl-[46%] pr-8 md:pr-12 py-10 overflow-hidden">
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={rubikOne}
-            className="text-3xl md:text-4xl lg:text-5xl normal-case text-accent leading-tight mb-8"
-          >
-            a-X INTERNATIONAL<br />CYCLING CLUB
-          </motion.h1>
+            <motion.h1
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              style={rubikOne}
+              className="text-3xl md:text-4xl lg:text-5xl normal-case text-accent leading-tight mb-6"
+            >
+              a-X INTERNATIONAL<br />CYCLING CLUB
+            </motion.h1>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.35 }}
-            className="space-y-6 text-lg md:text-xl text-foreground/90 max-w-2xl"
-            style={dmSans}
-          >
-            <p className="text-2xl md:text-3xl text-foreground font-light italic">
-              a-X (Across) is a cycling club that bridges club ride culture and A-to-B adventure cycling.
-            </p>
-            <p>
-              We curate small-group multi-day group rides designed around challenge, autonomy, and shared experience.
-            </p>
-            <p>
-              Routes are designed for capable riders who value exploration over luxury and experience over itinerary.
-            </p>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.35 }}
+              className="space-y-4 text-foreground/90"
+              style={dmSans}
+            >
+              <p className="text-xl md:text-2xl text-foreground font-light italic leading-snug">
+                a-X (Across) is a cycling club that bridges club ride culture and A-to-B adventure cycling.
+              </p>
+              <p className="text-base md:text-lg">
+                We curate small-group multi-day group rides designed around challenge, autonomy, and shared experience.
+              </p>
+              <p className="text-base md:text-lg">
+                Routes are designed for capable riders who value exploration over luxury and experience over itinerary.
+              </p>
+            </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="mt-14 flex items-center gap-4"
-          >
-            <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
-            <a href="#" className="flex items-center gap-2 group" data-testid="link-strava">
-              <span className="text-3xl tracking-widest" style={{ color: '#FC4C02', ...rubikOne }}>STRAVA</span>
-              <SiStrava className="text-2xl transition-transform group-hover:scale-110" style={{ color: '#FC4C02' }} />
-            </a>
-          </motion.div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+              className="mt-8 flex items-center gap-4"
+            >
+              <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
+              <a href="#" className="flex items-center gap-2 group" data-testid="link-strava">
+                <span className="text-3xl tracking-widest" style={{ color: '#FC4C02', ...rubikOne }}>STRAVA</span>
+                <SiStrava className="text-2xl transition-transform group-hover:scale-110" style={{ color: '#FC4C02' }} />
+              </a>
+            </motion.div>
 
-          </div>{/* end text content */}
+          </div>
         </div>
       </div>
     </div>
