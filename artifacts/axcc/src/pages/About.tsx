@@ -25,14 +25,14 @@ export default function About() {
           />
 
           {/* Text content — right half column */}
-          <div className="absolute inset-0 flex flex-col justify-center pl-[52%] pr-8 md:pr-12 py-10 overflow-hidden">
+          <div className="absolute inset-0 flex flex-col justify-center pl-[52%] pr-8 md:pr-12 py-10 overflow-y-auto">
 
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               style={rubikOne}
-              className="text-base md:text-lg normal-case text-accent leading-tight mb-6 whitespace-nowrap"
+              className="text-base md:text-lg normal-case text-accent leading-tight mb-6 md:whitespace-nowrap"
             >
               a-X INTERNATIONAL CYCLING CLUB
             </motion.h1>
