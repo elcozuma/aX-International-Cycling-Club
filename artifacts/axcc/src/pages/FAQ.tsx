@@ -74,10 +74,6 @@ const sections: Section[] = [
     label: "Expedition / Event FAQs",
     items: [
       {
-        q: "Why are group sizes small?",
-        a: "Smaller groups create a better balance between social riding, flexibility and independence, while also reducing logistical complexity and preserving the overall atmosphere of the experience."
-      },
-      {
         q: "What is a hosted expedition?",
         a: "A hosted expedition is a small-group multi-day riding experience where routes, general coordination and optional logistics support may be provided, while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
       },
@@ -192,6 +188,10 @@ const sections: Section[] = [
       {
         q: "What happens if I decide to leave the event early?",
         a: "Participants are responsible for arranging their own alternative transport, accommodation or onward travel should they choose to leave the event early."
+      },
+      {
+        q: "Why are group sizes small?",
+        a: "Smaller groups create a better balance between social riding, flexibility and independence, while also reducing logistical complexity and preserving the overall atmosphere of the experience."
       }
     ]
   }
