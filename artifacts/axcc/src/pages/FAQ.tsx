@@ -231,7 +231,7 @@ export default function FAQ() {
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
           {/* Logo — bottom-right */}
-          <img src="/ax-logo.png" alt="a-X" className="absolute -bottom-2 right-5 z-20 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src="/ax-logo.png" alt="a-X" className="absolute -bottom-2 right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* Left column — two independently scrollable sections */}
           <div className="w-full md:w-2/5 h-full flex flex-col overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
@@ -282,7 +282,7 @@ export default function FAQ() {
                 </div>
               </div>
               {/* Scroll fade — section 0 */}
-              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/40 to-transparent rounded-b-sm" />
+              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
               </div>
             </div>
 
@@ -318,7 +318,7 @@ export default function FAQ() {
                 </div>
               </div>
               {/* Scroll fade — section 1 */}
-              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/40 to-transparent rounded-b-sm" />
+              <div className="pointer-events-none absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-black/70 to-transparent rounded-b-sm" />
               </div>
             </div>
 
