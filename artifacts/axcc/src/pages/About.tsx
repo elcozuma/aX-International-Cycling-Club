@@ -44,7 +44,7 @@ export default function About() {
               className="space-y-4 text-foreground/90"
               style={dmSans}
             >
-              <p className="text-xl md:text-2xl text-foreground font-light italic leading-snug">
+              <p className="text-base md:text-lg text-foreground font-light italic leading-snug">
                 a-X (Across) is a cycling club that bridges club ride culture and A-to-B adventure cycling.
               </p>
               <p className="text-base md:text-lg">
@@ -63,8 +63,8 @@ export default function About() {
             >
               <span className="text-sm text-foreground/60 uppercase" style={dmSans}>Follow us on:</span>
               <a href="#" className="flex items-center gap-2 group" data-testid="link-strava">
-                <span className="text-3xl tracking-widest" style={{ color: '#FC4C02', ...rubikOne }}>STRAVA</span>
-                <SiStrava className="text-2xl transition-transform group-hover:scale-110" style={{ color: '#FC4C02' }} />
+                <span className="text-lg md:text-xl tracking-widest" style={{ color: '#FC4C02', ...rubikOne }}>STRAVA</span>
+                <SiStrava className="text-lg md:text-xl transition-transform group-hover:scale-110" style={{ color: '#FC4C02' }} />
               </a>
             </motion.div>
 
