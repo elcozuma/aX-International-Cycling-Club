@@ -176,7 +176,7 @@ const sections: Section[] = [
       },
       {
         q: "What happens if I can't keep up?",
-        a: "The aim is not racing, but participants are expected to arrive with an appropriate level of fitness and preparation. Depending on the route and conditions, regrouping points may exist throughout the day."
+        a: ["The aim is not racing, but participants are expected to arrive with an appropriate level of fitness and preparation. Depending on the route and conditions, regrouping points may exist throughout the day.", "a-X event hosts never leave a rider behind."]
       },
       {
         q: "What happens if I decide to leave the event early?",
