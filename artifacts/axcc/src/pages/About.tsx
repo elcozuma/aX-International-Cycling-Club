@@ -31,8 +31,8 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              style={{ fontFamily: "'Oswald', sans-serif" }}
-              className="text-lg md:text-xl lg:text-2xl normal-case text-accent leading-tight mb-6 whitespace-nowrap"
+              style={rubikOne}
+              className="text-sm md:text-base normal-case text-accent leading-tight mb-6 whitespace-nowrap"
             >
               a-X INTERNATIONAL CYCLING CLUB
             </motion.h1>
