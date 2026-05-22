@@ -316,7 +316,7 @@ export default function FAQ() {
           </div>
 
           {/* Right column — answer panel */}
-          <div className="flex-1 flex flex-col px-8 md:px-14 py-10 overflow-y-auto">
+          <div className="flex-1 flex flex-col px-8 md:px-14 pt-10 pb-3 overflow-y-auto">
             <div className="flex-1 flex items-center justify-center">
             <AnimatePresence mode="wait">
               {selectedItem ? (
