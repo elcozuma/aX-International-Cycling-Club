@@ -10,8 +10,8 @@ export function Nav() {
     { name: "home", path: "/" },
     { name: "about", path: "/about" },
     { name: "events", path: "/events" },
-    { name: "contact", path: "/contact" },
-    { name: "q&a", path: "/faq" }
+    { name: "faqs", path: "/faq" },
+    { name: "contact", path: "/contact" }
   ];
 
   const avenir = { fontFamily: "'Avenir Next', 'Avenir', 'Century Gothic', sans-serif" };
