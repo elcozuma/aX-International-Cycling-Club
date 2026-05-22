@@ -19,7 +19,7 @@ export default function About() {
           <img
             src="/ax-logo.png"
             alt="a-X"
-            className="absolute -bottom-2 right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
           {/* Collage image — anchored to bottom-left, hanging slightly outside — desktop only */}
