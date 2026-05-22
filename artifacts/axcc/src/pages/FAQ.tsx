@@ -54,10 +54,6 @@ const sections: Section[] = [
         a: "You don't need to be elite, but you should already be comfortable riding long distances and spending long days on the bike. Many routes involve climbing, remote terrain and changing weather conditions, so a reasonable level of fitness and self-sufficiency is important."
       },
       {
-        q: "What type of bike do I need?",
-        a: "Most rides and expeditions are designed around gravel or endurance-style bikes capable of handling mixed terrain comfortably. Wider tyres and reliable equipment setups are strongly recommended."
-      },
-      {
         q: "Can I join alone?",
         a: "Yes. The club is designed for people who enjoy independent adventure but also value the social aspect and reassurance of riding within a small group environment. Many participants are likely to join events solo."
       },
@@ -97,10 +93,6 @@ const sections: Section[] = [
       {
         q: "Will my luggage be transported?",
         a: "Depending on the event format, optional luggage transfers between accommodation locations may be available through local logistics partners. Daily riding equipment should still be carried on the bike."
-      },
-      {
-        q: "Can I leave the group and ride at my own pace?",
-        a: "Yes. Participants are free to ride at their own pace and make independent decisions throughout each event. Some riders may naturally form smaller groups while others may ride alone for periods of time. All riders should be capable of navigating independently using the provided route files."
       },
       {
         q: "Do we ride together all day?",
