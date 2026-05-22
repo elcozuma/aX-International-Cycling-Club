@@ -120,7 +120,7 @@ const sections: Section[] = [
       },
       {
         q: "Can I rent a bike from a local provider?",
-        a: "Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved. a-X always recommends using your own bike that you are familiar with — travelling with a bicycle has never been easier and is often much cheaper than renting."
+        a: ["Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved.", "a-X always recommends using your own bike that you are familiar with — travelling with a bicycle has never been easier and is often much cheaper than renting."]
       },
       {
         q: "Are e-bikes allowed?",
