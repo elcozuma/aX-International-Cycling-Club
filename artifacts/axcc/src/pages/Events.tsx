@@ -1,7 +1,7 @@
 import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
 
-import moroccoImg from "../assets/images/morocco.png";
+const moroccoImg = "/morocco-event.jpeg";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
