@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { SiStrava } from "react-icons/si";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
-const dmSans = { fontFamily: "'DM Sans', sans-serif" };
+const dmSans = { fontFamily: "'Nunito', sans-serif" };
 
 export default function About() {
   return (
