@@ -40,7 +40,7 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
               style={rubikOne}
-              className="text-base md:text-lg normal-case text-accent leading-tight mb-6 md:whitespace-nowrap"
+              className="text-base md:text-lg normal-case text-accent leading-tight mb-6"
             >
               a-X INTERNATIONAL CYCLING CLUB
             </motion.h1>
