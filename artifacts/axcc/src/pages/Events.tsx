@@ -37,28 +37,28 @@ const expeditions = [
 
 export default function Events() {
   return (
-    <div className="relative min-h-[100dvh] w-full text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
-      <div className="max-w-7xl mx-auto px-6 pt-32 pb-24 min-h-[100dvh] flex flex-col">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-6 h-full flex flex-col">
         <motion.h1 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-4xl md:text-5xl font-display text-accent mb-16 tracking-widest text-center"
+          className="text-3xl md:text-4xl font-display text-accent mb-6 tracking-widest text-center"
         >
           UPCOMING EXPEDITIONS
         </motion.h1>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-24 flex-grow">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 mb-6 flex-grow min-h-0">
           {expeditions.map((exp, index) => (
             <motion.div 
               key={exp.id}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 + index * 0.1 }}
-              className="flex flex-col border border-border bg-card group hover:border-accent transition-colors"
+              className="flex flex-col border border-border bg-card group hover:border-accent transition-colors overflow-hidden"
             >
-              <div className="h-48 md:h-64 overflow-hidden relative">
+              <div className="h-32 md:h-40 overflow-hidden relative flex-shrink-0">
                 <div className="absolute inset-0 bg-background/20 mix-blend-overlay z-10 transition-opacity group-hover:opacity-0" />
                 <img 
                   src={exp.image} 
@@ -66,10 +66,10 @@ export default function Events() {
                   className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700" 
                 />
               </div>
-              <div className="p-6 md:p-8 flex flex-col flex-grow">
-                <h2 className="text-2xl font-display tracking-widest mb-6 text-foreground">{exp.title}</h2>
+              <div className="p-4 md:p-5 flex flex-col flex-grow">
+                <h2 className="text-lg font-display tracking-widest mb-3 text-foreground">{exp.title}</h2>
                 
-                <div className="space-y-3 font-mono text-sm opacity-80 uppercase mb-8 flex-grow">
+                <div className="space-y-2 font-mono text-xs opacity-80 uppercase mb-4 flex-grow">
                   <div className="flex justify-between border-b border-border/50 pb-2">
                     <span>DATE</span>
                     <span className="text-accent">{exp.date}</span>
@@ -89,7 +89,7 @@ export default function Events() {
                 </div>
 
                 <button 
-                  className="w-full py-3 border border-accent text-accent font-display tracking-widest hover:bg-accent hover:text-background transition-colors uppercase text-sm"
+                  className="w-full py-2 border border-accent text-accent font-display tracking-widest hover:bg-accent hover:text-background transition-colors uppercase text-xs"
                   data-testid={`btn-interest-${exp.id}`}
                 >
                   EXPRESS INTEREST
@@ -103,7 +103,7 @@ export default function Events() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="text-center font-serif text-lg md:text-xl text-foreground/80 italic max-w-2xl mx-auto"
+          className="text-center font-serif text-sm text-foreground/80 italic max-w-2xl mx-auto"
         >
           All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
         </motion.div>

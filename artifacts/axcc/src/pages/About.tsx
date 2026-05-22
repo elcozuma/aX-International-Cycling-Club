@@ -7,10 +7,10 @@ const dmSans = { fontFamily: "'DM Sans', sans-serif" };
 
 export default function About() {
   return (
-    <div className="relative min-h-[100dvh] w-full overflow-x-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
-      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-24 pb-20 min-h-[100dvh] flex flex-col items-center justify-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-6 pt-16 pb-8 h-full flex flex-col items-center justify-center">
         <div className="w-full bg-black/55 backdrop-blur-sm rounded-xl px-10 py-12 flex flex-col md:flex-row items-center gap-10">
 
           {/* Collage image */}

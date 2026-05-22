@@ -52,16 +52,16 @@ export default function Contact() {
   }
 
   return (
-    <div className="relative min-h-[100dvh] w-full text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center", backgroundAttachment: "fixed" }}>
+    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans" style={{ backgroundImage: "url('/page-bg.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
       <Nav />
 
-      <div className="max-w-3xl mx-auto px-6 pt-32 pb-24 min-h-[100dvh] flex flex-col justify-center">
+      <div className="max-w-3xl mx-auto px-6 pt-16 pb-6 h-full flex flex-col justify-center">
         
-        <div className="mb-12">
+        <div className="mb-6">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-display text-accent mb-4 tracking-widest uppercase"
+            className="text-3xl md:text-4xl font-display text-accent mb-2 tracking-widest uppercase"
           >
             JOIN AN EXPEDITION
           </motion.h1>
@@ -75,7 +75,7 @@ export default function Contact() {
           </motion.p>
         </div>
 
-        <div className="bg-card border border-border p-8 md:p-12">
+        <div className="bg-card border border-border p-6 md:p-8">
           <AnimatePresence mode="wait">
             {!submitted ? (
               <motion.div
@@ -161,7 +161,7 @@ export default function Contact() {
                           <FormControl>
                             <Textarea 
                               placeholder="Tell us about your setup and experience..."
-                              className="bg-background border-border rounded-none min-h-[120px] resize-none font-mono text-sm"
+                              className="bg-background border-border rounded-none min-h-[72px] resize-none font-mono text-sm"
                               {...field}
                               data-testid="input-message"
                             />
@@ -215,7 +215,7 @@ export default function Contact() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3 }}
-          className="mt-16 flex flex-col sm:flex-row items-center justify-between font-mono text-sm opacity-60 pt-8 border-t border-border/50"
+          className="mt-6 flex flex-col sm:flex-row items-center justify-between font-mono text-sm opacity-60 pt-4 border-t border-border/50"
         >
           <a href="mailto:contact@a-x.cc" className="hover:text-accent transition-colors mb-4 sm:mb-0">
             contact@a-x.cc
