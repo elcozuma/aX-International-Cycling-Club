@@ -2,8 +2,6 @@ import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
 
 import moroccoImg from "../assets/images/morocco.png";
-import pamirImg from "../assets/images/pamir.png";
-import atlasImg from "../assets/images/atlas.png";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
@@ -14,27 +12,10 @@ const expeditions = [
     title: "ANTI-ATLAS MOROCCO",
     date: "MARCH 2027",
     duration: "7 DAYS",
-    distance: "420KM",
-    terrain: "GRAVEL",
+    distance: "440KM",
+    elevation: "9,000M",
+    terrain: "GRAVEL+",
     image: moroccoImg
-  },
-  {
-    id: "pamir",
-    title: "PAMIR HIGHWAY",
-    date: "SEPTEMBER 2027",
-    duration: "14 DAYS",
-    distance: "1,200KM",
-    terrain: "MIXED TERRAIN",
-    image: pamirImg
-  },
-  {
-    id: "atlas-atlantic",
-    title: "ATLAS TO ATLANTIC",
-    date: "APRIL 2028",
-    duration: "10 DAYS",
-    distance: "650KM",
-    terrain: "GRAVEL / ROAD",
-    image: atlasImg
   }
 ];
 
@@ -49,15 +30,39 @@ export default function Events() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 py-8">
 
-          <motion.h1
+          {/* Club Rides */}
+          <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
+            className="mb-8 pb-8 border-b border-white/10"
+          >
+            <h2 style={rubikOne} className="text-base md:text-lg normal-case text-accent leading-tight mb-3">
+              CLUB RIDES
+            </h2>
+            <p className="text-sm text-foreground/70 leading-relaxed max-w-2xl" style={nunito}>
+              a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds</span> and <span className="text-foreground/90">Málaga</span>. Club rides are open to the public and free to attend.{" "}
+              <a
+                href="https://www.strava.com/clubs/a-xcc"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline underline-offset-2 text-foreground/50 hover:text-foreground/80 transition-colors"
+              >
+                Check Strava for updates.
+              </a>
+            </p>
+          </motion.div>
+
+          {/* Expeditions */}
+          <motion.h2
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
             style={rubikOne}
             className="text-base md:text-lg normal-case text-accent leading-tight mb-6"
           >
             UPCOMING EXPEDITIONS
-          </motion.h1>
+          </motion.h2>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
             {expeditions.map((exp, index) => (
@@ -90,6 +95,7 @@ export default function Events() {
                       { label: "DATE", value: exp.date },
                       { label: "DURATION", value: exp.duration },
                       { label: "DISTANCE", value: exp.distance },
+                      { label: "ELEVATION", value: exp.elevation },
                       { label: "TERRAIN", value: exp.terrain }
                     ].map(({ label, value }) => (
                       <div key={label} className="flex justify-between border-b border-white/10 pb-2 text-xs uppercase">

@@ -147,8 +147,7 @@ export default function Contact() {
                               </FormControl>
                               <SelectContent className="bg-card border-white/15 rounded-lg">
                                 <SelectItem value="anti-atlas" className="text-sm" style={nunito}>March 2027 — Anti-Atlas Morocco</SelectItem>
-                                <SelectItem value="pamir" className="text-sm" style={nunito}>September 2027 — Pamir Highway</SelectItem>
-                                <SelectItem value="atlas-atlantic" className="text-sm" style={nunito}>April 2028 — Atlas to Atlantic</SelectItem>
+
                                 <SelectItem value="general" className="text-sm" style={nunito}>General enquiry</SelectItem>
                               </SelectContent>
                             </Select>
