@@ -18,9 +18,9 @@ export default function About() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="w-full md:w-2/5 flex-shrink-0 flex items-center justify-center"
+            className="w-full md:w-1/2 flex-shrink-0 flex items-center justify-center"
           >
-            <img src="/about-collage.png" alt="a-X collage" className="w-full max-w-sm object-contain drop-shadow-2xl" />
+            <img src="/about-collage.png" alt="a-X collage" className="w-full object-contain drop-shadow-2xl" />
           </motion.div>
 
           {/* Text content */}
