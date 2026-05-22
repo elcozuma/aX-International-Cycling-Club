@@ -1,4 +1,5 @@
 import { Nav } from "@/components/Nav";
+import { Link } from "wouter";
 import { motion } from "framer-motion";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
@@ -65,6 +66,19 @@ export default function About() {
               <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
                 <img src="/strava-logo.png" alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
               </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="mt-4"
+            >
+              <Link href="/faq">
+                <span className="text-xs md:text-sm text-foreground/50 hover:text-foreground/80 underline underline-offset-4 transition-colors cursor-pointer" style={dmSans}>
+                  Have questions about the club? →
+                </span>
+              </Link>
             </motion.div>
 
           </div>{/* end inner centering wrapper */}
