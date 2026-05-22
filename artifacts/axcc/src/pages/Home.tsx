@@ -13,35 +13,19 @@ export default function Home() {
         src="/hero.mp4"
       />
 
-      {/* Static Background — mobile only */}
-      <div
-        className="md:hidden absolute inset-0 z-0"
-        style={{ backgroundImage: "url('/page-bg-v2.png')", backgroundSize: "cover", backgroundPosition: "center" }}
-      />
-      
+      {/* Static image — mobile only: full width, centred vertically, no horizontal clipping */}
+      <div className="md:hidden absolute inset-0 z-0" style={{ backgroundColor: "#2e2b1f" }}>
+        <img
+          src="/home-mobile.png"
+          alt=""
+          className="absolute w-full"
+          style={{ top: "50%", transform: "translateY(-50%)" }}
+        />
+      </div>
 
       {/* Content Layer */}
       <div className="relative z-20 w-full h-full min-h-[100dvh] flex flex-col items-center pt-8">
         <Nav />
-
-        {/* Mobile title — top, hidden on md+ */}
-        <div className="md:hidden absolute top-2 left-0 right-0 px-8 flex justify-center">
-          <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
-            <p className="text-2xl leading-tight normal-case">a-X</p>
-            <p className="text-lg leading-snug normal-case">International</p>
-            <p className="text-lg leading-snug normal-case">Cycling Club</p>
-          </div>
-        </div>
-
-        {/* Mobile tagline — bottom, hidden on md+ */}
-        <div className="md:hidden absolute bottom-6 left-0 right-0 px-4 flex justify-center">
-          <p
-            className="normal-case whitespace-nowrap"
-            style={{ fontFamily: "'Oswald', sans-serif", color: "#f5e530", fontSize: "clamp(1.5rem, 11.5vw, 3rem)", fontWeight: 500, letterSpacing: "0.02em" }}
-          >
-            Comfort not included
-          </p>
-        </div>
       </div>
     </div>
   );
