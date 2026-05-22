@@ -28,7 +28,8 @@ export default function Home() {
         <div className="md:hidden absolute bottom-16 left-0 right-0 px-8 flex justify-center">
           <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
             <p className="text-2xl leading-tight normal-case">a-X</p>
-            <p className="text-lg leading-snug normal-case">International Cycling Club</p>
+            <p className="text-lg leading-snug normal-case">International</p>
+            <p className="text-lg leading-snug normal-case">Cycling Club</p>
           </div>
         </div>
       </div>
