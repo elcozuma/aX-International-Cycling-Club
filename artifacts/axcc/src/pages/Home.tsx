@@ -18,7 +18,7 @@ export default function Home() {
         src="/home-mobile.png"
         alt=""
         className="md:hidden absolute inset-0 w-full h-full object-cover z-0"
-        style={{ objectPosition: "calc(50% + 13px) center" }}
+        style={{ objectPosition: "calc(50% + 14px) center" }}
       />
 
       {/* Content Layer */}
