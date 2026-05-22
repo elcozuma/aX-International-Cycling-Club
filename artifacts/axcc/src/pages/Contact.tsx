@@ -43,8 +43,15 @@ export default function Contact() {
     defaultValues: { name: "", email: "", reason: "", message: "" }
   });
 
-  function onSubmit(data: FormValues) {
-    console.log("Form submitted:", data);
+  async function onSubmit(data: FormValues) {
+    try {
+      await fetch("https://formspree.io/f/danny6clark@hotmail.co.uk", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
+      });
+    } catch {
+    }
     setSubmitted(true);
   }
 
@@ -152,11 +159,11 @@ export default function Contact() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent className="bg-card border-white/15 rounded-lg">
-                                <SelectItem value="anti-atlas" className="text-sm" style={nunito}>March 2027 — Anti-Atlas Morocco</SelectItem>
-                                <SelectItem value="membership" className="text-sm" style={nunito}>Membership</SelectItem>
-                                <SelectItem value="events" className="text-sm" style={nunito}>Events</SelectItem>
+                                <SelectItem value="anti-atlas" className="text-sm" style={nunito}>Anti-Atlas Morocco (March 2027)</SelectItem>
                                 <SelectItem value="collaboration" className="text-sm" style={nunito}>Collaboration</SelectItem>
+                                <SelectItem value="events" className="text-sm" style={nunito}>Events</SelectItem>
                                 <SelectItem value="general" className="text-sm" style={nunito}>General enquiry</SelectItem>
+                                <SelectItem value="membership" className="text-sm" style={nunito}>Membership</SelectItem>
                               </SelectContent>
                             </Select>
                             <FormMessage className="text-xs" />
