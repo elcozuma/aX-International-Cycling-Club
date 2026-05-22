@@ -368,16 +368,20 @@ export default function FAQ() {
             </div>
 
             {/* Footer note */}
-            <p className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
-              Have a question not answered here?{" "}
-              <Link href="/contact">
-                <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</span>
-              </Link>{" "}
-              Details about specific events can be found on the{" "}
-              <Link href="/events">
-                <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Events page.</span>
-              </Link>
-            </p>
+            <div className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
+              <p>
+                Have a question not answered here?{" "}
+                <Link href="/contact">
+                  <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</span>
+                </Link>
+              </p>
+              <p className="mt-1">
+                Details about specific events can be found on the{" "}
+                <Link href="/events">
+                  <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Events page.</span>
+                </Link>
+              </p>
+            </div>
           </div>
 
         </div>
