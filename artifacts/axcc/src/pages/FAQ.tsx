@@ -116,11 +116,11 @@ const sections: Section[] = [
       },
       {
         q: "Do I need to bring my own bike?",
-        a: "Usually yes. Participants are generally expected to bring their own bike in good mechanical condition and appropriate for the terrain and event format. Specific bike recommendations will always be included within the event information."
+        a: "Participants are generally expected to bring their own bike in good mechanical condition and appropriate for the terrain and event format. Specific bike recommendations will always be included within the event information."
       },
       {
         q: "Can I rent a bike from a local provider?",
-        a: "Sometimes. Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved."
+        a: "Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved."
       },
       {
         q: "Are e-bikes allowed?",
