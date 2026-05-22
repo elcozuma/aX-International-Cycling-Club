@@ -51,7 +51,7 @@
 }
 
 :root {
-  --background: 82 20% 23%;
+  --background: 35 8% 12%;
   --foreground: 37 38% 94%;
   --border: 68 30% 30%;
   
@@ -98,7 +98,7 @@
 }
 
 .dark {
-  --background: 82 20% 23%;
+  --background: 35 8% 12%;
   --foreground: 37 38% 94%;
   --border: 68 30% 30%;
   
