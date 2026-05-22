@@ -76,7 +76,7 @@ const sections: Section[] = [
     items: [
       {
         q: "What is a hosted expedition?",
-        a: "A hosted expedition is a small-group multi-day riding experience where routes, general coordination and optional logistics support may be provided, while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
+        a: "A hosted expedition is a small-group multi-day riding experience in a remote location where routes, general coordination and optional logistics support may be provided, while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
       },
       {
         q: "Are expeditions fully supported?",
