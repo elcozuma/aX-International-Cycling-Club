@@ -18,12 +18,12 @@ export function Nav() {
 
   return (
     <>
-      {/* Logo — top left */}
+      {/* Logo — top-right inside the block (inset-6 / inset-10 + inner padding) */}
       <Link href="/">
         <img
           src="/ax-logo.png"
           alt="a-X"
-          className="fixed top-4 left-5 z-[100] h-8 md:h-9 w-auto opacity-90 hover:opacity-100 transition-opacity cursor-pointer select-none"
+          className="fixed top-[36px] right-[52px] md:top-[54px] md:right-[68px] z-[95] h-7 md:h-8 w-auto opacity-80 hover:opacity-100 transition-opacity cursor-pointer select-none"
         />
       </Link>
 
