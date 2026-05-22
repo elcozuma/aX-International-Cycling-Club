@@ -26,12 +26,10 @@ export default function Home() {
 
         {/* Mobile title — hidden on md+ */}
         <div className="md:hidden absolute bottom-16 left-0 right-0 px-8 flex justify-center">
-          <h1
-            className="text-xl leading-snug normal-case text-center"
-            style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}
-          >
-            a-X International Cycling Club
-          </h1>
+          <div className="text-center" style={{ fontFamily: "'Rubik One', sans-serif", color: "#f5e530" }}>
+            <p className="text-2xl leading-tight normal-case">a-X</p>
+            <p className="text-lg leading-snug normal-case">International Cycling Club</p>
+          </div>
         </div>
       </div>
     </div>
