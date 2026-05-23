@@ -32,123 +32,131 @@ export default function Events() {
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-8">
+        {/* Card — overflow-hidden + flex-col, matching FAQ/Contact structure */}
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col">
 
-          {/* Club Rides */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            className="mb-8 pb-8 border-b border-white/10"
-          >
-            <h2 style={rubikOne} className="text-base md:text-lg normal-case text-accent leading-tight mb-3">
-              CLUB RIDES
-            </h2>
-            <p className="text-sm text-foreground/70 leading-relaxed" style={nunito}>
-              a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds, UK</span> and <span className="text-foreground/90">Málaga, Spain</span>. Club rides are open to the public and free to attend.{" "}
-              <a
-                href="https://www.strava.com/clubs/a-xcc"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="underline underline-offset-2 text-foreground/50 hover:text-foreground/80 transition-colors"
-              >
-                Check Strava for updates.
-              </a>
-            </p>
-          </motion.div>
+          {/* Logo — absolute bottom-right, same as FAQ/Contact */}
+          <img
+            src={import.meta.env.BASE_URL + "ax-logo.png"}
+            alt="a-X"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
+          />
 
-          {/* Expeditions */}
-          <motion.h2
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={rubikOne}
-            className="text-base md:text-lg normal-case text-accent leading-tight mb-6"
-          >
-            UPCOMING EXPEDITIONS
-          </motion.h2>
+          {/* Scrollable content — z-[1] so it always renders above the logo */}
+          <div className="flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-8 z-[1]">
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            {expeditions.map((exp, index) => (
-              <motion.div
-                key={exp.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 + index * 0.1 }}
-                className="relative overflow-hidden rounded-lg border border-white/10 group hover:border-accent/60 transition-colors"
-                style={{ minHeight: "280px" }}
-              >
-                {/* Background image */}
-                <img
-                  src={exp.image}
-                  alt={exp.title}
-                  className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
-                />
-                {/* Gradient overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/15" />
+            {/* Club Rides */}
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="mb-8 pb-8 border-b border-white/10"
+            >
+              <h2 style={rubikOne} className="text-base md:text-lg normal-case text-accent leading-tight mb-3">
+                CLUB RIDES
+              </h2>
+              <p className="text-sm text-foreground/70 leading-relaxed" style={nunito}>
+                a-X club group rides will soon be announced, based in <span className="text-foreground/90">Leeds, UK</span> and <span className="text-foreground/90">Málaga, Spain</span>. Club rides are open to the public and free to attend.{" "}
+                <a
+                  href="https://www.strava.com/clubs/a-xcc"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="underline underline-offset-2 text-foreground/50 hover:text-foreground/80 transition-colors"
+                >
+                  Check Strava for updates.
+                </a>
+              </p>
+            </motion.div>
 
-                {/* Content */}
-                <div className="relative z-10 flex flex-col h-full p-5" style={{ minHeight: "280px" }}>
-                  <h2
-                    className="text-sm md:text-base normal-case text-white leading-tight mb-auto"
-                    style={rubikOne}
-                  >
-                    {exp.title}
-                  </h2>
+            {/* Expeditions */}
+            <motion.h2
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+              style={rubikOne}
+              className="text-base md:text-lg normal-case text-accent leading-tight mb-6"
+            >
+              UPCOMING EXPEDITIONS
+            </motion.h2>
 
-                  <div className="mt-4 space-y-1.5 bg-black/30 rounded-md px-3 py-2.5" style={nunito}>
-                    {[
-                      { label: "DATE", value: exp.date },
-                      { label: "DURATION", value: exp.duration },
-                      { label: "DISTANCE", value: exp.distance },
-                      { label: "ELEVATION", value: exp.elevation },
-                      { label: "TERRAIN", value: exp.terrain }
-                    ].map(({ label, value }) => (
-                      <div key={label} className="flex justify-between text-xs uppercase">
-                        <span className="text-white/55">{label}</span>
-                        <span className="text-white font-semibold">{value}</span>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+              {expeditions.map((exp, index) => (
+                <motion.div
+                  key={exp.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.15 + index * 0.1 }}
+                  className="relative overflow-hidden rounded-lg border border-white/10 group hover:border-accent/60 transition-colors"
+                  style={{ minHeight: "280px" }}
+                >
+                  {/* Background image */}
+                  <img
+                    src={exp.image}
+                    alt={exp.title}
+                    className="absolute inset-0 w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
+                  />
+                  {/* Gradient overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/15" />
+
+                  {/* Content */}
+                  <div className="relative z-10 flex flex-col h-full p-5" style={{ minHeight: "280px" }}>
+                    <h2
+                      className="text-sm md:text-base normal-case text-white leading-tight mb-auto"
+                      style={rubikOne}
+                    >
+                      {exp.title}
+                    </h2>
+
+                    <div className="mt-4 space-y-1.5 bg-black/30 rounded-md px-3 py-2.5" style={nunito}>
+                      {[
+                        { label: "DATE", value: exp.date },
+                        { label: "DURATION", value: exp.duration },
+                        { label: "DISTANCE", value: exp.distance },
+                        { label: "ELEVATION", value: exp.elevation },
+                        { label: "TERRAIN", value: exp.terrain }
+                      ].map(({ label, value }) => (
+                        <div key={label} className="flex justify-between text-xs uppercase">
+                          <span className="text-white/55">{label}</span>
+                          <span className="text-white font-semibold">{value}</span>
+                        </div>
+                      ))}
+                      <div className="pt-1.5 mt-0.5 border-t border-white/15">
+                        <span className="text-white/55 text-xs uppercase">Expected Cost</span>
+                        <p className="text-white text-xs font-semibold mt-0.5">{exp.cost1}</p>
+                        <p className="text-white/40 text-[9px] uppercase tracking-widest my-0.5">or</p>
+                        <p className="text-white text-xs font-semibold">{exp.cost2}</p>
+                        <p className="text-white/50 text-[9px] italic mt-1">{exp.costNote}</p>
+                        <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote2}</p>
+                        <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote3}</p>
                       </div>
-                    ))}
-                    <div className="pt-1.5 mt-0.5 border-t border-white/15">
-                      <span className="text-white/55 text-xs uppercase">Expected Cost</span>
-                      <p className="text-white text-xs font-semibold mt-0.5">{exp.cost1}</p>
-                      <p className="text-white/40 text-[9px] uppercase tracking-widest my-0.5">or</p>
-                      <p className="text-white text-xs font-semibold">{exp.cost2}</p>
-                      <p className="text-white/50 text-[9px] italic mt-1">{exp.costNote}</p>
-                      <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote2}</p>
-                      <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote3}</p>
                     </div>
+
+                    <a
+                      href={exp.formUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 block w-full py-2 text-center border border-accent/70 text-accent hover:bg-accent hover:text-background transition-colors uppercase text-xs rounded tracking-widest"
+                      style={rubikOne}
+                      data-testid={`btn-interest-${exp.id}`}
+                    >
+                      EXPRESS INTEREST
+                    </a>
                   </div>
+                </motion.div>
+              ))}
+            </div>
 
-                  <a
-                    href={exp.formUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="mt-4 block w-full py-2 text-center border border-accent/70 text-accent hover:bg-accent hover:text-background transition-colors uppercase text-xs rounded tracking-widest"
-                    style={rubikOne}
-                    data-testid={`btn-interest-${exp.id}`}
-                  >
-                    EXPRESS INTEREST
-                  </a>
-                </div>
-              </motion.div>
-            ))}
-          </div>
+            <motion.p
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.6 }}
+              className="flex-shrink-0 mt-10 text-xs text-foreground/35 italic text-center"
+              style={nunito}
+            >
+              All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
+            </motion.p>
 
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="flex-shrink-0 mt-10 text-xs text-foreground/35 italic text-center"
-            style={nunito}
-          >
-            All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
-          </motion.p>
-
-          <div className="hidden md:flex justify-end mt-6 mb-2 pointer-events-none select-none">
-            <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 w-auto opacity-75" />
-          </div>
-
+          </div>{/* end scrollable content */}
         </div>
       </div>
     </div>

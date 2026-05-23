@@ -15,6 +15,12 @@ export default function About() {
         {/* Block */}
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden">
 
+          {/* Logo — absolute bottom-right, same as FAQ/Contact */}
+          <img
+            src={import.meta.env.BASE_URL + "ax-logo.png"}
+            alt="a-X"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
+          />
 
           {/* Collage image — anchored to bottom-left, hanging slightly outside — desktop only */}
           <motion.img
@@ -23,11 +29,11 @@ export default function About() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.2 }}
-            className="hidden md:block absolute bottom-0 left-0 w-[50%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none"
+            className="hidden md:block absolute bottom-0 left-0 w-[50%] object-contain drop-shadow-2xl translate-y-[10%] -translate-x-[6%] pointer-events-none select-none z-[1]"
           />
 
-          {/* Text content — full width on mobile, right half on desktop */}
-          <div className="absolute inset-0 overflow-y-auto pl-6 pr-6 md:pl-[52%] md:pr-12">
+          {/* Text content — full width on mobile, right half on desktop — z-[2] ensures it's always above logo */}
+          <div className="absolute inset-0 overflow-y-auto pl-6 pr-6 md:pl-[52%] md:pr-12 z-[2]">
           <div className="min-h-full flex flex-col justify-center py-8">
 
             <motion.h1
@@ -81,15 +87,6 @@ export default function About() {
               <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
                 <img src={import.meta.env.BASE_URL + "strava-logo.png"} alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
               </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.7 }}
-              className="mt-8 flex justify-center md:justify-end pointer-events-none select-none"
-            >
-              <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 lg:h-24 w-auto opacity-75" />
             </motion.div>
 
           </div>{/* end inner centering wrapper */}
