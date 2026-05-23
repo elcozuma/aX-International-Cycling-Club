@@ -34,13 +34,37 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Debug — pre-build
+        run: |
+          echo "=== GITHUB_WORKSPACE ==="
+          echo "$GITHUB_WORKSPACE"
+          echo "=== pwd ==="
+          pwd
+          echo "=== ls -la ==="
+          ls -la
+          echo "=== ls -la artifacts/axcc ==="
+          ls -la artifacts/axcc
+          echo "=== PORT ==="
+          echo "$PORT"
+        env:
+          PORT: "3000"
+
       - name: Build
-        working-directory: artifacts/axcc
+        run: |
+          cd "$GITHUB_WORKSPACE/artifacts/axcc"
+          echo "Building from: $(pwd)"
+          pnpm run build
         env:
           NODE_ENV: production
           PORT: "3000"
           BASE_PATH: /${{ github.event.repository.name }}/
-        run: pnpm run build
+
+      - name: Debug — post-build output
+        run: |
+          echo "=== artifacts/axcc/dist ==="
+          ls -la artifacts/axcc/dist || echo "dist not found"
+          echo "=== artifacts/axcc/dist/public ==="
+          ls -la artifacts/axcc/dist/public || echo "dist/public not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
