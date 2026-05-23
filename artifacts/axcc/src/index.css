@@ -154,7 +154,7 @@
 
 /* Mobile home video — base position, with per-device overrides */
 .home-mobile-video {
-  object-position: calc(50% + 47px) center;
+  object-position: calc(50% + 42px) center;
 }
 
 /* iPhone SE 2nd / 3rd gen — 375×667 logical px */
