@@ -43,7 +43,7 @@ export default function Events() {
           />
 
           {/* Scrollable content — z-[1] so it always renders above the logo */}
-          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-12">
+          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-28 md:pb-12">
 
             {/* Club Rides */}
             <motion.div

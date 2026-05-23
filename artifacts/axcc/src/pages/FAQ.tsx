@@ -197,7 +197,7 @@ export default function FAQ() {
   const [selected, setSelected] = useState<SelectionKey>(null);
 
   // Mobile accordion state
-  const [openSections, setOpenSections] = useState<Set<number>>(new Set([0]));
+  const [openSections, setOpenSections] = useState<Set<number>>(new Set());
   const [mobileSelected, setMobileSelected] = useState<SelectionKey>(null);
 
   const selectedItem =
