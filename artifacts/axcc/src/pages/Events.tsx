@@ -32,10 +32,7 @@ export default function Events() {
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 py-8">
-
-          {/* Logo — bottom-right */}
-          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none" />
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-8">
 
           {/* Club Rides */}
           <motion.div
@@ -147,6 +144,10 @@ export default function Events() {
           >
             All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
           </motion.p>
+
+          <div className="hidden md:flex justify-center mt-6 mb-2 pointer-events-none select-none">
+            <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 w-auto opacity-75" />
+          </div>
 
         </div>
       </div>
