@@ -15,12 +15,6 @@ export default function About() {
         {/* Block */}
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden">
 
-          {/* Logo — top-left of block */}
-          <img
-            src={import.meta.env.BASE_URL + "ax-logo.png"}
-            alt="a-X"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:right-[18%] lg:right-[10%] xl:right-5 lg:-bottom-2 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
-          />
 
           {/* Collage image — anchored to bottom-left, hanging slightly outside — desktop only */}
           <motion.img
@@ -87,6 +81,15 @@ export default function About() {
               <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
                 <img src={import.meta.env.BASE_URL + "strava-logo.png"} alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
               </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.7 }}
+              className="mt-8 flex justify-center md:justify-end pointer-events-none select-none"
+            >
+              <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 lg:h-24 w-auto opacity-75" />
             </motion.div>
 
           </div>{/* end inner centering wrapper */}

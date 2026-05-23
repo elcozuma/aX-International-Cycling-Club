@@ -145,7 +145,7 @@ export default function Events() {
             All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
           </motion.p>
 
-          <div className="hidden md:flex justify-center mt-6 mb-2 pointer-events-none select-none">
+          <div className="hidden md:flex justify-end mt-6 mb-2 pointer-events-none select-none">
             <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 w-auto opacity-75" />
           </div>
 
