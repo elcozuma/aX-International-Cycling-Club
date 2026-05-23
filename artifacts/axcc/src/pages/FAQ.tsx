@@ -367,7 +367,7 @@ export default function FAQ() {
             </div>
 
             {/* Logo — in-flow so it pushes down as accordion expands */}
-            <div className="flex justify-center pt-[280px] pb-2">
+            <div className="flex justify-center pt-[290px] pb-2">
               <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 w-auto opacity-75 pointer-events-none select-none" />
             </div>
 
