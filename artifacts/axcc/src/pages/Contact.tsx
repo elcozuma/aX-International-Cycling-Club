@@ -1,5 +1,4 @@
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
@@ -50,17 +49,12 @@ export default function Contact() {
     setSending(true);
     setSendError(null);
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name: data.name,
-          from_email: data.email,
-          reason: data.reason,
-          message: data.message ?? "",
-        },
-        { publicKey: import.meta.env.VITE_EMAILJS_PUBLIC_KEY }
-      );
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error("server error");
       setSubmitted(true);
     } catch {
       setSendError("Something went wrong — please try again or email us directly.");
