@@ -58,23 +58,25 @@ export function Nav() {
               onClick={() => setOpen(false)}
             />
 
-            {/* Menu */}
+            {/* Menu — single bordered panel */}
             <motion.nav
               key="menu"
-              initial={{ opacity: 0, y: -8, scale: 0.97 }}
+              initial={{ opacity: 0, y: -6, scale: 0.98 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: -8, scale: 0.97 }}
+              exit={{ opacity: 0, y: -6, scale: 0.98 }}
               transition={{ duration: 0.2 }}
-              className="fixed top-14 right-6 z-[100] flex flex-col items-end gap-1 min-w-[140px]"
+              className="fixed top-14 right-6 z-[100] w-44 bg-black/80 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden"
             >
               {navItems.map((item, i) => {
                 const isActive = location === item.path;
+                const isLast = i === navItems.length - 1;
                 return (
                   <motion.div
                     key={item.path}
-                    initial={{ opacity: 0, x: 10 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.05 }}
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: i * 0.04 }}
+                    className={!isLast ? "border-b border-white/10" : ""}
                   >
                     <Link href={item.path}>
                       <span
@@ -82,13 +84,16 @@ export function Nav() {
                         data-testid={`nav-${item.name}`}
                         style={avenir}
                         className={[
-                          "block px-5 py-2 rounded-full text-sm cursor-pointer select-none border transition-colors",
+                          "flex items-center justify-between px-5 py-3 text-xs uppercase tracking-widest cursor-pointer select-none transition-colors",
                           isActive
-                            ? "bg-accent border-accent text-accent-foreground"
-                            : "bg-black/40 backdrop-blur-sm border-white/20 text-white hover:border-white/50"
+                            ? "text-accent bg-white/5"
+                            : "text-white/70 hover:text-white hover:bg-white/5"
                         ].join(" ")}
                       >
                         {item.name}
+                        {isActive && (
+                          <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                        )}
                       </span>
                     </Link>
                   </motion.div>
