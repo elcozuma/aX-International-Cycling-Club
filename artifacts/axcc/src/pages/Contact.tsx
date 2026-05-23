@@ -70,27 +70,29 @@ export default function Contact() {
             className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-auto md:translate-x-0 md:-bottom-2 md:right-5 z-0 h-20 md:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
-          <motion.h1
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            style={rubikOne}
-            className="hidden md:block text-lg normal-case text-accent leading-tight mb-1 flex-shrink-0"
-          >
-            GET IN TOUCH
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="hidden md:block text-xs text-foreground/45 mb-6 flex-shrink-0"
-            style={nunito}
-          >
-            Questions about the club or events? Send us a message.
-          </motion.p>
-
           <div className="flex-1 flex flex-col justify-center max-w-xl w-full mx-auto">
+            {/* Desktop title — sits directly above the form, nudged left */}
+            <div className="hidden md:block -ml-2 mb-4">
+              <motion.h1
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 }}
+                style={rubikOne}
+                className="text-lg normal-case text-accent leading-tight mb-1"
+              >
+                GET IN TOUCH
+              </motion.h1>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+                className="text-xs text-foreground/45"
+                style={nunito}
+              >
+                Questions about the club or events? Send us a message.
+              </motion.p>
+            </div>
+
             {/* Mobile-only title — sits directly above the form */}
             <div className="md:hidden mb-4">
               <h1 style={rubikOne} className="text-base normal-case text-accent leading-tight mb-1">GET IN TOUCH</h1>
