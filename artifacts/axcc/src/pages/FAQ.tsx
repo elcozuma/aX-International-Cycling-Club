@@ -231,13 +231,13 @@ export default function FAQ() {
       <Nav />
 
       <div className="absolute inset-6 md:inset-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row">
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
-          {/* Logo — desktop only (absolute) */}
-          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden" />
+          {/* Logo — mobile: absolute bottom-center; desktop: absolute bottom-right */}
+          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
-          <div className="relative z-[1] md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
+          <div className="relative z-[1] md:hidden px-5 pt-6 pb-6 flex-1 overflow-y-auto flex flex-col gap-3">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -366,10 +366,6 @@ export default function FAQ() {
               </p>
             </div>
 
-            {/* Logo — in-flow on mobile so it stays below content */}
-            <div className="flex justify-center pt-2">
-              <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 w-auto opacity-75 pointer-events-none select-none" />
-            </div>
           </div>
 
           {/* ── DESKTOP LAYOUT (hidden on mobile) ── */}

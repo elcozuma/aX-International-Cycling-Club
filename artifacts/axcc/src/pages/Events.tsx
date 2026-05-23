@@ -39,11 +39,11 @@ export default function Events() {
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
             alt="a-X"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
+            className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden"
           />
 
           {/* Scrollable content — z-[1] so it always renders above the logo */}
-          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-28 md:pb-12">
+          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-12">
 
             {/* Club Rides */}
             <motion.div
@@ -155,6 +155,15 @@ export default function Events() {
             >
               All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
             </motion.p>
+
+            {/* Logo — in-flow on mobile only, sits below italic text when scrolled to bottom */}
+            <div className="lg:hidden flex justify-center pt-6 pb-2">
+              <img
+                src={import.meta.env.BASE_URL + "ax-logo.png"}
+                alt="a-X"
+                className="h-16 w-auto opacity-60 pointer-events-none select-none"
+              />
+            </div>
 
           </div>{/* end scrollable content */}
         </div>
