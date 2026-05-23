@@ -233,8 +233,8 @@ export default function FAQ() {
       <div className="absolute inset-6 md:inset-10 z-10">
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
-          {/* Logo — mobile: absolute bottom-center; desktop: absolute bottom-right */}
-          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden" />
+          {/* Logo — desktop only (absolute bottom-right) */}
+          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
           <div className="relative z-[1] md:hidden px-5 pt-6 pb-6 flex-1 overflow-y-auto flex flex-col gap-3">
@@ -364,6 +364,11 @@ export default function FAQ() {
                   <span className="underline underline-offset-2 cursor-pointer">Events page.</span>
                 </Link>
               </p>
+            </div>
+
+            {/* Logo — in-flow so it pushes down as accordion expands */}
+            <div className="flex justify-center pt-4 pb-2">
+              <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-16 w-auto opacity-60 pointer-events-none select-none" />
             </div>
 
           </div>
