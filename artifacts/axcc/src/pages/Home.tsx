@@ -19,8 +19,7 @@ export default function Home() {
         loop
         muted
         playsInline
-        className="md:hidden absolute inset-0 w-full h-full object-cover z-0"
-        style={{ objectPosition: "calc(50% + 47px) center" }}
+        className="home-mobile-video md:hidden absolute inset-0 w-full h-full object-cover z-0"
         src={import.meta.env.BASE_URL + "home-mobile.mp4"}
       />
 
