@@ -35,8 +35,15 @@ export default function Events() {
         {/* Card — overflow-hidden + flex-col, matching FAQ/Contact structure */}
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col">
 
-          {/* Scrollable content */}
-          <div className="flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-8">
+          {/* Logo — absolute bottom-right, same as FAQ/Contact */}
+          <img
+            src={import.meta.env.BASE_URL + "ax-logo.png"}
+            alt="a-X"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
+          />
+
+          {/* Scrollable content — z-[1] so it always renders above the logo */}
+          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-8">
 
             {/* Club Rides */}
             <motion.div
@@ -148,10 +155,6 @@ export default function Events() {
             >
               All routes are designed for self-sufficient riders. Minimal support. Maximum experience.
             </motion.p>
-
-            <div className="flex justify-center lg:justify-end mt-4 mb-1 pointer-events-none select-none">
-              <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-20 lg:h-24 w-auto opacity-75" />
-            </div>
 
           </div>{/* end scrollable content */}
         </div>
