@@ -1,9 +1,8 @@
 import { Router, type IRouter } from "express";
 import { z } from "zod/v4";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import rateLimit from "express-rate-limit";
 import { db, contactSubmissions } from "@workspace/db";
-import { logger } from "../lib/logger";
 
 const router: IRouter = Router();
 
@@ -23,20 +22,6 @@ const ContactBody = z.object({
   reason: z.string().min(1).max(200),
   message: z.string().max(5000).optional(),
 });
-
-// ── SMTP transport (Outlook/Hotmail via STARTTLS on port 587) ────────────────
-function createTransport() {
-  return nodemailer.createTransport({
-    host: "smtp-mail.outlook.com",
-    port: 587,
-    secure: false,         // false = STARTTLS upgrade on connect
-    requireTLS: true,      // refuse to send if TLS upgrade fails
-    auth: {
-      user: process.env["SMTP_USER"],
-      pass: process.env["SMTP_APP_PASSWORD"],
-    },
-  });
-}
 
 router.post("/contact", contactLimiter, async (req, res) => {
   const parsed = ContactBody.safeParse(req.body);
@@ -62,23 +47,22 @@ router.post("/contact", contactLimiter, async (req, res) => {
     return;
   }
 
-  // ── 2. Send email (best-effort — logged, never blocks the 200 response) ─────
+  // ── 2. Send email via Resend (best-effort — never blocks the 200 response) ──
   const toEmail = process.env["CONTACT_EMAIL_TO"];
-  const smtpUser = process.env["SMTP_USER"];
-  const smtpPass = process.env["SMTP_APP_PASSWORD"];
+  const apiKey = process.env["RESEND_API_KEY"];
 
-  if (!toEmail || !smtpUser || !smtpPass) {
+  if (!toEmail || !apiKey) {
     req.log.warn(
-      { hasTo: !!toEmail, hasUser: !!smtpUser, hasPass: !!smtpPass },
-      "SMTP env vars not fully configured — skipping email send"
+      { hasTo: !!toEmail, hasApiKey: !!apiKey },
+      "Resend env vars not fully configured — skipping email send"
     );
   } else {
     try {
-      const transporter = createTransport();
-      await transporter.sendMail({
-        from: `"a-X Contact Form" <${smtpUser}>`,
+      const resend = new Resend(apiKey);
+      await resend.emails.send({
+        from: "a-X Contact Form <onboarding@resend.dev>",
         to: toEmail,
-        replyTo: `"${name}" <${email}>`,
+        replyTo: `${name} <${email}>`,
         subject: `${name} — a-X Contact Form`,
         text: [
           `Name:    ${name}`,
@@ -91,7 +75,7 @@ router.post("/contact", contactLimiter, async (req, res) => {
           `Submission ID: ${savedId}`,
         ].join("\n"),
       });
-      req.log.info({ savedId, to: toEmail }, "contact email sent successfully");
+      req.log.info({ savedId, to: toEmail }, "contact email sent successfully via Resend");
     } catch (err) {
       req.log.error({ err, savedId }, "contact email send failed — submission still saved");
     }
