@@ -39,7 +39,7 @@ export default function Events() {
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
             alt="a-X"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
+            className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden"
           />
 
           {/* Scrollable content — z-[1] so it always renders above the logo */}

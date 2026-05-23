@@ -19,7 +19,7 @@ export default function About() {
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
             alt="a-X"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
+            className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-[76%] lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
           />
 
           {/* Collage image — anchored to bottom-left, hanging slightly outside — desktop only */}
