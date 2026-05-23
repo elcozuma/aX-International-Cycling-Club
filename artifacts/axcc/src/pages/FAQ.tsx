@@ -234,7 +234,7 @@ export default function FAQ() {
         <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-y-auto md:overflow-hidden flex flex-col md:flex-row">
 
           {/* Logo — desktop only (absolute) */}
-          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none" />
+          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
           <div className="relative z-[1] md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
