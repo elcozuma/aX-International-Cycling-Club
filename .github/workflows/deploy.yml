@@ -34,21 +34,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - name: Debug — pre-build
-        run: |
-          echo "=== GITHUB_WORKSPACE ==="
-          echo "$GITHUB_WORKSPACE"
-          echo "=== pwd ==="
-          pwd
-          echo "=== ls -la ==="
-          ls -la
-          echo "=== ls -la artifacts/axcc ==="
-          ls -la artifacts/axcc
-          echo "=== PORT ==="
-          echo "$PORT"
-        env:
-          PORT: "3000"
-
       - name: Build
         run: |
           cd "$GITHUB_WORKSPACE/artifacts/axcc"
@@ -59,12 +44,26 @@ jobs:
           PORT: "3000"
           BASE_PATH: /${{ github.event.repository.name }}/
 
-      - name: Debug — post-build output
+      - name: Inject build marker into index.html
         run: |
-          echo "=== artifacts/axcc/dist ==="
-          ls -la artifacts/axcc/dist || echo "dist not found"
-          echo "=== artifacts/axcc/dist/public ==="
-          ls -la artifacts/axcc/dist/public || echo "dist/public not found"
+          MARKER="<!-- deployed: ${{ github.sha }} $(date -u '+%Y-%m-%dT%H:%M:%SZ') -->"
+          sed -i "s|<!doctype html>|<!doctype html>\n${MARKER}|I" artifacts/axcc/dist/public/index.html
+          echo "First 5 lines of built index.html:"
+          head -5 artifacts/axcc/dist/public/index.html
+
+      - name: Add .nojekyll
+        run: touch artifacts/axcc/dist/public/.nojekyll
+
+      - name: Verify build output
+        run: |
+          echo "=== Upload path contents ==="
+          ls -la artifacts/axcc/dist/public/
+          echo "=== JS bundles ==="
+          ls -lh artifacts/axcc/dist/public/assets/*.js
+          echo "=== Checking Nav panel style in bundle ==="
+          grep -l "tracking-widest" artifacts/axcc/dist/public/assets/*.js && echo "Nav panel style FOUND" || echo "WARNING: not found"
+          echo "=== Checking logo positioning in bundle ==="
+          grep -l "left-1/2" artifacts/axcc/dist/public/assets/*.js && echo "Logo classes FOUND" || echo "WARNING: not found"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
