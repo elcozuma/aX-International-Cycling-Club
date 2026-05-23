@@ -154,7 +154,7 @@
 
 /* Mobile home video — percentage-based so framing scales consistently across all screen widths */
 .home-mobile-video {
-  object-position: 40% center;
+  object-position: 46% center;
 }
 
 /* Always-visible thin scrollbar for FAQ panels */
