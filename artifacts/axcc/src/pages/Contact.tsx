@@ -70,7 +70,7 @@ export default function Contact() {
             className="absolute bottom-0 left-1/2 -translate-x-1/2 lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
-          <div className="flex-1 flex flex-col justify-center max-w-xl w-full mx-auto">
+          <div className="relative z-[1] flex-1 flex flex-col justify-center max-w-xl w-full mx-auto">
             {/* Desktop title — sits directly above the form, nudged left */}
             <div className="hidden md:block -ml-2 mb-4">
               <motion.h1

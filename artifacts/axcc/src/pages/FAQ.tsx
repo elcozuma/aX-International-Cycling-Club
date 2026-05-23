@@ -237,7 +237,7 @@ export default function FAQ() {
           <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none" />
 
           {/* ── MOBILE ACCORDION (hidden on md+) ── */}
-          <div className="md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
+          <div className="relative z-[1] md:hidden px-5 pt-6 pb-6 flex flex-col gap-3">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -375,7 +375,7 @@ export default function FAQ() {
           {/* ── DESKTOP LAYOUT (hidden on mobile) ── */}
 
           {/* Left column — two independently scrollable sections */}
-          <div className="hidden md:flex flex-col w-full md:w-2/5 h-full overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+          <div className="relative z-[1] hidden md:flex flex-col w-full md:w-2/5 h-full overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
 
             <div className="px-6 md:px-8 pt-8 pb-3 flex-shrink-0">
               <motion.h1
@@ -451,7 +451,7 @@ export default function FAQ() {
           </div>
 
           {/* Right column — answer panel */}
-          <div className="hidden md:flex flex-1 flex-col px-8 md:px-14 pt-10 pb-6 overflow-y-auto">
+          <div className="relative z-[1] hidden md:flex flex-1 flex-col px-8 md:px-14 pt-10 pb-6 overflow-y-auto">
             <div className="flex-1 flex items-center justify-center">
               <AnimatePresence mode="wait">
                 {selectedItem ? (
