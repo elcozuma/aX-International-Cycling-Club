@@ -20,6 +20,7 @@ export default function Home() {
         muted
         playsInline
         className="home-mobile-video md:hidden absolute inset-0 w-full h-full object-cover z-0"
+        style={{ transform: "translateZ(0)" }}
         src={import.meta.env.BASE_URL + "home-mobile.mp4"}
       />
 
