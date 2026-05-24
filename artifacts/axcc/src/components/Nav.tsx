@@ -11,7 +11,6 @@ export function Nav() {
     { name: "about", path: "/about" },
     { name: "events", path: "/events" },
     { name: "faqs", path: "/faq" },
-    { name: "contact", path: "/contact" }
   ];
 
   const avenir = { fontFamily: "'Avenir Next', 'Avenir', 'Century Gothic', sans-serif" };

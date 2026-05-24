@@ -354,9 +354,7 @@ export default function FAQ() {
             <div className="mt-2 text-xs text-foreground/35 leading-relaxed" style={nunito}>
               <p>
                 Have a question not answered here?{" "}
-                <Link href="/contact">
-                  <span className="underline underline-offset-2 cursor-pointer">Send us a message.</span>
-                </Link>
+                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 cursor-pointer">Send us a message.</a>
               </p>
               <p className="mt-1">
                 Details about specific events can be found on the{" "}
@@ -495,9 +493,7 @@ export default function FAQ() {
             <div className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
               <p>
                 Have a question not answered here?{" "}
-                <Link href="/contact">
-                  <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</span>
-                </Link>
+                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</a>
               </p>
               <p className="mt-1">
                 Details about specific events can be found on the{" "}
