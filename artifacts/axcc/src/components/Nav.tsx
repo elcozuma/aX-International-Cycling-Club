@@ -13,6 +13,11 @@ export function Nav() {
     { name: "faqs", path: "/faq" },
   ];
 
+  const spanClass = (isActive: boolean) => [
+    "flex items-center justify-between px-5 py-3 text-xs uppercase tracking-widest cursor-pointer select-none transition-colors",
+    isActive ? "text-accent bg-white/5" : "text-white/70 hover:text-white hover:bg-white/5"
+  ].join(" ");
+
   const avenir = { fontFamily: "'Avenir Next', 'Avenir', 'Century Gothic', sans-serif" };
 
   return (
@@ -68,26 +73,20 @@ export function Nav() {
             >
               {navItems.map((item, i) => {
                 const isActive = location === item.path;
-                const isLast = i === navItems.length - 1;
                 return (
                   <motion.div
                     key={item.path}
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ delay: i * 0.04 }}
-                    className={!isLast ? "border-b border-white/10" : ""}
+                    className="border-b border-white/10"
                   >
                     <Link href={item.path}>
                       <span
                         onClick={() => setOpen(false)}
                         data-testid={`nav-${item.name}`}
                         style={avenir}
-                        className={[
-                          "flex items-center justify-between px-5 py-3 text-xs uppercase tracking-widest cursor-pointer select-none transition-colors",
-                          isActive
-                            ? "text-accent bg-white/5"
-                            : "text-white/70 hover:text-white hover:bg-white/5"
-                        ].join(" ")}
+                        className={spanClass(isActive)}
                       >
                         {item.name}
                         {isActive && (
@@ -98,6 +97,24 @@ export function Nav() {
                   </motion.div>
                 );
               })}
+
+              {/* Contact — mailto link, never "active" */}
+              <motion.div
+                key="contact"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: navItems.length * 0.04 }}
+              >
+                <a
+                  href="mailto:email@a-xcc.com"
+                  onClick={() => setOpen(false)}
+                  data-testid="nav-contact"
+                  style={avenir}
+                  className={spanClass(false)}
+                >
+                  contact
+                </a>
+              </motion.div>
             </motion.nav>
           </>
         )}
