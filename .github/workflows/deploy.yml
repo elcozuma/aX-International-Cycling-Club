@@ -42,7 +42,7 @@ jobs:
         env:
           NODE_ENV: production
           PORT: "3000"
-          BASE_PATH: /${{ github.event.repository.name }}/
+          BASE_PATH: /
 
       - name: Inject build marker into index.html
         run: |
@@ -51,8 +51,10 @@ jobs:
           echo "First 5 lines of built index.html:"
           head -5 artifacts/axcc/dist/public/index.html
 
-      - name: Add .nojekyll
-        run: touch artifacts/axcc/dist/public/.nojekyll
+      - name: Add .nojekyll and SPA 404 fallback
+        run: |
+          touch artifacts/axcc/dist/public/.nojekyll
+          cp artifacts/axcc/dist/public/index.html artifacts/axcc/dist/public/404.html
 
       - name: Verify build output
         run: |
