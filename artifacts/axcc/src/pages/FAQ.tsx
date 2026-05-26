@@ -95,20 +95,12 @@ const sections: Section[] = [
         a: "Depending on the event format, optional luggage transfers between accommodation locations may be available through local logistics partners. Daily riding equipment should still be carried on the bike."
       },
       {
-        q: "Do we ride together all day?",
-        a: "Not necessarily. Some days the group may naturally stay together, while on other days riders may spread out depending on pace, route choices, stops and conditions. The atmosphere is intended to feel collaborative and social rather than tightly controlled."
-      },
-      {
         q: "What level of fitness is required?",
         a: ["Expeditions are physically demanding and require preparation. As a rough guide, you should already feel comfortable completing multiple long back-to-back rides over mixed terrain and significant climbing. Some events may include recommended benchmark distances or elevation targets.", "a-X event hosts are available to help with training plans and will monitor participants' progress in the months leading up to the event to help each rider make the most of their trip."]
       },
       {
         q: "Do I need previous bikepacking experience?",
         a: "No, but previous experience riding long distances and managing yourself on remote rides is highly recommended."
-      },
-      {
-        q: "What tyre setup / gear ratios are recommended?",
-        a: "Specific recommendations will be included within each event briefing."
       },
       {
         q: "What type of bike should I use?",
@@ -121,6 +113,10 @@ const sections: Section[] = [
       {
         q: "Can I rent a bike from a local provider?",
         a: ["Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved.", "a-X always recommends using your own bike that you are familiar with — travelling with a bicycle has never been easier and is often much cheaper than renting."]
+      },
+      {
+        q: "What tyre setup / gear ratios are recommended?",
+        a: "Specific recommendations will be included within each event briefing."
       },
       {
         q: "Are e-bikes allowed?",
@@ -151,12 +147,12 @@ const sections: Section[] = [
         a: "Not usually. Events are designed around self-sufficiency and unsupported riding, although optional logistics support may exist depending on the route and event format."
       },
       {
-        q: "Can I organise my own accommodation?",
-        a: "Usually yes. Where practical, participants are generally free to organise accommodation and logistics independently. Full accommodation information and recommendations will normally be provided before each event."
-      },
-      {
         q: "Are accommodation and meals included?",
         a: "This depends on the event. Some expeditions may include optional accommodation, meals or logistics packages via local partners, while others may operate on a more independent basis. Full details will always be included within the event information."
+      },
+      {
+        q: "Can I organise my own accommodation?",
+        a: "Usually yes. Where practical, participants are generally free to organise accommodation and logistics independently. Full accommodation information and recommendations will normally be provided before each event."
       },
       {
         q: "Are flights included?",
@@ -173,6 +169,10 @@ const sections: Section[] = [
       {
         q: "What happens if the weather or conditions become dangerous?",
         a: "Alternative routes or contingency plans may be suggested where possible if conditions become unsafe. However, participants are ultimately responsible for their own decisions, preparation and safety during each event and should always be prepared to adjust plans or abandon a route if necessary."
+      },
+      {
+        q: "Do we ride together all day?",
+        a: "Not necessarily. Some days the group may naturally stay together, while on other days riders may spread out depending on pace, route choices, stops and conditions. The atmosphere is intended to feel collaborative and social rather than tightly controlled."
       },
       {
         q: "What happens if I can't keep up?",
