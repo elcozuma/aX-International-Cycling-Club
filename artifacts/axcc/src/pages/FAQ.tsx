@@ -131,6 +131,10 @@ const sections: Section[] = [
         a: "Yes. Participants will normally receive GPX files, route information and event briefings before or during each expedition."
       },
       {
+        q: "How does resupply work?",
+        a: "Resupply arrangements vary depending on the event format and location. Some routes pass through towns or villages with shops, cafes or services along the way, while more remote events may require participants to carry more food and water between planned resupply points. Full resupply information, including any recommended carry capacities, will always be included within the event briefing."
+      },
+      {
         q: "Can I wear road cycling shoes?",
         a: "Potentially, but it depends on the route and your experience. Some off-road events may involve hike-a-bike sections, rough terrain, river crossings or extended periods off the bike where gravel or MTB-style shoes are significantly more practical. If an event is particularly technical or unsuitable for road-style footwear, this will be clearly stated within the event information."
       },
