@@ -79,20 +79,16 @@ const sections: Section[] = [
         a: "No. Events are intentionally designed around a degree of autonomy and self-sufficiency. Riders are expected to carry the equipment, food, water and clothing they need during each day of riding."
       },
       {
+        q: "Can I bikepack the route fully self-supported?",
+        a: "Usually yes. Most events are designed so riders can choose their own level of support and independence. Some events may even be specifically designed around fully self-supported bikepacking. Specific route information and recommended equipment setups will always be provided before each event."
+      },
+      {
         q: "What do event entry fees cover?",
         a: [
           "Event entry fees help cover the organisation, planning and hosting of each event rather than functioning as a traditional all-inclusive tour package.",
           "Depending on the event, fees may contribute towards route planning and reconnaissance, event hosting and coordination, GPX route files and rider briefings, community administration, and coordination with local logistics partners where available.",
           "Unless explicitly stated, participants should generally expect to organise and pay for their own flights, accommodation, food and drink, insurance, bike transport, mechanical costs, personal equipment, and any optional luggage transfer services."
         ]
-      },
-      {
-        q: "Can I bikepack the route fully self-supported?",
-        a: "Usually yes. Most events are designed so riders can choose their own level of support and independence. Some events may even be specifically designed around fully self-supported bikepacking. Specific route information and recommended equipment setups will always be provided before each event."
-      },
-      {
-        q: "Will my luggage be transported?",
-        a: "Depending on the event format, optional luggage transfers between accommodation locations may be available through local logistics partners. Daily riding equipment should still be carried on the bike."
       },
       {
         q: "What level of fitness is required?",
@@ -145,6 +141,10 @@ const sections: Section[] = [
       {
         q: "Is there a support vehicle?",
         a: "Not usually. Events are designed around self-sufficiency and unsupported riding, although optional logistics support may exist depending on the route and event format."
+      },
+      {
+        q: "Will my luggage be transported?",
+        a: "Depending on the event format, optional luggage transfers between accommodation locations may be available through local logistics partners. Daily riding equipment should still be carried on the bike."
       },
       {
         q: "Are accommodation and meals included?",
