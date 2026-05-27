@@ -1,10 +1,23 @@
+import { useEffect, useRef } from "react";
 import { Nav } from "@/components/Nav";
 
 export default function Home() {
+  const desktopRef = useRef<HTMLVideoElement>(null);
+  const mobileRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    [desktopRef.current, mobileRef.current].forEach((vid) => {
+      if (!vid) return;
+      vid.muted = true;
+      vid.play().catch(() => {});
+    });
+  }, []);
+
   return (
     <div className="relative min-h-[100dvh] w-full overflow-hidden bg-background text-foreground font-sans">
       {/* Video Background — desktop only */}
       <video
+        ref={desktopRef}
         autoPlay
         loop
         muted
@@ -15,6 +28,7 @@ export default function Home() {
 
       {/* Video Background — mobile only */}
       <video
+        ref={mobileRef}
         autoPlay
         loop
         muted
