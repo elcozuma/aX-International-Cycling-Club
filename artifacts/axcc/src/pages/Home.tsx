@@ -1,17 +1,38 @@
 import { useEffect, useRef } from "react";
 import { Nav } from "@/components/Nav";
 
+function useAutoplayVideo(ref: React.RefObject<HTMLVideoElement | null>) {
+  useEffect(() => {
+    const vid = ref.current;
+    if (!vid) return;
+
+    vid.muted = true;
+    vid.setAttribute("playsinline", "");
+    vid.setAttribute("webkit-playsinline", "");
+
+    const tryPlay = () => {
+      vid.play().catch(() => {});
+    };
+
+    vid.addEventListener("canplay", tryPlay, { once: true });
+    vid.addEventListener("loadedmetadata", tryPlay, { once: true });
+
+    vid.load();
+    tryPlay();
+
+    return () => {
+      vid.removeEventListener("canplay", tryPlay);
+      vid.removeEventListener("loadedmetadata", tryPlay);
+    };
+  }, [ref]);
+}
+
 export default function Home() {
   const desktopRef = useRef<HTMLVideoElement>(null);
   const mobileRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    [desktopRef.current, mobileRef.current].forEach((vid) => {
-      if (!vid) return;
-      vid.muted = true;
-      vid.play().catch(() => {});
-    });
-  }, []);
+  useAutoplayVideo(desktopRef);
+  useAutoplayVideo(mobileRef);
 
   return (
     <div className="relative min-h-[100dvh] w-full overflow-hidden bg-background text-foreground font-sans">
@@ -22,6 +43,7 @@ export default function Home() {
         loop
         muted
         playsInline
+        preload="auto"
         className="hidden md:block absolute inset-0 w-full h-full object-cover z-0"
         src={import.meta.env.BASE_URL + "hero.mp4"}
       />
@@ -33,6 +55,7 @@ export default function Home() {
         loop
         muted
         playsInline
+        preload="auto"
         className="home-mobile-video md:hidden absolute inset-0 w-full h-full object-cover z-0"
         style={{ transform: "translateZ(0)" }}
         src={import.meta.env.BASE_URL + "home-mobile.mp4"}
