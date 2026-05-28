@@ -1,5 +1,4 @@
 uploads = []
-outputs = []
 
 [[generated]]
 id = "Tovi7YnUVN06VT_tU3Gfa"
@@ -48,3 +47,9 @@ id = "a6YNpcjt4KRNy7rSBoMkZ"
 uri = "file://artifacts/axcc/public/page-bg.png"
 type = "image"
 title = "plain taupe olive wall background"
+
+[[outputs]]
+id = "rz6AuAWpJphRozQIZpzCJ"
+uri = "file://axcc-faq.txt"
+type = "text"
+title = "a-X Cycling Club — FAQ"
