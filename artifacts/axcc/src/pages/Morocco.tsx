@@ -38,12 +38,8 @@ const logistics: { q: string; a: string }[] = [
     a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders are required to book independently or camp where permitted. Recommendations and a list of options along the route will be provided in the event briefing."
   },
   {
-    q: "Are transfers to the start and from the finish included?",
-    a: "See 'How does the optional logistic support work?' above. Self-supported riders will need to arrange their own."
-  },
-  {
-    q: "If I take the optional logistics, when will we leave and return to Marrakech?",
-    a: "The meeting point on Day 0 (22nd March) is in Marrakech at 12pm. The return transfer from Taznacht will not arrive back in Marrakech until very late on 28th March. It is strongly advisable to book an extra night either side of the 7-day trip to allow for this."
+    q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
+    a: "Transfers are included in the optional logistics package. The outbound transfer departs Marrakech on Day 0 (22nd March) — meeting time is 12pm in Marrakech. The return transfer from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to the start and from the finish. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights and accommodation."
   },
   {
     q: "Is there a support vehicle during the riding days?",
