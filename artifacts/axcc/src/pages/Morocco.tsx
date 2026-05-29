@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
-import routeMap from "@assets/Image-45_1780095437884.png";
+import routeMap from "@assets/Image-46_1780095838048.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -78,6 +78,7 @@ export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openLogistic, setOpenLogistic] = useState<number | null>(null);
+  const [mapEnlarged, setMapEnlarged] = useState(false);
 
   const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
 
@@ -214,13 +215,21 @@ export default function Morocco() {
             className="mb-4"
           >
             <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
-            <div className="rounded-lg overflow-hidden border border-white/10">
+            <button
+              onClick={() => setMapEnlarged(true)}
+              className="w-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
+            >
               <img
                 src={routeMap}
                 alt="a-X Anti-Atlas Expedition route map"
                 className="w-full h-auto block"
               />
-            </div>
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white/80 text-[10px] uppercase tracking-widest px-3 py-1.5 rounded" style={rubikOne}>
+                  Click to enlarge
+                </span>
+              </div>
+            </button>
           </motion.div>
 
           {/* Day-by-day */}
@@ -583,5 +592,36 @@ export default function Morocco() {
         </div>
       </div>
     </div>
+
+    {/* Map lightbox */}
+    <AnimatePresence>
+      {mapEnlarged && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{ duration: 0.2 }}
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 cursor-zoom-out"
+          onClick={() => setMapEnlarged(false)}
+        >
+          <motion.img
+            initial={{ scale: 0.92, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            exit={{ scale: 0.92, opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            src={routeMap}
+            alt="a-X Anti-Atlas Expedition route map"
+            className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
+            onClick={e => e.stopPropagation()}
+          />
+          <button
+            onClick={() => setMapEnlarged(false)}
+            className="absolute top-4 right-4 text-white/60 hover:text-white/90 transition-colors text-2xl leading-none"
+          >
+            ✕
+          </button>
+        </motion.div>
+      )}
+    </AnimatePresence>
   );
 }
