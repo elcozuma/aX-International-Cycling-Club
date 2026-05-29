@@ -3,20 +3,16 @@ import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
 
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
-import slide04 from "@assets/IMG_5838_1780065776415.jpeg";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
-import slide09 from "@assets/IMG_5721_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 
 const slides: { src: string; objectPosition?: string }[] = [
   { src: slide02 },
-  { src: slide04 },
   { src: slide05 },
   { src: slide06 },
   { src: slide07 },
-  { src: slide09, objectPosition: "center 20%" },
   { src: slide12 },
 ];
 
@@ -180,7 +176,6 @@ export default function Morocco() {
               transition={{ delay: 0.5 }}
               className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"
             >
-              {/* Terrain & conditions */}
               <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
                 <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
                 <ul className="space-y-1" style={nunito}>
@@ -199,7 +194,6 @@ export default function Morocco() {
                 </ul>
               </div>
 
-              {/* Equipment */}
               <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
                 <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
                 <ul className="space-y-1" style={nunito}>
