@@ -27,7 +27,7 @@ const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 const logistics: { q: string; a: string }[] = [
   {
     q: "Who is this event for?",
-    a: "This event is for riders who want more than a marked sportive. It is a point-to-point journey through serious terrain — remote, raw and largely unridden — with a small group of like-minded people. Hosted and coordinated, but not hand-held. You should be comfortable riding long days in challenging conditions, making independent decisions on the bike, and carrying what you need. If you want to test yourself somewhere genuinely wild, ride routes that don't exist on Strava segments, and come home with a story worth telling, this event is for you."
+    a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people — organised enough that you can focus on riding, but self-sufficient enough that you'll actually feel like you earned it. If you're comfortable riding big days in unpredictable conditions and making your own calls on the bike, you'll fit right in."
   },
   {
     q: "What does the base event fee cover?",
