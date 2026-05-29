@@ -74,6 +74,7 @@ export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openLogistic, setOpenLogistic] = useState<number | null>(null);
+  const [openDocs, setOpenDocs] = useState(false);
 
   const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
 
@@ -194,10 +195,10 @@ export default function Morocco() {
             transition={{ delay: 0.4 }}
             className="mb-6 space-y-3"
           >
-            <p className="text-sm text-foreground/80 leading-relaxed" style={nunito}>
+            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
               Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine and the curiosity mutual.
             </p>
-            <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
+            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
               The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
             </p>
           </motion.div>
@@ -236,25 +237,26 @@ export default function Morocco() {
                 >
                   D0
                 </div>
-                <div className="flex-1 min-w-0 pt-1">
-                  <p className="text-xs text-foreground/70 leading-snug" style={rubikOne}>
+                <div className="flex-1 min-w-0 pt-0.5">
+                  <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>
                     Marrakech — Meet-up &amp; transfer to Anezi
                   </p>
                   <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
                     Transport to start included with logistics package only
                   </p>
                 </div>
+                <div className="flex-shrink-0 text-xs text-foreground/35 mt-0.5" style={nunito}>22 Mar</div>
               </div>
 
               {/* Days 1–6 */}
               {[
-                { day: 1, from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
-                { day: 2, from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
-                { day: 3, from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
-                { day: 4, from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
-                { day: 5, from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer back to Marrakech (logistics package)" },
-              ].map(({ day, from, to, km, elev, color, rest, note }) => (
+                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
+                { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
+                { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
+                { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
+                { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
+                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer back to Marrakech (logistics package)" },
+              ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
@@ -274,12 +276,15 @@ export default function Morocco() {
                       <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
                     )}
                   </div>
-                  {!rest && (
-                    <div className="flex-shrink-0 flex gap-3 text-right mt-0.5" style={nunito}>
-                      <span className="text-xs text-foreground/60">{km}km</span>
-                      <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
-                    </div>
-                  )}
+                  <div className="flex-shrink-0 flex flex-col items-end gap-1 mt-0.5" style={nunito}>
+                    <span className="text-[10px] text-foreground/35">{date}</span>
+                    {!rest && (
+                      <div className="flex gap-2">
+                        <span className="text-xs text-foreground/60">{km}km</span>
+                        <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
+                      </div>
+                    )}
+                  </div>
                 </div>
               ))}
             </div>
@@ -318,7 +323,7 @@ export default function Morocco() {
                   "Tubeless setup strongly recommended",
                   "GPS navigation device",
                   "Layering for heat and cold",
-                  "Helmet mandatory · E-bikes not permitted",
+                  "Helmet & lights mandatory · E-bikes not permitted",
                 ].map(item => (
                   <li key={item} className="text-xs text-foreground/65 flex gap-2">
                     <span className="text-accent/60 mt-0.5">—</span>
@@ -343,7 +348,7 @@ export default function Morocco() {
               <div className="rounded-xl border border-white/15 bg-black/40 px-6 py-6">
                 <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>Self-Supported</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€400</p>
-                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee · Flights not included</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee</p>
                 <ul className="space-y-1.5" style={nunito}>
                   {[
                     "Route planning & reconnaissance",
@@ -356,9 +361,6 @@ export default function Morocco() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-accent/60 mt-4 italic" style={nunito}>
-                  50% off next a-X expedition when you sign up for this one.
-                </p>
               </div>
 
               {/* With logistics */}
@@ -371,19 +373,23 @@ export default function Morocco() {
                 </div>
                 <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€600–€1,000</p>
-                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee + logistics · Flights not included</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — based on participant numbers &amp; accommodation choices</p>
                 <ul className="space-y-1.5" style={nunito}>
+                  <li className="text-xs text-foreground/60 flex gap-2">
+                    <span className="text-accent/50 mt-0.5">✓</span>Everything included in Self Supported option PLUS
+                  </li>
                   {[
-                    "Everything in self-supported",
                     "Luggage transfers between stops",
                     "Transfer from Marrakech to start",
-                    "Transfer from finish to Marrakech",
-                    "Via local delivery partner",
+                    "Transfer from finish to Marrakech (all booked via local delivery partner)",
                   ].map(item => (
-                    <li key={item} className="text-xs text-foreground/60 flex gap-2">
+                    <li key={item} className="text-xs text-foreground/60 flex gap-2 pl-4">
                       <span className="text-accent/50 mt-0.5">✓</span>{item}
                     </li>
                   ))}
+                  <li className="text-xs text-foreground/40 flex gap-2 pl-4 italic" style={nunito}>
+                    <span className="mt-0.5">*</span>Includes your €200 accommodation allowance (to be organised separately)
+                  </li>
                 </ul>
                 <p className="text-[10px] text-foreground/35 mt-4 italic" style={nunito}>
                   Full logistics breakdown shared with registered participants.
@@ -453,7 +459,7 @@ export default function Morocco() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="text-xs text-foreground/40 leading-relaxed italic mb-10 max-w-2xl"
+            className="text-xs text-foreground/40 italic mb-10"
             style={nunito}
           >
             This is not a luxury guided tour. Participants make independent decisions, ride at their own pace and support one another where possible. Self-sufficiency is expected and adventure is the point.
@@ -480,44 +486,71 @@ export default function Morocco() {
             </p>
           </motion.div>
 
-          {/* T&Cs + Waiver */}
+          {/* Event Documentation dropdown */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.7 }}
-            className="flex flex-col sm:flex-row gap-3 mb-6"
+            className="mb-6 rounded-lg border border-white/10 overflow-hidden"
           >
-            <a
-              href={import.meta.env.BASE_URL + "a-X-Event-TCs.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group"
-              style={nunito}
+            <button
+              onClick={() => setOpenDocs(d => !d)}
+              className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-white/5 transition-colors"
             >
-              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-              </svg>
-              <div>
-                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
-                <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
-              </div>
-            </a>
-
-            <a
-              href={import.meta.env.BASE_URL + "a-X-Waiver.pdf"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group"
-              style={nunito}
-            >
-              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-              </svg>
-              <div>
-                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
-                <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
-              </div>
-            </a>
+              <span className="text-sm text-foreground/90" style={rubikOne}>Event Documentation</span>
+              <motion.span
+                animate={{ rotate: openDocs ? 45 : 0 }}
+                transition={{ duration: 0.2 }}
+                className={["flex-shrink-0 text-lg leading-none transition-colors", openDocs ? "text-accent" : "text-foreground/40"].join(" ")}
+              >
+                +
+              </motion.span>
+            </button>
+            <AnimatePresence initial={false}>
+              {openDocs && (
+                <motion.div
+                  key="docs"
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.22 }}
+                  className="overflow-hidden"
+                >
+                  <div className="flex flex-col sm:flex-row gap-3 px-4 pb-4 pt-1">
+                    <a
+                      href={import.meta.env.BASE_URL + "a-X-Event-TCs.pdf"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
+                      style={nunito}
+                    >
+                      <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                      </svg>
+                      <div>
+                        <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
+                        <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
+                      </div>
+                    </a>
+                    <a
+                      href={import.meta.env.BASE_URL + "a-X-Waiver.pdf"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
+                      style={nunito}
+                    >
+                      <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                      </svg>
+                      <div>
+                        <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
+                        <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
+                      </div>
+                    </a>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
 
           {/* Mobile logo */}
