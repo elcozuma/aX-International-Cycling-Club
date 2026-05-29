@@ -363,12 +363,12 @@ export default function Morocco() {
               </div>
 
               {/* With logistics */}
-              <div className="rounded-xl border border-accent/40 bg-black/40 px-6 py-6 relative">
+              <div className="rounded-xl border border-accent/70 bg-accent/8 px-6 py-6 relative shadow-[0_0_36px_-4px_rgba(137,152,42,0.45)]">
                 <div
-                  className="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-accent border border-accent/40 rounded px-2 py-0.5"
+                  className="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-background bg-accent rounded px-2 py-0.5"
                   style={rubikOne}
                 >
-                  Popular
+                  Recommended
                 </div>
                 <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€600–€1,000</p>
