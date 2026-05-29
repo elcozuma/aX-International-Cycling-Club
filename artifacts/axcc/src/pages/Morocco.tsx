@@ -2,26 +2,22 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion } from "framer-motion";
 
-import slide01 from "@assets/IMG_5732_1780065776415.jpeg";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
-import slide03 from "@assets/a-X_Website-8_1780065568271.png";
 import slide04 from "@assets/IMG_5838_1780065776415.jpeg";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
-import slide08 from "@assets/IMG_5814_1780065776415.jpeg";
 import slide09 from "@assets/IMG_5721_1780065776415.jpeg";
-import slide10 from "@assets/a-X_Website-6_1780065568271.png";
-import slide11 from "@assets/IMG_5794_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
-import slide13 from "@assets/IMG_5770_1780065776415.jpeg";
-import slide14 from "@assets/IMG_5968_1780065776415.jpeg";
-import slide15 from "@assets/a-X_Website-5_1780065568271.png";
 
-const slides = [
-  slide01, slide02, slide03, slide04, slide05,
-  slide06, slide07, slide08, slide09, slide10,
-  slide11, slide12, slide13, slide14, slide15,
+const slides: { src: string; objectPosition?: string }[] = [
+  { src: slide02 },
+  { src: slide04 },
+  { src: slide05 },
+  { src: slide06 },
+  { src: slide07 },
+  { src: slide09, objectPosition: "center 20%" },
+  { src: slide12 },
 ];
 
 const SLIDE_INTERVAL = 4500;
@@ -76,22 +72,26 @@ export default function Morocco() {
             onMouseEnter={() => setPaused(true)}
             onMouseLeave={() => setPaused(false)}
           >
-            {slides.map((src, i) => (
+            {slides.map((slide, i) => (
               <img
                 key={i}
-                src={src}
+                src={slide.src}
                 alt=""
                 aria-hidden="true"
                 className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 select-none pointer-events-none"
                 style={{
                   opacity: i === current ? 1 : 0,
                   filter: imgFilter,
+                  objectPosition: slide.objectPosition ?? "center center",
                 }}
               />
             ))}
 
             {/* Warm tone overlay */}
-            <div className="absolute inset-0 pointer-events-none" style={{ background: "rgba(90,40,10,0.10)", mixBlendMode: "overlay" }} />
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{ background: "rgba(90,40,10,0.10)", mixBlendMode: "overlay" }}
+            />
 
             {/* Bottom gradient + title */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pt-12 pb-4 px-6 md:px-8">
@@ -99,8 +99,8 @@ export default function Morocco() {
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.15 }}
-                className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent mb-1"
-                style={rubikOne}
+                className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
+                style={{ ...rubikOne, background: "rgba(30,18,8,0.55)" }}
               >
                 Hosted Expedition · Southern Morocco
               </motion.p>
