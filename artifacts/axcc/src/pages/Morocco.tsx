@@ -389,7 +389,7 @@ export default function Morocco() {
                       "Transfer from finish to Marrakech",
                     ].map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
-                        <span className="text-accent/50 mt-0.5">✓</span>{item}
+                        <span className="text-white/25 mt-0.5 font-mono text-[10px]">{`{}`}</span>{item}
                       </li>
                     ))}
                   </ul>
