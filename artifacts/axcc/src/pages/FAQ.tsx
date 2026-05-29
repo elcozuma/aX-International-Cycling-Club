@@ -49,6 +49,10 @@ const sections: Section[] = [
         q: "Is this racing?",
         a: "No. The emphasis is on exploration, challenge and shared experience rather than competition."
       },
+      {
+        q: "Who hosts the rides and events?",
+        a: "Events are hosted by experienced endurance and adventure cyclists with first-hand knowledge of the routes and riding style involved. The aim is not to provide a luxury guided tour, but to empower participants to curate their own memorable riding experiences built around autonomy, challenge and shared adventure."
+      },
     ]
   },
   {
@@ -83,8 +87,16 @@ const sections: Section[] = [
         a: "Ideally yes. Riders should be capable of independently following GPX files using a GPS device or phone setup."
       },
       {
+        q: "How does resupply work?",
+        a: "Resupply arrangements vary depending on the event format and location. Some routes pass through towns or villages with shops, cafes or services along the way, while more remote events may require participants to carry more food and water between planned resupply points. Full resupply information, including any recommended carry capacities, will always be included within the event briefing."
+      },
+      {
         q: "Is there mechanical support?",
         a: "Riders are expected to remain largely self-sufficient and carry their own tools and spares."
+      },
+      {
+        q: "Is there a support vehicle?",
+        a: "Not usually. Events are designed around self-sufficiency and unsupported riding, although optional logistics support may exist depending on the route and event format."
       },
       {
         q: "Will luggage transfers exist?",
@@ -95,8 +107,24 @@ const sections: Section[] = [
         a: "Usually not unless explicitly stated."
       },
       {
+        q: "Are rider / bike transfers included?",
+        a: "Sometimes. Certain events — particularly those with remote start or finish locations — may offer optional in-region rider and bike transfers through local logistics partners."
+      },
+      {
+        q: "Do I need travel insurance?",
+        a: "For international events, travel insurance is typically compulsory and should include appropriate medical cover and emergency repatriation."
+      },
+      {
+        q: "What happens if the weather or conditions become dangerous?",
+        a: "Alternative routes or contingency plans may be suggested where possible if conditions become unsafe. However, participants are ultimately responsible for their own decisions, preparation and safety during each event and should always be prepared to adjust plans or abandon a route if necessary."
+      },
+      {
         q: "Do we ride together all day?",
         a: "Not necessarily. The atmosphere is intended to feel collaborative and social rather than tightly controlled."
+      },
+      {
+        q: "What happens if I decide to leave the event early?",
+        a: "Participants are responsible for arranging their own alternative transport, accommodation or onward travel should they choose to leave the event early."
       },
       {
         q: "Why are group sizes small?",
