@@ -184,7 +184,6 @@ export default function Morocco() {
                     "Technical descents & steep climbing",
                     "Hike-a-bike & river crossings",
                     "Extreme heat / cold nights at altitude",
-                    "Limited phone signal & internet",
                   ].map(item => (
                     <li key={item} className="text-xs text-foreground/65 flex gap-2">
                       <span className="text-accent/60 mt-0.5">—</span>
