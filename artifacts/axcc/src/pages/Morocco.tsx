@@ -42,6 +42,10 @@ const logistics: { q: string; a: string }[] = [
     a: "See 'How does the optional logistic support work?' above. Self-supported riders will need to arrange their own."
   },
   {
+    q: "If I take the optional logistics, when will we leave and return to Marrakech?",
+    a: "The meeting point on Day 0 (22nd March) is in Marrakech at 12pm. The return transfer from Taznacht will not arrive back in Marrakech until very late on 28th March. It is strongly advisable to book an extra night either side of the 7-day trip to allow for this."
+  },
+  {
     q: "Is there a support vehicle during the riding days?",
     a: "No. The event is designed around self-sufficiency and there is no trailing support vehicle. Riders are expected to carry what they need for the day or plan resupply around towns and villages along the route."
   },
