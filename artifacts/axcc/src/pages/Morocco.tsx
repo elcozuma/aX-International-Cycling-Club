@@ -27,7 +27,7 @@ const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 const logistics: { q: string; a: string }[] = [
   {
     q: "Who is this event for?",
-    a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people — organised enough that you can focus on riding, but self-sufficient enough that you'll actually feel like you earned it. If you're comfortable riding big days in unpredictable conditions and making your own calls on the bike, you'll fit right in."
+    a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format — a well-researched route, GPX files, a host and a group around you — gives you a solid platform to push your limits without going it completely alone. If you're an experienced rider, the appeal is a thoughtfully curated route you didn't have to spend months planning, plus the option to add logistics support so you can focus on riding rather than logistics. Either way, you'll be in good company."
   },
   {
     q: "What does the base event fee cover?",
