@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
-import routeMap from "@assets/863c958b-358f-4ef5-8347-7c913d6ddd7b-2_1780077585377.png";
+import routeMap from "@assets/Image-40_1780078098554.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -84,9 +84,9 @@ export default function Morocco() {
   }, [paused, next]);
 
   return (
-    <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans bg-black">
+    <div className="relative min-h-[100dvh] w-full text-foreground font-sans bg-black">
       <div
-        className="hidden md:block absolute inset-0 z-0"
+        className="hidden md:block fixed inset-0 z-0"
         style={{
           backgroundImage: `url(${import.meta.env.BASE_URL}page-bg-v2.png)`,
           backgroundSize: "cover",
@@ -95,360 +95,440 @@ export default function Morocco() {
       />
       <Nav />
 
-      <div className="absolute inset-6 md:inset-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col">
+      <div className="relative z-10 mx-6 md:mx-10 mb-6 md:mb-10 bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden">
 
-          {/* ── SLIDESHOW ── */}
-          <div
-            className="relative flex-shrink-0 overflow-hidden"
-            style={{ height: "48%" }}
-            onMouseEnter={() => setPaused(true)}
-            onMouseLeave={() => setPaused(false)}
-          >
-            {slides.map((slide, i) => (
-              <img
-                key={i}
-                src={slide.src}
-                alt=""
-                aria-hidden="true"
-                className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 select-none pointer-events-none"
-                style={{
-                  opacity: i === current ? 1 : 0,
-                  filter: imgFilter,
-                  objectPosition: slide.objectPosition ?? "center center",
-                }}
-              />
-            ))}
-
-            {/* Warm tone overlay */}
-            <div
-              className="absolute inset-0 pointer-events-none"
-              style={{ background: "rgba(90,40,10,0.10)", mixBlendMode: "overlay" }}
+        {/* ── SLIDESHOW ── */}
+        <div
+          className="relative overflow-hidden"
+          style={{ height: "55vh", minHeight: "260px" }}
+          onMouseEnter={() => setPaused(true)}
+          onMouseLeave={() => setPaused(false)}
+        >
+          {slides.map((slide, i) => (
+            <img
+              key={i}
+              src={slide.src}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 select-none pointer-events-none"
+              style={{
+                opacity: i === current ? 1 : 0,
+                filter: imgFilter,
+                objectPosition: slide.objectPosition ?? "center center",
+              }}
             />
+          ))}
 
-            {/* Bottom gradient + title */}
-            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pt-12 pb-4 px-6 md:px-8">
-              <motion.p
-                initial={{ opacity: 0, y: 8 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.15 }}
-                className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
-                style={{ ...rubikOne, background: "rgba(30,18,8,0.55)" }}
-              >
-                Hosted Expedition · Southern Morocco
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.25 }}
-                className="text-xl md:text-3xl lg:text-4xl text-white leading-tight"
-                style={rubikOne}
-              >
-                ANTI-ATLAS
-              </motion.h1>
-            </div>
+          <div
+            className="absolute inset-0 pointer-events-none"
+            style={{ background: "rgba(90,40,10,0.10)", mixBlendMode: "overlay" }}
+          />
 
-            {/* Slide dots */}
-            <div className="absolute bottom-3 right-5 flex gap-1.5">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => { setCurrent(i); setPaused(true); }}
-                  className="rounded-full transition-all duration-300 cursor-pointer"
-                  style={{
-                    width:  i === current ? "16px" : "5px",
-                    height: "5px",
-                    background: i === current ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
-                  }}
-                  aria-label={`Slide ${i + 1}`}
-                />
-              ))}
-            </div>
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent pt-12 pb-4 px-6 md:px-8">
+            <motion.p
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.15 }}
+              className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
+              style={{ ...rubikOne, background: "rgba(30,18,8,0.55)" }}
+            >
+              Hosted Expedition · Southern Morocco
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.25 }}
+              className="text-xl md:text-3xl lg:text-4xl text-white leading-tight"
+              style={rubikOne}
+            >
+              ANTI-ATLAS
+            </motion.h1>
           </div>
 
-          {/* ── DETAILS ── */}
-          <div className="relative z-[1] flex-1 overflow-y-auto px-6 md:px-10 pt-5 pb-10">
+          <div className="absolute bottom-3 right-5 flex gap-1.5">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => { setCurrent(i); setPaused(true); }}
+                className="rounded-full transition-all duration-300 cursor-pointer"
+                style={{
+                  width:  i === current ? "16px" : "5px",
+                  height: "5px",
+                  background: i === current ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
+                }}
+                aria-label={`Slide ${i + 1}`}
+              />
+            ))}
+          </div>
+        </div>
 
-            {/* Logo desktop */}
+        {/* ── CONTENT ── */}
+        <div className="relative px-6 md:px-10 pt-5 pb-14">
+
+          {/* Logo desktop */}
+          <img
+            src={import.meta.env.BASE_URL + "ax-logo.png"}
+            alt="a-X"
+            className="hidden lg:block absolute bottom-4 right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none"
+          />
+
+          {/* Stats row */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3 }}
+            className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/8 rounded-lg overflow-hidden mb-6 border border-white/10"
+          >
+            {stats.map(({ label, value }) => (
+              <div key={label} className="bg-black/40 flex flex-col items-center justify-center py-2.5 px-1 text-center">
+                <span className="text-[9px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
+                <span className="text-[11px] md:text-xs font-semibold text-white" style={rubikOne}>{value}</span>
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Description */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="mb-6 space-y-3"
+          >
+            <p className="text-sm text-foreground/80 leading-relaxed" style={nunito}>
+              Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine and the curiosity mutual.
+            </p>
+            <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
+              The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
+            </p>
+          </motion.div>
+
+          {/* Route map */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45 }}
+            className="mb-4"
+          >
+            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+            <div className="rounded-lg overflow-hidden border border-white/10">
+              <img
+                src={routeMap}
+                alt="a-X Anti-Atlas Expedition route map"
+                className="w-full h-auto block"
+              />
+            </div>
+          </motion.div>
+
+          {/* Day-by-day */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.48 }}
+            className="mb-8"
+          >
+            <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
+
+              {/* Day 0 */}
+              <div className="flex items-start gap-3 px-4 py-3 bg-black/20">
+                <div
+                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold border border-white/20 text-white/50"
+                  style={rubikOne}
+                >
+                  D0
+                </div>
+                <div className="flex-1 min-w-0 pt-1">
+                  <p className="text-xs text-foreground/70 leading-snug" style={rubikOne}>
+                    Marrakech — Meet-up &amp; transfer to Anezi
+                  </p>
+                  <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
+                    Transport to start included with logistics package only
+                  </p>
+                </div>
+              </div>
+
+              {/* Days 1–6 */}
+              {[
+                { day: 1, from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
+                { day: 2, from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
+                { day: 3, from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
+                { day: 4, from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
+                { day: 5, from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
+                { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer back to Marrakech (logistics package)" },
+              ].map(({ day, from, to, km, elev, color, rest, note }) => (
+                <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
+                  <div
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
+                    style={{ ...rubikOne, background: color }}
+                  >
+                    D{day}
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    {rest ? (
+                      <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>Rest Day</p>
+                    ) : (
+                      <p className="text-sm text-foreground/90 leading-snug" style={rubikOne}>
+                        {from} <span className="text-foreground/40 mx-1">→</span> {to}
+                      </p>
+                    )}
+                    {note && (
+                      <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
+                    )}
+                  </div>
+                  {!rest && (
+                    <div className="flex-shrink-0 flex gap-3 text-right mt-0.5" style={nunito}>
+                      <span className="text-xs text-foreground/60">{km}km</span>
+                      <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Two-col info blocks */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
+          >
+            <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
+              <ul className="space-y-1" style={nunito}>
+                {[
+                  "~50% road / ~50% gravel & piste",
+                  "Technical descents & steep climbing",
+                  "Hike-a-bike & river crossings",
+                  "Extreme heat / cold nights at altitude",
+                ].map(item => (
+                  <li key={item} className="text-xs text-foreground/65 flex gap-2">
+                    <span className="text-accent/60 mt-0.5">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
+              <ul className="space-y-1" style={nunito}>
+                {[
+                  "Gravel or adventure bike",
+                  "Low climbing gears",
+                  "Tubeless setup strongly recommended",
+                  "GPS navigation device",
+                  "Layering for heat and cold",
+                  "Helmet mandatory · E-bikes not permitted",
+                ].map(item => (
+                  <li key={item} className="text-xs text-foreground/65 flex gap-2">
+                    <span className="text-accent/60 mt-0.5">—</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </motion.div>
+
+          {/* ── PRICING ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.52 }}
+            className="mb-8"
+          >
+            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-4" style={rubikOne}>Entry & Pricing</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+              {/* Self-supported */}
+              <div className="rounded-xl border border-white/15 bg-black/40 px-6 py-6">
+                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>Self-Supported</p>
+                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€400</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee · Flights not included</p>
+                <ul className="space-y-1.5" style={nunito}>
+                  {[
+                    "Route planning & reconnaissance",
+                    "GPX files",
+                    "Host & group coordination",
+                    "Event administration",
+                  ].map(item => (
+                    <li key={item} className="text-xs text-foreground/60 flex gap-2">
+                      <span className="text-accent/50 mt-0.5">✓</span>{item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[10px] text-accent/60 mt-4 italic" style={nunito}>
+                  50% off next a-X expedition when you sign up for this one.
+                </p>
+              </div>
+
+              {/* With logistics */}
+              <div className="rounded-xl border border-accent/40 bg-black/40 px-6 py-6 relative">
+                <div
+                  className="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-accent border border-accent/40 rounded px-2 py-0.5"
+                  style={rubikOne}
+                >
+                  Popular
+                </div>
+                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
+                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€600–€1,000</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee + logistics · Flights not included</p>
+                <ul className="space-y-1.5" style={nunito}>
+                  {[
+                    "Everything in self-supported",
+                    "Luggage transfers between stops",
+                    "Transfer from Marrakech to start",
+                    "Transfer from finish to Marrakech",
+                    "Via local delivery partner",
+                  ].map(item => (
+                    <li key={item} className="text-xs text-foreground/60 flex gap-2">
+                      <span className="text-accent/50 mt-0.5">✓</span>{item}
+                    </li>
+                  ))}
+                </ul>
+                <p className="text-[10px] text-foreground/35 mt-4 italic" style={nunito}>
+                  Full logistics breakdown shared with registered participants.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Logistics accordion */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.6 }}
+            className="mb-8"
+          >
+            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
+            <div className="rounded-lg border border-white/15 overflow-hidden divide-y divide-white/10">
+              {logistics.map((item, i) => {
+                const isOpen = openLogistic === i;
+                return (
+                  <div key={i} className={isOpen ? "bg-white/5" : ""}>
+                    <button
+                      onClick={() => setOpenLogistic(isOpen ? null : i)}
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
+                    >
+                      <span
+                        className={[
+                          "text-sm leading-snug pr-4 transition-colors",
+                          isOpen ? "text-accent" : "text-foreground/90"
+                        ].join(" ")}
+                        style={rubikOne}
+                      >
+                        {item.q}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
+                      >
+                        +
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="answer"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          className="overflow-hidden"
+                        >
+                          <p className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
+                            {item.a}
+                          </p>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
+          {/* Philosophy note */}
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="text-xs text-foreground/40 leading-relaxed italic mb-10 max-w-2xl"
+            style={nunito}
+          >
+            This is not a luxury guided tour. Participants make independent decisions, ride at their own pace and support one another where possible. Self-sufficiency is expected and adventure is the point.
+          </motion.p>
+
+          {/* ── CTA ── */}
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.65 }}
+            className="mb-8"
+          >
+            <a
+              href={FORM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="block w-full py-5 text-center bg-accent text-background hover:bg-accent/85 transition-colors uppercase rounded-xl text-base tracking-widest"
+              style={rubikOne}
+            >
+              EXPRESS INTEREST
+            </a>
+            <p className="text-center text-[10px] text-foreground/35 mt-2" style={nunito}>
+              No payment required — we'll be in touch with full details.
+            </p>
+          </motion.div>
+
+          {/* T&Cs + Waiver */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.7 }}
+            className="flex flex-col sm:flex-row gap-3 mb-6"
+          >
+            <a
+              href={import.meta.env.BASE_URL + "a-X-Event-TCs.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group"
+              style={nunito}
+            >
+              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+              <div>
+                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
+                <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
+              </div>
+            </a>
+
+            <a
+              href={import.meta.env.BASE_URL + "a-X-Waiver.pdf"}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group"
+              style={nunito}
+            >
+              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+              </svg>
+              <div>
+                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
+                <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
+              </div>
+            </a>
+          </motion.div>
+
+          {/* Mobile logo */}
+          <div className="lg:hidden flex justify-center pt-4 pb-2">
             <img
               src={import.meta.env.BASE_URL + "ax-logo.png"}
               alt="a-X"
-              className="hidden lg:block absolute -bottom-2 right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none"
+              className="h-16 w-auto opacity-60 pointer-events-none select-none"
             />
-
-            {/* Stats row */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.3 }}
-              className="grid grid-cols-3 md:grid-cols-6 gap-px bg-white/8 rounded-lg overflow-hidden mb-6 border border-white/10"
-            >
-              {stats.map(({ label, value }) => (
-                <div key={label} className="bg-black/40 flex flex-col items-center justify-center py-2.5 px-1 text-center">
-                  <span className="text-[9px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
-                  <span className="text-[11px] md:text-xs font-semibold text-white" style={rubikOne}>{value}</span>
-                </div>
-              ))}
-            </motion.div>
-
-            {/* Description */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
-              className="mb-6 space-y-3"
-            >
-              <p className="text-sm text-foreground/80 leading-relaxed" style={nunito}>
-                Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine and the curiosity mutual.
-              </p>
-              <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
-                The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
-              </p>
-            </motion.div>
-
-            {/* Route map */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-              className="mb-4"
-            >
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
-              <div className="rounded-lg overflow-hidden border border-white/10">
-                <img
-                  src={routeMap}
-                  alt="a-X Anti-Atlas Expedition route map"
-                  className="w-full h-auto block"
-                />
-              </div>
-            </motion.div>
-
-            {/* Day-by-day */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.48 }}
-              className="mb-6"
-            >
-              <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
-
-                {/* Day 0 */}
-                <div className="flex items-start gap-3 px-4 py-3 bg-black/20">
-                  <div
-                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold border border-white/20 text-white/50"
-                    style={rubikOne}
-                  >
-                    D0
-                  </div>
-                  <div className="flex-1 min-w-0 pt-1">
-                    <p className="text-xs text-foreground/70 leading-snug" style={rubikOne}>
-                      Marrakech — Meet-up &amp; transfer to Anezi
-                    </p>
-                    <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
-                      Transport to start included with logistics package only
-                    </p>
-                  </div>
-                </div>
-
-                {/* Days 1–6 */}
-                {[
-                  { day: 1, from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
-                  { day: 2, from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
-                  { day: 3, from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
-                  { day: 4, from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
-                  { day: 5, from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                  { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer back to Marrakech (logistics package)" },
-                ].map(({ day, from, to, km, elev, color, rest, note }) => (
-                  <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
-                    <div
-                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
-                      style={{ ...rubikOne, background: color }}
-                    >
-                      D{day}
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      {rest ? (
-                        <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>Rest Day</p>
-                      ) : (
-                        <p className="text-sm text-foreground/90 leading-snug" style={rubikOne}>
-                          {from} <span className="text-foreground/40 mx-1">→</span> {to}
-                        </p>
-                      )}
-                      {note && (
-                        <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
-                      )}
-                    </div>
-                    {!rest && (
-                      <div className="flex-shrink-0 flex gap-3 text-right mt-0.5" style={nunito}>
-                        <span className="text-xs text-foreground/60">{km}km</span>
-                        <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Two-col info blocks */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6"
-            >
-              <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-                <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
-                <ul className="space-y-1" style={nunito}>
-                  {[
-                    "~50% road / ~50% gravel & piste",
-                    "Technical descents & steep climbing",
-                    "Hike-a-bike & river crossings",
-                    "Extreme heat / cold nights at altitude",
-                  ].map(item => (
-                    <li key={item} className="text-xs text-foreground/65 flex gap-2">
-                      <span className="text-accent/60 mt-0.5">—</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-                <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
-                <ul className="space-y-1" style={nunito}>
-                  {[
-                    "Gravel or adventure bike",
-                    "Low climbing gears",
-                    "Tubeless setup strongly recommended",
-                    "GPS navigation device",
-                    "Layering for heat and cold",
-                    "Helmet mandatory · E-bikes not permitted",
-                  ].map(item => (
-                    <li key={item} className="text-xs text-foreground/65 flex gap-2">
-                      <span className="text-accent/60 mt-0.5">—</span>
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </motion.div>
-
-            {/* Cost */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.55 }}
-              className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5 mb-6"
-            >
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Entry & Costs</h3>
-              <div className="flex flex-col sm:flex-row gap-3" style={nunito}>
-                <div className="flex-1">
-                  <p className="text-xs font-semibold text-white">€400 — Event Fee (self-supported)</p>
-                  <p className="text-[10px] text-foreground/45 mt-0.5">Flights not included</p>
-                </div>
-                <div className="hidden sm:block w-px bg-white/10" />
-                <div className="flex-1">
-                  <p className="text-xs font-semibold text-white">€600–€1,000 — Event Fee + Logistics</p>
-                  <p className="text-[10px] text-foreground/45 mt-0.5">Optional accommodation &amp; transfer packages via local partner</p>
-                </div>
-              </div>
-              <p className="text-[10px] text-accent/70 mt-2 italic" style={nunito}>Sign up for this event and receive 50% off the entry fee for the next a-X expedition.</p>
-            </motion.div>
-
-            {/* Logistics accordion */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="mb-6"
-            >
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
-              <div className="rounded-lg border border-white/15 overflow-hidden divide-y divide-white/10">
-                {logistics.map((item, i) => {
-                  const isOpen = openLogistic === i;
-                  return (
-                    <div key={i} className={isOpen ? "bg-white/5" : ""}>
-                      <button
-                        onClick={() => setOpenLogistic(isOpen ? null : i)}
-                        className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
-                      >
-                        <span
-                          className={[
-                            "text-sm leading-snug pr-4 transition-colors",
-                            isOpen ? "text-accent" : "text-foreground/90"
-                          ].join(" ")}
-                          style={rubikOne}
-                        >
-                          {item.q}
-                        </span>
-                        <motion.span
-                          animate={{ rotate: isOpen ? 45 : 0 }}
-                          transition={{ duration: 0.2 }}
-                          className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
-                        >
-                          +
-                        </motion.span>
-                      </button>
-                      <AnimatePresence initial={false}>
-                        {isOpen && (
-                          <motion.div
-                            key="answer"
-                            initial={{ height: 0, opacity: 0 }}
-                            animate={{ height: "auto", opacity: 1 }}
-                            exit={{ height: 0, opacity: 0 }}
-                            transition={{ duration: 0.22 }}
-                            className="overflow-hidden"
-                          >
-                            <p className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
-                              {item.a}
-                            </p>
-                          </motion.div>
-                        )}
-                      </AnimatePresence>
-                    </div>
-                  );
-                })}
-              </div>
-            </motion.div>
-
-            {/* Philosophy note */}
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.6 }}
-              className="text-xs text-foreground/40 leading-relaxed italic mb-6"
-              style={nunito}
-            >
-              This is not a luxury guided tour. Participants make independent decisions, ride at their own pace and support one another where possible. Self-sufficiency is expected and adventure is the point.
-            </motion.p>
-
-            {/* CTA */}
-            <motion.div
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.65 }}
-            >
-              <a
-                href={FORM_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block py-2.5 px-8 border border-accent/70 text-accent hover:bg-accent hover:text-background transition-colors uppercase text-xs rounded tracking-widest"
-                style={rubikOne}
-              >
-                EXPRESS INTEREST
-              </a>
-            </motion.div>
-
-            {/* Mobile logo */}
-            <div className="lg:hidden flex justify-center pt-8 pb-2">
-              <img
-                src={import.meta.env.BASE_URL + "ax-logo.png"}
-                alt="a-X"
-                className="h-16 w-auto opacity-60 pointer-events-none select-none"
-              />
-            </div>
-
           </div>
+
         </div>
       </div>
     </div>

@@ -32,8 +32,8 @@ export default function Events() {
       <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}page-bg-v2.png)`, backgroundSize: "cover", backgroundPosition: "center" }} />
       <Nav />
 
-      <div className="absolute top-0 left-6 right-6 bottom-6 md:left-10 md:right-10 md:bottom-10 z-10">
-        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-b-xl overflow-hidden flex flex-col">
+      <div className="absolute inset-6 md:inset-10 z-10">
+        <div className="relative w-full h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col">
 
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
@@ -41,7 +41,7 @@ export default function Events() {
             className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden"
           />
 
-          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-16 md:pt-14 pb-12">
+          <div className="relative z-[1] flex-1 overflow-y-auto px-8 md:px-12 pt-5 md:pt-6 pb-12">
 
             {/* Club Rides */}
             <motion.div
