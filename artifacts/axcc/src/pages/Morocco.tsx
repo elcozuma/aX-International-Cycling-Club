@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
+import routeMap from "@assets/863c958b-358f-4ef5-8347-7c913d6ddd7b-2_1780077585377.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -203,6 +204,86 @@ export default function Morocco() {
               <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
                 The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
               </p>
+            </motion.div>
+
+            {/* Route map */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="mb-4"
+            >
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+              <div className="rounded-lg overflow-hidden border border-white/10">
+                <img
+                  src={routeMap}
+                  alt="a-X Anti-Atlas Expedition route map"
+                  className="w-full h-auto block"
+                />
+              </div>
+            </motion.div>
+
+            {/* Day-by-day */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.48 }}
+              className="mb-6"
+            >
+              <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
+
+                {/* Day 0 */}
+                <div className="flex items-start gap-3 px-4 py-3 bg-black/20">
+                  <div
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold border border-white/20 text-white/50"
+                    style={rubikOne}
+                  >
+                    D0
+                  </div>
+                  <div className="flex-1 min-w-0 pt-1">
+                    <p className="text-xs text-foreground/70 leading-snug" style={rubikOne}>
+                      Marrakech — Meet-up &amp; transfer to Anezi
+                    </p>
+                    <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
+                      Transport to start included with logistics package only
+                    </p>
+                  </div>
+                </div>
+
+                {/* Days 1–6 */}
+                {[
+                  { day: 1, from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
+                  { day: 2, from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
+                  { day: 3, from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
+                  { day: 4, from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
+                  { day: 5, from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
+                  { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535" },
+                ].map(({ day, from, to, km, elev, color, rest }) => (
+                  <div key={day} className="flex items-center gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
+                    <div
+                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
+                      style={{ ...rubikOne, background: color }}
+                    >
+                      D{day}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      {rest ? (
+                        <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>Rest Day</p>
+                      ) : (
+                        <p className="text-sm text-foreground/90 leading-snug" style={rubikOne}>
+                          {from} <span className="text-foreground/40 mx-1">→</span> {to}
+                        </p>
+                      )}
+                    </div>
+                    {!rest && (
+                      <div className="flex-shrink-0 flex gap-3 text-right" style={nunito}>
+                        <span className="text-xs text-foreground/60">{km}km</span>
+                        <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
             </motion.div>
 
             {/* Two-col info blocks */}
