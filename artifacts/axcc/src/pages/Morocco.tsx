@@ -26,6 +26,10 @@ const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
 const logistics: { q: string; a: string }[] = [
   {
+    q: "Why would I participate in this event?",
+    a: "The Morocco Anti-Atlas is one of the most visually striking and physically demanding cycling landscapes in the world — remote, raw and largely unridden. This event is designed for riders who want more than a marked sportive: it is a point-to-point journey through serious terrain with a small group of like-minded people, hosted and coordinated but not hand-held. If you want to test yourself somewhere genuinely wild, ride routes that don't exist on Strava segments, and come home with a story worth telling, this is the event for you."
+  },
+  {
     q: "What does the base event fee cover?",
     a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included unless explicitly stated."
   },
