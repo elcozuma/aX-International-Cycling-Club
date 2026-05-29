@@ -1,6 +1,6 @@
 import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
@@ -23,6 +23,41 @@ const nunito   = { fontFamily: "'Nunito', sans-serif" };
 
 const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
+const logistics: { q: string; a: string }[] = [
+  {
+    q: "How does the optional logistic support work?",
+    a: "The logistics tier (€600–€1,000) layers optional services on top of the base event fee. These are arranged through a local delivery partner in Morocco and can include accommodation bookings, luggage transfers between overnight stops, and in-region rider and bike transfers to and from remote start or finish locations. You choose which services you want — it isn't an all-or-nothing package. Full details and pricing for each option will be shared with registered participants ahead of the event."
+  },
+  {
+    q: "What does the base event fee cover?",
+    a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included unless explicitly stated."
+  },
+  {
+    q: "What accommodation options are there?",
+    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. For those using the logistics support tier, accommodation can be pre-arranged at overnight stops. Self-supported riders are free to book independently or camp where permitted. Recommendations and a list of options along the route will be provided in the event briefing."
+  },
+  {
+    q: "Are transfers to the start and from the finish included?",
+    a: "Not automatically. Optional in-region rider and bike transfers — for example from Marrakech to the start point, or from the finish back — can be arranged through the local logistics partner for those on the supported tier. Self-supported riders will need to arrange their own."
+  },
+  {
+    q: "Is there a support vehicle during the riding days?",
+    a: "No. The event is designed around self-sufficiency and there is no trailing support vehicle. Riders are expected to carry what they need or plan resupply around towns and villages along the route."
+  },
+  {
+    q: "How does resupply work?",
+    a: "The route passes through a number of villages and small towns where food and water can typically be sourced. Specific resupply points, recommended carry capacities and any sections requiring extra preparation will be detailed in the full event briefing sent to all registered participants."
+  },
+  {
+    q: "What if I need to leave the event early?",
+    a: "Participants are responsible for arranging their own alternative transport, accommodation and onward travel if they choose or need to exit early. The event briefing will include information on the nearest accessible towns and transport links at various points along the route."
+  },
+  {
+    q: "Do I need travel insurance?",
+    a: "Yes — travel insurance is compulsory for this event. It should include appropriate medical cover, emergency evacuation and repatriation. Riders are entering remote terrain in a foreign country and should be adequately covered before departing."
+  },
+];
+
 const imgFilter = "sepia(14%) saturate(108%) contrast(108%) brightness(104%) hue-rotate(-4deg)";
 
 const stats = [
@@ -37,6 +72,7 @@ const stats = [
 export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
+  const [openLogistic, setOpenLogistic] = useState<number | null>(null);
 
   const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
 
@@ -233,6 +269,54 @@ export default function Morocco() {
                 </div>
               </div>
               <p className="text-[10px] text-accent/70 mt-2 italic" style={nunito}>Sign up for this event and receive 50% off the entry fee for the next a-X expedition.</p>
+            </motion.div>
+
+            {/* Logistics accordion */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="mb-6"
+            >
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
+              <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
+                {logistics.map((item, i) => {
+                  const isOpen = openLogistic === i;
+                  return (
+                    <div key={i}>
+                      <button
+                        onClick={() => setOpenLogistic(isOpen ? null : i)}
+                        className="w-full flex items-center justify-between px-4 py-3 text-left transition-colors hover:bg-white/5"
+                      >
+                        <span className="text-xs text-foreground/75 leading-snug pr-4" style={nunito}>{item.q}</span>
+                        <motion.span
+                          animate={{ rotate: isOpen ? 45 : 0 }}
+                          transition={{ duration: 0.2 }}
+                          className="flex-shrink-0 text-foreground/35 text-base leading-none"
+                        >
+                          +
+                        </motion.span>
+                      </button>
+                      <AnimatePresence initial={false}>
+                        {isOpen && (
+                          <motion.div
+                            key="answer"
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.22 }}
+                            className="overflow-hidden"
+                          >
+                            <p className="px-4 pb-4 pt-1 text-xs text-foreground/55 leading-relaxed" style={nunito}>
+                              {item.a}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+              </div>
             </motion.div>
 
             {/* Philosophy note */}
