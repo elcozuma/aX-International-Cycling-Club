@@ -208,17 +208,20 @@ export default function Morocco() {
             </p>
           </motion.div>
 
+          {/* Route map + Day-by-day side by side on md+ */}
+          <div className="md:flex md:gap-4 mb-8">
+
           {/* Route map */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="mb-4"
+            className="mb-4 md:mb-0 md:w-1/2 md:flex-shrink-0"
           >
             <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
             <button
               onClick={() => setMapEnlarged(true)}
-              className="w-full md:w-1/2 rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
+              className="w-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
             >
               <img
                 src={routeMap}
@@ -238,7 +241,7 @@ export default function Morocco() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.48 }}
-            className="mb-8"
+            className="mb-8 md:mb-0 md:flex-1 md:min-w-0"
           >
             <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
 
@@ -302,6 +305,8 @@ export default function Morocco() {
               ))}
             </div>
           </motion.div>
+
+          </div>{/* end map+days flex */}
 
           {/* Two-col info blocks */}
           <motion.div
