@@ -91,7 +91,7 @@ export default function Events() {
                   <img
                     src={mapImg}
                     alt={exp.title}
-                    className="absolute inset-0 w-full h-full object-cover object-[30%_20%] grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
+                    className="absolute inset-0 w-full h-full object-cover object-[55%_35%] grayscale-[0.5] group-hover:grayscale-[0.2] transition-all duration-700 scale-105 group-hover:scale-100"
                   />
                   {/* Gradient overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/15" />
