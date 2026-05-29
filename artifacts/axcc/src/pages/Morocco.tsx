@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
-import routeMap from "@assets/Image-40_1780078098554.png";
+import routeMap from "@assets/image_1780085504029.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
