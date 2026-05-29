@@ -389,14 +389,15 @@ export default function Morocco() {
                       "Transfer from finish to Marrakech",
                     ].map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
-                        <span className="text-white/25 mt-0.5 font-mono text-[10px]">{`{}`}</span>{item}
+                        <span className="text-accent/50 mt-0.5">✓</span>{item}
                       </li>
                     ))}
                   </ul>
-                  <p className="text-[10px] text-foreground/35 mt-2 italic">
-                    * Includes your €200 accommodation allowance (to be organised separately)
-                  </p>
                 </div>
+
+                <li className="text-xs text-foreground/60 flex gap-2 mt-2" style={nunito}>
+                  <span className="text-accent/50 mt-0.5">✓</span>€200 accommodation allowance (to be organised separately)
+                </li>
 
                 <p className="text-[10px] text-foreground/30 mt-3 italic" style={nunito}>
                   Full logistics breakdown shared with registered participants.
