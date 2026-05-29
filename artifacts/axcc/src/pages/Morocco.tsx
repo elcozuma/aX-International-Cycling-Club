@@ -208,20 +208,22 @@ export default function Morocco() {
             </p>
           </motion.div>
 
-          {/* Route map + Day-by-day side by side on md+ */}
-          <div className="md:flex md:gap-4 mb-8">
-
-          {/* Route map */}
+          {/* Route map + Day-by-day */}
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.45 }}
-            className="mb-4 md:mb-0 md:w-1/2 md:flex-shrink-0"
+            className="mb-8"
           >
             <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+
+          <div className="md:flex md:gap-4 md:items-stretch">
+
+          {/* Map image */}
+          <div className="mb-4 md:mb-0 md:w-1/2 md:flex-shrink-0">
             <button
               onClick={() => setMapEnlarged(true)}
-              className="w-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
+              className="w-full h-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
             >
               <img
                 src={routeMap}
@@ -234,15 +236,10 @@ export default function Morocco() {
                 </span>
               </div>
             </button>
-          </motion.div>
+          </div>
 
           {/* Day-by-day */}
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.48 }}
-            className="mb-8 md:mb-0 md:flex-1 md:min-w-0 md:flex md:flex-col"
-          >
+          <div className="md:flex-1 md:min-w-0 md:flex md:flex-col">
             <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8 md:flex-1 md:flex md:flex-col">
 
               {/* Day 0 */}
@@ -304,9 +301,10 @@ export default function Morocco() {
                 </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
-          </div>{/* end map+days flex */}
+          </div>{/* end flex row */}
+          </motion.div>{/* end route section */}
 
           {/* Two-col info blocks */}
           <motion.div
