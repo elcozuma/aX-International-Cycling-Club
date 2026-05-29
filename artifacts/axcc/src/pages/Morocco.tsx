@@ -162,13 +162,10 @@ export default function Morocco() {
               className="mb-6 space-y-3"
             >
               <p className="text-sm text-foreground/80 leading-relaxed" style={nunito}>
-                Treading in the tracks of the celebrated Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. From the mesmerising folds and peaks of the Anti-Atlas — ancient, eroded, and unlike anywhere else on earth — the route descends through a succession of oases towards the edge of the Sahara, where the horizon finally flattens and the silence deepens.
+                Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent — its folds and peaks descending through oases towards the Sahara with no concern for what comes next. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine, the curiosity mutual, and an invitation to tea or a meal arrives before you've even asked for directions.
               </p>
               <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
-                Nights are spent among palmeraies, crumbling ruins and centuries-old kasbahs built from the same ochre mud as the mountains themselves. Days are spent in the saddle on roads that exist largely for locals — winding through small villages where greetings come freely, where curiosity runs both ways, and where an invitation to tea or a home-cooked meal from a roadside family is less a surprise than a near-certainty.
-              </p>
-              <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
-                The riding itself rewards patience. Long traverses of the Anti-Atlas bring sweeping views of jagged peaks and valleys blanketed in wild flowers in every direction. Mud-brick kasbahs punctuate the route like waypoints through another era. Camels and nomads appear at the margins of the piste and disappear again just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
+                The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Mud-brick kasbahs mark the route like monuments no one bothered to publicise. Camels and nomads appear at the margins of the piste and vanish just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
               </p>
             </motion.div>
 
