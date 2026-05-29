@@ -374,24 +374,32 @@ export default function Morocco() {
                 <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€600–€1,000</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — based on participant numbers &amp; accommodation choices</p>
-                <ul className="space-y-1.5" style={nunito}>
+                <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
-                    <span className="text-accent/50 mt-0.5">✓</span>Everything included in Self Supported option PLUS
-                  </li>
-                  {[
-                    "Luggage transfers between stops",
-                    "Transfer from Marrakech to start",
-                    "Transfer from finish to Marrakech (all booked via local delivery partner)",
-                  ].map(item => (
-                    <li key={item} className="text-xs text-foreground/60 flex gap-2 pl-4">
-                      <span className="text-accent/50 mt-0.5">✓</span>{item}
-                    </li>
-                  ))}
-                  <li className="text-xs text-foreground/40 flex gap-2 pl-4 italic" style={nunito}>
-                    <span className="mt-0.5">*</span>Includes your €200 accommodation allowance (to be organised separately)
+                    <span className="text-accent/50 mt-0.5">✓</span>
+                    <span>Everything included in Self Supported option</span>
                   </li>
                 </ul>
-                <p className="text-[10px] text-foreground/35 mt-4 italic" style={nunito}>
+
+                <div className="mt-3 rounded-lg border border-white/10 bg-white/3 px-3 py-2.5">
+                  <p className="text-[10px] uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>Via local delivery partner</p>
+                  <ul className="space-y-1.5" style={nunito}>
+                    {[
+                      "Luggage transfers between stops",
+                      "Transfer from Marrakech to start",
+                      "Transfer from finish to Marrakech",
+                    ].map(item => (
+                      <li key={item} className="text-xs text-foreground/60 flex gap-2">
+                        <span className="text-accent/50 mt-0.5">✓</span>{item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="text-[10px] text-foreground/35 mt-2 italic">
+                    * Includes your €200 accommodation allowance (to be organised separately)
+                  </p>
+                </div>
+
+                <p className="text-[10px] text-foreground/30 mt-3 italic" style={nunito}>
                   Full logistics breakdown shared with registered participants.
                 </p>
               </div>
