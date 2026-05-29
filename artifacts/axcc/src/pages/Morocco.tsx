@@ -243,7 +243,7 @@ export default function Morocco() {
             <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8 md:flex-1 md:flex md:flex-col">
 
               {/* Day 0 */}
-              <div className="flex items-start gap-3 px-4 py-3 bg-black/20">
+              <div className="flex items-start gap-3 px-4 py-2 bg-black/20">
                 <div
                   className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold border border-white/20 text-white/50"
                   style={rubikOne}
@@ -270,7 +270,7 @@ export default function Morocco() {
                 { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
                 { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Logistics transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer to Marrakech included with logistics package only" },
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
-                <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
+                <div key={day} className="flex items-start gap-3 px-4 py-2 hover:bg-white/3 transition-colors">
                   <div
                     className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
                     style={{ ...rubikOne, background: color }}
