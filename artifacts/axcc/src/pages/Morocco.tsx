@@ -89,6 +89,7 @@ export default function Morocco() {
   }, [paused, next]);
 
   return (
+    <>
     <div className="relative min-h-[100dvh] w-full text-foreground font-sans bg-black">
       <div
         className="hidden md:block fixed inset-0 z-0"
@@ -623,5 +624,6 @@ export default function Morocco() {
         </motion.div>
       )}
     </AnimatePresence>
+    </>
   );
 }
