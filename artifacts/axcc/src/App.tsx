@@ -7,6 +7,7 @@ import Home from "@/pages/Home";
 import About from "@/pages/About";
 import Events from "@/pages/Events";
 import FAQ from "@/pages/FAQ";
+import Morocco from "@/pages/Morocco";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/about" component={About} />
       <Route path="/events" component={Events} />
       <Route path="/faq" component={FAQ} />
+      <Route path="/morocco" component={Morocco} />
       <Route component={NotFound} />
     </Switch>
   );
