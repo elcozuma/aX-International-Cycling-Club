@@ -31,7 +31,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "How does the optional logistic support work?",
-    a: "The logistics option (€200–€400) layers additional services on top of the base event fee. These are arranged through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider and bike transfers to and from Marrakech to the remote start or from the final destination. Full details and pricing for each option will be shared with registered participants ahead of the event."
+    a: "The logistics option (est. €200–€400) provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
   },
   {
     q: "What accommodation options are there?",
