@@ -257,11 +257,11 @@ export default function Morocco() {
                   { day: 3, from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                   { day: 4, from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
                   { day: 5, from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                  { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535" },
-                ].map(({ day, from, to, km, elev, color, rest }) => (
-                  <div key={day} className="flex items-center gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
+                  { day: 6, from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer back to Marrakech (logistics package)" },
+                ].map(({ day, from, to, km, elev, color, rest, note }) => (
+                  <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
                     <div
-                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white"
+                      className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
                       style={{ ...rubikOne, background: color }}
                     >
                       D{day}
@@ -274,9 +274,12 @@ export default function Morocco() {
                           {from} <span className="text-foreground/40 mx-1">→</span> {to}
                         </p>
                       )}
+                      {note && (
+                        <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
+                      )}
                     </div>
                     {!rest && (
-                      <div className="flex-shrink-0 flex gap-3 text-right" style={nunito}>
+                      <div className="flex-shrink-0 flex gap-3 text-right mt-0.5" style={nunito}>
                         <span className="text-xs text-foreground/60">{km}km</span>
                         <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
                       </div>
