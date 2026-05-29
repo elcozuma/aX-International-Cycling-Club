@@ -241,7 +241,7 @@ export default function Morocco() {
                     Marrakech — Meet-up &amp; transfer to Southern Morocco
                   </p>
                   <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
-                    Transport to start included with logistics package only
+                    Included with logistics package only
                   </p>
                 </div>
                 <div className="flex-shrink-0 text-xs text-foreground/35 mt-0.5" style={nunito}>22 Mar</div>
@@ -249,12 +249,12 @@ export default function Morocco() {
 
               {/* Days 1–6 */}
               {[
-                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Logistics drop-off in Anezi" },
+                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Short transfer from hotel in Southern Morocco to Anezi — included with logistics package only" },
                 { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
                 { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                 { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
                 { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Logistics transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535" },
+                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Logistics transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer to Marrakech included with logistics package only" },
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
                   <div
