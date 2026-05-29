@@ -25,24 +25,24 @@ const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
 const logistics: { q: string; a: string }[] = [
   {
-    q: "How does the optional logistic support work?",
-    a: "The logistics tier (€600–€1,000) layers optional services on top of the base event fee. These are arranged through a local delivery partner in Morocco and can include accommodation bookings, luggage transfers between overnight stops, and in-region rider and bike transfers to and from remote start or finish locations. You choose which services you want — it isn't an all-or-nothing package. Full details and pricing for each option will be shared with registered participants ahead of the event."
-  },
-  {
     q: "What does the base event fee cover?",
     a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included unless explicitly stated."
   },
   {
+    q: "How does the optional logistic support work?",
+    a: "The logistics option (€200–€400) layers additional services on top of the base event fee. These are arranged through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider and bike transfers to and from Marrakech to the remote start or from the final destination. Full details and pricing for each option will be shared with registered participants ahead of the event."
+  },
+  {
     q: "What accommodation options are there?",
-    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. For those using the logistics support tier, accommodation can be pre-arranged at overnight stops. Self-supported riders are free to book independently or camp where permitted. Recommendations and a list of options along the route will be provided in the event briefing."
+    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders are required to book independently or camp where permitted. Recommendations and a list of options along the route will be provided in the event briefing."
   },
   {
     q: "Are transfers to the start and from the finish included?",
-    a: "Not automatically. Optional in-region rider and bike transfers — for example from Marrakech to the start point, or from the finish back — can be arranged through the local logistics partner for those on the supported tier. Self-supported riders will need to arrange their own."
+    a: "See 'How does the optional logistic support work?' above. Self-supported riders will need to arrange their own."
   },
   {
     q: "Is there a support vehicle during the riding days?",
-    a: "No. The event is designed around self-sufficiency and there is no trailing support vehicle. Riders are expected to carry what they need or plan resupply around towns and villages along the route."
+    a: "No. The event is designed around self-sufficiency and there is no trailing support vehicle. Riders are expected to carry what they need for the day or plan resupply around towns and villages along the route."
   },
   {
     q: "How does resupply work?",
