@@ -239,7 +239,7 @@ export default function Morocco() {
                 </div>
                 <div className="flex-1 min-w-0 pt-0.5">
                   <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>
-                    Marrakech — Meet-up &amp; transfer to Anezi
+                    Marrakech — Meet-up &amp; transfer to Southern Morocco
                   </p>
                   <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
                     Transport to start included with logistics package only
@@ -250,7 +250,7 @@ export default function Morocco() {
 
               {/* Days 1–6 */}
               {[
-                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a" },
+                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Drop off in Anezi" },
                 { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
                 { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                 { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
