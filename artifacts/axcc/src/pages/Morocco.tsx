@@ -39,7 +39,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
-    a: "Transfers are included in the optional logistics package. The outbound transfer departs Marrakech on Day 0 (22nd March) — meeting time is 12pm in Marrakech. The return transfer from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to the start and from the finish. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights and accommodation."
+    a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to the start in Anezi on Day 1 (23rd March), a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March), and luggage transfers between overnight stops throughout. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights and accommodation."
   },
   {
     q: "Is there a support vehicle during the riding days?",
@@ -249,12 +249,12 @@ export default function Morocco() {
 
               {/* Days 1–6 */}
               {[
-                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Drop off in Anezi" },
+                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Logistics drop-off in Anezi" },
                 { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
                 { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                 { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
                 { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535" },
+                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Logistics transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535" },
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-3 hover:bg-white/3 transition-colors">
                   <div
