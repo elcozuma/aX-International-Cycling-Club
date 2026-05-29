@@ -2,7 +2,6 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
-import routeMap from "@assets/morocco-route-map.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -206,23 +205,6 @@ export default function Morocco() {
               </p>
             </motion.div>
 
-            {/* Route map */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.45 }}
-              className="mb-6"
-            >
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
-              <div className="rounded-lg overflow-hidden border border-white/10">
-                <img
-                  src={routeMap}
-                  alt="a-X Anti-Atlas Expedition route map"
-                  className="w-full h-auto block"
-                />
-              </div>
-            </motion.div>
-
             {/* Two-col info blocks */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
@@ -297,20 +279,28 @@ export default function Morocco() {
               className="mb-6"
             >
               <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
-              <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
+              <div className="rounded-lg border border-white/15 overflow-hidden divide-y divide-white/10">
                 {logistics.map((item, i) => {
                   const isOpen = openLogistic === i;
                   return (
-                    <div key={i}>
+                    <div key={i} className={isOpen ? "bg-white/5" : ""}>
                       <button
                         onClick={() => setOpenLogistic(isOpen ? null : i)}
-                        className="w-full flex items-center justify-between px-4 py-3 text-left transition-colors hover:bg-white/5"
+                        className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
                       >
-                        <span className="text-xs text-foreground/75 leading-snug pr-4" style={nunito}>{item.q}</span>
+                        <span
+                          className={[
+                            "text-sm leading-snug pr-4 transition-colors",
+                            isOpen ? "text-accent" : "text-foreground/90"
+                          ].join(" ")}
+                          style={rubikOne}
+                        >
+                          {item.q}
+                        </span>
                         <motion.span
                           animate={{ rotate: isOpen ? 45 : 0 }}
                           transition={{ duration: 0.2 }}
-                          className="flex-shrink-0 text-foreground/35 text-base leading-none"
+                          className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
                         >
                           +
                         </motion.span>
@@ -325,7 +315,7 @@ export default function Morocco() {
                             transition={{ duration: 0.22 }}
                             className="overflow-hidden"
                           >
-                            <p className="px-4 pb-4 pt-1 text-xs text-foreground/55 leading-relaxed" style={nunito}>
+                            <p className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
                               {item.a}
                             </p>
                           </motion.div>
