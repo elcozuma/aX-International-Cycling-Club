@@ -218,7 +218,7 @@ export default function Morocco() {
             <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
             <button
               onClick={() => setMapEnlarged(true)}
-              className="w-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
+              className="w-full md:w-1/2 rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
             >
               <img
                 src={routeMap}
