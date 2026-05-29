@@ -241,9 +241,9 @@ export default function Morocco() {
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.48 }}
-            className="mb-8 md:mb-0 md:flex-1 md:min-w-0"
+            className="mb-8 md:mb-0 md:flex-1 md:min-w-0 md:flex md:flex-col"
           >
-            <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8">
+            <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8 md:flex-1 md:flex md:flex-col">
 
               {/* Day 0 */}
               <div className="flex items-start gap-3 px-4 py-3 bg-black/20">
