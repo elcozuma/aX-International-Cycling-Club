@@ -74,7 +74,6 @@ export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openLogistic, setOpenLogistic] = useState<number | null>(null);
-  const [openDocs, setOpenDocs] = useState(false);
 
   const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
 
@@ -459,6 +458,79 @@ export default function Morocco() {
                   </div>
                 );
               })}
+
+              {/* Event Documentation */}
+              {(() => {
+                const docsIndex = logistics.length;
+                const isOpen = openLogistic === docsIndex;
+                return (
+                  <div className={isOpen ? "bg-white/5" : ""}>
+                    <button
+                      onClick={() => setOpenLogistic(isOpen ? null : docsIndex)}
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
+                    >
+                      <span
+                        className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
+                        style={rubikOne}
+                      >
+                        Event Documentation
+                      </span>
+                      <motion.span
+                        animate={{ rotate: isOpen ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
+                      >
+                        +
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isOpen && (
+                        <motion.div
+                          key="docs"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.22 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="flex flex-col sm:flex-row gap-3 px-4 pb-4 pt-2">
+                            <a
+                              href={import.meta.env.BASE_URL + "a-X-Event-TCs.pdf"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
+                              style={nunito}
+                            >
+                              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                              </svg>
+                              <div>
+                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
+                                <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
+                              </div>
+                            </a>
+                            <a
+                              href={import.meta.env.BASE_URL + "a-X-Waiver.pdf"}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
+                              style={nunito}
+                            >
+                              <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+                              </svg>
+                              <div>
+                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
+                                <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
+                              </div>
+                            </a>
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              })()}
             </div>
           </motion.div>
 
@@ -492,73 +564,6 @@ export default function Morocco() {
             <p className="text-center text-[10px] text-foreground/35 mt-2" style={nunito}>
               No payment required — we'll be in touch with full details.
             </p>
-          </motion.div>
-
-          {/* Event Documentation dropdown */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.7 }}
-            className="mb-6 rounded-lg border border-white/10 overflow-hidden"
-          >
-            <button
-              onClick={() => setOpenDocs(d => !d)}
-              className="w-full flex items-center justify-between px-4 py-3.5 text-left hover:bg-white/5 transition-colors"
-            >
-              <span className="text-sm text-foreground/90" style={rubikOne}>Event Documentation</span>
-              <motion.span
-                animate={{ rotate: openDocs ? 45 : 0 }}
-                transition={{ duration: 0.2 }}
-                className={["flex-shrink-0 text-lg leading-none transition-colors", openDocs ? "text-accent" : "text-foreground/40"].join(" ")}
-              >
-                +
-              </motion.span>
-            </button>
-            <AnimatePresence initial={false}>
-              {openDocs && (
-                <motion.div
-                  key="docs"
-                  initial={{ height: 0, opacity: 0 }}
-                  animate={{ height: "auto", opacity: 1 }}
-                  exit={{ height: 0, opacity: 0 }}
-                  transition={{ duration: 0.22 }}
-                  className="overflow-hidden"
-                >
-                  <div className="flex flex-col sm:flex-row gap-3 px-4 pb-4 pt-1">
-                    <a
-                      href={import.meta.env.BASE_URL + "a-X-Event-TCs.pdf"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
-                      style={nunito}
-                    >
-                      <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                      </svg>
-                      <div>
-                        <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
-                        <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
-                      </div>
-                    </a>
-                    <a
-                      href={import.meta.env.BASE_URL + "a-X-Waiver.pdf"}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center gap-2 px-4 py-3 rounded-lg border border-white/10 hover:border-white/25 transition-colors group flex-1"
-                      style={nunito}
-                    >
-                      <svg className="w-4 h-4 text-foreground/40 group-hover:text-foreground/70 flex-shrink-0 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
-                      </svg>
-                      <div>
-                        <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
-                        <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
-                      </div>
-                    </a>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
           </motion.div>
 
           {/* Mobile logo */}
