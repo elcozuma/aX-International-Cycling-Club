@@ -561,7 +561,7 @@ export default function Morocco() {
             >
               EXPRESS INTEREST
             </a>
-            <p className="text-center text-[10px] text-foreground/35 mt-2" style={nunito}>
+            <p className="text-center text-[10px] text-foreground/60 mt-2" style={nunito}>
               No payment required — we'll be in touch with full details.
             </p>
           </motion.div>
