@@ -15,55 +15,39 @@ const sections: Section[] = [
     items: [
       {
         q: "What is a-X?",
-        a: "a-X (Across) is a cycling club/community built around small-group adventure riding. The aim is to create challenging, memorable riding experiences that sit somewhere between fully self-supported bikepacking and expensive all-inclusive tours. a-X is designed for riders who want the challenge and freedom of independent adventure riding, but still value the reassurance and shared experience of riding within a small group."
+        a: "a-X (Across) is a community-driven gravel and adventure cycling project focused on small-group rides, overnighters, bikepacking trips and hosted expeditions. The aim is to create memorable riding experiences that sit somewhere between fully DIY adventure riding and expensive, heavily structured cycling tours."
       },
       {
         q: "Is this a traditional cycling tour company?",
-        a: "No. a-X is designed more as a club/community and hosted expedition model rather than a conventional fixed-itinerary tour operation. The focus is on shared experience, autonomy and adventure rather than luxury tourism or highly structured schedules."
+        a: "No. a-X is built around community, autonomy and shared adventure rather than luxury tourism or rigid guided-tour structures."
       },
       {
         q: "What kind of riding is a-X focused on?",
-        a: "Mainly gravel, endurance and mixed-surface adventure riding. Routes are designed to be challenging, scenic and rewarding rather than competitive."
+        a: "Primarily gravel, adventure and mixed-surface riding. The focus is on exploration, scenery, challenge and shared experience rather than competition."
       },
       {
-        q: "Is the club only for ultra-distance riders?",
-        a: "No. While many rides are physically demanding, the wider idea is to build a community around adventure cycling in different formats — from local club rides to multi-day events."
+        q: "Are there road rides too?",
+        a: "Occasionally yes — especially in destinations where the roads themselves are part of the experience — but gravel and adventure riding sit at the heart of a-X."
       },
       {
-        q: "Will there be regular club rides?",
-        a: "Yes. Alongside hosted events, there may also be local/public rides organised around wherever the club is based or travelling at the time. Public club rides are generally open to anyone at no cost."
+        q: "Will there be regular rides?",
+        a: "Yes. Alongside hosted expeditions and bikepacking trips, a-X will organise free public gravel rides, overnighters and local social rides where possible."
       },
       {
-        q: "How do I become a member?",
-        a: "At present, membership is available to customers who join a paid expedition or event — all of whom receive a complimentary club membership as part of their entry. Wider membership options may be introduced as the club grows."
-      },
-      {
-        q: "How does membership work?",
-        a: [
-          "a-X membership is designed to support the long-term growth of the club and community rather than function like a traditional cycling subscription service.",
-          "Membership benefits may include: discounted expedition access; priority access to limited-capacity rides and events; access to routes, updates and future projects; invitations to community rides and meetups; and reduced or waived fees for selected club activities.",
-          "Joining a hosted event may also include complimentary club membership for a period of time. The structure will continue evolving as the club grows, but the aim is to keep things flexible, community-driven and accessible rather than heavily commercialised."
-        ]
-      },
-      {
-        q: "Do I need to become a member?",
-        a: "No. Some events or benefits may be member-only or discounted for members, but many club rides and public events will remain open to non-members."
+        q: "Are rides open to anyone?",
+        a: "Many public rides and local events are open to anyone. Some expeditions or limited-capacity events may require registration or payment."
       },
       {
         q: "Do I need to be an experienced cyclist?",
-        a: "You don't need to be elite, but you should already be comfortable riding long distances and spending long days on the bike. Many routes involve climbing, remote terrain and changing weather conditions, so a reasonable level of fitness and self-sufficiency is important."
+        a: "You do not need to be elite, but you should already be comfortable riding long distances and spending long days on the bike."
       },
       {
         q: "Can I join alone?",
-        a: "Yes. The club is designed for people who enjoy independent adventure but also value the social aspect and reassurance of riding within a small group environment. Many participants are likely to join events solo."
+        a: "Yes."
       },
       {
         q: "Is this racing?",
-        a: "No. The emphasis is on exploration, shared experience and completing challenging routes — not competition."
-      },
-      {
-        q: "Who hosts the rides and events?",
-        a: "Events are hosted by experienced endurance and adventure cyclists with first-hand knowledge of the routes and riding style involved. The aim is not to provide a luxury guided tour, but to empower participants to curate their own memorable riding experiences built around autonomy, challenge and shared adventure."
+        a: "No. The emphasis is on exploration, challenge and shared experience rather than competition."
       },
     ]
   },
@@ -72,123 +56,51 @@ const sections: Section[] = [
     items: [
       {
         q: "What is a hosted expedition?",
-        a: "A hosted expedition is a small-group multi-day riding experience in a remote location where routes, general coordination and optional logistics support may be provided, while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
+        a: "A hosted expedition is a small-group multi-day riding experience where routes, general coordination and optional logistics support may be provided while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
       },
       {
         q: "Are expeditions fully supported?",
-        a: "No. Events are intentionally designed around a degree of autonomy and self-sufficiency. Riders are expected to carry the equipment, food, water and clothing they need during each day of riding."
+        a: "No. Events are intentionally designed around autonomy and self-sufficiency."
       },
       {
-        q: "Can I bikepack the route fully self-supported?",
-        a: "Usually yes. Most events are designed so riders can choose their own level of support and independence. Some events may even be specifically designed around fully self-supported bikepacking. Specific route information and recommended equipment setups will always be provided before each event."
+        q: "Can I ride fully self-supported?",
+        a: "Usually yes. Many events are specifically designed so riders can choose their own level of support and independence."
       },
       {
-        q: "What do event entry fees cover?",
-        a: [
-          "Event entry fees help cover the organisation, planning and hosting of each event rather than functioning as a traditional all-inclusive tour package.",
-          "Depending on the event, fees may contribute towards route planning and reconnaissance, event hosting and coordination, GPX route files and rider briefings, community administration, and coordination with local logistics partners where available.",
-          "Unless explicitly stated, participants should generally expect to organise and pay for their own flights, accommodation, food and drink, insurance, bike transport, mechanical costs, personal equipment, and any optional luggage transfer services."
-        ]
-      },
-      {
-        q: "What level of fitness is required?",
-        a: ["Expeditions are physically demanding and require preparation. As a rough guide, you should already feel comfortable completing multiple long back-to-back rides over mixed terrain and significant climbing. Some events may include recommended benchmark distances or elevation targets.", "a-X event hosts are available to help with training plans and will monitor participants' progress in the months leading up to the event to help each rider make the most of their trip."]
-      },
-      {
-        q: "Do I need previous bikepacking experience?",
-        a: "No, but previous experience riding long distances and managing yourself on remote rides is highly recommended."
+        q: "What do event fees cover?",
+        a: "Fees contribute toward route planning, reconnaissance, GPX files, hosting, coordination and administration of optional local logistics arrangements where available."
       },
       {
         q: "What type of bike should I use?",
-        a: "Specific recommendations will be included within each event briefing. However, most multi-day events involve surfaces and terrain better suited to gravel or adventure bikes."
-      },
-      {
-        q: "Do I need to bring my own bike?",
-        a: "Participants are generally expected to bring their own bike in good mechanical condition and appropriate for the terrain and event format. Specific bike recommendations will always be included within the event information."
-      },
-      {
-        q: "Can I rent a bike from a local provider?",
-        a: ["Depending on the event location, it may be possible to rent a suitable bike through a recommended local provider. Availability can vary significantly depending on the destination and the type of riding involved.", "a-X always recommends using your own bike that you are familiar with — travelling with a bicycle has never been easier and is often much cheaper than renting."]
-      },
-      {
-        q: "What tyre setup / gear ratios are recommended?",
-        a: "Specific recommendations will be included within each event briefing."
+        a: "Most events are better suited to gravel or adventure bikes unless otherwise stated."
       },
       {
         q: "Are e-bikes allowed?",
         a: "No."
       },
       {
-        q: "What should I bring?",
-        a: "You should arrive with a well-maintained bike, appropriate riding equipment, suitable clothing for changing conditions, and basic tools and spares to deal with common mechanical issues independently. A more detailed equipment list will be provided before each event."
-      },
-      {
         q: "Do I need navigation equipment?",
-        a: "Yes. Participants should ideally have a GPS device or phone setup capable of independently following GPX route files provided before the event."
-      },
-      {
-        q: "Will GPS routes be provided?",
-        a: "Yes. Participants will normally receive GPX files, route information and event briefings before or during each expedition."
-      },
-      {
-        q: "How does resupply work?",
-        a: "Resupply arrangements vary depending on the event format and location. Some routes pass through towns or villages with shops, cafes or services along the way, while more remote events may require participants to carry more food and water between planned resupply points. Full resupply information, including any recommended carry capacities, will always be included within the event briefing."
-      },
-      {
-        q: "Can I wear road cycling shoes?",
-        a: "Potentially, but it depends on the route and your experience. Some off-road events may involve hike-a-bike sections, rough terrain, river crossings or extended periods off the bike where gravel or MTB-style shoes are significantly more practical. If an event is particularly technical or unsuitable for road-style footwear, this will be clearly stated within the event information."
+        a: "Ideally yes. Riders should be capable of independently following GPX files using a GPS device or phone setup."
       },
       {
         q: "Is there mechanical support?",
-        a: "Hosts and other participants may be able to assist with basic mechanical issues, but riders are expected to bring spare tubes, repair equipment and the tools necessary to remain self-sufficient."
+        a: "Riders are expected to remain largely self-sufficient and carry their own tools and spares."
       },
       {
-        q: "Is there a support vehicle?",
-        a: "Not usually. Events are designed around self-sufficiency and unsupported riding, although optional logistics support may exist depending on the route and event format."
+        q: "Will luggage transfers exist?",
+        a: "Some expeditions may offer optional luggage transfers via local logistics providers depending on the event format."
       },
       {
-        q: "Will my luggage be transported?",
-        a: "Depending on the event format, optional luggage transfers between accommodation locations may be available through local logistics partners. Daily riding equipment should still be carried on the bike."
-      },
-      {
-        q: "Are accommodation and meals included?",
-        a: "This depends on the event. Some expeditions may include optional accommodation, meals or logistics packages via local partners, while others may operate on a more independent basis. Full details will always be included within the event information."
-      },
-      {
-        q: "Can I organise my own accommodation?",
-        a: "Usually yes. Where practical, participants are generally free to organise accommodation and logistics independently. Full accommodation information and recommendations will normally be provided before each event."
-      },
-      {
-        q: "Are flights included?",
-        a: "No. Participants are generally responsible for arranging their own flights and travel unless explicitly stated otherwise. This includes making arrangements to fly with or transport their bike."
-      },
-      {
-        q: "Are rider / bike transfers included?",
-        a: "Sometimes. Certain events — particularly those with remote start or finish locations — may offer optional in-region rider and bike transfers through local logistics partners."
-      },
-      {
-        q: "Do I need travel insurance?",
-        a: "For international events, travel insurance is typically compulsory and should include appropriate medical cover and emergency repatriation."
-      },
-      {
-        q: "What happens if the weather or conditions become dangerous?",
-        a: "Alternative routes or contingency plans may be suggested where possible if conditions become unsafe. However, participants are ultimately responsible for their own decisions, preparation and safety during each event and should always be prepared to adjust plans or abandon a route if necessary."
+        q: "Are accommodation and flights included?",
+        a: "Usually not unless explicitly stated."
       },
       {
         q: "Do we ride together all day?",
-        a: "Not necessarily. Some days the group may naturally stay together, while on other days riders may spread out depending on pace, route choices, stops and conditions. The atmosphere is intended to feel collaborative and social rather than tightly controlled."
-      },
-      {
-        q: "What happens if I can't keep up?",
-        a: ["The aim is not racing, but participants are expected to arrive with an appropriate level of fitness and preparation. Depending on the route and conditions, regrouping points may exist throughout the day.", "Be reassured that a-X event hosts will endeavour to never leave a rider behind."]
-      },
-      {
-        q: "What happens if I decide to leave the event early?",
-        a: "Participants are responsible for arranging their own alternative transport, accommodation or onward travel should they choose to leave the event early."
+        a: "Not necessarily. The atmosphere is intended to feel collaborative and social rather than tightly controlled."
       },
       {
         q: "Why are group sizes small?",
-        a: "Smaller groups create a better balance between social riding, flexibility and independence, while also reducing logistical complexity and preserving the overall atmosphere of the experience."
+        a: "Smaller groups create a better balance between social riding, flexibility, autonomy and expedition atmosphere."
       }
     ]
   }
