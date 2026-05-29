@@ -2,6 +2,7 @@ import { useEffect, useState, useCallback } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
+import routeMap from "@assets/morocco-route-map.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -203,6 +204,23 @@ export default function Morocco() {
               <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
                 The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
               </p>
+            </motion.div>
+
+            {/* Route map */}
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="mb-6"
+            >
+              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+              <div className="rounded-lg overflow-hidden border border-white/10">
+                <img
+                  src={routeMap}
+                  alt="a-X Anti-Atlas Expedition route map"
+                  className="w-full h-auto block"
+                />
+              </div>
             </motion.div>
 
             {/* Two-col info blocks */}

@@ -48,6 +48,12 @@ uri = "file://artifacts/axcc/public/page-bg.png"
 type = "image"
 title = "plain taupe olive wall background"
 
+[[generated]]
+id = "glT-e6WR1LNO5w7uw8gKR"
+uri = "file://attached_assets/morocco-route-map.png"
+type = "image"
+title = "morocco anti atlas expedition route map"
+
 [[outputs]]
 id = "rz6AuAWpJphRozQIZpzCJ"
 uri = "file://axcc-faq.txt"
