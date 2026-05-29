@@ -162,10 +162,13 @@ export default function Morocco() {
               className="mb-6 space-y-3"
             >
               <p className="text-sm text-foreground/80 leading-relaxed" style={nunito}>
-                A small-group gravel and adventure expedition through the Anti-Atlas mountains and Southern Morocco, designed around autonomy, shared adventure and the kind of riding you won't find on any guided tour. Point-to-point across five riding days — each beginning and ending somewhere new.
+                Treading in the tracks of the celebrated Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. From the mesmerising folds and peaks of the Anti-Atlas — ancient, eroded, and unlike anywhere else on earth — the route descends through a succession of oases towards the edge of the Sahara, where the horizon finally flattens and the silence deepens.
               </p>
               <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
-                Expect remote terrain, dramatic switchbacks, desert pistes, oasis valleys and ancient ksar villages. Approximately 50% gravel and piste, 50% road — with technical descents, river crossings, hike-a-bike sections and extreme heat exposure balanced against cold nights in elevated areas.
+                Nights are spent among palmeraies, crumbling ruins and centuries-old kasbahs built from the same ochre mud as the mountains themselves. Days are spent in the saddle on roads that exist largely for locals — winding through small villages where greetings come freely, where curiosity runs both ways, and where an invitation to tea or a home-cooked meal from a roadside family is less a surprise than a near-certainty.
+              </p>
+              <p className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
+                The riding itself rewards patience. Long traverses of the Anti-Atlas bring sweeping views of jagged peaks and valleys blanketed in wild flowers in every direction. Mud-brick kasbahs punctuate the route like waypoints through another era. Camels and nomads appear at the margins of the piste and disappear again just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
               </p>
             </motion.div>
 
