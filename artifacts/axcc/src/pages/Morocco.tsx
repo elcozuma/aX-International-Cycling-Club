@@ -241,7 +241,7 @@ export default function Morocco() {
                     Marrakech — Meet-up &amp; transfer to Southern Morocco
                   </p>
                   <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
-                    Included with logistics package only
+                    Transfer from Marrakech included with logistics package only
                   </p>
                 </div>
                 <div className="flex-shrink-0 text-xs text-foreground/35 mt-0.5" style={nunito}>22 Mar</div>
