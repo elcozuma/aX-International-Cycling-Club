@@ -105,7 +105,7 @@ export default function Morocco() {
 
         {/* ── SLIDESHOW ── */}
         <div
-          className="relative overflow-hidden"
+          className="relative overflow-hidden bg-black"
           style={{ height: "55vh", minHeight: "260px" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
