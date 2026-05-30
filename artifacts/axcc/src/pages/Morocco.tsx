@@ -116,7 +116,7 @@ const stats = [
   { label: "DISTANCE",  value: "~440 KM" },
   { label: "ELEVATION", value: "~9,000 M" },
   { label: "TERRAIN",   value: "GRAVEL+" },
-  { label: "GROUP",     value: "MAX 15 RIDERS" },
+  { label: "GROUP",     value: "Target 10 Riders (Min 5, Max 15)" },
 ];
 
 export default function Morocco() {
