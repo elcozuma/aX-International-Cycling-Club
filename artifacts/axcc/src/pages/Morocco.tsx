@@ -52,11 +52,11 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "How does the optional logistic support work?",
-    a: "The logistics option (est. €200–€400) provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
+    a: "The logistics option (est. €200–€400) provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). The local partner can also take bookings and payment for hotels along the route, making it straightforward to sort accommodation without having to arrange things independently in advance. Payment for all logistics services is made directly to the local delivery partner on arrival at the event. Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
   },
   {
     q: "What accommodation options are there?",
-    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders are required to book independently or camp where permitted. Recommendations and a list of options along the route will be provided in the event briefing."
+    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
   },
   {
     q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
@@ -64,7 +64,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "Is there a support vehicle during the riding days?",
-    a: "No. The event is designed around self-sufficiency and there is no trailing support vehicle. Riders are expected to carry what they need for the day or plan resupply around towns and villages along the route."
+    a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Resupply is planned around towns and villages along the route."
   },
   {
     q: "How does resupply work?",
