@@ -466,7 +466,7 @@ export default function Morocco() {
                       "Luggage transfers between stops",
                       "Transfer from Marrakech to start",
                       "Transfer from finish to Marrakech",
-                      "Stand-by vehicle",
+                      "Stand-by vehicle*",
                       "Pre-booked accommodation (optional, at no extra cost)",
                     ].map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
@@ -477,7 +477,7 @@ export default function Morocco() {
                 </div>
 
                 <p className="text-[10px] text-foreground/30 mt-3 italic" style={nunito}>
-                  Full logistics breakdown shared with registered participants.
+                  *Where terrain and access allow. Full logistics breakdown shared with registered participants.
                 </p>
               </div>
             </div>
