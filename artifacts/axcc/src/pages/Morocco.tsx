@@ -115,7 +115,7 @@ const logistics: { q: string; a: string | React.ReactNode }[] = [
   },
   {
     q: "Do I require any vaccinations prior to arrival in Morocco?",
-    a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas, though the risk in this region is low. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
+    a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
   },
   {
     q: "How does resupply work?",
