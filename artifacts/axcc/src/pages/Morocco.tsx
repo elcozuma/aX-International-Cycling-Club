@@ -67,7 +67,7 @@ const logistics: { q: string; a: string }[] = [
     a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights."
   },
   {
-    q: "Do I book my own accommodation? What options are there?",
+    q: "Should I book my own accommodation? What options are there?",
     a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
   },
   {
