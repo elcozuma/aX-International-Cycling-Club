@@ -9,12 +9,31 @@ import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 import slide08 from "@assets/a-X_Website-8_1780065568271.png";
+import slideM1 from "@assets/IMG_5968_1780065776415.jpeg";
+import slideM2 from "@assets/IMG_5770_1780065776415.jpeg";
+import slideM3 from "@assets/IMG_5733_1779460910871.jpeg";
+import slide5721 from "@assets/IMG_5721_1780065776415.jpeg";
 
-const slides: { src: string; objectPosition?: string; scale?: number }[] = [
+const warmFilter = "sepia(22%) saturate(100%) contrast(110%) brightness(101%) hue-rotate(-6deg)";
+
+type Slide = {
+  src: string;
+  objectPosition?: string;
+  mobileObjectPosition?: string;
+  scale?: number;
+  mobileOnly?: boolean;
+  filterOverride?: string;
+};
+
+const slides: Slide[] = [
   { src: slide02 },
   { src: slide05, scale: 1.08 },
   { src: slide06 },
-  { src: slide07 },
+  { src: slide07, mobileObjectPosition: "left center" },
+  { src: slideM1, mobileOnly: true, filterOverride: warmFilter },
+  { src: slideM2, mobileOnly: true, filterOverride: warmFilter },
+  { src: slideM3, mobileOnly: true, objectPosition: "left center", mobileObjectPosition: "left center", filterOverride: warmFilter },
+  { src: slide5721, objectPosition: "center center", filterOverride: warmFilter },
   { src: slide08, objectPosition: "center bottom" },
   { src: slide12 },
 ];
@@ -81,9 +100,23 @@ export default function Morocco() {
   const [paused, setPaused] = useState(false);
   const [openLogistic, setOpenLogistic] = useState<number | null>(null);
   const [mapEnlarged, setMapEnlarged] = useState(false);
+  const [isMobile, setIsMobile] = useState(() =>
+    typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
+  );
 
-  const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
-  const prev = useCallback(() => setCurrent(c => (c - 1 + slides.length) % slides.length), []);
+  useEffect(() => {
+    const mq = window.matchMedia("(max-width: 767px)");
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mq.addEventListener("change", handler);
+    return () => mq.removeEventListener("change", handler);
+  }, []);
+
+  const activeSlides = isMobile ? slides : slides.filter(s => !s.mobileOnly);
+
+  useEffect(() => { setCurrent(0); }, [activeSlides.length]);
+
+  const next = useCallback(() => setCurrent(c => (c + 1) % activeSlides.length), [activeSlides.length]);
+  const prev = useCallback(() => setCurrent(c => (c - 1 + activeSlides.length) % activeSlides.length), [activeSlides.length]);
 
   useEffect(() => {
     if (paused) return;
@@ -124,17 +157,17 @@ export default function Morocco() {
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {slides.map((slide, i) => (
+          {activeSlides.map((slide, i) => (
             <img
-              key={i}
+              key={slide.src}
               src={slide.src}
               alt=""
               aria-hidden="true"
               className="absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 select-none pointer-events-none"
               style={{
                 opacity: i === current ? 1 : 0,
-                filter: imgFilter,
-                objectPosition: slide.objectPosition ?? "center center",
+                filter: slide.filterOverride ?? imgFilter,
+                objectPosition: (isMobile && slide.mobileObjectPosition) ? slide.mobileObjectPosition : (slide.objectPosition ?? "center center"),
                 transform: `scale(${slide.scale ?? 1}) translateZ(0)`,
                 willChange: "opacity",
               }}
@@ -168,7 +201,7 @@ export default function Morocco() {
           </div>
 
           <div className="absolute bottom-3 right-5 flex gap-1.5 items-center">
-            {slides.map((_, i) => (
+            {activeSlides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => { setCurrent(i); setPaused(true); }}
