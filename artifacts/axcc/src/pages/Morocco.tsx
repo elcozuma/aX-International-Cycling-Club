@@ -48,7 +48,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "What does the base event fee cover?",
-    a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included unless explicitly stated."
+    a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included."
   },
   {
     q: "How does the optional logistic support work?",
