@@ -1,4 +1,4 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -8,14 +8,12 @@ import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
-import slide06b from "@assets/a-X_Website-6_1780065568271.png";
 import slide08 from "@assets/a-X_Website-8_1780065568271.png";
 
 const slides: { src: string; objectPosition?: string; scale?: number }[] = [
   { src: slide02 },
   { src: slide05, scale: 1.08 },
   { src: slide06 },
-  { src: slide06b, objectPosition: "center top" },
   { src: slide07 },
   { src: slide08, objectPosition: "center bottom" },
   { src: slide12 },
@@ -85,12 +83,22 @@ export default function Morocco() {
   const [mapEnlarged, setMapEnlarged] = useState(false);
 
   const next = useCallback(() => setCurrent(c => (c + 1) % slides.length), []);
+  const prev = useCallback(() => setCurrent(c => (c - 1 + slides.length) % slides.length), []);
 
   useEffect(() => {
     if (paused) return;
     const t = setInterval(next, SLIDE_INTERVAL);
     return () => clearInterval(t);
   }, [paused, next]);
+
+  const touchStartX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => { touchStartX.current = e.touches[0].clientX; };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchStartX.current;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); setPaused(true); }
+    touchStartX.current = null;
+  };
 
   return (
     <>
@@ -113,6 +121,8 @@ export default function Morocco() {
           style={{ height: "55vh", minHeight: "260px" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
         >
           {slides.map((slide, i) => (
             <img
@@ -125,7 +135,8 @@ export default function Morocco() {
                 opacity: i === current ? 1 : 0,
                 filter: imgFilter,
                 objectPosition: slide.objectPosition ?? "center center",
-                transform: `scale(${slide.scale ?? 1})`,
+                transform: `scale(${slide.scale ?? 1}) translateZ(0)`,
+                willChange: "opacity",
               }}
             />
           ))}
@@ -156,19 +167,24 @@ export default function Morocco() {
             </motion.h1>
           </div>
 
-          <div className="absolute bottom-3 right-5 flex gap-1.5">
+          <div className="absolute bottom-3 right-5 flex gap-1.5 items-center">
             {slides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => { setCurrent(i); setPaused(true); }}
-                className="rounded-full transition-all duration-300 cursor-pointer"
-                style={{
-                  width:  i === current ? "16px" : "5px",
-                  height: "5px",
-                  background: i === current ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
-                }}
+                className="cursor-pointer flex items-center justify-center"
+                style={{ padding: "6px", margin: "-6px" }}
                 aria-label={`Slide ${i + 1}`}
-              />
+              >
+                <span
+                  className="rounded-full transition-all duration-300 block"
+                  style={{
+                    width:  i === current ? "16px" : "5px",
+                    height: "5px",
+                    background: i === current ? "rgba(255,255,255,0.9)" : "rgba(255,255,255,0.3)",
+                  }}
+                />
+              </button>
             ))}
           </div>
         </div>
