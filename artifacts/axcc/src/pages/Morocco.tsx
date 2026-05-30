@@ -11,17 +11,15 @@ import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 import slide08 from "@assets/a-X_Website-8_1780065568271.png";
 import slideM1 from "@assets/IMG_5968_1780065776415.jpeg";
 import slideM2 from "@assets/IMG_5770_1780065776415.jpeg";
-import slideM3 from "@assets/IMG_5733_1779460910871.jpeg";
-import slide5721 from "@assets/IMG_5721_1780065776415.jpeg";
 
 const warmFilter = "sepia(22%) saturate(100%) contrast(110%) brightness(101%) hue-rotate(-6deg)";
 
 type Slide = {
   src: string;
   objectPosition?: string;
-  mobileObjectPosition?: string;
   scale?: number;
   mobileOnly?: boolean;
+  desktopOnly?: boolean;
   filterOverride?: string;
 };
 
@@ -29,11 +27,9 @@ const slides: Slide[] = [
   { src: slide02 },
   { src: slide05, scale: 1.08 },
   { src: slide06 },
-  { src: slide07, mobileObjectPosition: "left center" },
+  { src: slide07, desktopOnly: true },
   { src: slideM1, mobileOnly: true, filterOverride: warmFilter },
   { src: slideM2, mobileOnly: true, filterOverride: warmFilter },
-  { src: slideM3, mobileOnly: true, objectPosition: "left center", mobileObjectPosition: "left center", filterOverride: warmFilter },
-  { src: slide5721, objectPosition: "center center", filterOverride: warmFilter },
   { src: slide08, objectPosition: "center bottom" },
   { src: slide12 },
 ];
@@ -111,7 +107,7 @@ export default function Morocco() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
-  const activeSlides = isMobile ? slides : slides.filter(s => !s.mobileOnly);
+  const activeSlides = slides.filter(s => isMobile ? !s.desktopOnly : !s.mobileOnly);
 
   useEffect(() => { setCurrent(0); }, [activeSlides.length]);
 
@@ -167,7 +163,7 @@ export default function Morocco() {
               style={{
                 opacity: i === current ? 1 : 0,
                 filter: slide.filterOverride ?? imgFilter,
-                objectPosition: (isMobile && slide.mobileObjectPosition) ? slide.mobileObjectPosition : (slide.objectPosition ?? "center center"),
+                objectPosition: slide.objectPosition ?? "center center",
                 transform: `scale(${slide.scale ?? 1}) translateZ(0)`,
                 willChange: "opacity",
               }}
