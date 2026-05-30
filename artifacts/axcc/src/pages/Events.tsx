@@ -17,7 +17,7 @@ const expeditions = [
     elevation: "9,000M",
     terrain: "GRAVEL+",
     cost1: "€400* (Event Fee + Self Supported)",
-    cost2: "€550–€950* (Event Fee + Logistical support)**",
+    cost2: "<€950* (Event Fee + Logistical support**)",
     costNote: "*Flights not included",
     costNote2: "**Additional services available separately via a local delivery partner",
     formUrl: "https://forms.gle/4M9eEvEsidtxkPbd9",
