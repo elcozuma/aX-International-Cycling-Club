@@ -8,7 +8,6 @@ import About from "@/pages/About";
 import Events from "@/pages/Events";
 import FAQ from "@/pages/FAQ";
 import Morocco from "@/pages/Morocco";
-import Gallery from "@/pages/Gallery";
 import NotFound from "@/pages/not-found";
 
 const queryClient = new QueryClient();
