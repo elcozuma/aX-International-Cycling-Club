@@ -20,7 +20,6 @@ const expeditions = [
     cost2: "€600–€1,000* (Event Fee + Logistical support and various accommodation options)**",
     costNote: "*Flights not included",
     costNote2: "**Additional services to be sourced independently or via a local delivery partner",
-    costNote3: "Receive 50% discount on Entry Fee for next event when signing up for this event",
     formUrl: "https://forms.gle/4M9eEvEsidtxkPbd9",
     detailPath: "/morocco",
   }
@@ -125,7 +124,6 @@ export default function Events() {
                         <p className="text-white text-xs font-semibold">{exp.cost2}</p>
                         <p className="text-white/50 text-[9px] italic mt-1">{exp.costNote}</p>
                         <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote2}</p>
-                        <p className="text-white/50 text-[9px] italic mt-0.5">{exp.costNote3}</p>
                       </div>
                     </div>
 
