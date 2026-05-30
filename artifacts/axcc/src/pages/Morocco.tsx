@@ -76,7 +76,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "What should I expect from the weather and conditions?",
-    a: "The Anti-Atlas in late March can be variable. Expect warm, dry conditions at lower elevations during the day, but temperatures can drop significantly in the mountains, particularly at altitude and after dark. Rain is possible, especially early in the week, and high passes may be cold and exposed. Riders should come prepared for a range of conditions — windproof and waterproof layers, warm kit for mornings and evenings, and sun protection for the middle of the day. Detailed weather guidance and packing recommendations will be included in the event briefing."
+    a: "The Anti-Atlas in late March can be variable. Expect warm, dry conditions at lower elevations during the day, but temperatures can drop significantly in the mountains, particularly after dark. Rain is possible, especially early in the week, and high passes may be cold and exposed. Riders should come prepared for a range of conditions — windproof and waterproof layers, warm kit for mornings and evenings, and sun protection for the middle of the day. Detailed weather guidance and packing recommendations will be included in the event briefing."
   },
   {
     q: "How does resupply work?",
