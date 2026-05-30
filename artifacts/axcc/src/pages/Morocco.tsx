@@ -51,6 +51,10 @@ const logistics: { q: string; a: string }[] = [
     a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included."
   },
   {
+    q: "Why is the full price of Event Fee + Logistical Support (<€950) only a maximum estimated cost?",
+    a: "The <€950 figure is calculated using the base event fee (€400) plus the maximum costs of logistical support and accommodation, based on a minimum of 5 people participating. As more riders join, the group benefits from economies of scale — and those savings are passed directly back to participants. The ethos of a-X is to make adventure cycling more accessible and affordable, which means we do not profit from optional services. We also always try to negotiate fixed rates with service providers to help keep costs as low as possible."
+  },
+  {
     q: "How does the optional logistic support work?",
     a: "The logistics option provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). The local partner can also take bookings and payment for hotels along the route, making it straightforward to sort accommodation without having to arrange things independently in advance. Payment for all logistics services is made directly to the local delivery partner on arrival at the event. Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
   },
