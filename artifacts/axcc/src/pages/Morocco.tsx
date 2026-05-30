@@ -139,7 +139,7 @@ const stats = [
   { label: "DISTANCE",  value: "~440 KM" },
   { label: "ELEVATION", value: "~9,000 M" },
   { label: "TERRAIN",   value: "GRAVEL+" },
-  { label: "GROUP",     value: "Target 10 Riders (Min 5, Max 15)" },
+  { label: "GROUP",     value: "Target 10 Riders\n(Min 5, Max 15)" },
 ];
 
 export default function Morocco() {
@@ -289,7 +289,7 @@ export default function Morocco() {
             {stats.map(({ label, value }) => (
               <div key={label} className="bg-black/40 flex flex-col items-center justify-center py-2.5 px-1 text-center">
                 <span className="text-[9px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
-                <span className="text-[11px] md:text-xs font-semibold text-white" style={rubikOne}>{value}</span>
+                <span className="text-[11px] md:text-xs font-semibold text-white whitespace-pre-line" style={rubikOne}>{value}</span>
               </div>
             ))}
           </motion.div>
