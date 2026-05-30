@@ -466,6 +466,8 @@ export default function Morocco() {
                       "Luggage transfers between stops",
                       "Transfer from Marrakech to start",
                       "Transfer from finish to Marrakech",
+                      "Stand-by vehicle",
+                      "Pre-booked accommodation (optional, at no extra cost)",
                     ].map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
                         <span className="text-accent/50 mt-0.5">✓</span>{item}
@@ -473,10 +475,6 @@ export default function Morocco() {
                     ))}
                   </ul>
                 </div>
-
-                <li className="text-xs text-foreground/60 flex gap-2 mt-2" style={nunito}>
-                  <span className="text-accent/50 mt-0.5">✓</span>€200 accommodation allowance (to be organised separately)
-                </li>
 
                 <p className="text-[10px] text-foreground/30 mt-3 italic" style={nunito}>
                   Full logistics breakdown shared with registered participants.
