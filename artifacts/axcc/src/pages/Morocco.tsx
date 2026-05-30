@@ -64,7 +64,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "Is there a support vehicle during the riding days?",
-    a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Resupply is planned around towns and villages along the route."
+    a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Please note that in more remote or off-road sections of the route, the vehicle may not always be immediately reachable, so riders should plan accordingly and not rely on it as a guaranteed safety net."
   },
   {
     q: "Do I need to bring my own bike?",
