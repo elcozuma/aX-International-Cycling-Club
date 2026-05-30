@@ -9,9 +9,9 @@ import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 
-const slides: { src: string; objectPosition?: string }[] = [
+const slides: { src: string; objectPosition?: string; scale?: number }[] = [
   { src: slide02 },
-  { src: slide05 },
+  { src: slide05, scale: 1.08 },
   { src: slide06 },
   { src: slide07 },
   { src: slide12 },
@@ -121,6 +121,7 @@ export default function Morocco() {
                 opacity: i === current ? 1 : 0,
                 filter: imgFilter,
                 objectPosition: slide.objectPosition ?? "center center",
+                transform: `scale(${slide.scale ?? 1})`,
               }}
             />
           ))}
