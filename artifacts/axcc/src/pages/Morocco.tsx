@@ -80,7 +80,7 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "What happens if I have a mechanical issue or injury on the route?",
-    a: "Riders are expected to be self-reliant and prepared to handle common mechanicals out on the road. That said, one of the benefits of riding as a group is having other riders around who can help — between the group there will generally be a reasonable spread of tools, spare parts and practical knowledge. The event host also has familiarity with the local area and can assist in identifying the nearest towns or resources if something more serious arises. A standby vehicle will also be available throughout the riding days for situations that cannot be resolved on the road."
+    a: "Riders are expected to be self-reliant and prepared to handle common mechanicals out on the road. That said, one of the benefits of riding as a group is having other riders around who may be able to assist. A standby vehicle will also be available throughout the riding days for situations that cannot be resolved on the road."
   },
   {
     q: "What should I expect from the weather and conditions?",
