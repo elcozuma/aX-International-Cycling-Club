@@ -99,8 +99,8 @@ export default function Events() {
                   {/* Content */}
                   <div className="relative z-10 flex flex-col h-full p-5" style={{ minHeight: "280px" }}>
                     <h2
-                      className="text-sm md:text-base normal-case text-black leading-tight mb-auto"
-                      style={rubikOne}
+                      className="text-sm md:text-base normal-case text-white leading-tight mb-auto"
+                      style={{ ...rubikOne, textShadow: "0 1px 8px rgba(0,0,0,0.85), 0 0px 2px rgba(0,0,0,1)" }}
                     >
                       {exp.title}
                     </h2>
