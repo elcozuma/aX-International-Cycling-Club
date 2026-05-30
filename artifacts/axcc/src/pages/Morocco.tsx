@@ -51,7 +51,7 @@ const logistics: { q: string; a: string | React.ReactNode }[] = [
     a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included."
   },
   {
-    q: "Why is the full price of Event Fee + Logistical Support (<€950) only a maximum estimated cost?",
+    q: "Why is the full price of the event (<€950) only a maximum estimated cost?",
     a: "The <€950 figure is calculated using the base event fee (€400) plus the maximum costs of logistical support and accommodation, based on a minimum of 5 people participating. As more riders join, the group benefits from economies of scale — and those savings are passed directly back to participants. The ethos of a-X is to make adventure cycling more accessible and affordable, which means we do not profit from optional services. We also always try to negotiate fixed rates with service providers to help keep costs as low as possible."
   },
   {
