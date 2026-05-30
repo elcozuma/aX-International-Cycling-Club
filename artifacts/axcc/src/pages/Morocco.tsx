@@ -55,16 +55,28 @@ const logistics: { q: string; a: string }[] = [
     a: "The logistics option (est. €150–€350) provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). The local partner can also take bookings and payment for hotels along the route, making it straightforward to sort accommodation without having to arrange things independently in advance. Payment for all logistics services is made directly to the local delivery partner on arrival at the event. Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
   },
   {
-    q: "What accommodation options are there?",
-    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
-  },
-  {
     q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
     a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights and accommodation."
   },
   {
+    q: "What accommodation options are there?",
+    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
+  },
+  {
     q: "Is there a support vehicle during the riding days?",
     a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Resupply is planned around towns and villages along the route."
+  },
+  {
+    q: "Do I need to bring my own bike?",
+    a: "Yes — all riders need to come prepared with a suitable bike and equipment for the terrain and conditions. Whilst it may be possible to rent a bicycle locally, it is not advised due to potential issues with fit and quality. Please contact the event host if you require any advice on how to transport your bike."
+  },
+  {
+    q: "What happens if I have a mechanical issue or injury on the route?",
+    a: "Riders are expected to be self-reliant and prepared to handle common mechanicals out on the road. That said, one of the benefits of riding as a group is having other riders around who can help — between the group there will generally be a reasonable spread of tools, spare parts and practical knowledge. The event host also has familiarity with the local area and can assist in identifying the nearest towns or resources if something more serious arises. A standby vehicle will also be available throughout the riding days for situations that cannot be resolved on the road."
+  },
+  {
+    q: "What should I expect from the weather and conditions?",
+    a: "The Anti-Atlas in late March can be variable. Expect warm, dry conditions at lower elevations during the day, but temperatures can drop significantly in the mountains, particularly at altitude and after dark. Rain is possible, especially early in the week, and high passes may be cold and exposed. Riders should come prepared for a range of conditions — windproof and waterproof layers, warm kit for mornings and evenings, and sun protection for the middle of the day. Detailed weather guidance and packing recommendations will be included in the event briefing."
   },
   {
     q: "How does resupply work?",
