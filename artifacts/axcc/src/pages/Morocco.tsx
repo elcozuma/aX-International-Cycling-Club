@@ -15,7 +15,7 @@ const slides: { src: string; objectPosition?: string; scale?: number }[] = [
   { src: slide02 },
   { src: slide05, scale: 1.08 },
   { src: slide06 },
-  { src: slide06b },
+  { src: slide06b, objectPosition: "center top" },
   { src: slide07 },
   { src: slide08, objectPosition: "center bottom" },
   { src: slide12 },
