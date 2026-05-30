@@ -450,7 +450,7 @@ export default function Morocco() {
                   Recommended
                 </div>
                 <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
-                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€600–€1,000</p>
+                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€550–€950</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — dependent on participant numbers &amp; accommodation choices</p>
                 <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
