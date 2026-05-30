@@ -41,7 +41,7 @@ const nunito   = { fontFamily: "'Nunito', sans-serif" };
 
 const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
-const logistics: { q: string; a: string }[] = [
+const logistics: { q: string; a: string | React.ReactNode }[] = [
   {
     q: "Who is this event for?",
     a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format gives you a solid platform to push your limits. If you're an experienced rider, the appeal is a thoughtfully curated route, plus the option to add logistics support so you can focus on riding rather than logistics."
@@ -88,7 +88,30 @@ const logistics: { q: string; a: string }[] = [
   },
   {
     q: "What are the main dangers and annoyances in Southern Morocco?",
-    a: "The main dangers in this region relate to slightly more relaxed road rules compared to other countries. Riders need to be diligent and not assume drivers will behave as they might in Europe or other developed nations. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco is much less developed than the north, with very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.\n\nOther annoyances include guard dogs, usually protecting livestock or property. They're mostly harmless and, from experience, fewer and farther between than in the north of the country. Although it can be disconcerting, they're usually equally fearful of you — stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.\n\nSome riders have mentioned children aggressively requesting money or sweets, and occasionally throwing stones. Although I've never personally experienced the latter, this behaviour is more associated with touristic areas — not Southern Morocco.\n\nThis area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should nonetheless be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.\n\nOn food and water: refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas where there's a more transactional relationship with your patronage. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is a reassuring sign of quality. Pharmacies are widespread across Morocco and it's easy to find something for most minor ailments. Bottled water is readily available in most towns and villages, and taps labelled 'potable' are common in built-up areas and along major roads. Whilst tap water is generally deemed safe, it's best to err on the side of caution and filter or sterilise where possible."
+    a: (
+      <div className="space-y-4">
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
+          <p>Road rules in Morocco are more relaxed than in Europe or other developed nations. Riders need to be diligent and not assume drivers will behave predictably. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco sees very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
+          <p>Dogs protecting livestock or property are a common annoyance, though they're mostly harmless and — from experience — fewer and farther between than in the north of Morocco. Stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
+          <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
+          <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
+        </div>
+        <div>
+          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
+          <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
+        </div>
+      </div>
+    )
   },
   {
     q: "Do I require any vaccinations prior to arrival in Morocco?",
@@ -543,9 +566,9 @@ export default function Morocco() {
                           transition={{ duration: 0.22 }}
                           className="overflow-hidden"
                         >
-                          <p className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
-                            {item.a}
-                          </p>
+                          <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
+                            {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+                          </div>
                         </motion.div>
                       )}
                     </AnimatePresence>
