@@ -302,13 +302,10 @@ export default function Morocco() {
             className="mb-6 space-y-3"
           >
             <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              The Anti-Atlas doesn't get much traffic. It sits in the deep south of Morocco — ancient, eroded and largely off the radar for cyclists. The a-X expedition routes through some of its most remote terrain: rough piste, high passes and palm-lined gorges that most riders never reach.
+              Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine and the curiosity mutual.
             </p>
             <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              Nights are in small guesthouses and kasbahs built from the same red earth as the hills around them. Days are on roads that exist mostly for the people who live there — through villages where greetings are genuine and the curiosity goes both ways.
-            </p>
-            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              The riding doesn't give you anything easily. Long days on loose and broken ground earn you views across raw ridgelines and valleys thick with wildflowers. Some of the roads are beautiful. Some are not. All of it is worth the effort.
+              The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
             </p>
           </motion.div>
 
