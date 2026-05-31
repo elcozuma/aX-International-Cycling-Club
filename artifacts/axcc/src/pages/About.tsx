@@ -46,7 +46,7 @@ export default function About() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.25 }}
-                className="text-[10px] uppercase tracking-widest text-accent/60 mb-5"
+                className="text-sm md:text-base uppercase tracking-widest text-accent/60 mt-4 mb-4"
                 style={rubikOne}
               >
                 Mission
