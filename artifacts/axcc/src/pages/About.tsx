@@ -63,7 +63,7 @@ export default function About() {
                   a-X exists to bring people together through challenging multi-day rides built around autonomy, shared experience and meaningful terrain.
                 </p>
                 <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
-                  The ethos of a-X is to make adventure cycling more accessible and affordable. Whilst there is an event fee associated with some more logistically demanding events — to ensure long-term sustainability — we do not profit from optional services. We also negotiate fixed rates with service providers wherever possible, and any savings from economies of scale are passed directly back to participants.
+                  The ethos of a-X is to make adventure cycling more accessible and affordable. Whilst there is an event fee associated with some more logistically demanding events — to ensure long-term sustainability — we do not profit from additional/optional services. We also negotiate fixed rates with service providers wherever possible, and any savings from economies of scale are passed directly back to participants.
                 </p>
                 <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
                   Routes will primarily focus on gravel, remote landscapes and A-to-B riding for people who value exploration over luxury and experience over itinerary.
