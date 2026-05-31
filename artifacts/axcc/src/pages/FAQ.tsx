@@ -201,7 +201,7 @@ export default function FAQ() {
                     className="w-full flex items-center justify-between px-4 py-3 rounded-xl bg-white/8 border border-white/10 text-left"
                   >
                     <span
-                      className="text-[10px] uppercase tracking-widest text-foreground/50"
+                      className="text-xs uppercase tracking-widest text-foreground/50"
                       style={rubikOne}
                     >
                       {section.label}
@@ -334,7 +334,7 @@ export default function FAQ() {
 
             {/* Section 0 */}
             <div className="flex-1 min-h-0 flex flex-col border-b border-white/10">
-              <p className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
+              <p className="text-xs md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
                 {sections[0].label}
               </p>
               <div className="relative flex-1 min-h-0">
@@ -364,7 +364,7 @@ export default function FAQ() {
 
             {/* Section 1 */}
             <div className="flex-1 min-h-0 flex flex-col">
-              <p className="text-[10px] md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
+              <p className="text-xs md:text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-3 pb-2 flex-shrink-0" style={rubikOne}>
                 {sections[1].label}
               </p>
               <div className="relative flex-1 min-h-0">

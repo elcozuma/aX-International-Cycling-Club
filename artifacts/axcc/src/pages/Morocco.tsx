@@ -91,23 +91,23 @@ const logistics: { q: string; a: string | React.ReactNode }[] = [
     a: (
       <div className="space-y-4">
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
+          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
           <p>Road rules in Morocco are more relaxed than in Europe or other developed nations. Riders need to be diligent and not assume drivers will behave predictably. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco sees very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.</p>
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
+          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
           <p>Dogs protecting livestock or property are a common annoyance, though they're mostly harmless and — from experience — fewer and farther between than in the north of Morocco. Stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.</p>
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
+          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
           <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
+          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
           <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
         </div>
         <div>
-          <p className="text-[10px] uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
+          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
           <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
         </div>
       </div>
@@ -231,7 +231,7 @@ export default function Morocco() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.15 }}
-              className="text-[10px] md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
+              className="text-xs md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
               style={{ ...rubikOne, background: "rgba(30,18,8,0.55)" }}
             >
               Hosted Expedition · Southern Morocco
@@ -288,8 +288,8 @@ export default function Morocco() {
           >
             {stats.map(({ label, value }) => (
               <div key={label} className="bg-black/40 flex flex-col items-center justify-center py-2.5 px-1 text-center">
-                <span className="text-[9px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
-                <span className="text-[11px] md:text-xs font-semibold text-white whitespace-pre-line" style={rubikOne}>{value}</span>
+                <span className="text-[10px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
+                <span className="text-xs md:text-xs font-semibold text-white whitespace-pre-line" style={rubikOne}>{value}</span>
               </div>
             ))}
           </motion.div>
@@ -316,7 +316,7 @@ export default function Morocco() {
             transition={{ delay: 0.45 }}
             className="mb-8"
           >
-            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
 
           <div className="md:flex md:gap-4 md:items-stretch">
 
@@ -332,7 +332,7 @@ export default function Morocco() {
                 className="w-full h-auto block"
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white/80 text-[10px] uppercase tracking-widest px-3 py-1.5 rounded" style={rubikOne}>
+                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded" style={rubikOne}>
                   Click to enlarge
                 </span>
               </div>
@@ -346,7 +346,7 @@ export default function Morocco() {
               {/* Day 0 */}
               <div className="flex items-start gap-3 px-4 py-2 bg-black/20">
                 <div
-                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold border border-white/20 text-white/50"
+                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold border border-white/20 text-white/50"
                   style={rubikOne}
                 >
                   D0
@@ -355,7 +355,7 @@ export default function Morocco() {
                   <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>
                     Marrakech — Meet-up &amp; transfer to Southern Morocco
                   </p>
-                  <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>
+                  <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>
                     Transfer from Marrakech included with logistics package only
                   </p>
                 </div>
@@ -373,7 +373,7 @@ export default function Morocco() {
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-2 hover:bg-white/3 transition-colors">
                   <div
-                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-[10px] font-bold text-white mt-0.5"
+                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white mt-0.5"
                     style={{ ...rubikOne, background: color }}
                   >
                     D{day}
@@ -387,11 +387,11 @@ export default function Morocco() {
                       </p>
                     )}
                     {note && (
-                      <p className="text-[10px] text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
+                      <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
                     )}
                   </div>
                   <div className="flex-shrink-0 flex flex-col items-end gap-1 mt-0.5" style={nunito}>
-                    <span className="text-[10px] text-foreground/35">{date}</span>
+                    <span className="text-xs text-foreground/35">{date}</span>
                     {!rest && (
                       <div className="flex gap-2">
                         <span className="text-xs text-foreground/60">{km}km</span>
@@ -415,7 +415,7 @@ export default function Morocco() {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
           >
             <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
+              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
               <ul className="space-y-1" style={nunito}>
                 {[
                   "~50% road / ~50% gravel & piste",
@@ -432,7 +432,7 @@ export default function Morocco() {
             </div>
 
             <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-              <h3 className="text-[10px] uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
+              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
               <ul className="space-y-1" style={nunito}>
                 {[
                   "Gravel or adventure bike",
@@ -458,12 +458,12 @@ export default function Morocco() {
             transition={{ delay: 0.52 }}
             className="mb-8"
           >
-            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-4" style={rubikOne}>Entry & Pricing</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-4" style={rubikOne}>Entry & Pricing</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               {/* Self-supported */}
               <div className="rounded-xl border border-white/15 bg-black/40 px-6 py-6">
-                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>Self-Supported</p>
+                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>Self-Supported</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€400</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee</p>
                 <ul className="space-y-1.5" style={nunito}>
@@ -478,7 +478,7 @@ export default function Morocco() {
                     </li>
                   ))}
                 </ul>
-                <p className="text-[10px] text-accent/60 mt-4 italic" style={nunito}>
+                <p className="text-xs text-accent/60 mt-4 italic" style={nunito}>
                   Group discounts available on the Event Fee for 5 or more riders booking together.
                 </p>
               </div>
@@ -486,12 +486,12 @@ export default function Morocco() {
               {/* With logistics */}
               <div className="rounded-xl border border-accent/70 bg-accent/8 px-6 py-6 relative shadow-[0_0_36px_-4px_rgba(137,152,42,0.45)]">
                 <div
-                  className="absolute top-4 right-4 text-[9px] uppercase tracking-widest text-background bg-accent rounded px-2 py-0.5"
+                  className="absolute top-4 right-4 text-[10px] uppercase tracking-widest text-background bg-accent rounded px-2 py-0.5"
                   style={rubikOne}
                 >
                   Recommended
                 </div>
-                <p className="text-[10px] uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
+                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>&lt;€950</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — dependent on participant numbers &amp; accommodation choices</p>
                 <ul className="space-y-2" style={nunito}>
@@ -502,7 +502,7 @@ export default function Morocco() {
                 </ul>
 
                 <div className="mt-3 rounded-lg border border-white/10 bg-white/3 px-3 py-2.5">
-                  <p className="text-[10px] uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>Via local delivery partner</p>
+                  <p className="text-xs uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>Via local delivery partner</p>
                   <ul className="space-y-1.5" style={nunito}>
                     {[
                       "Luggage transfers between stops",
@@ -518,7 +518,7 @@ export default function Morocco() {
                   </ul>
                 </div>
 
-                <p className="text-[10px] text-foreground/30 mt-3 italic" style={nunito}>
+                <p className="text-xs text-foreground/30 mt-3 italic" style={nunito}>
                   *Where terrain and access allow. Full logistics breakdown shared with registered participants.
                 </p>
               </div>
@@ -533,7 +533,7 @@ export default function Morocco() {
             transition={{ delay: 0.6 }}
             className="mb-8"
           >
-            <h3 className="text-[10px] uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
             <div className="rounded-lg border border-white/15 overflow-hidden divide-y divide-white/10">
               {logistics.map((item, i) => {
                 const isOpen = openLogistic === i;
@@ -627,7 +627,7 @@ export default function Morocco() {
                               </svg>
                               <div>
                                 <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
-                                <p className="text-[10px] text-foreground/35">a-X Event T&Cs — PDF</p>
+                                <p className="text-xs text-foreground/35">a-X Event T&Cs — PDF</p>
                               </div>
                             </a>
                             <a
@@ -642,7 +642,7 @@ export default function Morocco() {
                               </svg>
                               <div>
                                 <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
-                                <p className="text-[10px] text-foreground/35">a-X Waiver — PDF</p>
+                                <p className="text-xs text-foreground/35">a-X Waiver — PDF</p>
                               </div>
                             </a>
                           </div>
@@ -682,7 +682,7 @@ export default function Morocco() {
             >
               EXPRESS INTEREST
             </a>
-            <p className="text-center text-[10px] text-foreground/60 mt-2" style={nunito}>
+            <p className="text-center text-xs text-foreground/60 mt-2" style={nunito}>
               No payment required — we'll be in touch with full details.
             </p>
           </motion.div>
