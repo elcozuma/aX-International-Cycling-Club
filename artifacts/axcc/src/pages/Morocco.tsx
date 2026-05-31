@@ -478,6 +478,9 @@ export default function Morocco() {
                     </li>
                   ))}
                 </ul>
+                <p className="text-[10px] text-accent/60 mt-4 italic" style={nunito}>
+                  Group discounts available on the Event Fee for 5 or more riders booking together.
+                </p>
               </div>
 
               {/* With logistics */}
@@ -521,9 +524,6 @@ export default function Morocco() {
               </div>
             </div>
 
-            <p className="text-[10px] text-accent/60 mt-4 italic" style={nunito}>
-              Group discounts available on the Event Fee for 5 or more riders booking together.
-            </p>
           </motion.div>
 
           {/* Logistics accordion */}
