@@ -179,6 +179,15 @@ export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openLogistic, setOpenLogistic] = useState<{ cat: number; item: number } | null>(null);
+  const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
+
+  function toggleCategory(i: number) {
+    setOpenCategories(prev => {
+      const next = new Set(prev);
+      if (next.has(i)) { next.delete(i); } else { next.add(i); }
+      return next;
+    });
+  }
   const [mapEnlarged, setMapEnlarged] = useState(false);
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
@@ -568,56 +577,84 @@ export default function Morocco() {
           >
             <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
             <div className="rounded-lg border border-white/15 overflow-hidden">
-              {logisticCategories.map((category, catIdx) => (
-                <div key={catIdx} className={catIdx > 0 ? "border-t border-white/15" : ""}>
-                  <p className="text-[10px] uppercase tracking-widest text-accent/40 px-4 py-2 bg-white/[0.02]" style={rubikOne}>
-                    {category.label}
-                  </p>
-                  <div className="divide-y divide-white/10">
-                    {category.items.map((item, itemIdx) => {
-                      const isOpen = openLogistic?.cat === catIdx && openLogistic?.item === itemIdx;
-                      return (
-                        <div key={itemIdx} className={isOpen ? "bg-white/5" : ""}>
-                          <button
-                            onClick={() => setOpenLogistic(isOpen ? null : { cat: catIdx, item: itemIdx })}
-                            className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
-                          >
-                            <span
-                              className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
-                              style={rubikOne}
-                            >
-                              {item.q}
-                            </span>
-                            <motion.span
-                              animate={{ rotate: isOpen ? 45 : 0 }}
-                              transition={{ duration: 0.2 }}
-                              className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
-                            >
-                              +
-                            </motion.span>
-                          </button>
-                          <AnimatePresence initial={false}>
-                            {isOpen && (
-                              <motion.div
-                                key="answer"
-                                initial={{ height: 0, opacity: 0 }}
-                                animate={{ height: "auto", opacity: 1 }}
-                                exit={{ height: 0, opacity: 0 }}
-                                transition={{ duration: 0.22 }}
-                                className="overflow-hidden"
-                              >
-                                <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
-                                  {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+              {logisticCategories.map((category, catIdx) => {
+                const isCatOpen = openCategories.has(catIdx);
+                return (
+                  <div key={catIdx} className={catIdx > 0 ? "border-t border-white/15" : ""}>
+                    <button
+                      onClick={() => toggleCategory(catIdx)}
+                      className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
+                    >
+                      <span className="text-sm uppercase tracking-widest text-white" style={rubikOne}>
+                        {category.label}
+                      </span>
+                      <motion.span
+                        animate={{ rotate: isCatOpen ? 45 : 0 }}
+                        transition={{ duration: 0.2 }}
+                        className="flex-shrink-0 text-lg leading-none text-white/40 transition-colors"
+                      >
+                        +
+                      </motion.span>
+                    </button>
+                    <AnimatePresence initial={false}>
+                      {isCatOpen && (
+                        <motion.div
+                          key="cat-content"
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: "auto", opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.25 }}
+                          className="overflow-hidden"
+                        >
+                          <div className="divide-y divide-white/10 border-t border-white/10">
+                            {category.items.map((item, itemIdx) => {
+                              const isOpen = openLogistic?.cat === catIdx && openLogistic?.item === itemIdx;
+                              return (
+                                <div key={itemIdx} className={isOpen ? "bg-white/5" : ""}>
+                                  <button
+                                    onClick={() => setOpenLogistic(isOpen ? null : { cat: catIdx, item: itemIdx })}
+                                    className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
+                                  >
+                                    <span
+                                      className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
+                                      style={rubikOne}
+                                    >
+                                      {item.q}
+                                    </span>
+                                    <motion.span
+                                      animate={{ rotate: isOpen ? 45 : 0 }}
+                                      transition={{ duration: 0.2 }}
+                                      className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
+                                    >
+                                      +
+                                    </motion.span>
+                                  </button>
+                                  <AnimatePresence initial={false}>
+                                    {isOpen && (
+                                      <motion.div
+                                        key="answer"
+                                        initial={{ height: 0, opacity: 0 }}
+                                        animate={{ height: "auto", opacity: 1 }}
+                                        exit={{ height: 0, opacity: 0 }}
+                                        transition={{ duration: 0.22 }}
+                                        className="overflow-hidden"
+                                      >
+                                        <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
+                                          {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+                                        </div>
+                                      </motion.div>
+                                    )}
+                                  </AnimatePresence>
                                 </div>
-                              </motion.div>
-                            )}
-                          </AnimatePresence>
-                        </div>
-                      );
-                    })}
+                              );
+                            })}
+                          </div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
                   </div>
-                </div>
-              ))}
+                );
+              })}
 
               {/* Event Documentation */}
               {(() => {
