@@ -50,7 +50,7 @@ const logisticCategories: LogisticCategory[] = [
     items: [
       {
         q: "Who is this event for?",
-        a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format gives you a solid platform to push your limits. If you're an experienced rider, the appeal is a thoughtfully curated route, plus the option to add logistics support so you can focus on riding rather than logistics."
+        a: "This event is for intermediate/advanced riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format gives you a solid platform to push your limits. If you're an experienced rider, the appeal is a thoughtfully curated route, plus the option to add logistics support so you can focus on riding rather than logistics. Most days provide multiple route options so riders can adjust their plan based on their needs at that moment."
       },
     ]
   },
