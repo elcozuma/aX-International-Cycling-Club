@@ -41,93 +41,126 @@ const nunito   = { fontFamily: "'Nunito', sans-serif" };
 
 const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
-const logistics: { q: string; a: string | React.ReactNode }[] = [
+type LogisticItem = { q: string; a: string | React.ReactNode };
+type LogisticCategory = { label: string; items: LogisticItem[] };
+
+const logisticCategories: LogisticCategory[] = [
   {
-    q: "Who is this event for?",
-    a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format gives you a solid platform to push your limits. If you're an experienced rider, the appeal is a thoughtfully curated route, plus the option to add logistics support so you can focus on riding rather than logistics."
+    label: "About the Event",
+    items: [
+      {
+        q: "Who is this event for?",
+        a: "This event is for riders who fancy something a bit more out there than a typical sportive. It's a point-to-point adventure through remote terrain with a small group of like-minded people. If you're newer to bikepacking or remote riding, the structured format gives you a solid platform to push your limits. If you're an experienced rider, the appeal is a thoughtfully curated route, plus the option to add logistics support so you can focus on riding rather than logistics."
+      },
+    ]
   },
   {
-    q: "What does the base event fee cover?",
-    a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included."
+    label: "Costs & Pricing",
+    items: [
+      {
+        q: "What does the base event fee cover?",
+        a: "The event fee (€400) covers route planning and reconnaissance, GPX files, hosting and group coordination across all riding days, and administration of any optional logistics arrangements. Flights, accommodation and transfers are not included."
+      },
+      {
+        q: "Why is the full price of the event (<€950) only a maximum estimated cost?",
+        a: "The <€950 figure is calculated using the base event fee (€400) plus the maximum costs of logistical support and accommodation, based on a minimum of 5 people participating. As more riders join, the group benefits from economies of scale — and those savings are passed directly back to participants. The ethos of a-X is to make adventure cycling more accessible and affordable, which means we do not profit from optional services. We also always try to negotiate fixed rates with service providers to help keep costs as low as possible."
+      },
+      {
+        q: "What other costs do I need to budget for?",
+        a: "Once travel and accommodation are sorted, the only real day-to-day costs are food and incidentals. Food in Morocco is very cheap compared to Europe and North America, and many accommodation providers will include breakfast and possibly an evening meal in the price. Beyond that, €20 per day should be more than enough to cover the rest of your calories and beverages."
+      },
+    ]
   },
   {
-    q: "Why is the full price of the event (<€950) only a maximum estimated cost?",
-    a: "The <€950 figure is calculated using the base event fee (€400) plus the maximum costs of logistical support and accommodation, based on a minimum of 5 people participating. As more riders join, the group benefits from economies of scale — and those savings are passed directly back to participants. The ethos of a-X is to make adventure cycling more accessible and affordable, which means we do not profit from optional services. We also always try to negotiate fixed rates with service providers to help keep costs as low as possible."
+    label: "Logistics & Support",
+    items: [
+      {
+        q: "How does the optional logistic support work?",
+        a: "The logistics option provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). The local partner can also take bookings and payment for hotels along the route, making it straightforward to sort accommodation without having to arrange things independently in advance. Payment for all logistics services is made directly to the local delivery partner on arrival at the event. Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
+      },
+      {
+        q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
+        a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights."
+      },
+      {
+        q: "Can I book my own accommodation? What options are there?",
+        a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
+      },
+      {
+        q: "Is there a support vehicle during the riding days?",
+        a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Please note that in more remote or off-road sections of the route, the vehicle may not always be immediately reachable, so riders should plan accordingly and not rely on it as a guaranteed safety net."
+      },
+    ]
   },
   {
-    q: "What other costs do I need to budget for?",
-    a: "Once travel and accommodation are sorted, the only real day-to-day costs are food and incidentals. Food in Morocco is very cheap compared to Europe and North America, and many accommodation providers will include breakfast and possibly an evening meal in the price. Beyond that, €20 per day should be more than enough to cover the rest of your calories and beverages."
+    label: "Bike & Equipment",
+    items: [
+      {
+        q: "Do I need to bring my own bike?",
+        a: "Yes — all riders need to come prepared with a suitable bike and equipment for the terrain and conditions. Whilst it may be possible to rent a bicycle locally, it is not advised due to potential issues with fit and quality. Please contact the event host if you require any advice on how to transport your bike."
+      },
+      {
+        q: "What happens if I have a mechanical issue or injury on the route?",
+        a: "Riders are expected to be self-reliant and prepared to handle common mechanicals out on the road. That said, one of the benefits of riding as a group is having other riders around who may be able to assist. A standby vehicle will also be available throughout the riding days for situations that cannot be resolved on the road."
+      },
+    ]
   },
   {
-    q: "How does the optional logistic support work?",
-    a: "The logistics option provides additional services on top of the base event fee. These are arranged separately through a local delivery partner in Morocco and include luggage transfers between overnight stops and in-region rider + bike transfers to and from Marrakech to the remote start point in Anezi and from the final destination (Taznacht). The local partner can also take bookings and payment for hotels along the route, making it straightforward to sort accommodation without having to arrange things independently in advance. Payment for all logistics services is made directly to the local delivery partner on arrival at the event. Full details and pricing for each option will be shared with registered participants ahead of the event once numbers have been confirmed."
+    label: "The Region",
+    items: [
+      {
+        q: "What should I expect from the weather and conditions?",
+        a: "The Anti-Atlas in late March can be variable. Expect warm, dry conditions at lower elevations during the day, but temperatures can drop significantly in the mountains, particularly after dark. Rain is possible, and high passes may be cold and exposed. Riders should come prepared for a range of conditions — windproof and waterproof layers, warm kit for mornings and evenings, and sun protection for the middle of the day. Detailed weather guidance and packing recommendations will be included in the event briefing."
+      },
+      {
+        q: "What are the main dangers and annoyances in Southern Morocco?",
+        a: (
+          <div className="space-y-4">
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
+              <p>Road rules in Morocco are more relaxed than in Europe or other developed nations. Riders need to be diligent and not assume drivers will behave predictably. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco sees very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
+              <p>Dogs protecting livestock or property are a common annoyance, though they're mostly harmless and — from experience — fewer and farther between than in the north of Morocco. Stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
+              <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
+              <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
+            </div>
+            <div>
+              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
+              <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
+            </div>
+          </div>
+        )
+      },
+      {
+        q: "Do I require any vaccinations prior to arrival in Morocco?",
+        a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
+      },
+      {
+        q: "How does resupply work?",
+        a: "The route passes through a number of villages and small towns where food and water can typically be sourced. Specific resupply points, recommended carry capacities and any sections requiring extra preparation will be detailed in the full event briefing sent to all registered participants."
+      },
+    ]
   },
   {
-    q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
-    a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights."
-  },
-  {
-    q: "Can I book my own accommodation? What options are there?",
-    a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
-  },
-  {
-    q: "Is there a support vehicle during the riding days?",
-    a: "There is no trailing support vehicle — the event is designed around self-sufficiency and riders are expected to carry what they need for the day. However, a vehicle will be available on standby throughout the riding days and can be called upon in case of mechanical failure, injury or other issues. Please note that in more remote or off-road sections of the route, the vehicle may not always be immediately reachable, so riders should plan accordingly and not rely on it as a guaranteed safety net."
-  },
-  {
-    q: "Do I need to bring my own bike?",
-    a: "Yes — all riders need to come prepared with a suitable bike and equipment for the terrain and conditions. Whilst it may be possible to rent a bicycle locally, it is not advised due to potential issues with fit and quality. Please contact the event host if you require any advice on how to transport your bike."
-  },
-  {
-    q: "What happens if I have a mechanical issue or injury on the route?",
-    a: "Riders are expected to be self-reliant and prepared to handle common mechanicals out on the road. That said, one of the benefits of riding as a group is having other riders around who may be able to assist. A standby vehicle will also be available throughout the riding days for situations that cannot be resolved on the road."
-  },
-  {
-    q: "What should I expect from the weather and conditions?",
-    a: "The Anti-Atlas in late March can be variable. Expect warm, dry conditions at lower elevations during the day, but temperatures can drop significantly in the mountains, particularly after dark. Rain is possible, and high passes may be cold and exposed. Riders should come prepared for a range of conditions — windproof and waterproof layers, warm kit for mornings and evenings, and sun protection for the middle of the day. Detailed weather guidance and packing recommendations will be included in the event briefing."
-  },
-  {
-    q: "What are the main dangers and annoyances in Southern Morocco?",
-    a: (
-      <div className="space-y-4">
-        <div>
-          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
-          <p>Road rules in Morocco are more relaxed than in Europe or other developed nations. Riders need to be diligent and not assume drivers will behave predictably. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco sees very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.</p>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
-          <p>Dogs protecting livestock or property are a common annoyance, though they're mostly harmless and — from experience — fewer and farther between than in the north of Morocco. Stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.</p>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
-          <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
-          <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
-        </div>
-        <div>
-          <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
-          <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
-        </div>
-      </div>
-    )
-  },
-  {
-    q: "Do I require any vaccinations prior to arrival in Morocco?",
-    a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
-  },
-  {
-    q: "How does resupply work?",
-    a: "The route passes through a number of villages and small towns where food and water can typically be sourced. Specific resupply points, recommended carry capacities and any sections requiring extra preparation will be detailed in the full event briefing sent to all registered participants."
-  },
-  {
-    q: "What if I need to leave the event early?",
-    a: "Participants are responsible for arranging their own alternative transport, accommodation and onward travel if they choose or need to exit early. The event briefing will include information on the nearest accessible towns and transport links at various points along the route."
-  },
-  {
-    q: "Do I need travel insurance?",
-    a: "Yes — travel insurance is compulsory for this event. It should include appropriate medical cover, emergency evacuation and repatriation. Riders are entering remote terrain in a foreign country and should be adequately covered before departing."
+    label: "Practical Info",
+    items: [
+      {
+        q: "What if I need to leave the event early?",
+        a: "Participants are responsible for arranging their own alternative transport, accommodation and onward travel if they choose or need to exit early. The event briefing will include information on the nearest accessible towns and transport links at various points along the route."
+      },
+      {
+        q: "Do I need travel insurance?",
+        a: "Yes — travel insurance is compulsory for this event. It should include appropriate medical cover, emergency evacuation and repatriation. Riders are entering remote terrain in a foreign country and should be adequately covered before departing."
+      },
+    ]
   },
 ];
 
@@ -145,7 +178,7 @@ const stats = [
 export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [openLogistic, setOpenLogistic] = useState<number | null>(null);
+  const [openLogistic, setOpenLogistic] = useState<{ cat: number; item: number } | null>(null);
   const [mapEnlarged, setMapEnlarged] = useState(false);
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
@@ -302,10 +335,10 @@ export default function Morocco() {
             className="mb-6 space-y-3"
           >
             <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. The Anti-Atlas is ancient, eroded and indifferent. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent on roads that exist largely for locals — winding through villages where the greetings are genuine and the curiosity mutual.
+              Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent winding through remote villages where the greetings are genuine and the curiosity mutual.
             </p>
             <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              The riding doesn't hand you anything. Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
+              Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
             </p>
           </motion.div>
 
@@ -509,7 +542,7 @@ export default function Morocco() {
                       "Transfer from Marrakech to start",
                       "Transfer from finish to Marrakech",
                       "Stand-by vehicle*",
-                      "Accommodation (optional)",
+                      "Accommodation",
                     ].map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
                         <span className="text-accent/50 mt-0.5">✓</span>{item}
@@ -534,60 +567,65 @@ export default function Morocco() {
             className="mb-8"
           >
             <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
-            <div className="rounded-lg border border-white/15 overflow-hidden divide-y divide-white/10">
-              {logistics.map((item, i) => {
-                const isOpen = openLogistic === i;
-                return (
-                  <div key={i} className={isOpen ? "bg-white/5" : ""}>
-                    <button
-                      onClick={() => setOpenLogistic(isOpen ? null : i)}
-                      className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
-                    >
-                      <span
-                        className={[
-                          "text-sm leading-snug pr-4 transition-colors",
-                          isOpen ? "text-accent" : "text-foreground/90"
-                        ].join(" ")}
-                        style={rubikOne}
-                      >
-                        {item.q}
-                      </span>
-                      <motion.span
-                        animate={{ rotate: isOpen ? 45 : 0 }}
-                        transition={{ duration: 0.2 }}
-                        className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
-                      >
-                        +
-                      </motion.span>
-                    </button>
-                    <AnimatePresence initial={false}>
-                      {isOpen && (
-                        <motion.div
-                          key="answer"
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: "auto", opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.22 }}
-                          className="overflow-hidden"
-                        >
-                          <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
-                            {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
-                          </div>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
+            <div className="rounded-lg border border-white/15 overflow-hidden">
+              {logisticCategories.map((category, catIdx) => (
+                <div key={catIdx} className={catIdx > 0 ? "border-t border-white/15" : ""}>
+                  <p className="text-[10px] uppercase tracking-widest text-accent/40 px-4 py-2 bg-white/[0.02]" style={rubikOne}>
+                    {category.label}
+                  </p>
+                  <div className="divide-y divide-white/10">
+                    {category.items.map((item, itemIdx) => {
+                      const isOpen = openLogistic?.cat === catIdx && openLogistic?.item === itemIdx;
+                      return (
+                        <div key={itemIdx} className={isOpen ? "bg-white/5" : ""}>
+                          <button
+                            onClick={() => setOpenLogistic(isOpen ? null : { cat: catIdx, item: itemIdx })}
+                            className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
+                          >
+                            <span
+                              className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
+                              style={rubikOne}
+                            >
+                              {item.q}
+                            </span>
+                            <motion.span
+                              animate={{ rotate: isOpen ? 45 : 0 }}
+                              transition={{ duration: 0.2 }}
+                              className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
+                            >
+                              +
+                            </motion.span>
+                          </button>
+                          <AnimatePresence initial={false}>
+                            {isOpen && (
+                              <motion.div
+                                key="answer"
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{ height: "auto", opacity: 1 }}
+                                exit={{ height: 0, opacity: 0 }}
+                                transition={{ duration: 0.22 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
+                                  {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+                                </div>
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
+                        </div>
+                      );
+                    })}
                   </div>
-                );
-              })}
+                </div>
+              ))}
 
               {/* Event Documentation */}
               {(() => {
-                const docsIndex = logistics.length;
-                const isOpen = openLogistic === docsIndex;
+                const isOpen = openLogistic?.cat === -1;
                 return (
-                  <div className={isOpen ? "bg-white/5" : ""}>
+                  <div className={["border-t border-white/15", isOpen ? "bg-white/5" : ""].join(" ")}>
                     <button
-                      onClick={() => setOpenLogistic(isOpen ? null : docsIndex)}
+                      onClick={() => setOpenLogistic(isOpen ? null : { cat: -1, item: 0 })}
                       className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
                     >
                       <span
