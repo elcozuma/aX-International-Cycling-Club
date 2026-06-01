@@ -117,23 +117,23 @@ const logisticCategories: LogisticCategory[] = [
         a: (
           <div className="space-y-4">
             <div>
-              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
+              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Road Traffic</p>
               <p>Road rules in Morocco are more relaxed than in Europe or other developed nations. Riders need to be diligent and not assume drivers will behave predictably. That said, this particular route is mostly on quiet roads or off-road — Southern Morocco sees very little tourism, and towns and villages tend to be small and spread apart, so traffic is minimal.</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
+              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Guard Dogs</p>
               <p>Dogs protecting livestock or property are a common annoyance, though they're mostly harmless and — from experience — fewer and farther between than in the north of Morocco. Stopping calmly and removing glasses and a helmet usually results in them losing interest. If not, gesturing to pick up and throw a stone is normally enough to scare them off.</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
+              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Children</p>
               <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
+              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
               <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-accent/70 mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
+              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
               <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
             </div>
           </div>
@@ -609,7 +609,7 @@ export default function Morocco() {
                           <div className="divide-y divide-white/10 border-t border-white/10">
                             {category.items.map((item, itemIdx) => (
                               <div key={itemIdx} className="px-4 py-4">
-                                <p className="text-sm text-accent leading-snug mb-2" style={rubikOne}>{item.q}</p>
+                                                <p className="text-sm text-accent leading-snug mb-3" style={rubikOne}>{item.q}</p>
                                 <div className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
                                   {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
                                 </div>
