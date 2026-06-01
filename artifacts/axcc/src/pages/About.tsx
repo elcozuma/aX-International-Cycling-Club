@@ -20,7 +20,7 @@ export default function About() {
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
             alt="a-X"
-            className="absolute bottom-2 left-1/2 -translate-x-1/2 md:translate-x-0 md:bottom-0 md:left-[76%] lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-16 md:h-20 lg:h-24 w-auto opacity-60 md:opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
+            className="hidden md:block absolute md:bottom-0 md:left-[76%] lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
           <motion.img
@@ -97,6 +97,10 @@ export default function About() {
                   <img src={import.meta.env.BASE_URL + "strava-logo.png"} alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
                 </a>
               </motion.div>
+
+              <div className="flex justify-center pt-8 pb-1 md:hidden">
+                <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-14 w-auto opacity-50 pointer-events-none select-none" />
+              </div>
 
             </div>
           </div>
