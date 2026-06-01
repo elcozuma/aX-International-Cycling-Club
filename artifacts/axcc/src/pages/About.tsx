@@ -99,7 +99,7 @@ export default function About() {
               </motion.div>
 
               <div className="flex justify-center pt-8 pb-1 md:hidden">
-                <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-14 w-auto opacity-50 pointer-events-none select-none" />
+                <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="h-16 w-auto opacity-50 pointer-events-none select-none" />
               </div>
 
             </div>

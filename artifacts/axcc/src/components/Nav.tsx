@@ -155,21 +155,21 @@ export function Nav() {
           <>
             <motion.div key="cr-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm" onClick={() => setClubRidesModal(false)} />
             <motion.div key="cr-modal" initial={{ opacity: 0, scale: 0.96, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.96, y: 10 }} transition={{ duration: 0.2 }} className="fixed inset-0 z-[201] flex items-center justify-center p-6 pointer-events-none">
-              <div className="bg-black/92 border border-white/15 rounded-2xl p-8 max-w-md w-full relative pointer-events-auto overflow-hidden">
-                <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="" aria-hidden="true" className="absolute bottom-0 right-3 h-20 w-auto opacity-40 pointer-events-none select-none z-0" />
-                <button onClick={() => setClubRidesModal(false)} className="absolute top-4 right-5 text-white/40 hover:text-white text-lg transition-colors leading-none z-[1]">✕</button>
-                <div className="relative z-[1]">
-                  <h2 className="text-base text-accent mb-1" style={rubikOne}>{t("modal.clubRides.title")}</h2>
-                  <p className="text-xs uppercase tracking-widest text-white/30 mb-5" style={rubikOne}>{t("modal.clubRides.subtitle")}</p>
-                  <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>
-                    {t("modal.clubRides.p1")}
-                  </p>
-                  <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-                    {t("modal.clubRides.p2")}
-                  </p>
-                  <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-xs uppercase tracking-widest text-accent/70 hover:text-accent transition-colors underline underline-offset-4" style={rubikOne}>
-                    {t("modal.clubRides.strava")}
-                  </a>
+              <div className="bg-black/92 border border-white/15 rounded-2xl p-8 max-w-md w-full relative pointer-events-auto">
+                <button onClick={() => setClubRidesModal(false)} className="absolute top-4 right-5 text-white/40 hover:text-white text-lg transition-colors leading-none">✕</button>
+                <h2 className="text-base text-accent mb-1" style={rubikOne}>{t("modal.clubRides.title")}</h2>
+                <p className="text-xs uppercase tracking-widest text-white/30 mb-5" style={rubikOne}>{t("modal.clubRides.subtitle")}</p>
+                <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>
+                  {t("modal.clubRides.p1")}
+                </p>
+                <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
+                  {t("modal.clubRides.p2")}
+                </p>
+                <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="inline-block mt-6 text-xs uppercase tracking-widest text-accent/70 hover:text-accent transition-colors underline underline-offset-4" style={rubikOne}>
+                  {t("modal.clubRides.strava")}
+                </a>
+                <div className="flex justify-center pt-7 pb-1">
+                  <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="" aria-hidden="true" className="h-16 w-auto opacity-50 pointer-events-none select-none" />
                 </div>
               </div>
             </motion.div>
@@ -183,18 +183,18 @@ export function Nav() {
           <>
             <motion.div key="ce-backdrop" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[200] bg-black/70 backdrop-blur-sm" onClick={() => setCustomExpModal(false)} />
             <motion.div key="ce-modal" initial={{ opacity: 0, scale: 0.96, y: 10 }} animate={{ opacity: 1, scale: 1, y: 0 }} exit={{ opacity: 0, scale: 0.96, y: 10 }} transition={{ duration: 0.2 }} className="fixed inset-0 z-[201] flex items-center justify-center p-6 pointer-events-none">
-              <div className="bg-black/92 border border-white/15 rounded-2xl p-8 max-w-md w-full relative pointer-events-auto overflow-hidden">
-                <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="" aria-hidden="true" className="absolute bottom-0 right-3 h-20 w-auto opacity-40 pointer-events-none select-none z-0" />
-                <button onClick={() => setCustomExpModal(false)} className="absolute top-4 right-5 text-white/40 hover:text-white text-lg transition-colors leading-none z-[1]">✕</button>
-                <div className="relative z-[1]">
-                  <h2 className="text-base text-accent mb-1" style={rubikOne}>{t("modal.customExp.title")}</h2>
-                  <p className="text-xs uppercase tracking-widest text-white/30 mb-5" style={rubikOne}>{t("modal.customExp.subtitle")}</p>
-                  <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>{t("modal.customExp.p1")}</p>
-                  <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>{t("modal.customExp.p2")}</p>
-                  <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{t("modal.customExp.p3")}</p>
-                  <a href="mailto:email@a-xcc.com" className="inline-block mt-6 text-xs uppercase tracking-widest text-accent/70 hover:text-accent transition-colors underline underline-offset-4" style={rubikOne}>
-                    {t("modal.customExp.cta")}
-                  </a>
+              <div className="bg-black/92 border border-white/15 rounded-2xl p-8 max-w-md w-full relative pointer-events-auto">
+                <button onClick={() => setCustomExpModal(false)} className="absolute top-4 right-5 text-white/40 hover:text-white text-lg transition-colors leading-none">✕</button>
+                <h2 className="text-base text-accent mb-1" style={rubikOne}>{t("modal.customExp.title")}</h2>
+                <p className="text-xs uppercase tracking-widest text-white/30 mb-5" style={rubikOne}>{t("modal.customExp.subtitle")}</p>
+                <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>{t("modal.customExp.p1")}</p>
+                <p className="text-sm text-foreground/75 leading-relaxed mb-3" style={nunito}>{t("modal.customExp.p2")}</p>
+                <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{t("modal.customExp.p3")}</p>
+                <a href="mailto:email@a-xcc.com" className="inline-block mt-6 text-xs uppercase tracking-widest text-accent/70 hover:text-accent transition-colors underline underline-offset-4" style={rubikOne}>
+                  {t("modal.customExp.cta")}
+                </a>
+                <div className="flex justify-center pt-7 pb-1">
+                  <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="" aria-hidden="true" className="h-16 w-auto opacity-50 pointer-events-none select-none" />
                 </div>
               </div>
             </motion.div>
