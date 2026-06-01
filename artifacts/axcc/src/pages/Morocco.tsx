@@ -39,7 +39,7 @@ const slides: Slide[] = [
   { src: slide07, desktopOnly: true },
   { src: newMarket,  objectPosition: "center center", mobileOnly: true },
   { src: slideM2,    mobileOnly: true, filterOverride: warmFilter },
-  { src: slide08, objectPosition: "center bottom", mobileObjectPosition: "center top" },
+  { src: slide08, objectPosition: "center bottom" },
   { src: slide12 },
   { src: newFlags,   objectPosition: "center top", mobileOnly: true },
 ];
