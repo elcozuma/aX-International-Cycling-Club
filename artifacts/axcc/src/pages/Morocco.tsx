@@ -322,7 +322,7 @@ export default function Morocco() {
             {stats.map(({ label, value }) => (
               <div key={label} className="bg-black/40 flex flex-col items-center justify-center py-2.5 px-1 text-center">
                 <span className="text-[10px] uppercase tracking-widest text-white/45 mb-0.5" style={nunito}>{label}</span>
-                <span className="text-xs md:text-xs font-semibold text-white whitespace-pre-line" style={rubikOne}>{value}</span>
+                <span className="text-xs md:text-xs font-normal text-white whitespace-pre-line" style={rubikOne}>{value}</span>
               </div>
             ))}
           </motion.div>
