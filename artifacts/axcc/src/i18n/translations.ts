@@ -17,7 +17,6 @@ export type TranslationKey =
   | "nav.events.morocco"
   | "nav.events.clubRides"
   | "nav.events.customExp"
-  | "about.title"
   | "about.mission"
   | "about.p1"
   | "about.p2"
@@ -78,7 +77,6 @@ const en: Translations = {
   "nav.events.clubRides": "Club Rides / Free Events",
   "nav.events.customExp": "Custom Expeditions",
 
-  "about.title": "a-X INTERNATIONAL CYCLING CLUB",
   "about.mission": "Mission",
   "about.p1": "a-X exists to bring people together through challenging multi-day rides built around autonomy, shared experience and meaningful terrain.",
   "about.p2": "The ethos of a-X is to make adventure cycling more accessible and affordable. Whilst there is an event fee associated with some more logistically demanding events — to ensure long-term sustainability — we do not profit from additional/optional services. We also negotiate fixed rates with service providers wherever possible, and any savings from economies of scale are passed directly back to participants.",
@@ -140,7 +138,6 @@ const fr: Translations = {
   "nav.events.clubRides": "Sorties club / Événements gratuits",
   "nav.events.customExp": "Expéditions sur mesure",
 
-  "about.title": "a-X CLUB CYCLISTE INTERNATIONAL",
   "about.mission": "Mission",
   "about.p1": "a-X existe pour rassembler des personnes autour de raids cyclistes exigeants, fondés sur l'autonomie, l'expérience partagée et des terrains authentiques.",
   "about.p2": "L'éthique d'a-X est de rendre le cyclisme d'aventure plus accessible et abordable. Bien qu'un droit d'inscription soit associé à certains événements plus exigeants en logistique — pour assurer la pérennité — nous ne tirons aucun profit des services additionnels ou optionnels. Nous négocions également des tarifs fixes avec les prestataires et tout gain d'économies d'échelle est directement répercuté sur les participants.",
@@ -202,7 +199,6 @@ const es: Translations = {
   "nav.events.clubRides": "Salidas en grupo / Eventos gratuitos",
   "nav.events.customExp": "Expediciones a medida",
 
-  "about.title": "a-X CLUB CICLISTA INTERNACIONAL",
   "about.mission": "Misión",
   "about.p1": "a-X existe para reunir a personas a través de rutas ciclistas de varios días exigentes, basadas en la autonomía, la experiencia compartida y un terreno significativo.",
   "about.p2": "La filosofía de a-X es hacer el ciclismo de aventura más accesible y asequible. Aunque algunos eventos más exigentes logísticamente llevan una cuota de inscripción — para asegurar la sostenibilidad a largo plazo — no obtenemos beneficio de los servicios adicionales u opcionales. También negociamos tarifas fijas con los proveedores y cualquier ahorro por economías de escala se repercute directamente a los participantes.",
@@ -264,7 +260,6 @@ const it: Translations = {
   "nav.events.clubRides": "Uscite club / Eventi gratuiti",
   "nav.events.customExp": "Spedizioni personalizzate",
 
-  "about.title": "a-X CLUB CICLISTICO INTERNAZIONALE",
   "about.mission": "Missione",
   "about.p1": "a-X esiste per unire le persone attraverso impegnative escursioni in bici di più giorni, basate sull'autonomia, l'esperienza condivisa e terreni significativi.",
   "about.p2": "L'etica di a-X è rendere il ciclismo d'avventura più accessibile e conveniente. Sebbene alcune manifestazioni più impegnative logisticamente prevedano una quota di iscrizione — per garantire la sostenibilità a lungo termine — non traiamo profitto dai servizi aggiuntivi o facoltativi. Negoziamo anche tariffe fisse con i fornitori e qualsiasi risparmio per economie di scala viene restituito direttamente ai partecipanti.",
@@ -326,7 +321,6 @@ const de: Translations = {
   "nav.events.clubRides": "Clubfahrten / Kostenlose Events",
   "nav.events.customExp": "Individuelle Expeditionen",
 
-  "about.title": "a-X INTERNATIONALER RADSPORTCLUB",
   "about.mission": "Mission",
   "about.p1": "a-X bringt Menschen durch anspruchsvolle mehrtägige Radtouren zusammen, die auf Autonomie, gemeinsamen Erlebnissen und bedeutungsvollem Gelände aufbauen.",
   "about.p2": "Das Ethos von a-X ist es, Abenteuerradsport zugänglicher und erschwinglicher zu machen. Obwohl einige logistisch aufwändigere Veranstaltungen eine Teilnahmegebühr haben — zur langfristigen Nachhaltigkeit — verdienen wir an zusätzlichen oder optionalen Leistungen nichts. Wir verhandeln außerdem Festpreise mit Dienstleistern und geben alle Einsparungen durch Skaleneffekte direkt an die Teilnehmer weiter.",

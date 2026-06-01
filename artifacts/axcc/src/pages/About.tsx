@@ -42,7 +42,7 @@ export default function About() {
                 style={rubikOne}
                 className="text-base md:text-lg normal-case text-accent leading-tight mb-2"
               >
-                {t("about.title")}
+                a-X International Cycling Club
               </motion.h1>
 
               <motion.p
