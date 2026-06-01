@@ -609,7 +609,7 @@ export default function Morocco() {
                           <div className="divide-y divide-white/10 border-t border-white/10">
                             {category.items.map((item, itemIdx) => (
                               <div key={itemIdx} className="px-4 py-4">
-                                <p className="text-sm text-foreground/90 leading-snug mb-2" style={rubikOne}>{item.q}</p>
+                                <p className="text-sm text-accent leading-snug mb-2" style={rubikOne}>{item.q}</p>
                                 <div className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
                                   {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
                                 </div>
