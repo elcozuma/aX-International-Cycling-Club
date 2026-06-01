@@ -20,7 +20,7 @@ export default function About() {
           <img
             src={import.meta.env.BASE_URL + "ax-logo.png"}
             alt="a-X"
-            className="absolute bottom-0 left-1/2 -translate-x-1/2 md:left-[76%] lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:hidden"
+            className="hidden md:block absolute md:bottom-0 md:left-[76%] lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-20 lg:h-24 w-auto opacity-75 pointer-events-none select-none"
           />
 
           <motion.img
@@ -33,7 +33,7 @@ export default function About() {
           />
 
           <div className="absolute inset-0 overflow-y-auto pl-6 pr-6 md:pl-[52%] md:pr-12 z-[2]">
-            <div className="min-h-full flex flex-col justify-center py-8">
+            <div className="min-h-full flex flex-col justify-center py-8 pb-24 md:pb-8">
 
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
@@ -102,6 +102,11 @@ export default function About() {
           </div>
         </div>
       </div>
+      <img
+        src={import.meta.env.BASE_URL + "ax-logo.png"}
+        alt="a-X"
+        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden h-16 w-auto opacity-60 pointer-events-none select-none"
+      />
     </div>
   );
 }
