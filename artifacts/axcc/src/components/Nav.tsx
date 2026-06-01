@@ -13,9 +13,11 @@ export function Nav() {
   const [clubRidesModal, setClubRidesModal] = useState(false);
   const [customExpModal, setCustomExpModal] = useState(false);
 
-  const mainItems = [
+  const topItems = [
     { name: "home", path: "/" },
     { name: "about", path: "/about" },
+  ];
+  const bottomItems = [
     { name: "faqs", path: "/faq" },
   ];
 
@@ -59,7 +61,7 @@ export function Nav() {
               transition={{ duration: 0.2 }}
               className="fixed top-14 right-6 z-[100] w-52 bg-black/80 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden"
             >
-              {mainItems.map((item, i) => {
+              {topItems.map((item, i) => {
                 const isActive = location === item.path;
                 return (
                   <motion.div key={item.path} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: i * 0.04 }} className="border-b border-white/10">
@@ -74,7 +76,7 @@ export function Nav() {
               })}
 
               {/* Events — sub-dropdown */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: mainItems.length * 0.04 }} className="border-b border-white/10">
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: topItems.length * 0.04 }} className="border-b border-white/10">
                 <button
                   data-testid="nav-events"
                   style={avenir}
@@ -114,8 +116,22 @@ export function Nav() {
                 </AnimatePresence>
               </motion.div>
 
+              {bottomItems.map((item, i) => {
+                const isActive = location === item.path;
+                return (
+                  <motion.div key={item.path} initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (topItems.length + 1 + i) * 0.04 }} className="border-b border-white/10">
+                    <Link href={item.path}>
+                      <span onClick={closeAll} data-testid={`nav-${item.name}`} style={avenir} className={spanClass(isActive)}>
+                        {item.name}
+                        {isActive && <span className="w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />}
+                      </span>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+
               {/* Contact */}
-              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (mainItems.length + 1) * 0.04 }}>
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: (topItems.length + 1 + bottomItems.length) * 0.04 }}>
                 <a href="mailto:email@a-xcc.com" onClick={closeAll} data-testid="nav-contact" style={avenir} className={spanClass(false)}>
                   contact
                 </a>
