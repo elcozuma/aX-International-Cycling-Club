@@ -34,10 +34,10 @@ export default function FAQ() {
       <div className="relative md:absolute z-10 mx-6 md:mx-0 md:inset-10 mt-[68px] md:mt-0 mb-6 md:mb-0">
         <div className="relative w-full md:h-full bg-black/55 backdrop-blur-sm rounded-xl overflow-hidden flex flex-col md:flex-row">
 
-          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="hidden lg:block absolute lg:-bottom-2 lg:right-5 z-0 h-24 w-auto opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden" />
+          <img src={import.meta.env.BASE_URL + "ax-logo.png"} alt="a-X" className="absolute bottom-2 left-1/2 -translate-x-1/2 md:hidden lg:block lg:left-auto lg:translate-x-0 lg:-bottom-2 lg:right-5 z-0 h-16 lg:h-24 w-auto opacity-60 lg:opacity-75 pointer-events-none select-none [@media(max-height:600px)]:!hidden" />
 
           {/* ── MOBILE ACCORDION ── */}
-          <div className="relative z-[1] md:hidden px-5 pt-6 pb-24 flex flex-col gap-3">
+          <div className="relative z-[1] md:hidden px-5 pt-6 pb-16 flex flex-col gap-3">
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -207,11 +207,6 @@ export default function FAQ() {
 
         </div>
       </div>
-      <img
-        src={import.meta.env.BASE_URL + "ax-logo.png"}
-        alt="a-X"
-        className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 md:hidden h-16 w-auto opacity-60 pointer-events-none select-none"
-      />
     </div>
   );
 }
