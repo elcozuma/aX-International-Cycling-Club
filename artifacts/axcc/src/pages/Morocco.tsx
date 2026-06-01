@@ -47,19 +47,12 @@ const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
 const imgFilter = "sepia(14%) saturate(108%) contrast(108%) brightness(104%) hue-rotate(-4deg)";
 
-const stats = [
-  { label: "DATES",     value: "22–28 MAR 2027" },
-  { label: "DURATION",  value: "7 DAYS" },
-  { label: "DISTANCE",  value: "~440 KM" },
-  { label: "ELEVATION", value: "~9,000 M" },
-  { label: "TERRAIN",   value: "GRAVEL+" },
-  { label: "GROUP",     value: "Target 10 Riders\n(Min 5, Max 15)" },
-];
 
 export default function Morocco() {
   const { t, lang } = useLang();
   const logisticCategories = getMoroccoCategories(lang);
   const mp = getMoroccoPage(lang);
+  const stats = mp.statsLabels.map((label, i) => ({ label, value: mp.statsValues[i] }));
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
@@ -160,7 +153,7 @@ export default function Morocco() {
               className="text-xs md:text-xs uppercase tracking-[0.25em] text-accent mb-1 inline-block px-2 py-0.5 rounded"
               style={{ ...rubikOne, background: "rgba(30,18,8,0.55)" }}
             >
-              Hosted Expedition · Southern Morocco
+              {mp.hostedExpedition}
             </motion.p>
             <motion.h1
               initial={{ opacity: 0, y: 10 }}
@@ -562,7 +555,7 @@ export default function Morocco() {
             className="text-xs text-foreground/40 italic mb-10"
             style={nunito}
           >
-            This is not a luxury guided tour. Participants make independent decisions, ride at their own pace and support one another where possible. Self-sufficiency is expected and adventure is the point.
+            {mp.philosophyNote}
           </motion.p>
 
           {/* ── CTA ── */}
@@ -579,10 +572,10 @@ export default function Morocco() {
               className="block w-full py-5 text-center bg-accent text-background hover:bg-accent/85 transition-colors uppercase rounded-xl text-base tracking-widest"
               style={rubikOne}
             >
-              EXPRESS INTEREST
+              {mp.expressInterest}
             </a>
             <p className="text-center text-xs text-foreground/60 mt-2" style={nunito}>
-              No payment required — we'll be in touch with full details.
+              {mp.noPayment}
             </p>
           </motion.div>
 
