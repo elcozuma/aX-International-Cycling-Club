@@ -14,11 +14,8 @@ import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 import slide08 from "@assets/a-X_Website-8_1780065568271.png";
 import slideM1 from "@assets/IMG_5968_1780065776415.jpeg";
 import slideM2 from "@assets/IMG_5770_1780065776415.jpeg";
-import newMarket  from "@assets/matthew-stephenson-ZkLA1uIyVq0-unsplash_1780326540425.jpg";
 import newVillage from "@assets/jolien-quintyn-IBnddEfHD94-unsplash_1780326540425.jpg";
-import newRedMtn  from "@assets/saban-onay-JCGDd-IRFpM-unsplash_1780326540425.jpg";
 import newRoad    from "@assets/toa-heftiba-PbxfnMHP4jI-unsplash_1780326540425.jpg";
-import newSunset  from "@assets/matt-dany-Dd6CLD3xWeA-unsplash_1780326540425.jpg";
 import newFlags   from "@assets/afker-moiz-wBgbEQBhONQ-unsplash_1780326540425.jpg";
 import newTiles   from "@assets/alexander-schimmeck-YJXrVIi_vd4-unsplash_1780326540425.jpg";
 
@@ -35,18 +32,14 @@ type Slide = {
 
 const slides: Slide[] = [
   { src: slide02 },
-  { src: newRedMtn,  objectPosition: "center center" },
   { src: slide05, scale: 1.08 },
   { src: newVillage, objectPosition: "center center" },
   { src: slide06 },
-  { src: newRoad,    objectPosition: "center top" },
+  { src: newRoad,    objectPosition: "center top", desktopOnly: true },
   { src: slide07, desktopOnly: true },
-  { src: newSunset,  filterOverride: warmFilter },
   { src: slideM1, mobileOnly: true, filterOverride: warmFilter },
-  { src: slideM2, mobileOnly: true, filterOverride: warmFilter },
-  { src: newMarket,  objectPosition: "center center" },
   { src: slide08, objectPosition: "center bottom" },
-  { src: newTiles,   objectPosition: "center center", scale: 1.04 },
+  { src: newTiles,   objectPosition: "center center", scale: 1.04, mobileOnly: true },
   { src: slide12 },
   { src: newFlags,   objectPosition: "center center" },
 ];
