@@ -41,7 +41,7 @@ const slides: Slide[] = [
   { src: slide08, objectPosition: "center bottom" },
   { src: newTiles,   objectPosition: "center center", scale: 1.04, mobileOnly: true },
   { src: slide12 },
-  { src: newFlags,   objectPosition: "center center" },
+  { src: newFlags,   objectPosition: "center top" },
 ];
 
 const SLIDE_INTERVAL = 4500;
