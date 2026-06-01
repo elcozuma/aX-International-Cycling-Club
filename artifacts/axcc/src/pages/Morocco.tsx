@@ -41,7 +41,7 @@ const nunito   = { fontFamily: "'Nunito', sans-serif" };
 
 const FORM_URL = "https://forms.gle/4M9eEvEsidtxkPbd9";
 
-type LogisticItem = { q: string; a: string | React.ReactNode };
+type LogisticItem = { q: string; a: string | string[] | React.ReactNode };
 type LogisticCategory = { label: string; items: LogisticItem[] };
 
 const logisticCategories: LogisticCategory[] = [
@@ -80,7 +80,7 @@ const logisticCategories: LogisticCategory[] = [
       },
       {
         q: "Are transfers to the start and from the finish included, and when will we leave and return to Marrakech?",
-        a: "Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included. The meeting point on Day 0 (22nd March) is in Marrakech at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights."
+        a: ["Transfers are included in the optional logistics package only. This covers three legs: a transfer from Marrakech to Southern Morocco on Day 0 (22nd March), a short transfer from a hotel in Southern Morocco to Anezi on Day 1 (23rd March) and a transfer from the finish in Taznacht back to Marrakech on Day 6 (28th March). Luggage transfers between overnight stops throughout are also included.", "The meeting point for the first transfer on Day 0 (22nd March) is in Marrakech (exact location TBC) at 12pm, with the outbound transfer to Anezi taking place the following morning. The return from Taznacht on 28th March will not arrive back in Marrakech until very late in the day. Self-supported riders will need to arrange their own transport to and from the route start and end points and carry their own luggage. Regardless of option, it is strongly advisable to allow an extra day either side of the 7-day trip when booking flights."]
       },
       {
         q: "Can I book my own accommodation? What options are there?",
@@ -611,7 +611,11 @@ export default function Morocco() {
                               <div key={itemIdx} className="px-4 py-4">
                                                 <p className="text-sm text-accent leading-snug mb-3" style={rubikOne}>{item.q}</p>
                                 <div className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
-                                  {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
+                                  {Array.isArray(item.a)
+                                    ? <div className="flex flex-col gap-3">{(item.a as string[]).map((para, i) => <p key={i}>{para}</p>)}</div>
+                                    : typeof item.a === "string"
+                                    ? <p>{item.a}</p>
+                                    : item.a}
                                 </div>
                               </div>
                             ))}
