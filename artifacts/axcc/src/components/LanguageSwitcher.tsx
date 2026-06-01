@@ -31,14 +31,14 @@ export function LanguageSwitcher() {
         className="flex flex-col items-center justify-center gap-0.5 cursor-pointer bg-transparent border-none p-2 group"
         style={{ width: "52px" }}
       >
-        <span className="text-xl leading-none select-none" role="img" aria-label={current.label}>
+        <span className="text-3xl leading-none select-none" role="img" aria-label={current.label}>
           {current.flag}
         </span>
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
           className="block text-white/40 group-hover:text-white/70 transition-colors leading-none"
-          style={{ fontSize: "8px" }}
+          style={{ fontSize: "9px" }}
         >
           ▼
         </motion.span>

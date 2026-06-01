@@ -3,69 +3,18 @@ import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
+import { getFaqItems } from "@/i18n/content";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
-
-type FaqItem = { q: string; a: string | string[] };
-
-const generalFaqs: FaqItem[] = [
-  {
-    q: "What is a-X?",
-    a: "a-X (Across) is a community-driven gravel and adventure cycling project focused on small-group rides, overnighters, bikepacking trips and hosted expeditions. The aim is to create memorable riding experiences that sit somewhere between fully DIY adventure riding and expensive, heavily structured cycling tours."
-  },
-  {
-    q: "Is this a traditional cycling tour company?",
-    a: "No. a-X is built around community, autonomy and shared adventure rather than luxury tourism or rigid guided-tour structures."
-  },
-  {
-    q: "What is a hosted expedition?",
-    a: "A hosted expedition is a small-group multi-day riding experience where routes, general coordination and optional logistics support may be provided while riders remain responsible for their own riding decisions, preparation and self-sufficiency."
-  },
-  {
-    q: "What kind of riding is a-X focused on?",
-    a: "Primarily gravel, adventure and mixed-surface riding. The focus is on exploration, scenery, challenge and shared experience rather than competition."
-  },
-  {
-    q: "Are there road rides too?",
-    a: "Occasionally yes — especially in destinations where the roads themselves are part of the experience — but gravel and adventure riding sit at the heart of a-X."
-  },
-  {
-    q: "Will there be regular rides?",
-    a: "Yes. Alongside hosted expeditions and bikepacking trips, a-X will organise free public gravel rides, overnighters and local social rides where possible."
-  },
-  {
-    q: "Are rides open to anyone?",
-    a: "Many public rides and local events are open to anyone. Some expeditions or limited-capacity events may require registration or payment."
-  },
-  {
-    q: "Do I need to be an experienced cyclist?",
-    a: "You do not need to be elite, but you should already be comfortable riding long distances and spending long days on the bike."
-  },
-  {
-    q: "Can I join alone?",
-    a: "Yes."
-  },
-  {
-    q: "Is this racing?",
-    a: "No. The emphasis is on exploration, challenge and shared experience rather than competition."
-  },
-  {
-    q: "Who hosts the rides and events?",
-    a: "Events are hosted by experienced endurance and adventure cyclists with first-hand knowledge of the routes and riding style involved. The aim is not to provide a luxury guided tour, but to empower participants to curate their own memorable riding experiences built around autonomy, challenge and shared adventure."
-  },
-  {
-    q: "Are e-bikes allowed?",
-    a: "No."
-  },
-];
 
 type SelectionKey = number | null;
 
 export default function FAQ() {
   const [selected, setSelected] = useState<SelectionKey>(null);
   const [mobileSelected, setMobileSelected] = useState<SelectionKey>(null);
-  const { t } = useLang();
+  const { t, lang } = useLang();
+  const generalFaqs = getFaqItems(lang);
 
   const selectedItem = selected !== null ? generalFaqs[selected] : null;
 
