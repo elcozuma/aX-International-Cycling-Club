@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link } from "wouter";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
@@ -64,6 +65,7 @@ type SelectionKey = number | null;
 export default function FAQ() {
   const [selected, setSelected] = useState<SelectionKey>(null);
   const [mobileSelected, setMobileSelected] = useState<SelectionKey>(null);
+  const { t } = useLang();
 
   const selectedItem = selected !== null ? generalFaqs[selected] : null;
 
@@ -93,7 +95,7 @@ export default function FAQ() {
               style={rubikOne}
               className="text-base normal-case text-accent leading-tight mb-2"
             >
-              FAQs
+              {t("faq.title")}
             </motion.h1>
 
             <div className="flex flex-col gap-0.5">
@@ -143,13 +145,13 @@ export default function FAQ() {
 
             <div className="mt-2 text-xs text-foreground/35 leading-relaxed" style={nunito}>
               <p>
-                Have a question not answered here?{" "}
-                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 cursor-pointer">Send us a message.</a>
+                {t("faq.footer.unanswered")}{" "}
+                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 cursor-pointer">{t("faq.footer.sendMessage")}</a>
               </p>
               <p className="mt-1">
-                For event and expedition-specific FAQs, visit the{" "}
+                {t("faq.footer.eventSpecific")}{" "}
                 <Link href="/morocco">
-                  <span className="underline underline-offset-2 cursor-pointer">event page.</span>
+                  <span className="underline underline-offset-2 cursor-pointer">{t("faq.footer.eventPage")}</span>
                 </Link>
               </p>
             </div>
@@ -169,12 +171,12 @@ export default function FAQ() {
                 style={rubikOne}
                 className="text-base md:text-lg normal-case text-accent leading-tight"
               >
-                FAQs
+                {t("faq.title")}
               </motion.h1>
             </div>
 
             <p className="text-xs uppercase tracking-widest text-foreground/35 px-6 md:px-8 pt-1 pb-2 flex-shrink-0" style={rubikOne}>
-              General
+              {t("faq.general")}
             </p>
 
             <div className="relative flex-1 min-h-0">
@@ -237,7 +239,7 @@ export default function FAQ() {
                     className="text-sm text-foreground/30 italic"
                     style={nunito}
                   >
-                    Select a question to read the answer.
+                    {t("faq.placeholder")}
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -245,13 +247,13 @@ export default function FAQ() {
 
             <div className="flex-shrink-0 text-xs text-foreground/35 leading-relaxed pt-4 border-t border-white/10 max-w-md" style={nunito}>
               <p>
-                Have a question not answered here?{" "}
-                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">Send us a message.</a>
+                {t("faq.footer.unanswered")}{" "}
+                <a href="mailto:email@a-xcc.com" className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">{t("faq.footer.sendMessage")}</a>
               </p>
               <p className="mt-1">
-                For event and expedition-specific FAQs, visit the{" "}
+                {t("faq.footer.eventSpecific")}{" "}
                 <Link href="/morocco">
-                  <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">event page.</span>
+                  <span className="underline underline-offset-2 hover:text-foreground/60 transition-colors cursor-pointer">{t("faq.footer.eventPage")}</span>
                 </Link>
               </p>
             </div>

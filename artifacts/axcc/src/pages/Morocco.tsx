@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
 import routeMap from "@assets/Image-46_1780095838048.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
@@ -176,6 +177,7 @@ const stats = [
 ];
 
 export default function Morocco() {
+  const { t } = useLang();
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
@@ -375,7 +377,7 @@ export default function Morocco() {
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
                 <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded" style={rubikOne}>
-                  Click to enlarge
+                  {t("morocco.overview.clickEnlarge")}
                 </span>
               </div>
             </button>
@@ -500,12 +502,12 @@ export default function Morocco() {
             transition={{ delay: 0.52 }}
             className="mb-8"
           >
-            <h3 className="text-xs uppercase tracking-widest text-accent mb-4" style={rubikOne}>Entry & Pricing</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-4" style={rubikOne}>{t("morocco.pricing.title")}</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
 
               {/* Self-supported */}
               <div className="rounded-xl border border-white/15 bg-black/40 px-6 py-6">
-                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>Self-Supported</p>
+                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>{t("morocco.pricing.selfSupported")}</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€400</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee</p>
                 <ul className="space-y-1.5" style={nunito}>
@@ -533,18 +535,18 @@ export default function Morocco() {
                 >
                   Recommended
                 </div>
-                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>With Logistics</p>
+                <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>{t("morocco.pricing.logistics")}</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>&lt;€950</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — dependent on participant numbers &amp; accommodation choices</p>
                 <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
                     <span className="text-accent/50 mt-0.5">✓</span>
-                    <span>Everything included in Self Supported option</span>
+                    <span>{t("morocco.pricing.included")} {t("morocco.pricing.selfSupported")}</span>
                   </li>
                 </ul>
 
                 <div className="mt-3 rounded-lg border border-white/10 bg-white/3 px-3 py-2.5">
-                  <p className="text-xs uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>Via local delivery partner</p>
+                  <p className="text-xs uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>{t("morocco.pricing.viaPartner")}</p>
                   <ul className="space-y-1.5" style={nunito}>
                     {[
                       "6-nights Accommodation",
@@ -561,7 +563,7 @@ export default function Morocco() {
                 </div>
 
                 <p className="text-xs text-foreground/30 mt-3 italic" style={nunito}>
-                  *Where terrain and access allow. Full logistics breakdown shared with registered participants.
+                  {t("morocco.pricing.standbyNote")}
                 </p>
               </div>
             </div>

@@ -1,11 +1,14 @@
 import { Nav } from "@/components/Nav";
 import { Link } from "wouter";
 import { motion } from "framer-motion";
+import { useLang } from "@/i18n/LanguageContext";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 const nunito = { fontFamily: "'Nunito', sans-serif" };
 
 export default function About() {
+  const { t } = useLang();
+
   return (
     <div className="relative h-[100dvh] w-full overflow-hidden text-foreground font-sans bg-black">
       <div className="hidden md:block absolute inset-0 z-0" style={{ backgroundImage: `url(${import.meta.env.BASE_URL}page-bg-v2.png)`, backgroundSize: "cover", backgroundPosition: "center" }} />
@@ -39,7 +42,7 @@ export default function About() {
                 style={rubikOne}
                 className="text-base md:text-lg normal-case text-accent leading-tight mb-2"
               >
-                a-X INTERNATIONAL CYCLING CLUB
+                {t("about.title")}
               </motion.h1>
 
               <motion.p
@@ -49,7 +52,7 @@ export default function About() {
                 className="text-sm md:text-base uppercase tracking-widest text-accent/60 mt-4 mb-4"
                 style={rubikOne}
               >
-                Mission
+                {t("about.mission")}
               </motion.p>
 
               <motion.div
@@ -60,13 +63,13 @@ export default function About() {
                 style={nunito}
               >
                 <p className="text-sm md:text-base text-foreground/90 leading-relaxed">
-                  a-X exists to bring people together through challenging multi-day rides built around autonomy, shared experience and meaningful terrain.
+                  {t("about.p1")}
                 </p>
                 <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
-                  The ethos of a-X is to make adventure cycling more accessible and affordable. Whilst there is an event fee associated with some more logistically demanding events — to ensure long-term sustainability — we do not profit from additional/optional services. We also negotiate fixed rates with service providers wherever possible, and any savings from economies of scale are passed directly back to participants.
+                  {t("about.p2")}
                 </p>
                 <p className="text-sm md:text-base text-foreground/80 leading-relaxed">
-                  Routes will primarily focus on gravel, remote landscapes and A-to-B riding for people who value exploration over luxury and experience over itinerary.
+                  {t("about.p3")}
                 </p>
               </motion.div>
 
@@ -78,7 +81,7 @@ export default function About() {
               >
                 <Link href="/faq">
                   <span className="text-xs md:text-sm text-foreground/50 hover:text-foreground/80 underline underline-offset-4 transition-colors cursor-pointer" style={nunito}>
-                    Have questions about the club? →
+                    {t("about.faqLink")}
                   </span>
                 </Link>
               </motion.div>
@@ -89,7 +92,7 @@ export default function About() {
                 transition={{ delay: 0.6 }}
                 className="mt-6 flex items-center gap-4"
               >
-                <span className="text-sm text-foreground/60 uppercase" style={nunito}>Follow us on:</span>
+                <span className="text-sm text-foreground/60 uppercase" style={nunito}>{t("about.followUs")}</span>
                 <a href="https://www.strava.com/clubs/a-xcc" target="_blank" rel="noopener noreferrer" className="group" data-testid="link-strava">
                   <img src={import.meta.env.BASE_URL + "strava-logo.png"} alt="Strava" className="h-5 md:h-6 opacity-90 group-hover:opacity-100 transition-opacity" />
                 </a>
