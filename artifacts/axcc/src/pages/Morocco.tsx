@@ -12,12 +12,11 @@ import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
 import slide07 from "@assets/IMG_5808_1780065776415.jpeg";
 import slide12 from "@assets/a-X_Website-7_1780065568271.png";
 import slide08 from "@assets/a-X_Website-8_1780065568271.png";
-import slideM1 from "@assets/IMG_5968_1780065776415.jpeg";
-import slideM2 from "@assets/IMG_5770_1780065776415.jpeg";
+import slideM2   from "@assets/IMG_5770_1780065776415.jpeg";
 import newVillage from "@assets/jolien-quintyn-IBnddEfHD94-unsplash_1780326540425.jpg";
 import newRoad    from "@assets/toa-heftiba-PbxfnMHP4jI-unsplash_1780326540425.jpg";
 import newFlags   from "@assets/afker-moiz-wBgbEQBhONQ-unsplash_1780326540425.jpg";
-import newTiles   from "@assets/alexander-schimmeck-YJXrVIi_vd4-unsplash_1780326540425.jpg";
+import newMarket  from "@assets/matthew-stephenson-ZkLA1uIyVq0-unsplash_1780326540425.jpg";
 
 const warmFilter = "sepia(22%) saturate(100%) contrast(110%) brightness(101%) hue-rotate(-6deg)";
 
@@ -37,9 +36,9 @@ const slides: Slide[] = [
   { src: slide06 },
   { src: newRoad,    objectPosition: "center top", desktopOnly: true },
   { src: slide07, desktopOnly: true },
-  { src: slideM1, mobileOnly: true, filterOverride: warmFilter },
-  { src: slide08, objectPosition: "center bottom" },
-  { src: newTiles,   objectPosition: "center center", scale: 1.04, mobileOnly: true },
+  { src: newMarket,  objectPosition: "center center", mobileOnly: true },
+  { src: slideM2,    mobileOnly: true, filterOverride: warmFilter },
+  { src: slide08, objectPosition: "center top" },
   { src: slide12 },
   { src: newFlags,   objectPosition: "center top" },
 ];
@@ -124,7 +123,7 @@ export default function Morocco() {
         {/* ── SLIDESHOW ── */}
         <div
           className="relative overflow-hidden bg-black"
-          style={{ height: "55vh", minHeight: "260px" }}
+          style={{ height: isMobile ? "44vh" : "55vh", minHeight: "240px" }}
           onMouseEnter={() => setPaused(true)}
           onMouseLeave={() => setPaused(false)}
           onTouchStart={onTouchStart}
