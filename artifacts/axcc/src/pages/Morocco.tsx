@@ -23,6 +23,7 @@ const warmFilter = "sepia(22%) saturate(100%) contrast(110%) brightness(101%) hu
 type Slide = {
   src: string;
   objectPosition?: string;
+  mobileObjectPosition?: string;
   scale?: number;
   mobileOnly?: boolean;
   desktopOnly?: boolean;
@@ -38,9 +39,9 @@ const slides: Slide[] = [
   { src: slide07, desktopOnly: true },
   { src: newMarket,  objectPosition: "center center", mobileOnly: true },
   { src: slideM2,    mobileOnly: true, filterOverride: warmFilter },
-  { src: slide08, objectPosition: "center top" },
+  { src: slide08, objectPosition: "center bottom", mobileObjectPosition: "center top" },
   { src: slide12 },
-  { src: newFlags,   objectPosition: "center top" },
+  { src: newFlags,   objectPosition: "center top", mobileOnly: true },
 ];
 
 const SLIDE_INTERVAL = 4500;
@@ -139,7 +140,7 @@ export default function Morocco() {
               style={{
                 opacity: i === current ? 1 : 0,
                 filter: slide.filterOverride ?? imgFilter,
-                objectPosition: slide.objectPosition ?? "center center",
+                objectPosition: (isMobile && slide.mobileObjectPosition) ? slide.mobileObjectPosition : (slide.objectPosition ?? "center center"),
                 transform: `scale(${slide.scale ?? 1}) translateZ(0)`,
                 willChange: "opacity",
               }}
