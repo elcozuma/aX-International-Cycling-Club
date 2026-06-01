@@ -547,7 +547,7 @@ export default function Morocco() {
                   <p className="text-xs uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>Via local delivery partner</p>
                   <ul className="space-y-1.5" style={nunito}>
                     {[
-                      "Accommodation",
+                      "6-nights Accommodation",
                       "Luggage transfers between stops",
                       "Transfer from Marrakech to start",
                       "Transfer from finish to Marrakech",
