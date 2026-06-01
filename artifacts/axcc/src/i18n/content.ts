@@ -407,3 +407,175 @@ export function getFaqItems(lang: Language): FaqItem[] {
 export function getMoroccoCategories(lang: Language): MoroccoCategory[] {
   return contentData[lang]?.moroccoCategories ?? contentData.en.moroccoCategories;
 }
+
+// ─── Morocco page static content ───────────────────────────────────────────
+
+export type MoroccoPage = {
+  bio1: string;
+  bio2: string;
+  theRoute: string;
+  day0Title: string;
+  day0Note: string;
+  day1Note: string;
+  restDay: string;
+  day6To: string;
+  day6Note: string;
+  terrainTitle: string;
+  terrainItems: string[];
+  equipTitle: string;
+  equipItems: string[];
+  eventFeeLabel: string;
+  selfSupportedItems: string[];
+  groupDiscount: string;
+  maxCostLabel: string;
+  recommended: string;
+  logisticsItems: string[];
+  logisticsPractTitle: string;
+  eventDocTitle: string;
+  termsTitle: string;
+  termsSubtitle: string;
+  waiverTitle: string;
+  waiverSubtitle: string;
+};
+
+const moroccoPages: Record<Language, MoroccoPage> = {
+  en: {
+    bio1: "Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent winding through remote villages where the greetings are genuine and the curiosity mutual.",
+    bio2: "Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.",
+    theRoute: "The Route",
+    day0Title: "Marrakech — Meet-up & transfer to Southern Morocco",
+    day0Note: "Transfer from Marrakech included with logistics package only",
+    day1Note: "Short transfer from hotel in Southern Morocco to Anezi — included with logistics package only",
+    restDay: "Rest Day",
+    day6To: "Taznacht & Transfer to Marrakech",
+    day6Note: "Transfer to Marrakech included with logistics package only",
+    terrainTitle: "Terrain & Conditions",
+    terrainItems: ["~50% road / ~50% gravel & piste", "Technical descents & steep climbing", "Hike-a-bike & river crossings", "Extreme heat / cold nights"],
+    equipTitle: "Recommended Equipment",
+    equipItems: ["Gravel or adventure bike", "Low climbing gears", "Tubeless setup strongly recommended", "GPS navigation device", "Layering for heat and cold", "Helmet & lights mandatory · E-bikes not permitted"],
+    eventFeeLabel: "Event fee",
+    selfSupportedItems: ["Route planning & reconnaissance", "GPX files", "Host & group coordination", "Event administration"],
+    groupDiscount: "Group discounts available on the Event Fee for 5 or more riders booking together.",
+    maxCostLabel: "Maximum estimated cost — dependent on participant numbers & accommodation choices",
+    recommended: "Recommended",
+    logisticsItems: ["6-nights Accommodation", "Luggage transfers between stops", "Transfer from Marrakech to start", "Transfer from finish to Marrakech", "Stand-by vehicle*"],
+    logisticsPractTitle: "Logistics & Practicalities",
+    eventDocTitle: "Event Documentation",
+    termsTitle: "Terms & Conditions",
+    termsSubtitle: "a-X Event T&Cs — PDF",
+    waiverTitle: "Rider Waiver & Assumption of Risk",
+    waiverSubtitle: "a-X Waiver — PDF",
+  },
+  fr: {
+    bio1: "Sur les traces de l'Atlas Mountains Race, l'Expédition a-X Anti-Atlas vous plonge dans l'un des paysages les plus cinématographiques et les moins fréquentés du cyclisme. Les nuits se passent au milieu des palmeraies, des ruines et de kasbahs séculaires construites dans la même argile rouge que les montagnes. Les jours s'écoulent en sillonnant des villages reculés où les salutations sont sincères et la curiosité mutuelle.",
+    bio2: "Les longues traversées de l'Anti-Atlas vous offrent des vues panoramiques sur des pics bruts et des vallées couvertes de fleurs sauvages. La vie apparaît en marge et disparaît tout aussi silencieusement. Les routes sont pour la plupart magnifiques. Certaines sections ne le sont pas. Tout en vaut la peine.",
+    theRoute: "L'Itinéraire",
+    day0Title: "Marrakech — Rendez-vous & transfert vers le sud du Maroc",
+    day0Note: "Transfert depuis Marrakech inclus avec le package logistique uniquement",
+    day1Note: "Court transfert de l'hôtel dans le sud du Maroc à Anezi — inclus avec le package logistique uniquement",
+    restDay: "Jour de repos",
+    day6To: "Taznacht & Transfert vers Marrakech",
+    day6Note: "Transfert vers Marrakech inclus avec le package logistique uniquement",
+    terrainTitle: "Terrain & Conditions",
+    terrainItems: ["~50% route / ~50% gravel & piste", "Descentes techniques & montées raides", "Hike-a-bike & franchissements de rivières", "Chaleur extrême / nuits froides"],
+    equipTitle: "Équipement recommandé",
+    equipItems: ["Vélo gravel ou d'aventure", "Développements faibles pour les montées", "Configuration tubeless fortement recommandée", "Appareil de navigation GPS", "Superposition de couches pour chaleur et froid", "Casque & éclairage obligatoires · E-bikes non autorisés"],
+    eventFeeLabel: "Frais d'inscription",
+    selfSupportedItems: ["Planification & reconnaissance de l'itinéraire", "Fichiers GPX", "Organisation & coordination du groupe", "Administration de l'événement"],
+    groupDiscount: "Réductions de groupe disponibles sur les frais d'inscription pour 5 participants ou plus qui s'inscrivent ensemble.",
+    maxCostLabel: "Coût total maximum estimé — selon le nombre de participants & les choix d'hébergement",
+    recommended: "Recommandé",
+    logisticsItems: ["Hébergement 6 nuits", "Transferts de bagages entre les étapes", "Transfert de Marrakech au départ", "Transfert de l'arrivée à Marrakech", "Véhicule de secours*"],
+    logisticsPractTitle: "Logistique & Aspects pratiques",
+    eventDocTitle: "Documentation de l'événement",
+    termsTitle: "Conditions générales",
+    termsSubtitle: "CGV a-X — PDF",
+    waiverTitle: "Décharge & Acceptation des risques",
+    waiverSubtitle: "Décharge a-X — PDF",
+  },
+  es: {
+    bio1: "Siguiendo las huellas de la Atlas Mountains Race, la Expedición a-X Anti-Atlas te lleva a uno de los paisajes más cinematográficos y menos recorridos del ciclismo. Las noches se pasan entre palmeras, ruinas y kasbahs centenarias construidas con el mismo barro rojo que las montañas. Los días transcurren serpenteando por aldeas remotas donde los saludos son sinceros y la curiosidad mutua.",
+    bio2: "Las largas travesías del Anti-Atlas te regalan vistas panorámicas de picos escarpados y valles cubiertos de flores silvestres. La vida aparece en los márgenes y desaparece igual de silenciosamente. Las carreteras son en su mayoría hermosas. Algunos tramos no lo son. Todo merece la pena.",
+    theRoute: "La Ruta",
+    day0Title: "Marrakech — Encuentro & traslado al sur de Marruecos",
+    day0Note: "Traslado desde Marrakech incluido solo con el paquete logístico",
+    day1Note: "Corto traslado desde el hotel en el sur de Marruecos a Anezi — incluido solo con el paquete logístico",
+    restDay: "Día de descanso",
+    day6To: "Taznacht & Traslado a Marrakech",
+    day6Note: "Traslado a Marrakech incluido solo con el paquete logístico",
+    terrainTitle: "Terreno & Condiciones",
+    terrainItems: ["~50% carretera / ~50% gravel & pista", "Descensos técnicos & subidas pronunciadas", "Hike-a-bike & cruces de ríos", "Calor extremo / noches frías"],
+    equipTitle: "Equipamiento recomendado",
+    equipItems: ["Bicicleta gravel o de aventura", "Desarrollos bajos para las subidas", "Configuración tubeless muy recomendada", "Dispositivo de navegación GPS", "Capas para el calor y el frío", "Casco y luces obligatorios · E-bikes no permitidas"],
+    eventFeeLabel: "Cuota de inscripción",
+    selfSupportedItems: ["Planificación & reconocimiento de la ruta", "Archivos GPX", "Organización & coordinación del grupo", "Administración del evento"],
+    groupDiscount: "Descuentos de grupo disponibles en la cuota de inscripción para 5 o más participantes que se inscriban juntos.",
+    maxCostLabel: "Coste total máximo estimado — según el número de participantes & las opciones de alojamiento",
+    recommended: "Recomendado",
+    logisticsItems: ["Alojamiento 6 noches", "Traslados de equipaje entre etapas", "Traslado de Marrakech al inicio", "Traslado del final a Marrakech", "Vehículo de apoyo*"],
+    logisticsPractTitle: "Logística & Aspectos prácticos",
+    eventDocTitle: "Documentación del evento",
+    termsTitle: "Términos y condiciones",
+    termsSubtitle: "T&C del evento a-X — PDF",
+    waiverTitle: "Exención de responsabilidad & Asunción de riesgos",
+    waiverSubtitle: "Exención a-X — PDF",
+  },
+  it: {
+    bio1: "Seguendo le tracce dell'Atlas Mountains Race, la Spedizione a-X Anti-Atlas ti porta in uno dei paesaggi più cinematografici e meno percorsi del ciclismo. Le notti si trascorrono tra palmeraie, rovine e kasbah secolari costruite con lo stesso fango rosso delle montagne. Le giornate scorrono serpeggiando attraverso villaggi remoti dove i saluti sono sinceri e la curiosità reciproca.",
+    bio2: "Le lunghe traversate dell'Anti-Atlas ti regalano viste panoramiche su picchi incontaminati e valli ricoperte di fiori selvatici. La vita appare ai margini e svanisce altrettanto silenziosamente. Le strade sono per lo più bellissime. Alcune sezioni non lo sono. Vale tutto la pena.",
+    theRoute: "Il Percorso",
+    day0Title: "Marrakech — Incontro & trasferimento verso il Marocco meridionale",
+    day0Note: "Trasferimento da Marrakech incluso solo con il pacchetto logistico",
+    day1Note: "Breve trasferimento dall'hotel nel Marocco meridionale ad Anezi — incluso solo con il pacchetto logistico",
+    restDay: "Giorno di riposo",
+    day6To: "Taznacht & Trasferimento a Marrakech",
+    day6Note: "Trasferimento a Marrakech incluso solo con il pacchetto logistico",
+    terrainTitle: "Terreno & Condizioni",
+    terrainItems: ["~50% strada / ~50% gravel & pista", "Discese tecniche & salite ripide", "Hike-a-bike & guadi fluviali", "Caldo estremo / notti fredde"],
+    equipTitle: "Attrezzatura consigliata",
+    equipItems: ["Bici gravel o da avventura", "Rapporti bassi per le salite", "Configurazione tubeless fortemente consigliata", "Dispositivo di navigazione GPS", "Abbigliamento a strati per caldo e freddo", "Casco & luci obbligatori · E-bike non ammesse"],
+    eventFeeLabel: "Quota di iscrizione",
+    selfSupportedItems: ["Pianificazione & ricognizione del percorso", "File GPX", "Organizzazione & coordinamento del gruppo", "Amministrazione dell'evento"],
+    groupDiscount: "Sconti di gruppo disponibili sulla quota di iscrizione per 5 o più partecipanti che si iscrivono insieme.",
+    maxCostLabel: "Costo totale massimo stimato — dipendente dal numero di partecipanti & dalle scelte di alloggio",
+    recommended: "Consigliato",
+    logisticsItems: ["Alloggio 6 notti", "Trasferimenti bagagli tra le tappe", "Trasferimento da Marrakech al via", "Trasferimento dall'arrivo a Marrakech", "Veicolo di supporto*"],
+    logisticsPractTitle: "Logistica & Informazioni pratiche",
+    eventDocTitle: "Documentazione dell'evento",
+    termsTitle: "Termini e condizioni",
+    termsSubtitle: "T&C evento a-X — PDF",
+    waiverTitle: "Liberatoria & Assunzione di rischio",
+    waiverSubtitle: "Liberatoria a-X — PDF",
+  },
+  de: {
+    bio1: "Auf den Spuren des Atlas Mountains Race nimmt dich die a-X Anti-Atlas Expedition mit in eine der filmischsten und am wenigsten befahrenen Landschaften des Radsports. Die Nächte verbringst du inmitten von Palmenwäldern, Ruinen und jahrhundertealten Kasbahs aus demselben roten Lehm wie die Berge. Die Tage verbringst du mit Schleifen durch abgelegene Dörfer, wo die Begrüßungen herzlich und die Neugier gegenseitig sind.",
+    bio2: "Die langen Querungen des Anti-Atlas belohnen dich mit weiten Blicken auf rohe Gipfel und wildblumenreiche Täler. Das Leben taucht an den Rändern auf und verschwindet ebenso leise wieder. Die Straßen sind größtenteils wunderschön. Einige Abschnitte nicht. Alles davon ist es wert.",
+    theRoute: "Die Route",
+    day0Title: "Marrakesch — Treffen & Transfer nach Südmarokko",
+    day0Note: "Transfer von Marrakesch nur im Logistikpaket enthalten",
+    day1Note: "Kurzer Transfer vom Hotel in Südmarokko nach Anezi — nur im Logistikpaket enthalten",
+    restDay: "Ruhetag",
+    day6To: "Taznacht & Transfer nach Marrakesch",
+    day6Note: "Transfer nach Marrakesch nur im Logistikpaket enthalten",
+    terrainTitle: "Gelände & Bedingungen",
+    terrainItems: ["~50% Straße / ~50% Gravel & Piste", "Technische Abfahrten & steile Anstiege", "Hike-a-bike & Flussquerungen", "Extreme Hitze / kalte Nächte"],
+    equipTitle: "Empfohlene Ausrüstung",
+    equipItems: ["Gravel- oder Abenteuerrad", "Leichte Übersetzungen für Anstiege", "Tubeless-Setup wird dringend empfohlen", "GPS-Navigationsgerät", "Schichten für Hitze und Kälte", "Helm & Licht Pflicht · E-Bikes nicht erlaubt"],
+    eventFeeLabel: "Teilnahmegebühr",
+    selfSupportedItems: ["Routenplanung & Erkundung", "GPX-Dateien", "Betreuung & Gruppenkoordination", "Veranstaltungsadministration"],
+    groupDiscount: "Gruppenrabatte auf die Teilnahmegebühr verfügbar ab 5 gemeinsam buchenden Fahrern.",
+    maxCostLabel: "Maximale geschätzte Gesamtkosten — abhängig von Teilnehmerzahl & Unterkunftswahl",
+    recommended: "Empfohlen",
+    logisticsItems: ["6 Nächte Unterkunft", "Gepäcktransfers zwischen den Stopps", "Transfer von Marrakesch zum Start", "Transfer vom Ziel nach Marrakesch", "Bereitschaftsfahrzeug*"],
+    logisticsPractTitle: "Logistik & Praktisches",
+    eventDocTitle: "Veranstaltungsdokumente",
+    termsTitle: "Allgemeine Geschäftsbedingungen",
+    termsSubtitle: "a-X Event AGB — PDF",
+    waiverTitle: "Haftungsverzicht & Risikoübernahme",
+    waiverSubtitle: "a-X Haftungsverzicht — PDF",
+  },
+};
+
+export function getMoroccoPage(lang: Language): MoroccoPage {
+  return moroccoPages[lang] ?? moroccoPages.en;
+}

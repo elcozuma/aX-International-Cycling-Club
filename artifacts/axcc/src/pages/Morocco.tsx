@@ -2,7 +2,7 @@ import { useEffect, useState, useCallback, useRef } from "react";
 import { Nav } from "@/components/Nav";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
-import { getMoroccoCategories } from "@/i18n/content";
+import { getMoroccoCategories, getMoroccoPage } from "@/i18n/content";
 import type { DangerAnswer } from "@/i18n/content";
 
 import routeMap from "@assets/Image-46_1780095838048.png";
@@ -59,6 +59,7 @@ const stats = [
 export default function Morocco() {
   const { t, lang } = useLang();
   const logisticCategories = getMoroccoCategories(lang);
+  const mp = getMoroccoPage(lang);
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
@@ -226,12 +227,8 @@ export default function Morocco() {
             transition={{ delay: 0.4 }}
             className="mb-6 space-y-3"
           >
-            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              Treading in the tracks of the Atlas Mountains Race, the a-X Anti-Atlas Expedition takes you into one of cycling's most cinematic and least-ridden landscapes. Nights are spent among palmeraies, ruins and centuries-old kasbahs built from the same red mud as the mountains. Days are spent winding through remote villages where the greetings are genuine and the curiosity mutual.
-            </p>
-            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>
-              Long traverses of the Anti-Atlas earn you sweeping views of raw peaks and valleys thick with wild flowers. Life appears at the margins and vanishes just as quietly. The roads are mostly beautiful. Some sections are not. All of it is worth it.
-            </p>
+            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{mp.bio1}</p>
+            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{mp.bio2}</p>
           </motion.div>
 
           {/* Route map + Day-by-day */}
@@ -241,7 +238,7 @@ export default function Morocco() {
             transition={{ delay: 0.45 }}
             className="mb-8"
           >
-            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>The Route</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>{mp.theRoute}</h3>
 
           <div className="md:flex md:gap-4 md:items-stretch">
 
@@ -277,24 +274,20 @@ export default function Morocco() {
                   D0
                 </div>
                 <div className="flex-1 min-w-0 pt-0.5">
-                  <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>
-                    Marrakech — Meet-up &amp; transfer to Southern Morocco
-                  </p>
-                  <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>
-                    Transfer from Marrakech included with logistics package only
-                  </p>
+                  <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>{mp.day0Title}</p>
+                  <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>{mp.day0Note}</p>
                 </div>
                 <div className="flex-shrink-0 text-xs text-foreground/35 mt-0.5" style={nunito}>22 Mar</div>
               </div>
 
               {/* Days 1–6 */}
               {[
-                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: "Short transfer from hotel in Southern Morocco to Anezi — included with logistics package only" },
+                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#c0522a", note: mp.day1Note },
                 { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
                 { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                 { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
                 { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                { day: 6, date: "28 Mar", from: "Aguinane", to: "Taznacht & Transfer to Marrakech", km: 80,  elev: 1170,  color: "#7a3535", note: "Transfer to Marrakech included with logistics package only" },
+                { day: 6, date: "28 Mar", from: "Aguinane", to: mp.day6To,  km: 80,  elev: 1170,  color: "#7a3535", note: mp.day6Note },
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-2 hover:bg-white/3 transition-colors">
                   <div
@@ -305,7 +298,7 @@ export default function Morocco() {
                   </div>
                   <div className="flex-1 min-w-0">
                     {rest ? (
-                      <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>Rest Day</p>
+                      <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>{mp.restDay}</p>
                     ) : (
                       <p className="text-sm text-foreground/90 leading-snug" style={rubikOne}>
                         {from} <span className="text-foreground/40 mx-1">→</span> {to}
@@ -340,14 +333,9 @@ export default function Morocco() {
             className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8"
           >
             <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>Terrain & Conditions</h3>
+              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>{mp.terrainTitle}</h3>
               <ul className="space-y-1" style={nunito}>
-                {[
-                  "~50% road / ~50% gravel & piste",
-                  "Technical descents & steep climbing",
-                  "Hike-a-bike & river crossings",
-                  "Extreme heat / cold nights",
-                ].map(item => (
+                {mp.terrainItems.map(item => (
                   <li key={item} className="text-xs text-foreground/65 flex gap-2">
                     <span className="text-accent/60 mt-0.5">—</span>
                     {item}
@@ -357,16 +345,9 @@ export default function Morocco() {
             </div>
 
             <div className="rounded-lg border border-white/10 bg-black/30 px-4 py-3.5">
-              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>Recommended Equipment</h3>
+              <h3 className="text-xs uppercase tracking-widest text-accent mb-2" style={rubikOne}>{mp.equipTitle}</h3>
               <ul className="space-y-1" style={nunito}>
-                {[
-                  "Gravel or adventure bike",
-                  "Low climbing gears",
-                  "Tubeless setup strongly recommended",
-                  "GPS navigation device",
-                  "Layering for heat and cold",
-                  "Helmet & lights mandatory · E-bikes not permitted",
-                ].map(item => (
+                {mp.equipItems.map(item => (
                   <li key={item} className="text-xs text-foreground/65 flex gap-2">
                     <span className="text-accent/60 mt-0.5">—</span>
                     {item}
@@ -390,22 +371,15 @@ export default function Morocco() {
               <div className="rounded-xl border border-white/15 bg-black/40 px-6 py-6">
                 <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>{t("morocco.pricing.selfSupported")}</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>€400</p>
-                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Event fee</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>{mp.eventFeeLabel}</p>
                 <ul className="space-y-1.5" style={nunito}>
-                  {[
-                    "Route planning & reconnaissance",
-                    "GPX files",
-                    "Host & group coordination",
-                    "Event administration",
-                  ].map(item => (
+                  {mp.selfSupportedItems.map(item => (
                     <li key={item} className="text-xs text-foreground/60 flex gap-2">
                       <span className="text-accent/50 mt-0.5">✓</span>{item}
                     </li>
                   ))}
                 </ul>
-                <p className="text-xs text-accent/60 mt-4 italic" style={nunito}>
-                  Group discounts available on the Event Fee for 5 or more riders booking together.
-                </p>
+                <p className="text-xs text-accent/60 mt-4 italic" style={nunito}>{mp.groupDiscount}</p>
               </div>
 
               {/* With logistics */}
@@ -414,11 +388,11 @@ export default function Morocco() {
                   className="absolute top-4 right-4 text-[10px] uppercase tracking-widest text-background bg-accent rounded px-2 py-0.5"
                   style={rubikOne}
                 >
-                  Recommended
+                  {mp.recommended}
                 </div>
                 <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>{t("morocco.pricing.logistics")}</p>
                 <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>&lt;€950</p>
-                <p className="text-xs text-foreground/45 mb-4" style={nunito}>Maximum estimated cost — dependent on participant numbers &amp; accommodation choices</p>
+                <p className="text-xs text-foreground/45 mb-4" style={nunito}>{mp.maxCostLabel}</p>
                 <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
                     <span className="text-accent/50 mt-0.5">✓</span>
@@ -429,13 +403,7 @@ export default function Morocco() {
                 <div className="mt-3 rounded-lg border border-white/10 bg-white/3 px-3 py-2.5">
                   <p className="text-xs uppercase tracking-widest text-white/30 mb-2" style={rubikOne}>{t("morocco.pricing.viaPartner")}</p>
                   <ul className="space-y-1.5" style={nunito}>
-                    {[
-                      "6-nights Accommodation",
-                      "Luggage transfers between stops",
-                      "Transfer from Marrakech to start",
-                      "Transfer from finish to Marrakech",
-                      "Stand-by vehicle*",
-                    ].map(item => (
+                    {mp.logisticsItems.map(item => (
                       <li key={item} className="text-xs text-foreground/60 flex gap-2">
                         <span className="text-accent/50 mt-0.5">✓</span>{item}
                       </li>
@@ -458,7 +426,7 @@ export default function Morocco() {
             transition={{ delay: 0.6 }}
             className="mb-8"
           >
-            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>Logistics & Practicalities</h3>
+            <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>{mp.logisticsPractTitle}</h3>
             <div className="rounded-lg border border-white/15 overflow-hidden">
               {logisticCategories.map((category, catIdx) => {
                 const isCatOpen = openCategories.has(catIdx);
@@ -525,7 +493,7 @@ export default function Morocco() {
                       className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
                     >
                       <span className="text-sm uppercase tracking-widest text-white" style={rubikOne}>
-                        Event Documentation
+                        {mp.eventDocTitle}
                       </span>
                       <motion.span
                         animate={{ rotate: isOpen ? 45 : 0 }}
@@ -557,8 +525,8 @@ export default function Morocco() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                               </svg>
                               <div>
-                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Terms & Conditions</p>
-                                <p className="text-xs text-foreground/35">a-X Event T&Cs — PDF</p>
+                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">{mp.termsTitle}</p>
+                                <p className="text-xs text-foreground/35">{mp.termsSubtitle}</p>
                               </div>
                             </a>
                             <a
@@ -572,8 +540,8 @@ export default function Morocco() {
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
                               </svg>
                               <div>
-                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">Rider Waiver & Assumption of Risk</p>
-                                <p className="text-xs text-foreground/35">a-X Waiver — PDF</p>
+                                <p className="text-xs text-foreground/70 group-hover:text-foreground/90 transition-colors">{mp.waiverTitle}</p>
+                                <p className="text-xs text-foreground/35">{mp.waiverSubtitle}</p>
                               </div>
                             </a>
                           </div>
