@@ -178,8 +178,8 @@ const stats = [
 export default function Morocco() {
   const [current, setCurrent] = useState(0);
   const [paused, setPaused] = useState(false);
-  const [openLogistic, setOpenLogistic] = useState<{ cat: number; item: number } | null>(null);
   const [openCategories, setOpenCategories] = useState<Set<number>>(new Set());
+  const [docsOpen, setDocsOpen] = useState(false);
 
   function toggleCategory(i: number) {
     setOpenCategories(prev => {
@@ -607,47 +607,14 @@ export default function Morocco() {
                           className="overflow-hidden"
                         >
                           <div className="divide-y divide-white/10 border-t border-white/10">
-                            {category.items.map((item, itemIdx) => {
-                              const isOpen = openLogistic?.cat === catIdx && openLogistic?.item === itemIdx;
-                              return (
-                                <div key={itemIdx} className={isOpen ? "bg-white/5" : ""}>
-                                  <button
-                                    onClick={() => setOpenLogistic(isOpen ? null : { cat: catIdx, item: itemIdx })}
-                                    className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
-                                  >
-                                    <span
-                                      className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
-                                      style={rubikOne}
-                                    >
-                                      {item.q}
-                                    </span>
-                                    <motion.span
-                                      animate={{ rotate: isOpen ? 45 : 0 }}
-                                      transition={{ duration: 0.2 }}
-                                      className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
-                                    >
-                                      +
-                                    </motion.span>
-                                  </button>
-                                  <AnimatePresence initial={false}>
-                                    {isOpen && (
-                                      <motion.div
-                                        key="answer"
-                                        initial={{ height: 0, opacity: 0 }}
-                                        animate={{ height: "auto", opacity: 1 }}
-                                        exit={{ height: 0, opacity: 0 }}
-                                        transition={{ duration: 0.22 }}
-                                        className="overflow-hidden"
-                                      >
-                                        <div className="px-4 pb-4 pt-1 text-sm text-foreground/65 leading-relaxed" style={nunito}>
-                                          {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
-                                        </div>
-                                      </motion.div>
-                                    )}
-                                  </AnimatePresence>
+                            {category.items.map((item, itemIdx) => (
+                              <div key={itemIdx} className="px-4 py-4">
+                                <p className="text-sm text-foreground/90 leading-snug mb-2" style={rubikOne}>{item.q}</p>
+                                <div className="text-sm text-foreground/60 leading-relaxed" style={nunito}>
+                                  {typeof item.a === "string" ? <p>{item.a}</p> : item.a}
                                 </div>
-                              );
-                            })}
+                              </div>
+                            ))}
                           </div>
                         </motion.div>
                       )}
@@ -658,23 +625,20 @@ export default function Morocco() {
 
               {/* Event Documentation */}
               {(() => {
-                const isOpen = openLogistic?.cat === -1;
+                const isOpen = docsOpen;
                 return (
                   <div className={["border-t border-white/15", isOpen ? "bg-white/5" : ""].join(" ")}>
                     <button
-                      onClick={() => setOpenLogistic(isOpen ? null : { cat: -1, item: 0 })}
+                      onClick={() => setDocsOpen(o => !o)}
                       className="w-full flex items-center justify-between px-4 py-3.5 text-left transition-colors hover:bg-white/5"
                     >
-                      <span
-                        className={["text-sm leading-snug pr-4 transition-colors", isOpen ? "text-accent" : "text-foreground/90"].join(" ")}
-                        style={rubikOne}
-                      >
+                      <span className="text-sm uppercase tracking-widest text-white" style={rubikOne}>
                         Event Documentation
                       </span>
                       <motion.span
                         animate={{ rotate: isOpen ? 45 : 0 }}
                         transition={{ duration: 0.2 }}
-                        className={["flex-shrink-0 text-lg leading-none transition-colors", isOpen ? "text-accent" : "text-foreground/40"].join(" ")}
+                        className="flex-shrink-0 text-lg leading-none text-white/40"
                       >
                         +
                       </motion.span>
