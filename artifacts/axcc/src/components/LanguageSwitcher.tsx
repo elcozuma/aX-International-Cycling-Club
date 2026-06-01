@@ -5,6 +5,20 @@ import { LANGUAGES } from "@/i18n/translations";
 
 const rubikOne = { fontFamily: "'Rubik One', sans-serif" };
 
+function FlagImg({ countryCode, size }: { countryCode: string; size: number }) {
+  const h = Math.round(size * (2 / 3));
+  return (
+    <img
+      src={`https://flagcdn.com/${countryCode}.svg`}
+      alt={countryCode}
+      width={size}
+      height={h}
+      className="rounded-sm object-cover flex-shrink-0"
+      style={{ width: size, height: h, display: "block" }}
+    />
+  );
+}
+
 export function LanguageSwitcher() {
   const { lang, setLang } = useLang();
   const [open, setOpen] = useState(false);
@@ -28,12 +42,10 @@ export function LanguageSwitcher() {
       <button
         onClick={() => setOpen(o => !o)}
         aria-label="Change language"
-        className="flex flex-col items-center justify-center gap-0.5 cursor-pointer bg-transparent border-none p-2 group"
+        className="flex flex-col items-center justify-center gap-1 cursor-pointer bg-transparent border-none p-2 group"
         style={{ width: "52px" }}
       >
-        <span className="text-3xl leading-none select-none" role="img" aria-label={current.label}>
-          {current.flag}
-        </span>
+        <FlagImg countryCode={current.countryCode} size={40} />
         <motion.span
           animate={{ rotate: open ? 180 : 0 }}
           transition={{ duration: 0.2 }}
@@ -51,7 +63,7 @@ export function LanguageSwitcher() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: -4, scale: 0.97 }}
             transition={{ duration: 0.15 }}
-            className="absolute top-full right-0 mt-1 z-[110] bg-black/85 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden w-40"
+            className="absolute top-full right-0 mt-1 z-[110] bg-black/85 backdrop-blur-md border border-white/20 rounded-xl overflow-hidden w-44"
           >
             {LANGUAGES.map(l => (
               <button
@@ -65,7 +77,7 @@ export function LanguageSwitcher() {
                 ].join(" ")}
                 style={rubikOne}
               >
-                <span className="text-base leading-none">{l.flag}</span>
+                <FlagImg countryCode={l.countryCode} size={28} />
                 <span className="uppercase tracking-widest">{l.nativeLabel}</span>
                 {lang === l.code && (
                   <span className="ml-auto w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
