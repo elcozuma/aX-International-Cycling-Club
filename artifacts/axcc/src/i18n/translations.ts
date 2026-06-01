@@ -73,7 +73,7 @@ const en: Translations = {
   "nav.events": "events",
   "nav.faqs": "faqs",
   "nav.contact": "contact",
-  "nav.events.morocco": "Southern Morocco · Mar 2027",
+  "nav.events.morocco": "Southern Morocco",
   "nav.events.clubRides": "Club Rides / Free Events",
   "nav.events.customExp": "Custom Expeditions",
 
@@ -134,7 +134,7 @@ const fr: Translations = {
   "nav.events": "événements",
   "nav.faqs": "faq",
   "nav.contact": "contact",
-  "nav.events.morocco": "Sud du Maroc · Mars 2027",
+  "nav.events.morocco": "Sud du Maroc",
   "nav.events.clubRides": "Sorties club / Événements gratuits",
   "nav.events.customExp": "Expéditions sur mesure",
 
@@ -195,7 +195,7 @@ const es: Translations = {
   "nav.events": "eventos",
   "nav.faqs": "preguntas",
   "nav.contact": "contacto",
-  "nav.events.morocco": "Sur de Marruecos · Mar 2027",
+  "nav.events.morocco": "Sur de Marruecos",
   "nav.events.clubRides": "Salidas en grupo / Eventos gratuitos",
   "nav.events.customExp": "Expediciones a medida",
 
@@ -256,7 +256,7 @@ const it: Translations = {
   "nav.events": "eventi",
   "nav.faqs": "faq",
   "nav.contact": "contatti",
-  "nav.events.morocco": "Marocco del Sud · Mar 2027",
+  "nav.events.morocco": "Marocco del Sud",
   "nav.events.clubRides": "Uscite club / Eventi gratuiti",
   "nav.events.customExp": "Spedizioni personalizzate",
 
@@ -317,7 +317,7 @@ const de: Translations = {
   "nav.events": "events",
   "nav.faqs": "faq",
   "nav.contact": "kontakt",
-  "nav.events.morocco": "Südmarokko · März 2027",
+  "nav.events.morocco": "Südmarokko",
   "nav.events.clubRides": "Clubfahrten / Kostenlose Events",
   "nav.events.customExp": "Individuelle Expeditionen",
 
