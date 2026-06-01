@@ -129,10 +129,6 @@ const logisticCategories: LogisticCategory[] = [
               <p>Some riders have reported children aggressively requesting money or sweets, and occasionally throwing stones. This behaviour is more associated with touristic areas — not Southern Morocco — and is not something I've personally encountered on this route.</p>
             </div>
             <div>
-              <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Culture & Customs</p>
-              <p>This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs.</p>
-            </div>
-            <div>
               <p className="text-xs uppercase tracking-widest text-white mb-1" style={{ fontFamily: "'Rubik One', sans-serif" }}>Food & Water</p>
               <p>Refrigeration and hygiene standards aren't always at the same level as in Europe or North America, but food-related illness is generally more prevalent in touristic areas. In remote areas, accommodation and restaurants tend to be family-run — you'll likely be eating the same food as the hosts, cooked in the same kitchen, which is reassuring. Pharmacies are widespread and easy to find for most minor ailments. Bottled water is readily available in most towns, and taps labelled 'potable' are common in built-up areas. Whilst tap water is generally deemed safe, it's best to filter or sterilise where possible.</p>
             </div>
@@ -140,12 +136,12 @@ const logisticCategories: LogisticCategory[] = [
         )
       },
       {
-        q: "Do I require any vaccinations prior to arrival in Morocco?",
-        a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
-      },
-      {
         q: "How does resupply work?",
         a: "The route passes through a number of villages and small towns where food and water can typically be sourced. Specific resupply points, recommended carry capacities and any sections requiring extra preparation will be detailed in the full event briefing sent to all registered participants."
+      },
+      {
+        q: "Culture & Customs",
+        a: "This area is predominantly the land of the Amazigh (Berber) people, whose nature is typically very hospitable. Participants should be mindful of the conservative culture of the region, particularly when interacting with women. Female participants may also want to consider their choice of dress to better align with local customs."
       },
     ]
   },
@@ -155,6 +151,10 @@ const logisticCategories: LogisticCategory[] = [
       {
         q: "What if I need to leave the event early?",
         a: "Participants are responsible for arranging their own alternative transport, accommodation and onward travel if they choose or need to exit early. The event briefing will include information on the nearest accessible towns and transport links at various points along the route."
+      },
+      {
+        q: "Do I require any vaccinations prior to arrival in Morocco?",
+        a: "Morocco does not require any mandatory vaccinations for entry. However, it is sensible to ensure routine vaccinations are up to date — including tetanus, diphtheria, polio and MMR. Hepatitis A is commonly recommended for travellers, and Hepatitis B and typhoid may also be worth considering depending on your medical history and personal risk assessment. Rabies vaccination is occasionally recommended for those spending extended time in remote areas. As always, consult your GP or a travel health clinic well in advance of departure for advice tailored to your individual circumstances."
       },
       {
         q: "Do I need travel insurance?",
