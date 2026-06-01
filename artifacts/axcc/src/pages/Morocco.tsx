@@ -84,7 +84,7 @@ const logisticCategories: LogisticCategory[] = [
       },
       {
         q: "Can I book my own accommodation? What options are there?",
-        a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing."
+        a: "The route passes through areas with a mix of small guesthouses, riads, and basic auberges. Riders can either book independently or, if taking the logistics option, have the local delivery partner arrange and take payment for hotels along the route on their behalf. Camping is also permitted where appropriate. Recommendations and a list of options will be provided in the event briefing. Please note; in most villages, lodging options are limited to 1 or 2 guest houses."
       },
       {
         q: "Is there a support vehicle during the riding days?",
