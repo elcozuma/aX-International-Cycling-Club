@@ -2,19 +2,19 @@ import crypto from "node:crypto";
 import type { Request, Response, NextFunction } from "express";
 
 const SECRET = process.env.SESSION_SECRET ?? "dev-secret-change-in-production";
-const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD ?? "";
 const COOKIE_NAME = "ax_admin";
 const MAX_AGE_MS = 24 * 60 * 60 * 1000;
 
 export function checkPassword(input: string): boolean {
-  if (!ADMIN_PASSWORD) return false;
-  const a = Buffer.from(
-    crypto.createHash("sha256").update(input).digest("hex"),
-  );
-  const b = Buffer.from(
-    crypto.createHash("sha256").update(ADMIN_PASSWORD).digest("hex"),
-  );
-  if (a.length !== b.length) return false;
+  // Read dynamically so the value is always current at call time
+  const expected = process.env.ADMIN_PASSWORD ?? "";
+  if (!expected || !input) return false;
+  // Pad both to identical length so timingSafeEqual never throws
+  const len = Math.max(input.length, expected.length, 1);
+  const a = Buffer.alloc(len);
+  const b = Buffer.alloc(len);
+  Buffer.from(input, "utf8").copy(a);
+  Buffer.from(expected, "utf8").copy(b);
   return crypto.timingSafeEqual(a, b);
 }
 
@@ -53,8 +53,8 @@ export function verifyToken(token: string | undefined): boolean {
 export function setAdminCookie(res: Response, token: string): void {
   res.cookie(COOKIE_NAME, token, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
-    sameSite: "strict",
+    secure: false, // Replit's reverse proxy handles TLS; never require secure flag
+    sameSite: "lax",  // lax works across the Replit proxy; strict can break it
     maxAge: MAX_AGE_MS,
     path: "/",
   });

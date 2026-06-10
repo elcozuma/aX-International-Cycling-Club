@@ -135,6 +135,7 @@ const TT = ({ active, payload, label }: {
 
 export default function Dashboard() {
   const [, navigate] = useLocation();
+  const [authChecked, setAuthChecked] = useState(false);
   const [range, setRange] = useState<RangeKey>("30");
   const [stats, setStats] = useState<Stats | null>(null);
   const [loading, setLoading] = useState(true);
@@ -142,12 +143,15 @@ export default function Dashboard() {
   const [heatClicks, setHeatClicks] = useState<Array<{ x: number; y: number }>>([]);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  // ── Auth check ──────────────────────────────────────────────────────────────
+  // ── Auth check — render nothing until resolved ──────────────────────────────
   useEffect(() => {
-    fetch("/api/admin/me", { credentials: "include" }).then((r) => {
-      if (r.status === 401) navigate("/admin/login");
-    }).catch(() => navigate("/admin/login"));
-  }, [navigate]);
+    fetch("/api/admin/me", { credentials: "include" })
+      .then((r) => {
+        if (r.status === 401) navigate("/admin/login");
+        else setAuthChecked(true);
+      })
+      .catch(() => navigate("/admin/login"));
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // ── Fetch stats ─────────────────────────────────────────────────────────────
   const fetchStats = useCallback(async () => {
@@ -215,6 +219,15 @@ export default function Dashboard() {
 
   const s = stats?.summary;
 
+  // Block render until auth resolves (prevents flash of dashboard to unauth users)
+  if (!authChecked) {
+    return (
+      <div className="min-h-screen bg-[#0a0a0a] flex items-center justify-center">
+        <div className="w-6 h-6 border-2 border-white/10 border-t-white/30 rounded-full animate-spin" />
+      </div>
+    );
+  }
+
   return (
     <div
       className="min-h-screen bg-[#0a0a0a] text-white"
@@ -223,9 +236,11 @@ export default function Dashboard() {
       {/* Header */}
       <header className="sticky top-0 z-10 bg-[#0a0a0a]/90 backdrop-blur border-b border-white/[0.06] px-6 py-3 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <span className="text-lg font-black tracking-tight">
-            a-<span style={{ color: ACCENT }}>X</span>
-          </span>
+          <img
+            src={`${import.meta.env.BASE_URL}ax-logo.png`}
+            alt="a-X"
+            className="h-8 w-auto"
+          />
           <span className="text-white/30 text-sm">Analytics</span>
         </div>
         <div className="flex items-center gap-3">

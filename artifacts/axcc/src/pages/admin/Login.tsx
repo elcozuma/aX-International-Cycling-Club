@@ -38,13 +38,12 @@ export default function AdminLogin() {
       <div className="w-full max-w-sm">
         {/* Logo */}
         <div className="text-center mb-8">
-          <span
-            className="text-3xl font-black tracking-tight text-white"
-            style={{ letterSpacing: "-0.03em" }}
-          >
-            a-<span style={{ color: "hsl(68 57% 38%)" }}>X</span>
-          </span>
-          <p className="text-white/30 text-xs mt-1 tracking-widest uppercase">
+          <img
+            src={`${import.meta.env.BASE_URL}ax-logo.png`}
+            alt="a-X"
+            className="h-14 w-auto mx-auto mb-3"
+          />
+          <p className="text-white/30 text-xs tracking-widest uppercase">
             Admin
           </p>
         </div>
