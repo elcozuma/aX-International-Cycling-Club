@@ -69,13 +69,25 @@ export function requireAdmin(
   res: Response,
   next: NextFunction,
 ): void {
-  const cookies = (req as Request & { cookies?: Record<string, string> })
-    .cookies;
-  if (!verifyToken(cookies?.[COOKIE_NAME])) {
-    res.status(401).json({ error: "Unauthorized" });
+  // 1. Authorization: Bearer <token> header (primary — works in all iframe/proxy contexts)
+  const auth = req.headers["authorization"];
+  if (auth?.startsWith("Bearer ") && verifyToken(auth.slice(7))) {
+    next();
     return;
   }
-  next();
+  // 2. ?_t=<token> query param (for window.open downloads that can't set headers)
+  const qt = req.query["_t"];
+  if (typeof qt === "string" && verifyToken(qt)) {
+    next();
+    return;
+  }
+  // 3. httpOnly cookie fallback
+  const cookies = (req as Request & { cookies?: Record<string, string> }).cookies;
+  if (verifyToken(cookies?.[COOKIE_NAME])) {
+    next();
+    return;
+  }
+  res.status(401).json({ error: "Unauthorized" });
 }
 
 export function getIp(req: Request): string {

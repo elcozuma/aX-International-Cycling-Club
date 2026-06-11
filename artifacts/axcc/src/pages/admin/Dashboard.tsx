@@ -131,6 +131,16 @@ const TT = ({ active, payload, label }: {
   );
 };
 
+// ── Auth helper — module-level so it never changes reference ─────────────────
+function adminFetch(url: string, init?: RequestInit): Promise<Response> {
+  const token = localStorage.getItem("ax_admin_token") ?? "";
+  return fetch(url, {
+    ...init,
+    credentials: "include",
+    headers: { ...(init?.headers ?? {}), ...(token ? { Authorization: `Bearer ${token}` } : {}) },
+  });
+}
+
 // ── Main Dashboard ────────────────────────────────────────────────────────────
 
 export default function Dashboard() {
@@ -145,9 +155,9 @@ export default function Dashboard() {
 
   // ── Auth check — render nothing until resolved ──────────────────────────────
   useEffect(() => {
-    fetch("/api/admin/me", { credentials: "include" })
+    adminFetch("/api/admin/me")
       .then((r) => {
-        if (r.status === 401) navigate("/admin/login");
+        if (r.status === 401) { navigate("/admin/login"); }
         else setAuthChecked(true);
       })
       .catch(() => navigate("/admin/login"));
@@ -158,7 +168,7 @@ export default function Dashboard() {
     setLoading(true);
     try {
       const qs = range === "all" ? "" : `?days=${range}`;
-      const r = await fetch(`/api/admin/stats${qs}`, { credentials: "include" });
+      const r = await adminFetch(`/api/admin/stats${qs}`);
       if (r.status === 401) { navigate("/admin/login"); return; }
       const data: Stats = await r.json();
       setStats(data);
@@ -174,9 +184,7 @@ export default function Dashboard() {
 
   // ── Fetch heatmap ───────────────────────────────────────────────────────────
   useEffect(() => {
-    fetch(`/api/admin/heatmap?page=${encodeURIComponent(heatmapPage)}`, {
-      credentials: "include",
-    })
+    adminFetch(`/api/admin/heatmap?page=${encodeURIComponent(heatmapPage)}`)
       .then((r) => r.json())
       .then((d: { clicks?: Array<{ x: number; y: number }> }) =>
         setHeatClicks(d.clicks ?? []),
@@ -207,14 +215,18 @@ export default function Dashboard() {
 
   // ── Logout ──────────────────────────────────────────────────────────────────
   async function logout() {
-    await fetch("/api/admin/logout", { method: "POST", credentials: "include" });
+    localStorage.removeItem("ax_admin_token");
+    await adminFetch("/api/admin/logout", { method: "POST" });
     navigate("/admin/login");
   }
 
   // ── Export ──────────────────────────────────────────────────────────────────
   function exportCSV(type: "pageviews" | "events" | "sessions") {
+    const token = localStorage.getItem("ax_admin_token") ?? "";
     const qs = range === "all" ? `type=${type}` : `type=${type}&days=${range}`;
-    window.open(`/api/admin/export?${qs}`, "_blank");
+    // Include token as query param since window.open can't set headers
+    const tokenParam = token ? `&_t=${encodeURIComponent(token)}` : "";
+    window.open(`/api/admin/export?${qs}${tokenParam}`, "_blank");
   }
 
   const s = stats?.summary;

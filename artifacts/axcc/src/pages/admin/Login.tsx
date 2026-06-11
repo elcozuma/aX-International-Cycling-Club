@@ -19,6 +19,8 @@ export default function AdminLogin() {
         body: JSON.stringify({ password }),
       });
       if (res.ok) {
+        const data = await res.json() as { token?: string };
+        if (data.token) localStorage.setItem("ax_admin_token", data.token);
         navigate("/admin");
       } else {
         setError("Incorrect password.");

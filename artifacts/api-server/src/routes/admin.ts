@@ -19,8 +19,9 @@ router.post("/admin/login", async (req, res) => {
     res.status(401).json({ error: "Invalid password" });
     return;
   }
-  setAdminCookie(res, createToken());
-  res.json({ ok: true });
+  const token = createToken();
+  setAdminCookie(res, token);          // cookie (best-effort)
+  res.json({ ok: true, token });       // token in body (always works)
 });
 
 router.post("/admin/logout", (_req, res) => {
