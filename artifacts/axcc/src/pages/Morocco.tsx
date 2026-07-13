@@ -286,8 +286,8 @@ export default function Morocco() {
                 { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#5a7a3a" },
                 { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#3a6080" },
                 { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#b8972a" },
-                { day: 5, date: "27 Mar", from: null,       to: null,       km: null, elev: null,  color: "#6b6b6b", rest: true },
-                { day: 6, date: "28 Mar", from: "Aguinane", to: mp.day6To,  km: 80,  elev: 1170,  color: "#7a3535", note: mp.day6Note },
+                { day: 5, date: "27 Mar", from: "Aguinane", to: "Taznacht",  km: 80,  elev: 1170,  color: "#7a4035" },
+                { day: 6, date: "28 Mar", from: "Taznakht", to: mp.day6To,  km: 110, elev: 1200,  color: "#8b3030", note: mp.day6Note },
               ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
                 <div key={day} className="flex items-start gap-3 px-4 py-2 hover:bg-white/3 transition-colors">
                   <div
