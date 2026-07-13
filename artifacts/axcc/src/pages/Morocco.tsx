@@ -5,7 +5,7 @@ import { useLang } from "@/i18n/LanguageContext";
 import { getMoroccoCategories, getMoroccoPage } from "@/i18n/content";
 import type { DangerAnswer } from "@/i18n/content";
 
-import routeMap from "@assets/d5bbda31-f7b1-458b-9bac-2aad22fe5ed8_1783948308560.png";
+import routeMap from "@assets/02401613-7179-4c13-bbe1-01f38e881af8_1783950426366.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
