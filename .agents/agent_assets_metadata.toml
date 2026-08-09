@@ -73,3 +73,10 @@ uri = "file://a-X_Morocco_Event_TCs.md"
 type = "text"
 title = "a-X Morocco Expedition — T&Cs"
 description = "Full Terms & Conditions for the a-X Anti-Atlas Group Expedition."
+
+[[outputs]]
+id = "QBbAfKD-KfaUoTLiJJuo6"
+uri = "file://a-X_Morocco_FAQs.md"
+type = "text"
+title = "a-X Morocco Expedition — FAQs"
+description = "All Morocco expedition FAQs including the new payment question, organised by category."
