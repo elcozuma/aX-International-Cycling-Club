@@ -62,6 +62,9 @@ The <€950 figure is calculated using the base event fee (€400) plus the maxi
 **What other costs do I need to budget for?**
 Once travel and accommodation are sorted, the only real day-to-day costs are food and incidentals. Food in Morocco is very cheap compared to Europe and North America, and many accommodation providers will include breakfast and possibly an evening meal in the price. Beyond that, €20 per day should be more than enough to cover the rest of your calories and beverages.
 
+**How and when do I pay for the event?**
+The €400 a-X event fee is paid in two instalments: a €200 deposit when you book, followed by the remaining €200 by 31 January 2027. Payments are processed securely through GoCardless. Accommodation and optional logistics are separate from the a-X event fee and are provided by our local delivery partner in Morocco. These costs are up to €550 per person, depending on final participant numbers and the options selected, and are paid directly to the local provider. Full payment details and the final amount will be confirmed once participant numbers are known.
+
 ---
 
 ### Logistics & Support
