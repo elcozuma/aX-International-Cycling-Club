@@ -17,11 +17,11 @@ The event fee (€400) covers route planning and reconnaissance, GPX files, host
 **Why is the total price of the event (<€950) only a maximum estimated total cost?**
 The <€950 figure is calculated using the base event fee (€400) plus the maximum costs of logistical support and accommodation, based on a minimum of 5 people participating. As more riders join, the group benefits from economies of scale — and those savings are passed directly back to participants. The ethos of a-X is to make adventure cycling more accessible and affordable, which means we do not profit from optional services. We also always try to negotiate fixed rates with service providers to help keep costs as low as possible.
 
+**How and when do I pay for the event?**
+The €400 a-X event fee is paid in two instalments: a €200 deposit when you book, followed by the remaining €200 by 31 January 2027. Payments are processed securely through GoCardless. The deposit is non-refundable. However, at a-X's discretion, it may be transferred as credit towards a future expedition or transferred to another rider. Accommodation and optional logistics are separate from the a-X event fee and are provided by our local delivery partner in Morocco. These costs are up to €550 per person, depending on final participant numbers and the options selected, and are paid directly to the local provider. Full payment details and the final amount will be confirmed once participant numbers are known.
+
 **What other costs do I need to budget for?**
 Once travel and accommodation are sorted, the only real day-to-day costs are food and incidentals. Food in Morocco is very cheap compared to Europe and North America, and many accommodation providers will include breakfast and possibly an evening meal in the price. Beyond that, €20 per day should be more than enough to cover the rest of your calories and beverages.
-
-**How and when do I pay for the event?**
-The €400 a-X event fee is paid in two instalments: a €200 deposit when you book, followed by the remaining €200 by 31 January 2027. Payments are processed securely through GoCardless. Accommodation and optional logistics are separate from the a-X event fee and are provided by our local delivery partner in Morocco. These costs are up to €550 per person, depending on final participant numbers and the options selected, and are paid directly to the local provider. Full payment details and the final amount will be confirmed once participant numbers are known.
 
 ---
 
