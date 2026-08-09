@@ -59,3 +59,10 @@ id = "rz6AuAWpJphRozQIZpzCJ"
 uri = "file://axcc-faq.txt"
 type = "text"
 title = "a-X Cycling Club — FAQ"
+
+[[outputs]]
+id = "ANBI43v4m0ev-_ip8M_cc"
+uri = "file://a-X_FAQs.md"
+type = "text"
+title = "a-X FAQs"
+description = "All general and Morocco expedition FAQs in English."
