@@ -74,7 +74,7 @@
 - Deposit: €200
 - Final balance: €200 payable before 31 January 2027
 
-**4.3** Payments of the a-X Expedition Fee are processed by GoCardless, an independent third-party payment provider. By using the payment service, participants may also be subject to GoCardless's applicable payment terms and privacy notice. GoCardless acts solely as the payment processor and is not responsible for the organisation or delivery of the Expedition.
+**4.3** Payments of the a-X Expedition Fee are processed by Stripe, an independent third-party payment provider. By using the payment service, participants may also be subject to Stripe's applicable payment terms and privacy notice. Stripe acts solely as the payment processor and is not responsible for the organisation or delivery of the Expedition.
 
 **4.4** Deposits are generally non-refundable but may, at a-X's discretion, be transferred as event credit toward a future expedition or gifted to another rider.
 
