@@ -452,6 +452,8 @@ export type MoroccoPage = {
   termsSubtitle: string;
   waiverTitle: string;
   waiverSubtitle: string;
+  privacyTitle: string;
+  privacySubtitle: string;
 };
 
 const moroccoPages: Record<Language, MoroccoPage> = {
@@ -487,6 +489,8 @@ const moroccoPages: Record<Language, MoroccoPage> = {
     termsSubtitle: "a-X Event T&Cs — PDF",
     waiverTitle: "Rider Waiver & Assumption of Risk",
     waiverSubtitle: "a-X Waiver — PDF",
+    privacyTitle: "Privacy Policy",
+    privacySubtitle: "a-X Privacy Policy — PDF",
   },
   fr: {
     hostedExpedition: "Expédition encadrée · Sud du Maroc",
@@ -520,6 +524,8 @@ const moroccoPages: Record<Language, MoroccoPage> = {
     termsSubtitle: "CGV a-X — PDF",
     waiverTitle: "Décharge & Acceptation des risques",
     waiverSubtitle: "Décharge a-X — PDF",
+    privacyTitle: "Politique de confidentialité",
+    privacySubtitle: "Politique a-X — PDF",
   },
   es: {
     hostedExpedition: "Expedición organizada · Sur de Marruecos",
@@ -553,6 +559,8 @@ const moroccoPages: Record<Language, MoroccoPage> = {
     termsSubtitle: "T&C del evento a-X — PDF",
     waiverTitle: "Exención de responsabilidad & Asunción de riesgos",
     waiverSubtitle: "Exención a-X — PDF",
+    privacyTitle: "Política de privacidad",
+    privacySubtitle: "Política a-X — PDF",
   },
   it: {
     hostedExpedition: "Spedizione organizzata · Marocco meridionale",
@@ -586,6 +594,8 @@ const moroccoPages: Record<Language, MoroccoPage> = {
     termsSubtitle: "T&C evento a-X — PDF",
     waiverTitle: "Liberatoria & Assunzione di rischio",
     waiverSubtitle: "Liberatoria a-X — PDF",
+    privacyTitle: "Informativa sulla privacy",
+    privacySubtitle: "Privacy a-X — PDF",
   },
   de: {
     hostedExpedition: "Begleitete Expedition · Südmarokko",
@@ -619,6 +629,8 @@ const moroccoPages: Record<Language, MoroccoPage> = {
     termsSubtitle: "a-X Event AGB — PDF",
     waiverTitle: "Haftungsverzicht & Risikoübernahme",
     waiverSubtitle: "a-X Haftungsverzicht — PDF",
+    privacyTitle: "Datenschutzerklärung",
+    privacySubtitle: "a-X Datenschutz — PDF",
   },
 };
 
