@@ -86,3 +86,6 @@ Morocco does not require any mandatory vaccinations for entry. However, it is se
 
 **Do I need travel insurance?**
 Yes — travel insurance is compulsory for this event. It should include appropriate medical cover, emergency evacuation and repatriation. Riders are entering remote terrain in a foreign country and should be adequately covered before departing.
+
+**What happens if the event is cancelled?**
+If a-X cancels the Expedition and the event does not proceed, all a-X Expedition Fees paid by participants, including deposits, will be refunded in full. a-X will not be responsible for separately booked flights, accommodation, travel or other third-party costs, and participants are strongly advised to ensure these are covered by appropriate travel insurance.
