@@ -396,7 +396,7 @@ export default function Morocco() {
                 <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
                     <span className="text-accent/50 mt-0.5">✓</span>
-                    <span>{t("morocco.pricing.included")} {t("morocco.pricing.selfSupported")}</span>
+                    <span>{t("morocco.pricing.selfSupportedPlus")}</span>
                   </li>
                 </ul>
 

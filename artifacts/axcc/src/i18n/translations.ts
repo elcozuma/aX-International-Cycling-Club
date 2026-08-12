@@ -44,6 +44,7 @@ export type TranslationKey =
   | "morocco.overview.clickEnlarge"
   | "morocco.pricing.title"
   | "morocco.pricing.selfSupported"
+  | "morocco.pricing.selfSupportedPlus"
   | "morocco.pricing.logistics"
   | "morocco.pricing.included"
   | "morocco.pricing.viaPartner"
@@ -106,6 +107,7 @@ const en: Translations = {
   "morocco.overview.clickEnlarge": "Click to enlarge",
   "morocco.pricing.title": "Pricing",
   "morocco.pricing.selfSupported": "Self Supported",
+  "morocco.pricing.selfSupportedPlus": "Everything in Self Supported Package PLUS:",
   "morocco.pricing.logistics": "With Logistics",
   "morocco.pricing.included": "What's included:",
   "morocco.pricing.viaPartner": "Via local delivery partner",
@@ -167,6 +169,7 @@ const fr: Translations = {
   "morocco.overview.clickEnlarge": "Cliquer pour agrandir",
   "morocco.pricing.title": "Tarifs",
   "morocco.pricing.selfSupported": "Autonome",
+  "morocco.pricing.selfSupportedPlus": "Tout ce qui est inclus dans le forfait Autonome, PLUS :",
   "morocco.pricing.logistics": "Avec logistique",
   "morocco.pricing.included": "Ce qui est inclus :",
   "morocco.pricing.viaPartner": "Via partenaire local",
@@ -228,6 +231,7 @@ const es: Translations = {
   "morocco.overview.clickEnlarge": "Clic para ampliar",
   "morocco.pricing.title": "Precios",
   "morocco.pricing.selfSupported": "Autosuficiente",
+  "morocco.pricing.selfSupportedPlus": "Todo lo incluido en el paquete Autosuficiente MÁS:",
   "morocco.pricing.logistics": "Con logística",
   "morocco.pricing.included": "Qué incluye:",
   "morocco.pricing.viaPartner": "A través del socio local",
@@ -289,6 +293,7 @@ const it: Translations = {
   "morocco.overview.clickEnlarge": "Clic per ingrandire",
   "morocco.pricing.title": "Prezzi",
   "morocco.pricing.selfSupported": "Autonomo",
+  "morocco.pricing.selfSupportedPlus": "Tutto ciò che è incluso nel pacchetto Autonomo, PIÙ:",
   "morocco.pricing.logistics": "Con logistica",
   "morocco.pricing.included": "Cosa è incluso:",
   "morocco.pricing.viaPartner": "Tramite partner locale",
@@ -350,6 +355,7 @@ const de: Translations = {
   "morocco.overview.clickEnlarge": "Zum Vergrößern klicken",
   "morocco.pricing.title": "Preise",
   "morocco.pricing.selfSupported": "Selbstversorgt",
+  "morocco.pricing.selfSupportedPlus": "Alles im Selbstversorger-Paket, PLUS:",
   "morocco.pricing.logistics": "Mit Logistik",
   "morocco.pricing.included": "Was ist inklusive:",
   "morocco.pricing.viaPartner": "Über lokalen Partner",
