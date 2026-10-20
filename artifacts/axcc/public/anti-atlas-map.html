@@ -119,6 +119,23 @@ License: Bitstream Vera
 @media(max-width:520px){.axm-expedition{padding:16px}.axm-expedition .axm-legend{gap:9px 14px;font-size:9px}.axm-expedition .axm-day{grid-template-columns:32px minmax(0,1fr) 40px;gap:8px;padding:12px 10px}.axm-expedition .axm-day-number{width:32px;font-size:11px}.axm-expedition .axm-day-route{font-size:12px}.axm-expedition .axm-day-note{font-size:10px}.axm-expedition .axm-day-date{font-size:10px}.axm-expedition .axm-detail{padding:16px}.axm-expedition .axm-detail h3{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.axm-expedition .axm-stage,.axm-expedition .axm-day{transition:none}}
 @media(forced-colors:active){.axm-expedition button,.axm-expedition .axm-day-number{border:1px solid ButtonText}.axm-expedition .axm-day[aria-pressed=true]{outline:2px solid Highlight}}
+/* Match the expedition page's warm charcoal, cream and olive palette. */
+html,body{background:transparent!important}
+.axm-expedition{--axm-ink:#f5f1e9;--axm-muted:#bfb6a4;--axm-border:rgba(255,255,255,.1);background:transparent}
+.axm-expedition .axm-map-wrap{background:#211f1c}
+.axm-expedition .axm-day{background:rgba(255,255,255,.025)}
+.axm-expedition .axm-day:hover,.axm-expedition .axm-day.is-preview,.axm-expedition .axm-day[aria-pressed=true]{background:rgba(137,152,42,.12)}
+.axm-expedition .axm-detail{background:rgba(137,152,42,.06);border-color:rgba(255,255,255,.1);border-top-color:var(--detail-colour,#89982a)}
+.axm-expedition .axm-reset{background:rgba(137,152,42,.12);border-color:#535a36;color:#f5f1e9}
+.axm-expedition .axm-reset:hover{background:rgba(137,152,42,.25)}
+.axm-expedition .axm-switch input{accent-color:#89982a}
+.axm-expedition .axm-day-route,.axm-expedition .axm-coordinates,.axm-expedition .axm-endpoints{color:#f5f1e9}
+.axm-expedition .axm-day-note,.axm-expedition .axm-day-date,.axm-expedition .axm-legend,.axm-expedition .axm-detail-note,.axm-expedition .axm-detail-transfer,.axm-expedition .axm-connections{color:#bfb6a4}
+.axm-map-svg [fill="#222527"],.axm-map-svg [fill="#202224"],.axm-map-svg [fill="#232628"]{fill:#211f1c}
+.axm-map-svg [fill="#2D3032"]{fill:#2d3023}
+.axm-map-svg [stroke="#222527"]{stroke:#211f1c}
+.axm-map-svg [stroke="#4C5256"]{stroke:#535a36}
+.axm-map-svg [stroke="#A5ADB2"]{stroke:#929c68}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -194,7 +211,7 @@ License: Bitstream Vera
     const logoAsset=data.brand_asset.svg,logoWidth=mobile?94:142;
     const logoX=mobile?18:24,totalsY=fmt(20+logoWidth*.4+(mobile?14:17)),tfs=mobile?8.5:10;
     const calDays=data.itinerary.length,tot=data.totals;
-    const logo=`<svg x="${logoX}" y="20" width="${logoWidth}" height="${logoWidth*.4}" viewBox="${logoAsset.viewBox}" role="img" aria-label="a-X" data-map-logo=""><path d="${logoAsset.path}" fill="#FFFFFF" fill-rule="evenodd"/></svg><g data-map-totals="" aria-label="${calDays} days, ${tot.distance_km} kilometres riding, ${tot.ascent_m.toLocaleString('en-GB')} metres ascent"><text x="${logoX+1}" y="${totalsY}" font-size="${tfs}" font-weight="700" letter-spacing="1.1" fill="#F3F3F1" paint-order="stroke" stroke="#222527" stroke-width="4">${calDays} DAYS · ${tot.distance_km} KM · ${tot.ascent_m.toLocaleString('en-GB')} M</text><text x="${logoX+1}" y="${fmt(totalsY+(mobile?12:14))}" font-size="${mobile?7.5:8.5}" letter-spacing=".9" fill="#BEC3C6" paint-order="stroke" stroke="#222527" stroke-width="4">D0–D7 · ${tot.riding_days} RIDING DAYS · TOTAL ASCENT</text></g>`;
+    const logo=`<svg x="${logoX}" y="20" width="${logoWidth}" height="${logoWidth*.4}" viewBox="${logoAsset.viewBox}" role="img" aria-label="a-X" data-map-logo=""><path d="${logoAsset.path}" fill="#FFFFFF" fill-rule="evenodd"/></svg><g data-map-totals="" aria-label="6 riding days plus 2 transfer days, ${tot.distance_km} kilometres riding, ${tot.ascent_m.toLocaleString('en-GB')} metres ascent"><text x="${logoX+1}" y="${totalsY}" font-size="${tfs}" font-weight="700" letter-spacing="1.1" fill="#F3F3F1" paint-order="stroke" stroke="#222527" stroke-width="4">6+2 DAYS · ${tot.distance_km} KM · ${tot.ascent_m.toLocaleString('en-GB')} M</text></g>`;
     const stageOffsets=mobile?[[0,-25],[-20,29],[20,-2],[0,-16],[-15,-4],[17,12]]:[[0,-24],[-28,4],[-27,-6],[0,-18],[-18,-3],[17,3]];
     const routes=data.stages.map((s,i)=>{
       const a=points[s.from],b=points[s.to],offset=stageOffsets[i];
@@ -255,8 +272,8 @@ License: Bitstream Vera
   function endpoints(a,b,aNote,bNote){return `<p class="axm-endpoints"><strong>Start:</strong> ${esc(a.name)}${aNote?` (${esc(aNote)})`:''} · ${coord(a)}<br><strong>End:</strong> ${esc(b.name)}${bNote?` (${esc(bNote)})`:''} · ${coord(b)}</p>`;}
   function entryPanel(e){
     const s=getStage(e.riding_stage_id);
-    if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('marrakech'),getRef('anezi'),'meet-up','Anezi-area reference; hotel unconfirmed')}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
-    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('ouarzazate'),getRef('marrakech'),'riding finish','city reference')}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
+    if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
+    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
     return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}${e.note?`<em class="axm-detail-transfer">${esc(e.note)}</em>`:''}`;
   }
   function stopPanel(s){

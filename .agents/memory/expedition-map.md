@@ -2,8 +2,14 @@
 name: Expedition map design
 description: User's visual fidelity requirement for the expedition map and itinerary
 ---
-Preserve the supplied expedition HTML's colours, style and fonts when extending the map and itinerary.
+Preserve the supplied expedition HTML's layout and fonts, but match its colours to the surrounding expedition page's warm charcoal and olive scheme. Retain distinct stage colours.
 
-**Why:** The user explicitly requested matching the original design rather than redesigning it.
+**Why:** The user clarified that the inserted HTML's colours must match the underlying page, correcting the earlier interpretation of preserving its standalone palette.
 
-**How to apply:** Treat the supplied HTML as the visual reference for future map changes; keep additions consistent with it.
+**How to apply:** Use the underlying page as the colour reference, and the supplied HTML as the layout reference.
+
+The user states that the extended itinerary includes seven days' accommodation, breakfast and evening meals in remote areas, and bike box storage.
+
+**Why:** These are confirmed package inclusions supplied by the user.
+
+**How to apply:** Keep package descriptions consistent; six riding days plus two transfer days are displayed as “6+2 days”.

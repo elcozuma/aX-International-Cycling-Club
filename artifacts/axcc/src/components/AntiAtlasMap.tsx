@@ -34,7 +34,7 @@ export function AntiAtlasMap() {
   return (
     <div
       className="w-full rounded-lg overflow-hidden border border-white/10"
-      style={{ background: "#1d1f21" }}
+      style={{ background: "transparent" }}
       data-testid="map-anti-atlas"
     >
       <iframe
@@ -44,7 +44,7 @@ export function AntiAtlasMap() {
         loading="lazy"
         scrolling="no"
         className="block w-full border-0"
-        style={{ height, background: "#1d1f21", colorScheme: "dark" }}
+        style={{ height, background: "transparent", colorScheme: "dark" }}
       />
     </div>
   );
