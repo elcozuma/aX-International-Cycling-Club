@@ -136,6 +136,13 @@ html,body{background:transparent!important}
 .axm-map-svg [stroke="#222527"]{stroke:#211f1c}
 .axm-map-svg [stroke="#4C5256"]{stroke:#535a36}
 .axm-map-svg [stroke="#A5ADB2"]{stroke:#929c68}
+.axm-expedition .axm-map-wrap{position:relative}
+.axm-expedition .axm-map-wrap .axm-detail{position:absolute;right:14px;bottom:32px;width:290px;max-width:calc(100% - 28px);max-height:180px;overflow:auto;overscroll-behavior:contain;margin:0;padding:12px 14px;min-height:0;background:rgba(25,26,19,.96);box-shadow:0 4px 18px rgba(0,0,0,.2)}
+.axm-expedition .axm-map-wrap .axm-detail h3{font-size:14px;line-height:1.35;margin:5px 0 8px}
+.axm-expedition .axm-map-wrap .axm-detail-metrics dd{font-size:18px}
+.axm-expedition .axm-map-wrap .axm-eyebrow{font-size:9px;letter-spacing:1px}
+.axm-expedition .axm-map-wrap .axm-endpoints,.axm-expedition .axm-map-wrap .axm-detail-transfer,.axm-expedition .axm-map-wrap .axm-detail-note{font-size:10px;line-height:1.5;margin-top:7px}
+@media(max-width:520px){.axm-expedition .axm-map-wrap .axm-detail{max-height:150px}}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -168,7 +175,7 @@ html,body{background:transparent!important}
     const b = mobile ? [-9.74,29.18,-6.57,31.98] : data.projection.default_bounds_wgs84;
     const [left,bottom] = merc(b[0],b[1]);
     const [right,top] = merc(b[2],b[3]);
-    const margin = mobile ? {x:18,top:54,bottom:76} : {x:34,top:58,bottom:80};
+    const margin = mobile ? {x:18,top:54,bottom:256} : {x:34,top:58,bottom:260};
     const k = Math.min((width-margin.x*2)/(right-left),(height-margin.top-margin.bottom)/(top-bottom));
     const x0=(width-k*(right-left))/2, y0=margin.top+(height-margin.top-margin.bottom-k*(top-bottom))/2;
     return {k,bounds:b,point(lon,lat) { const [x,y]=merc(lon,lat); return [fmt(x0+(x-left)*k),fmt(y0+(top-y)*k)]; }};
@@ -237,7 +244,7 @@ html,body{background:transparent!important}
       return `<g id="${prefix}-stop-${s.id}" class="axm-stop" ${attrs}><title>${esc(s.name)} · ${s.latitude.toFixed(5)}, ${s.longitude.toFixed(5)} · local reference, exact address unconfirmed</title><circle class="axm-stop-halo" cx="${x}" cy="${y}" r="16" fill="none" stroke="#FFFFFF" stroke-width="2" opacity="0"/><path class="axm-leader" d="M${x},${y} L${leaderEnd}" stroke="#929A9E" stroke-width=".8" fill="none"/><circle cx="${x}" cy="${y}" r="14" fill="#FFFFFF" fill-opacity="0"/>${marker}<rect x="${labelLeft-5}" y="${ly-fs-3}" width="${textWidth+10}" height="${fs+23}" rx="3" fill="#272A2C" fill-opacity=".84"/><text id="${prefix}-label-${s.id}" class="axm-place-label" x="${lx}" y="${ly}" text-anchor="${anchor}" font-size="${fs}" font-weight="700" fill="#F6F6F3">${esc(s.name)}</text><text x="${lx}" y="${ly+15}" text-anchor="${anchor}" font-size="${mobile?8:9}" letter-spacing=".85" fill="#BEC3C6">${sub}</text></g>`;
     }).join('');
     const parallelRadius=6378137/Math.sqrt(1-0.0066943799901413165*Math.sin(30*RAD)**2);
-    const km=mobile?25:50,bar=fmt(p.k*km*1000/(parallelRadius*Math.cos(30*RAD))),scaleY=height-28;
+    const km=mobile?25:50,bar=fmt(p.k*km*1000/(parallelRadius*Math.cos(30*RAD))),scaleY=height-(mobile?200:28);
     const scale=`<g aria-label="${km} kilometre scale at 30 degrees north" fill="#C9CED0" font-size="10"><path d="M24,${scaleY-5} v5 h${bar} v-5 M${24+bar/2},${scaleY} v-4" fill="none" stroke="#D2D5D6" stroke-width="1.4"/><text x="24" y="${scaleY-10}">0</text><text x="${24+bar}" y="${scaleY-10}" text-anchor="end">${km} km</text><text x="24" y="${scaleY+16}" font-size="9" fill="#AAB1B5">Scale at 30°N</text></g>`;
     const credit=`<text x="${width-20}" y="${height-15}" text-anchor="end" fill="#AAB1B5" font-size="${mobile?7.5:8.5}"><a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a> · <a href="https://www.geonames.org/" target="_blank" rel="noopener noreferrer">GeoNames</a>${mobile?'':' · Natural Earth · Terrain: Mapzen / USGS / NOAA'}</text>`;
     const svg=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${width} ${height}" width="${width}" height="${height}" class="axm-map-svg" role="group" aria-labelledby="${prefix}-title ${prefix}-desc" style="display:block;width:100%;height:auto;font-family:'AX Sans','DejaVu Sans',Arial,sans-serif"><title id="${prefix}-title">a-X Anti-Atlas expedition map</title><desc id="${prefix}-desc">North-up overview with a D0 meet-up and transfer from Marrakech to Southern Morocco, followed by six riding stages from Anezi via Ammelne, Tiouadou, Tagmout, Aguinane and Taznacht to Ouarzazate, and a D7 return transfer to Marrakech on 29 March. Transfers are included with the logistics package only. Tiouadou is southeast of Ammelne. Distances and ascent are organiser planning figures, not measured along these schematic lines.</desc><defs><clipPath id="${prefix}-clip"><rect width="${width}" height="${height}" rx="2"/></clipPath><pattern id="${prefix}-checks" width="8" height="8" patternUnits="userSpaceOnUse"><rect width="8" height="8" fill="#F8FCFC"/><path d="M0,0H4V4H0Z M4,4H8V8H4Z" fill="#232628"/></pattern></defs><g clip-path="url(#${prefix}-clip)"><rect width="${width}" height="${height}" fill="#222527"/><g fill="#2D3032" stroke="#4C5256" stroke-width=".75">${land}</g><g fill="none" stroke="#A5ADB2" stroke-opacity=".13" stroke-width=".7">${contours}</g><g fill="none" stroke="#CAD0D3" stroke-opacity=".055" stroke-width=".8" stroke-dasharray="2 5">${grid.join('')}</g>${logo}${transfer}${cities}${routes}${stops}<g transform="translate(${width-28},26)" fill="#E4E6E5" aria-label="North"><text text-anchor="middle" y="-8" font-size="10" font-weight="700">N</text><path d="M0,0 L-4,12 L0,9 L4,12Z"/><path d="M0,9V24" stroke="#E4E6E5" stroke-width="1"/></g>${scale}${credit}</g></svg>`;
@@ -260,6 +267,7 @@ html,body{background:transparent!important}
   const root=document.querySelector('[data-ax-anti-atlas]');if(!root)return;
   let data=JSON.parse(document.getElementById('axm-data').textContent);
   const map=root.querySelector('[data-map]'),days=root.querySelector('[data-days]'),detail=root.querySelector('[data-detail]'),status=root.querySelector('[data-status]');
+  detail.tabIndex=0;
   const esc=AXMapCore.esc,num=n=>n.toLocaleString('en-GB');
   const getStop=id=>data.stops.find(s=>s.id===id),getEntry=id=>data.itinerary.find(e=>e.id===id),getStage=id=>data.stages.find(s=>s.id===id);
   const stageName=s=>`${getStop(s.from).name} → ${getStop(s.to).name}`;
@@ -319,8 +327,8 @@ html,body{background:transparent!important}
   function draw(){
     const next=Math.round(map.getBoundingClientRect().width-2);if(next<100||next===width)return;
     const focused=identify(document.activeElement),focusId=focused&&map.contains(focused.element)?focused:null;
-    width=next;const height=width<480?470:Math.max(510,Math.min(850,Math.round(width*.85)));
-    map.innerHTML=AXMapCore.render(data,width,height,{interactive:true,prefix:'axm-live'}).svg;setTransfers();update();
+    width=next;const height=180+(width<480?470:Math.max(510,Math.min(850,Math.round(width*.85))));
+    map.innerHTML=AXMapCore.render(data,width,height,{interactive:true,prefix:'axm-live'}).svg;map.appendChild(detail);setTransfers();update();
     if(focusId)map.querySelector(`[data-${focusId.kind==='stage'?'stage':'stop'}-id="${focusId.id}"]`)?.focus({preventScroll:true});
   }
   const reset=()=>{locked=null;preview=null;update(true);};
