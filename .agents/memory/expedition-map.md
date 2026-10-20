@@ -12,7 +12,7 @@ Keep the information box tucked into the existing map's lower-right space withou
 
 **Why:** The user corrected an implementation that increased the map height to accommodate the box; compactness is the priority.
 
-**How to apply:** Fit the panel within the available gap rather than adding map height. Longer details may scroll within the panel.
+**How to apply:** Fit the panel within the available gap rather than adding map height. Hide it entirely on narrower screens, as requested by the user; keep logistics-package notes in itinerary cards, not this panel.
 
 The user states that the extended itinerary includes seven days' accommodation, breakfast and evening meals in remote areas, and bike box storage.
 

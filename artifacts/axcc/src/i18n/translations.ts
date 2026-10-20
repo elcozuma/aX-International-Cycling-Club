@@ -74,7 +74,7 @@ const en: Translations = {
   "nav.events": "events",
   "nav.faqs": "faqs",
   "nav.contact": "contact",
-  "nav.events.morocco": "Southern Morocco",
+  "nav.events.morocco": "Anti-Atlas Mountains, Morocco – 22–29 March 2027",
   "nav.events.clubRides": "Club Rides / Free Events",
   "nav.events.customExp": "Custom Expeditions",
 
@@ -136,7 +136,7 @@ const fr: Translations = {
   "nav.events": "événements",
   "nav.faqs": "faq",
   "nav.contact": "contact",
-  "nav.events.morocco": "Sud du Maroc",
+  "nav.events.morocco": "Montagnes de l’Anti-Atlas, Maroc – 22–29 mars 2027",
   "nav.events.clubRides": "Sorties club / Événements gratuits",
   "nav.events.customExp": "Expéditions sur mesure",
 
@@ -198,7 +198,7 @@ const es: Translations = {
   "nav.events": "eventos",
   "nav.faqs": "preguntas",
   "nav.contact": "contacto",
-  "nav.events.morocco": "Sur de Marruecos",
+  "nav.events.morocco": "Montañas del Anti-Atlas, Marruecos – 22–29 de marzo de 2027",
   "nav.events.clubRides": "Salidas en grupo / Eventos gratuitos",
   "nav.events.customExp": "Expediciones a medida",
 
@@ -260,7 +260,7 @@ const it: Translations = {
   "nav.events": "eventi",
   "nav.faqs": "faq",
   "nav.contact": "contatti",
-  "nav.events.morocco": "Marocco del Sud",
+  "nav.events.morocco": "Montagne dell’Anti-Atlante, Marocco – 22–29 marzo 2027",
   "nav.events.clubRides": "Uscite club / Eventi gratuiti",
   "nav.events.customExp": "Spedizioni personalizzate",
 
@@ -322,7 +322,7 @@ const de: Translations = {
   "nav.events": "events",
   "nav.faqs": "faq",
   "nav.contact": "kontakt",
-  "nav.events.morocco": "Südmarokko",
+  "nav.events.morocco": "Anti-Atlas-Gebirge, Marokko – 22.–29. März 2027",
   "nav.events.clubRides": "Clubfahrten / Kostenlose Events",
   "nav.events.customExp": "Individuelle Expeditionen",
 
