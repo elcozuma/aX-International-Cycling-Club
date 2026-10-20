@@ -142,7 +142,9 @@ html,body{background:transparent!important}
 .axm-expedition .axm-map-wrap .axm-detail-metrics dd{font-size:18px}
 .axm-expedition .axm-map-wrap .axm-eyebrow{font-size:9px;letter-spacing:1px}
 .axm-expedition .axm-map-wrap .axm-endpoints,.axm-expedition .axm-map-wrap .axm-detail-transfer,.axm-expedition .axm-map-wrap .axm-detail-note{font-size:10px;line-height:1.5;margin-top:7px}
-@media(max-width:950px){.axm-expedition .axm-detail{display:none}}
+.axm-expedition .axm-day-stats{display:none;font-size:11px;line-height:1.5;color:#bfb6a4;margin-top:4px;font-variant-numeric:tabular-nums}
+@media(max-width:950px){.axm-expedition .axm-detail{display:none}.axm-expedition .axm-day-stats{display:block}}
+@media(max-width:520px){.axm-map-svg .axm-stop>text,.axm-map-svg .axm-stop>rect,.axm-map-svg .axm-leader,.axm-map-svg .axm-reference>text{display:none}}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -255,7 +257,7 @@ html,body{background:transparent!important}
       const stage=data.stages.find(s=>s.id===entry.riding_stage_id);
       const stats=stage?`, ${stage.distance_km} kilometres, ${stage.ascent_m.toLocaleString('en-GB')} metres ascent`:'';
       const label=`D${entry.day}, ${entry.date_label}: ${entry.title}${stats}. ${entry.note||''}`;
-      return `<li><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button></li>`;
+      return `<li><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${stage?`<span class="axm-day-stats">${stage.distance_km} km · ${stage.ascent_m.toLocaleString('en-GB')} m ascent</span>`:''}${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button></li>`;
     }).join('');
   }
   global.AXMapCore={render,projection,esc,merc,itineraryMarkup};
