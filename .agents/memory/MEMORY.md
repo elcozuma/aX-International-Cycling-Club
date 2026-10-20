@@ -1,0 +1,1 @@
+- [Expedition map design](expedition-map.md) — preserve the user-supplied HTML design when editing the map.

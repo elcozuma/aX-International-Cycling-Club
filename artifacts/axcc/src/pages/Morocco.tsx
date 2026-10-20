@@ -1,11 +1,11 @@
 import { useEffect, useState, useCallback, useRef } from "react";
 import { Nav } from "@/components/Nav";
+import { AntiAtlasMap } from "@/components/AntiAtlasMap";
 import { motion, AnimatePresence } from "framer-motion";
 import { useLang } from "@/i18n/LanguageContext";
 import { getMoroccoCategories, getMoroccoPage } from "@/i18n/content";
 import type { DangerAnswer } from "@/i18n/content";
 
-import routeMap from "@assets/ChatGPT_Image_Jul_14,_2026_at_01_08_19_PM_1784030946116.png";
 import slide02 from "@assets/a-X_Website-4_1780065568271.png";
 import slide05 from "@assets/a-X_Website-9_1780065568271.png";
 import slide06 from "@assets/IMG_5852_1780065776415.jpeg";
@@ -72,7 +72,6 @@ export default function Morocco() {
       return next;
     });
   }
-  const [mapEnlarged, setMapEnlarged] = useState(false);
   const [isMobile, setIsMobile] = useState(() =>
     typeof window !== "undefined" ? window.matchMedia("(max-width: 767px)").matches : false
   );
@@ -240,89 +239,7 @@ export default function Morocco() {
           >
             <h3 className="text-xs uppercase tracking-widest text-accent mb-3" style={rubikOne}>{mp.theRoute}</h3>
 
-          <div className="md:flex md:gap-4 md:items-stretch">
-
-          {/* Map image */}
-          <div className="mb-4 md:mb-0 md:w-1/2 md:flex-shrink-0">
-            <button
-              onClick={() => setMapEnlarged(true)}
-              className="w-full h-full rounded-lg overflow-hidden border border-white/10 block cursor-zoom-in group relative"
-            >
-              <img
-                src={routeMap}
-                alt="a-X Anti-Atlas Expedition route map"
-                className="w-full h-full object-contain block"
-              />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
-                <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/60 text-white/80 text-xs uppercase tracking-widest px-3 py-1.5 rounded" style={rubikOne}>
-                  {t("morocco.overview.clickEnlarge")}
-                </span>
-              </div>
-            </button>
-          </div>
-
-          {/* Day-by-day */}
-          <div className="md:flex-1 md:min-w-0 md:flex md:flex-col">
-            <div className="rounded-lg border border-white/10 overflow-hidden divide-y divide-white/8 md:flex-1 md:flex md:flex-col">
-
-              {/* Day 0 */}
-              <div className="flex items-start gap-3 px-4 py-2 bg-black/20">
-                <div
-                  className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold border border-white/20 text-white/50"
-                  style={rubikOne}
-                >
-                  D0
-                </div>
-                <div className="flex-1 min-w-0 pt-0.5">
-                  <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>{mp.day0Title}</p>
-                  <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>{mp.day0Note}</p>
-                </div>
-                <div className="flex-shrink-0 text-xs text-foreground/35 mt-0.5" style={nunito}>22 Mar</div>
-              </div>
-
-              {/* Days 1–6 */}
-              {[
-                { day: 1, date: "23 Mar", from: "Anezi",    to: "Ammelne",  km: 75,  elev: 2600,  color: "#00bcd4", note: mp.day1Note },
-                { day: 2, date: "24 Mar", from: "Ammelne",  to: "Tiouadou", km: 55,  elev: 1000,  color: "#4caf50" },
-                { day: 3, date: "25 Mar", from: "Tiouadou", to: "Tagmout",  km: 120, elev: 2375,  color: "#ff8c00" },
-                { day: 4, date: "26 Mar", from: "Tagmout",  to: "Aguinane", km: 110, elev: 1650,  color: "#e53935" },
-                { day: 5, date: "27 Mar", from: "Aguinane", to: "Taznacht", km: 80,  elev: 1170,  color: "#9c27b0" },
-                { day: 6, date: "28 Mar", from: "Taznacht", to: mp.day6To,  km: 110, elev: 1200,  color: "#1565c0", note: mp.day6Note },
-              ].map(({ day, date, from, to, km, elev, color, rest, note }) => (
-                <div key={day} className="flex items-start gap-3 px-4 py-2 hover:bg-white/3 transition-colors">
-                  <div
-                    className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center text-xs font-bold text-white mt-0.5"
-                    style={{ ...rubikOne, background: color }}
-                  >
-                    D{day}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    {rest ? (
-                      <p className="text-sm text-foreground/70 leading-snug" style={rubikOne}>{mp.restDay}</p>
-                    ) : (
-                      <p className="text-sm text-foreground/90 leading-snug" style={rubikOne}>
-                        {from} <span className="text-foreground/40 mx-1">→</span> {to}
-                      </p>
-                    )}
-                    {note && (
-                      <p className="text-xs text-foreground/40 mt-0.5 italic" style={nunito}>{note}</p>
-                    )}
-                  </div>
-                  <div className="flex-shrink-0 flex flex-col items-end gap-1 mt-0.5" style={nunito}>
-                    <span className="text-xs text-foreground/35">{date}</span>
-                    {!rest && (
-                      <div className="flex gap-2">
-                        <span className="text-xs text-foreground/60">{km}km</span>
-                        <span className="text-xs text-foreground/40">{elev!.toLocaleString()}m ↑</span>
-                      </div>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          </div>{/* end flex row */}
+          <AntiAtlasMap />
           </motion.div>{/* end route section */}
 
           {/* Two-col info blocks */}
@@ -614,36 +531,6 @@ export default function Morocco() {
       </div>
     </div>
 
-    {/* Map lightbox */}
-    <AnimatePresence>
-      {mapEnlarged && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.2 }}
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 cursor-zoom-out"
-          onClick={() => setMapEnlarged(false)}
-        >
-          <motion.img
-            initial={{ scale: 0.92, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            exit={{ scale: 0.92, opacity: 0 }}
-            transition={{ duration: 0.2 }}
-            src={routeMap}
-            alt="a-X Anti-Atlas Expedition route map"
-            className="max-w-full max-h-full rounded-lg shadow-2xl object-contain"
-            onClick={e => e.stopPropagation()}
-          />
-          <button
-            onClick={() => setMapEnlarged(false)}
-            className="absolute top-4 right-4 text-white/60 hover:text-white/90 transition-colors text-2xl leading-none"
-          >
-            ✕
-          </button>
-        </motion.div>
-      )}
-    </AnimatePresence>
     </>
   );
 }
