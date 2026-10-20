@@ -280,15 +280,15 @@ html,body{background:transparent!important}
   function endpoints(a,b,aNote,bNote){return `<p class="axm-endpoints"><strong>Start:</strong> ${esc(a.name)}${aNote?` (${esc(aNote)})`:''} · ${coord(a)}<br><strong>End:</strong> ${esc(b.name)}${bNote?` (${esc(bNote)})`:''} · ${coord(b)}</p>`;}
   function entryPanel(e){
     const s=getStage(e.riding_stage_id);
-    if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
-    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3><em class="axm-detail-transfer">${esc(e.note)}</em>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
-    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}${e.note?`<em class="axm-detail-transfer">${esc(e.note)}</em>`:''}`;
+    if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
+    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
+    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}`;
   }
   function stopPanel(s){
     const connect=ids=>ids.map(getStage).filter(Boolean).map(q=>`Day ${q.day} · ${esc(stageName(q))}`).join('<br>');
     const role=s.role==='overnight'?'Overnight':s.role==='start'?'Riding start':'Riding finish';
     const arrive=s.incoming_stage_ids.length?connect(s.incoming_stage_ids):'Day 0 transfer from Marrakech, then Day 1 short transfer from hotel in Southern Morocco';
-    const depart=s.outgoing_stage_ids.length?connect(s.outgoing_stage_ids):'Day 7 transfer to Marrakech, 29 Mar — logistics package only';
+    const depart=s.outgoing_stage_ids.length?connect(s.outgoing_stage_ids):'Day 7 transfer to Marrakech, 29 Mar';
     return `<p class="axm-eyebrow">${role}</p><h3>${esc(s.name)}</h3><p class="axm-coordinates">${s.latitude.toFixed(5)}° N &nbsp; ${Math.abs(s.longitude).toFixed(5)}° W</p><p class="axm-connections"><strong>Arrive:</strong> ${arrive}<br><strong>Depart:</strong> ${depart}</p>`;
   }
   function update(announce=false){
