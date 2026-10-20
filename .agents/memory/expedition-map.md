@@ -8,6 +8,12 @@ Preserve the supplied expedition HTML's layout and fonts, but match its colours 
 
 **How to apply:** Use the underlying page as the colour reference, and the supplied HTML as the layout reference.
 
+Keep the information box tucked into the existing map's lower-right space without enlarging the map border or interfering with route lines or labels.
+
+**Why:** The user corrected an implementation that increased the map height to accommodate the box; compactness is the priority.
+
+**How to apply:** Fit the panel within the available gap rather than adding map height. Longer details may scroll within the panel.
+
 The user states that the extended itinerary includes seven days' accommodation, breakfast and evening meals in remote areas, and bike box storage.
 
 **Why:** These are confirmed package inclusions supplied by the user.
