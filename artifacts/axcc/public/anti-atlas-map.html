@@ -270,6 +270,7 @@ html,body{background:transparent!important}
   const root=document.querySelector('[data-ax-anti-atlas]');if(!root)return;
   let data=JSON.parse(document.getElementById('axm-data').textContent);
   const map=root.querySelector('[data-map]'),days=root.querySelector('[data-days]'),detail=root.querySelector('[data-detail]'),status=root.querySelector('[data-status]');
+  root.querySelector('[data-transfers]').checked=!window.matchMedia('(max-width: 520px)').matches;
   detail.tabIndex=0;
   const esc=AXMapCore.esc,num=n=>n.toLocaleString('en-GB');
   const getStop=id=>data.stops.find(s=>s.id===id),getEntry=id=>data.itinerary.find(e=>e.id===id),getStage=id=>data.stages.find(s=>s.id===id);
