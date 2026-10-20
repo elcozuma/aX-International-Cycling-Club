@@ -227,7 +227,6 @@ export default function Morocco() {
             className="mb-6 space-y-3"
           >
             <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{mp.bio1}</p>
-            <p className="text-sm text-foreground/75 leading-relaxed" style={nunito}>{mp.bio2}</p>
           </motion.div>
 
           {/* Route map + Day-by-day */}
