@@ -147,9 +147,9 @@ html,body{background:transparent!important}
 @media(max-width:520px){.axm-map-svg .axm-stop>text,.axm-map-svg .axm-stop>rect,.axm-map-svg .axm-leader,.axm-map-svg .axm-reference>text{display:none}}
 @media(max-width:520px){.axm-map-svg [data-reference-id="agadir"]>text:first-of-type,.axm-map-svg [data-reference-id="marrakech"]>text:first-of-type{display:inline}}
 @media(max-width:520px){.axm-map-svg [data-stop-id="anezi"]>.axm-place-label,.axm-map-svg [data-stop-id="ouarzazate"]>.axm-place-label{display:inline;font-size:10px;paint-order:stroke;stroke:#211f1c;stroke-width:3px;stroke-linejoin:round}}
-.axm-expedition .axm-map-wrap .axm-detail.is-location{max-height:none;width:auto;overflow:visible}
+.axm-expedition .axm-map-wrap .axm-detail.is-location{max-height:none;width:auto;overflow:visible;right:24px;bottom:90px}
 .axm-expedition .axm-map-wrap .axm-detail.is-location .axm-coordinates{margin:0;font-size:10px}
-@media(max-width:950px){.axm-expedition .axm-map-wrap .axm-detail.is-location{display:block;bottom:30px;right:10px;padding:8px 10px}.axm-expedition .axm-map-wrap .axm-detail.is-location h3{margin:0 0 4px;font-size:12px}}
+@media(max-width:950px){.axm-expedition .axm-map-wrap .axm-detail.is-location{display:block;bottom:90px;right:24px;padding:8px 10px}.axm-expedition .axm-map-wrap .axm-detail.is-location h3{margin:0 0 4px;font-size:12px}}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -191,8 +191,8 @@ html,body{background:transparent!important}
     return coords.map((q,i)=>(i?'L':'M')+p.point(q[0],q[1]).join(',')).join(' ')+(closed?'Z':'');
   }
   function labelSpec(id,mobile) {
-    const small={anezi:[-42,38,'start'],ammelne:[-62,-54,'start'],tiouadou:[-12,62,'end'],tagmout:[-24,32,'middle'],aguinane:[-1,40,'middle'],taznacht:[-21,-32,'end'],ouarzazate:[-70,-36,'end']};
-    const large={anezi:[-14,40,'end'],ammelne:[-18,-55,'end'],tiouadou:[14,42,'start'],tagmout:[-2,38,'middle'],aguinane:[18,30,'start'],taznacht:[-19,-24,'end'],ouarzazate:[-70,-29,'end']};
+    const small={anezi:[-42,38,'start'],ammelne:[-62,-54,'start'],tiouadou:[-12,62,'end'],tagmout:[-24,32,'middle'],aguinane:[-1,40,'middle'],taznacht:[-21,-32,'end'],ouarzazate:[-16,-7,'end']};
+    const large={anezi:[-14,40,'end'],ammelne:[-18,-55,'end'],tiouadou:[14,42,'start'],tagmout:[-2,38,'middle'],aguinane:[18,30,'start'],taznacht:[-19,-24,'end'],ouarzazate:[-18,-18,'end']};
     return (mobile?small:large)[id];
   }
   function render(data,width,height,opts={}) {
