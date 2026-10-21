@@ -146,6 +146,10 @@ html,body{background:transparent!important}
 @media(max-width:950px){.axm-expedition .axm-detail{display:none}.axm-expedition .axm-day-stats{display:block}}
 @media(max-width:520px){.axm-map-svg .axm-stop>text,.axm-map-svg .axm-stop>rect,.axm-map-svg .axm-leader,.axm-map-svg .axm-reference>text{display:none}}
 @media(max-width:520px){.axm-map-svg [data-reference-id="agadir"]>text:first-of-type,.axm-map-svg [data-reference-id="marrakech"]>text:first-of-type{display:inline}}
+@media(max-width:520px){.axm-map-svg [data-stop-id="anezi"]>.axm-place-label,.axm-map-svg [data-stop-id="ouarzazate"]>.axm-place-label{display:inline;font-size:10px;paint-order:stroke;stroke:#211f1c;stroke-width:3px;stroke-linejoin:round}}
+.axm-expedition .axm-map-wrap .axm-detail.is-location{max-height:none;width:auto;overflow:visible}
+.axm-expedition .axm-map-wrap .axm-detail.is-location .axm-coordinates{margin:0;font-size:10px}
+@media(max-width:950px){.axm-expedition .axm-map-wrap .axm-detail.is-location{display:block;bottom:30px;right:10px;padding:8px 10px}.axm-expedition .axm-map-wrap .axm-detail.is-location h3{margin:0 0 4px;font-size:12px}}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -289,14 +293,11 @@ html,body{background:transparent!important}
     return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}`;
   }
   function stopPanel(s){
-    const connect=ids=>ids.map(getStage).filter(Boolean).map(q=>`Day ${q.day} · ${esc(stageName(q))}`).join('<br>');
-    const role=s.role==='overnight'?'Overnight':s.role==='start'?'Riding start':'Riding finish';
-    const arrive=s.incoming_stage_ids.length?connect(s.incoming_stage_ids):'Day 0 transfer from Marrakech, then Day 1 short transfer from hotel in Southern Morocco';
-    const depart=s.outgoing_stage_ids.length?connect(s.outgoing_stage_ids):'Day 7 transfer to Marrakech, 29 Mar';
-    return `<p class="axm-eyebrow">${role}</p><h3>${esc(s.name)}</h3><p class="axm-coordinates">${s.latitude.toFixed(5)}° N &nbsp; ${Math.abs(s.longitude).toFixed(5)}° W</p><p class="axm-connections"><strong>Arrive:</strong> ${arrive}<br><strong>Depart:</strong> ${depart}</p>`;
+    return `<h3>${esc(s.name)}</h3><p class="axm-coordinates">${coord(s)}</p>`;
   }
   function update(announce=false){
     const active=preview||locked,hot=new Set(),stops=new Set();
+    detail.classList.toggle('is-location',active?.kind==='stop');
     if(active?.kind==='stage'){
       const e=getEntry(active.id),s=getStage(e?.riding_stage_id);
       if(e)hot.add(e.id);
@@ -319,7 +320,7 @@ html,body{background:transparent!important}
     if(key!==lastDetail){
       let html,colour='#C2C6C9';
       if(active?.kind==='stage'){const e=getEntry(active.id);html=entryPanel(e);colour=e.colour;message=entryText(e);}
-      else if(active?.kind==='stop'){const s=getStop(active.id);html=stopPanel(s);message=`${s.name}. ${s.role==='overnight'?'Overnight':s.role==='start'?'Riding start':'Riding finish'}.`;}
+      else if(active?.kind==='stop'){const s=getStop(active.id);html=stopPanel(s);message=`${s.name}. ${s.latitude.toFixed(5)} degrees north, ${Math.abs(s.longitude).toFixed(5)} degrees west.`;}
       else html=overview();
       detail.innerHTML=html;detail.style.setProperty('--detail-colour',colour);lastDetail=key;
     }else if(active?.kind==='stage')message=entryText(getEntry(active.id));
@@ -333,6 +334,12 @@ html,body{background:transparent!important}
     const focused=identify(document.activeElement),focusId=focused&&map.contains(focused.element)?focused:null;
     width=next;const height=width<480?470:Math.max(510,Math.min(850,Math.round(width*.85)));
     map.innerHTML=AXMapCore.render(data,width,height,{interactive:true,prefix:'axm-live'}).svg;map.appendChild(detail);setTransfers();update();
+    // Use the accessible location panel instead of a second native hover tooltip.
+    map.querySelectorAll('.axm-stop').forEach(el=>{
+      el.querySelector('title')?.remove();
+      const s=getStop(el.dataset.stopId);
+      el.setAttribute('aria-label',`${s.name}, ${s.latitude.toFixed(5)} degrees north, ${Math.abs(s.longitude).toFixed(5)} degrees west`);
+    });
     // Fit the panel into the existing lower-right gap, never grow the map.
     const left=width-detail.getBoundingClientRect().width-10;
     let routeBottom=0;
@@ -344,10 +351,10 @@ html,body{background:transparent!important}
     if(focusId)map.querySelector(`[data-${focusId.kind==='stage'?'stage':'stop'}-id="${focusId.id}"]`)?.focus({preventScroll:true});
   }
   const reset=()=>{locked=null;preview=null;update(true);};
-  root.addEventListener('click',event=>{if(event.target.closest('[data-reset]')){reset();return;}const hit=identify(event.target);if(hit){locked={kind:hit.kind,id:hit.id};preview=null;update(true);}});
-  root.addEventListener('pointerover',event=>{if(event.pointerType!=='mouse'&&event.pointerType!=='pen')return;const hit=identify(event.target);if(hit&&!hit.element.contains(event.relatedTarget)){preview={kind:hit.kind,id:hit.id};update();}});
+  root.addEventListener('click',event=>{if(event.target.closest('[data-reset]')){reset();return;}const hit=identify(event.target);if(hit){locked=locked?.kind===hit.kind&&locked.id===hit.id?null:{kind:hit.kind,id:hit.id};preview=null;update(true);}else if(map.contains(event.target)&&!detail.contains(event.target))reset();});
+  root.addEventListener('pointerover',event=>{if(window.matchMedia('(max-width: 520px)').matches||(event.pointerType!=='mouse'&&event.pointerType!=='pen'))return;const hit=identify(event.target);if(hit&&!hit.element.contains(event.relatedTarget)){preview={kind:hit.kind,id:hit.id};update();}});
   root.addEventListener('pointerout',event=>{const hit=identify(event.target);if(hit&&!hit.element.contains(event.relatedTarget)){preview=null;update();}});
-  root.addEventListener('focusin',event=>{const hit=identify(event.target);if(hit){preview={kind:hit.kind,id:hit.id};update(true);}});
+  root.addEventListener('focusin',event=>{if(window.matchMedia('(max-width: 520px)').matches)return;const hit=identify(event.target);if(hit){preview={kind:hit.kind,id:hit.id};update(true);}});
   root.addEventListener('focusout',event=>{if(identify(event.target)){preview=null;update();}});
   root.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();reset();return;}const hit=identify(event.target);if(hit&&hit.element.tagName.toLowerCase()==='g'&&(event.key==='Enter'||event.key===' ')){event.preventDefault();locked={kind:hit.kind,id:hit.id};preview=null;update(true);}});
   root.querySelector('[data-transfers]').addEventListener('change',()=>{setTransfers();status.textContent=root.querySelector('[data-transfers]').checked?'Arrival and return transfers shown.':'Map transfers hidden. The complete dated itinerary remains available.';});
