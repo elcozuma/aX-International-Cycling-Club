@@ -288,6 +288,11 @@ html,body{background:transparent!important}
   function endpoints(a,b,aNote,bNote){return `<p class="axm-endpoints"><strong>Start:</strong> ${esc(a.name)}${aNote?` (${esc(aNote)})`:''} · ${coord(a)}<br><strong>End:</strong> ${esc(b.name)}${bNote?` (${esc(bNote)})`:''} · ${coord(b)}</p>`;}
   function entryPanel(e){
     const s=getStage(e.riding_stage_id);
+    if(window.matchMedia('(max-width: 520px)').matches){
+      const from=s?getStop(s.from):getRef(e.day===0?'marrakech':'ouarzazate');
+      const to=s?getStop(s.to):getRef(e.day===0?'anezi':'marrakech');
+      return `<h3>Day ${e.day}</h3><p class="axm-coordinates"><strong>Start:</strong> ${esc(from.name)}<br><strong>End:</strong> ${esc(to.name)}</p>`;
+    }
     if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
     if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
     return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}`;
@@ -297,7 +302,8 @@ html,body{background:transparent!important}
   }
   function update(announce=false){
     const active=preview||locked,hot=new Set(),stops=new Set();
-    detail.classList.toggle('is-location',active?.kind==='stop');
+    const mobile=window.matchMedia('(max-width: 520px)').matches;
+    detail.classList.toggle('is-location',active?.kind==='stop'||(mobile&&active?.kind==='stage'));
     if(active?.kind==='stage'){
       const e=getEntry(active.id),s=getStage(e?.riding_stage_id);
       if(e)hot.add(e.id);
@@ -315,7 +321,7 @@ html,body{background:transparent!important}
     });
     root.querySelectorAll('[data-stop-id]').forEach(el=>{el.classList.toggle('is-hot',stops.has(el.dataset.stopId));el.setAttribute('aria-pressed',String(locked?.kind==='stop'&&locked.id===el.dataset.stopId));});
     root.querySelectorAll('[data-reference-id]').forEach(el=>el.classList.toggle('is-hot',el.dataset.referenceId==='marrakech'&&(hot.has('day-0')||hot.has('day-7'))));
-    const key=active?active.kind+':'+active.id:'all';
+    const key=(active?active.kind+':'+active.id:'all')+':'+mobile;
     let message='Showing the complete D0–D7 itinerary.';
     if(key!==lastDetail){
       let html,colour='#C2C6C9';
