@@ -149,6 +149,13 @@ html,body{background:transparent!important}
 @media(max-width:520px){.axm-map-svg [data-stop-id="anezi"]>.axm-place-label,.axm-map-svg [data-stop-id="ouarzazate"]>.axm-place-label{display:inline;font-size:10px;paint-order:stroke;stroke:#211f1c;stroke-width:3px;stroke-linejoin:round}}
 .axm-expedition .axm-map-wrap .axm-detail.is-location{max-height:none;width:auto;overflow:visible;right:16px;bottom:82px}
 .axm-expedition .axm-map-wrap .axm-detail.is-location .axm-coordinates{margin:0;font-size:10px}
+@media(min-width:951px){
+  .axm-expedition .axm-map-wrap .axm-detail.is-section{width:225px;max-height:none;overflow:visible;padding:8px 10px}
+  .axm-expedition .axm-map-wrap .axm-detail.is-section h3{font-size:12px;margin:4px 0 6px}
+  .axm-expedition .axm-map-wrap .axm-detail.is-section .axm-eyebrow{margin:0;font-size:8px}
+  .axm-expedition .axm-map-wrap .axm-detail.is-section .axm-detail-metrics{margin:0}
+  .axm-expedition .axm-map-wrap .axm-detail.is-section .axm-detail-metrics dd{font-size:15px}
+}
 .axm-expedition .axm-section-stats{font-size:9px;line-height:1.5;color:#bfb6a4;margin:5px 0 0}
 .axm-expedition .axm-elevation{display:block;margin-top:5px}
 .axm-expedition .axm-elevation svg{display:block;width:100%;height:30px;overflow:visible}
@@ -341,7 +348,6 @@ html,body{background:transparent!important}
   function overview(){return `<p class="axm-eyebrow">22–29 Mar · Day 0–Day 7</p><h3>Stage details</h3>${metrics([[data.totals.distance_km,'km','Total riding'],[num(data.totals.ascent_m),'m','Total ascent'],[data.totals.riding_days,'days','On the bike']])}`;}
   const getRef=id=>getStop(id)||data.reference_cities.find(c=>c.id===id);
   const coord=p=>`${p.latitude.toFixed(5)}° N &nbsp; ${Math.abs(p.longitude).toFixed(5)}° W`;
-  function endpoints(a,b,aNote,bNote){return `<p class="axm-endpoints"><strong>Start:</strong> ${esc(a.name)}${aNote?` (${esc(aNote)})`:''} · ${coord(a)}<br><strong>End:</strong> ${esc(b.name)}${bNote?` (${esc(bNote)})`:''} · ${coord(b)}</p>`;}
   function entryPanel(e){
     const s=getStage(e.riding_stage_id);
     if(window.matchMedia('(max-width: 950px)').matches){
@@ -349,9 +355,8 @@ html,body{background:transparent!important}
       const to=s?getStop(s.to):getRef(e.day===0?'anezi':'marrakech');
       return `<h3>Day ${e.day}</h3><p class="axm-coordinates"><strong>Start:</strong> ${esc(from.name)}<br><strong>End:</strong> ${esc(to.name)}</p>${s?`<p class="axm-section-stats">${s.duration_hours} hrs · ${s.distance_km} km · ${num(s.ascent_m)} m</p>`:''}`;
     }
-    if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
-    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
-    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.duration_hours,'hrs','Riding time'],[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent']])}${endpoints(getStop(s.from),getStop(s.to))}`;
+    if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)} · Transfer</p><h3>${e.day===0?'Marrakech → Anezi':'Ouarzazate → Marrakech'}</h3>`;
+    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(stageName(s))}</h3>${metrics([[s.duration_hours,'hrs','Riding time'],[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent']])}`;
   }
   function stopPanel(s){
     return `<h3>${esc(s.name)}</h3><p class="axm-coordinates">${coord(s)}</p>`;
@@ -360,6 +365,7 @@ html,body{background:transparent!important}
     const active=preview||locked,hot=new Set(),stops=new Set();
     const compact=window.matchMedia('(max-width: 950px)').matches;
     detail.classList.toggle('is-location',active?.kind==='stop'||(compact&&active?.kind==='stage'));
+    detail.classList.toggle('is-section',active?.kind==='stage');
     if(active?.kind==='stage'){
       const e=getEntry(active.id),s=getStage(e?.riding_stage_id);
       if(e)hot.add(e.id);
