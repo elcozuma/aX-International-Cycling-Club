@@ -12,7 +12,7 @@ Keep the information box tucked into the existing map's lower-right space withou
 
 **Why:** The user corrected an implementation that increased the map height to accommodate the box; compactness is the priority.
 
-**How to apply:** Fit the panel within the available gap rather than adding map height. Hide it entirely on narrower screens, as requested by the user; keep logistics-package notes in itinerary cards, not this panel.
+**How to apply:** Fit the panel within the available gap rather than adding map height. Use compact selected-section call-outs on smaller screens and hide the overview when nothing is selected. Keep logistics-package notes in itinerary cards, not this panel.
 
 The user states that the extended itinerary includes seven days' accommodation, breakfast and evening meals in remote areas, and bike box storage.
 
@@ -25,3 +25,9 @@ Keep the organiser's final daily distance, elevation gain and riding-time figure
 **Why:** The user finalised the daily figures before supplying GPX tracks for elevation graphics. Measured track lengths differ slightly from the rounded published distances.
 
 **How to apply:** Use GPX elevations and cumulative track distance for profile shapes and axes. Do not silently recalculate the advertised daily or expedition totals from new tracks.
+
+Day 0 ends with an overnight stay in Tiznit, followed by a short transfer to Anezi the next morning.
+
+**Why:** The user corrected the initial arrival itinerary; Anezi is the riding start, not the Day 0 overnight destination.
+
+**How to apply:** Keep arrival-transfer descriptions, maps and accommodation references consistent with this sequence.
