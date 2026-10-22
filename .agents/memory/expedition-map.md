@@ -19,3 +19,9 @@ The user states that the extended itinerary includes seven days' accommodation, 
 **Why:** These are confirmed package inclusions supplied by the user.
 
 **How to apply:** Keep package descriptions consistent; six riding days plus two transfer days are displayed as “6+2 days”.
+
+Keep the organiser's final daily distance, elevation gain and riding-time figures authoritative; GPX elevation profiles use measured track distances without replacing those published statistics.
+
+**Why:** The user finalised the daily figures before supplying GPX tracks for elevation graphics. Measured track lengths differ slightly from the rounded published distances.
+
+**How to apply:** Use GPX elevations and cumulative track distance for profile shapes and axes. Do not silently recalculate the advertised daily or expedition totals from new tracks.
