@@ -312,7 +312,7 @@ html,body{background:transparent!important}
     const range=Math.max(100,high-low),left=2,right=272,top=3,bottom=27;
     const line=profile.points.map(([km,m],i)=>`${i?'L':'M'}${fmt(left+km/profile.distance_km*(right-left))},${fmt(bottom-(m-low)/range*(bottom-top))}`).join(' ');
     const description=`Day ${stage.day} GPX elevation profile. ${profile.distance_km.toFixed(1)} km of track, elevation ${Math.round(profile.min_m)} to ${Math.round(profile.max_m)} metres. Sampled retaining peaks and valleys.`;
-    return `<span class="axm-elevation"><span class="axm-elevation-caption">Elevation profile</span><svg viewBox="0 0 274 30" preserveAspectRatio="none" role="img" aria-label="${esc(description)}"><title>${esc(description)}</title><path d="M${left},${bottom}H${right}" stroke="#bfb6a4" stroke-opacity=".15" fill="none"/><path d="${line}" stroke="${stage.colour}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none" vector-effect="non-scaling-stroke"/></svg></span>`;
+    return `<span class="axm-elevation"><svg viewBox="0 0 274 30" preserveAspectRatio="none" role="img" aria-label="${esc(description)}"><title>${esc(description)}</title><path d="M${left},${bottom}H${right}" stroke="#bfb6a4" stroke-opacity=".15" fill="none"/><path d="${line}" stroke="${stage.colour}" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round" fill="none" vector-effect="non-scaling-stroke"/></svg></span>`;
   }
   function itineraryMarkup(data){
     return data.itinerary.map(entry=>{
