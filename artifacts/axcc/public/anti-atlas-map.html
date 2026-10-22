@@ -142,7 +142,7 @@ html,body{background:transparent!important}
 .axm-expedition .axm-map-wrap .axm-detail-metrics dd{font-size:18px}
 .axm-expedition .axm-map-wrap .axm-eyebrow{font-size:9px;letter-spacing:1px}
 .axm-expedition .axm-map-wrap .axm-endpoints,.axm-expedition .axm-map-wrap .axm-detail-transfer,.axm-expedition .axm-map-wrap .axm-detail-note{font-size:10px;line-height:1.5;margin-top:7px}
-.axm-expedition .axm-day-stats{display:none;font-size:11px;line-height:1.5;color:#bfb6a4;margin-top:4px;font-variant-numeric:tabular-nums}
+.axm-expedition .axm-day-stats{display:block;font-size:11px;line-height:1.5;color:#bfb6a4;margin-top:4px;font-variant-numeric:tabular-nums}
 @media(max-width:950px){.axm-expedition .axm-detail{display:none}.axm-expedition .axm-day-stats{display:block}}
 @media(max-width:520px){.axm-map-svg .axm-stop>text,.axm-map-svg .axm-stop>rect,.axm-map-svg .axm-leader,.axm-map-svg .axm-reference>text{display:none}}
 @media(max-width:520px){.axm-map-svg [data-reference-id="agadir"]>text:first-of-type,.axm-map-svg [data-reference-id="marrakech"]>text:first-of-type{display:inline}}
@@ -270,9 +270,9 @@ html,body{background:transparent!important}
   function itineraryMarkup(data){
     return data.itinerary.map(entry=>{
       const stage=data.stages.find(s=>s.id===entry.riding_stage_id);
-      const stats=stage?`, ${stage.distance_km} kilometres, ${stage.ascent_m.toLocaleString('en-GB')} metres ascent`:'';
+      const stats=stage?`, ${stage.duration_hours} hours, ${stage.distance_km} kilometres, ${stage.ascent_m.toLocaleString('en-GB')} metres ascent`:'';
       const label=`D${entry.day}, ${entry.date_label}: ${entry.title}${stats}. ${entry.note||''}`;
-      return `<li><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${stage?`<span class="axm-day-stats">${stage.distance_km} km · ${stage.ascent_m.toLocaleString('en-GB')} m ascent</span>`:''}${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button></li>`;
+      return `<li><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${stage?`<span class="axm-day-stats">${stage.duration_hours} hrs · ${stage.distance_km} km · ${stage.ascent_m.toLocaleString('en-GB')} m</span>`:''}${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button></li>`;
     }).join('');
   }
   global.AXMapCore={render,projection,esc,merc,itineraryMarkup};
@@ -283,6 +283,25 @@ html,body{background:transparent!important}
   'use strict';
   const root=document.querySelector('[data-ax-anti-atlas]');if(!root)return;
   let data=JSON.parse(document.getElementById('axm-data').textContent);
+  // Final organiser figures supersede the planning statistics in the supplied map asset.
+  const finalDailyStats=[
+    {day:1,duration_hours:6,distance_km:70,ascent_m:2200},
+    {day:2,duration_hours:4,distance_km:50,ascent_m:1000},
+    {day:3,duration_hours:11.5,distance_km:140,ascent_m:2500},
+    {day:4,duration_hours:8.5,distance_km:120,ascent_m:1400},
+    {day:5,duration_hours:5.5,distance_km:80,ascent_m:1000},
+    {day:6,duration_hours:3.5,distance_km:70,ascent_m:800}
+  ];
+  let cumulativeDistance=0,cumulativeAscent=0,totalHours=0;
+  for(const stats of finalDailyStats){
+    cumulativeDistance+=stats.distance_km;cumulativeAscent+=stats.ascent_m;totalHours+=stats.duration_hours;
+    Object.assign(data.stages.find(s=>s.day===stats.day),stats,{
+      cumulative_distance_km:cumulativeDistance,cumulative_ascent_m:cumulativeAscent,
+      statistics_status:'Final organiser-supplied daily figures; not calculated from geometry'
+    });
+  }
+  Object.assign(data.totals,{distance_km:cumulativeDistance,ascent_m:cumulativeAscent,display_ascent_m_rounded:cumulativeAscent,duration_hours:totalHours});
+  data.headline=`6+2 days · ${cumulativeDistance} km · ${cumulativeAscent.toLocaleString('en-GB')} m · ${totalHours} hours riding`;
   const map=root.querySelector('[data-map]'),days=root.querySelector('[data-days]'),detail=root.querySelector('[data-detail]'),status=root.querySelector('[data-status]');
   root.querySelector('[data-transfers]').checked=!window.matchMedia('(max-width: 520px)').matches;
   detail.tabIndex=0;
@@ -301,11 +320,11 @@ html,body{background:transparent!important}
     if(window.matchMedia('(max-width: 950px)').matches){
       const from=s?getStop(s.from):getRef(e.day===0?'marrakech':'ouarzazate');
       const to=s?getStop(s.to):getRef(e.day===0?'anezi':'marrakech');
-      return `<h3>Day ${e.day}</h3><p class="axm-coordinates"><strong>Start:</strong> ${esc(from.name)}<br><strong>End:</strong> ${esc(to.name)}</p>${s?`<p class="axm-section-stats">${s.distance_km} km · ${num(s.ascent_m)} m</p>`:''}`;
+      return `<h3>Day ${e.day}</h3><p class="axm-coordinates"><strong>Start:</strong> ${esc(from.name)}<br><strong>End:</strong> ${esc(to.name)}</p>${s?`<p class="axm-section-stats">${s.duration_hours} hrs · ${s.distance_km} km · ${num(s.ascent_m)} m</p>`:''}`;
     }
     if(!s&&e.day===0)return `<p class="axm-eyebrow">Day 0 · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('marrakech'),getRef('anezi'))}<p class="axm-detail-note">Riding starts in Anezi on Day 1, 23 Mar.</p>`;
     if(!s)return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${endpoints(getRef('ouarzazate'),getRef('marrakech'))}<p class="axm-detail-note">Riding finished in Ouarzazate on Day 6, 28 Mar.</p>`;
-    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent'],[s.cumulative_distance_km,'km','Cumulative riding']])}${endpoints(getStop(s.from),getStop(s.to))}`;
+    return `<p class="axm-eyebrow">Day ${e.day} · ${esc(e.date_label)}</p><h3>${esc(e.title)}</h3>${metrics([[s.duration_hours,'hrs','Riding time'],[s.distance_km,'km','Distance'],[num(s.ascent_m),'m','Ascent']])}${endpoints(getStop(s.from),getStop(s.to))}`;
   }
   function stopPanel(s){
     return `<h3>${esc(s.name)}</h3><p class="axm-coordinates">${coord(s)}</p>`;

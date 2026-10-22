@@ -460,7 +460,7 @@ const moroccoPages: Record<Language, MoroccoPage> = {
   en: {
     hostedExpedition: "Hosted Expedition · Morocco",
     statsLabels: ["DATES", "DURATION", "DISTANCE", "ELEVATION", "TERRAIN", "GROUP"],
-    statsValues: ["22–29 MAR 2027", "6+2 DAYS", "550 KM", "10,000 M", "GRAVEL+", "Target 10 Riders\n(Min 5, Max 15)"],
+    statsValues: ["22–29 MAR 2027", "6+2 DAYS", "530 KM", "8,900 M", "GRAVEL+", "Target 10 Riders\n(Min 5, Max 15)"],
     philosophyNote: "This is not a luxury guided tour. Participants make independent decisions, ride at their own pace and support one another where possible. Self-sufficiency is expected and adventure is the point.",
     expressInterest: "BOOK NOW",
     noPayment: "Deposit required to secure booking.",
@@ -495,7 +495,7 @@ const moroccoPages: Record<Language, MoroccoPage> = {
   fr: {
     hostedExpedition: "Expédition encadrée · Maroc",
     statsLabels: ["DATES", "DURÉE", "DISTANCE", "DÉNIVELÉ+", "TERRAIN", "GROUPE"],
-    statsValues: ["22–29 MAR 2027", "6+2 JOURS", "550 KM", "10 000 M", "GRAVEL+", "Objectif 10 cyclistes\n(Min 5, Max 15)"],
+    statsValues: ["22–29 MAR 2027", "6+2 JOURS", "530 KM", "8 900 M", "GRAVEL+", "Objectif 10 cyclistes\n(Min 5, Max 15)"],
     philosophyNote: "Ce n'est pas un voyage guidé de luxe. Les participants prennent des décisions indépendantes, roulent à leur propre rythme et s'entraident autant que possible. L'autonomie est attendue et l'aventure est le but.",
     expressInterest: "RÉSERVER MAINTENANT",
     noPayment: "Un dépôt est requis pour confirmer la réservation.",
@@ -530,7 +530,7 @@ const moroccoPages: Record<Language, MoroccoPage> = {
   es: {
     hostedExpedition: "Expedición organizada · Marruecos",
     statsLabels: ["FECHAS", "DURACIÓN", "DISTANCIA", "DESNIVEL+", "TERRENO", "GRUPO"],
-    statsValues: ["22–29 MAR 2027", "6+2 DÍAS", "550 KM", "10.000 M", "GRAVEL+", "Objetivo 10 ciclistas\n(Mín 5, Máx 15)"],
+    statsValues: ["22–29 MAR 2027", "6+2 DÍAS", "530 KM", "8.900 M", "GRAVEL+", "Objetivo 10 ciclistas\n(Mín 5, Máx 15)"],
     philosophyNote: "Esto no es un viaje guiado de lujo. Los participantes toman decisiones independientes, ruedan a su propio ritmo y se apoyan mutuamente en la medida de lo posible. La autosuficiencia es la norma y la aventura es el objetivo.",
     expressInterest: "RESERVAR AHORA",
     noPayment: "Se requiere depósito para confirmar la reserva.",
@@ -565,7 +565,7 @@ const moroccoPages: Record<Language, MoroccoPage> = {
   it: {
     hostedExpedition: "Spedizione organizzata · Marocco",
     statsLabels: ["DATE", "DURATA", "DISTANZA", "DISLIVELLO+", "TERRENO", "GRUPPO"],
-    statsValues: ["22–29 MAR 2027", "6+2 GIORNI", "550 KM", "10.000 M", "GRAVEL+", "Obiettivo 10 ciclisti\n(Min 5, Max 15)"],
+    statsValues: ["22–29 MAR 2027", "6+2 GIORNI", "530 KM", "8.900 M", "GRAVEL+", "Obiettivo 10 ciclisti\n(Min 5, Max 15)"],
     philosophyNote: "Non si tratta di un tour guidato di lusso. I partecipanti prendono decisioni indipendenti, pedalano al proprio ritmo e si supportano a vicenda dove possibile. L'autosufficienza è richiesta e l'avventura è il punto.",
     expressInterest: "PRENOTA ORA",
     noPayment: "È richiesto un deposito per confermare la prenotazione.",
@@ -600,7 +600,7 @@ const moroccoPages: Record<Language, MoroccoPage> = {
   de: {
     hostedExpedition: "Begleitete Expedition · Marokko",
     statsLabels: ["DATUM", "DAUER", "DISTANZ", "HÖHENMETER", "GELÄNDE", "GRUPPE"],
-    statsValues: ["22–29 MAR 2027", "6+2 TAGE", "550 KM", "10.000 M", "GRAVEL+", "Ziel 10 Fahrer\n(Min 5, Max 15)"],
+    statsValues: ["22–29 MAR 2027", "6+2 TAGE", "530 KM", "8.900 M", "GRAVEL+", "Ziel 10 Fahrer\n(Min 5, Max 15)"],
     philosophyNote: "Dies ist keine luxuriöse Geführte Tour. Die Teilnehmer treffen eigenständige Entscheidungen, fahren in ihrem eigenen Tempo und unterstützen sich gegenseitig, wo es möglich ist. Selbstständigkeit wird erwartet und das Abenteuer ist das Ziel.",
     expressInterest: "JETZT BUCHEN",
     noPayment: "Anzahlung zur Buchungsbestätigung erforderlich.",
