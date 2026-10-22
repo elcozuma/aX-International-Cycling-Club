@@ -161,6 +161,7 @@ html,body{background:transparent!important}
 .axm-expedition .axm-elevation svg{display:block;width:100%;height:30px;overflow:visible}
 .axm-expedition .axm-elevation-caption{display:block;color:#bfb6a4;font-size:9px;line-height:1.2;margin-bottom:2px;font-weight:400}
 .axm-expedition .axm-route-toggle{display:none}
+.axm-expedition .axm-detail:not(.is-section):not(.is-location){display:none}
 @media(min-width:1101px){
   .axm-expedition .axm-layout{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:stretch}
   .axm-expedition .axm-itinerary{display:flex;min-width:0}
@@ -176,6 +177,15 @@ html,body{background:transparent!important}
   .axm-expedition .axm-day{grid-template-rows:26px 1fr}
 }
 @media(max-width:950px){
+  .axm-expedition .axm-days{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,auto);gap:8px}
+  .axm-expedition .axm-day{height:100%;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:auto 1fr;gap:6px;padding:10px}
+  .axm-expedition .axm-day-number{grid-column:1;grid-row:1;width:28px;height:26px;font-size:10px}
+  .axm-expedition .axm-day-date{grid-column:2;grid-row:1;align-self:center;padding:0;font-size:9px}
+  .axm-expedition .axm-day-copy{grid-column:1 / -1;grid-row:2}
+  .axm-expedition .axm-day-route{font-size:12px;line-height:1.45}
+  .axm-expedition .axm-day-stats{font-size:10px}
+  .axm-expedition .axm-day-note{font-size:9px;line-height:1.45}
+  .axm-expedition .axm-elevation svg{height:24px}
   .axm-expedition .axm-route-toggle{display:flex;align-items:center;justify-content:space-between;width:100%;min-height:44px;padding:11px 12px;background:#29281f;color:#f5f1e9;border:1px solid var(--axm-border);border-radius:4px;font-size:12px;font-weight:700;text-align:left}
   .axm-expedition .axm-route-toggle::after{content:'⌄';font-size:16px}
   .axm-expedition .axm-route-toggle[aria-expanded="true"]::after{content:'⌃'}
@@ -345,7 +355,6 @@ html,body{background:transparent!important}
   let locked=null,preview=null,lastDetail='',width=0;
   function entryText(e){const s=getStage(e.riding_stage_id);return `D${e.day}, ${e.date_label}: ${e.title}.${s?` ${s.distance_km} kilometres, ${num(s.ascent_m)} metres ascent, ${s.cumulative_distance_km} kilometres cumulative riding.`:''}${e.note?' '+e.note+'.':''}`;}
   function metrics(items){return `<dl class="axm-detail-metrics">${items.map(([value,unit,label])=>`<div><dt>${label}</dt><dd>${value}<span class="axm-unit"> ${unit}</span></dd></div>`).join('')}</dl>`;}
-  function overview(){return `<p class="axm-eyebrow">22–29 Mar · Day 0–Day 7</p><h3>Stage details</h3>${metrics([[data.totals.distance_km,'km','Total riding'],[num(data.totals.ascent_m),'m','Total ascent'],[data.totals.riding_days,'days','On the bike']])}`;}
   const getRef=id=>getStop(id)||data.reference_cities.find(c=>c.id===id);
   const coord=p=>`${p.latitude.toFixed(5)}° N &nbsp; ${Math.abs(p.longitude).toFixed(5)}° W`;
   function entryPanel(e){
@@ -389,7 +398,7 @@ html,body{background:transparent!important}
       let html,colour='#C2C6C9';
       if(active?.kind==='stage'){const e=getEntry(active.id);html=entryPanel(e);colour=e.colour;message=entryText(e);}
       else if(active?.kind==='stop'){const s=getStop(active.id);html=stopPanel(s);message=`${s.name}. ${s.latitude.toFixed(5)} degrees north, ${Math.abs(s.longitude).toFixed(5)} degrees west.`;}
-      else html=overview();
+      else html='';
       detail.innerHTML=html;detail.style.setProperty('--detail-colour',colour);lastDetail=key;
     }else if(active?.kind==='stage')message=entryText(getEntry(active.id));
     else if(active?.kind==='stop')message=`Selected stop ${getStop(active.id).name}.`;
