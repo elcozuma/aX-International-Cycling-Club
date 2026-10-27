@@ -307,7 +307,7 @@ export default function Morocco() {
                   {mp.recommended}
                 </div>
                 <p className="text-xs uppercase tracking-widest text-white/40 mb-2" style={rubikOne}>{t("morocco.pricing.logistics")}</p>
-                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>&lt;€950</p>
+                <p className="text-4xl md:text-5xl font-bold text-white leading-none mb-1" style={rubikOne}>&lt;€1,000</p>
                 <p className="text-xs text-foreground/45 mb-4" style={nunito}>{mp.maxCostLabel}</p>
                 <ul className="space-y-2" style={nunito}>
                   <li className="text-xs text-foreground/60 flex gap-2">
