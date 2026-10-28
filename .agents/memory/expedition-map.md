@@ -26,7 +26,7 @@ Keep the organiser's final daily distance, elevation gain and riding-time figure
 
 **How to apply:** Use GPX elevations and cumulative track distance for profile shapes and axes. Do not silently recalculate the advertised daily or expedition totals from new tracks.
 
-Route alternatives are comparisons, not changes to the official itinerary. Keep organiser-published default statistics alongside the PDF's estimated alternative figures, with their different sources clearly identified.
+Route alternatives are comparisons, not changes to the official itinerary. Keep organiser-published default statistics alongside the PDF's estimated alternative figures. The user wants the comparison disclaimer shortened, without source explanations or “Alternative · Est.” badges.
 
 **Why:** The user approved day-card links opening a separate comparison panel, rather than route selectors that change the itinerary or headline totals.
 

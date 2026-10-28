@@ -68,15 +68,12 @@ function RowCard({ row, isDefault }: { row: Row; isDefault?: boolean }) {
     >
       <div className="flex items-start justify-between gap-3 mb-2">
         <p className="text-[13px] font-bold text-[#f5f1e9] leading-snug" style={nunito}>{row.name}</p>
-        <span
-          className={[
-            "shrink-0 text-[9px] uppercase tracking-widest rounded px-1.5 py-0.5",
-            isDefault ? "bg-accent text-background" : "border border-white/15 text-white/55",
-          ].join(" ")}
+        {isDefault && <span
+          className="shrink-0 text-[9px] uppercase tracking-widest rounded px-1.5 py-0.5 bg-accent text-background"
           style={rubikOne}
         >
-          {isDefault ? "Default · Organiser" : "Alternative · Est."}
-        </span>
+          Default · Organiser
+        </span>}
       </div>
       <dl className="grid grid-cols-3 sm:grid-cols-5 gap-x-3 gap-y-2" style={nunito}>
         <Stat label="Time" value={fmtTime(row.time)} />
@@ -120,7 +117,7 @@ export function RouteAlternativesDialog({ day, onClose }: { day: number | null; 
               </div>
               <div className="overflow-y-auto overscroll-contain px-5 py-4">
                 <DialogPrimitive.Description className="text-xs text-foreground/60 leading-relaxed mb-3" style={nunito}>
-                  For comparison only — the official itinerary stays the Default. Default figures are the organiser's published stats; alternatives are estimated Komoot figures. Workload score is not a technical grade and excludes weather, luggage, fatigue and stops.
+                  For comparison only — the official itinerary stays the Default. Workload score is not a technical grade and excludes weather, fatigue and stops.
                 </DialogPrimitive.Description>
                 <ul className="space-y-2">
                   <RowCard row={data.def} isDefault />
