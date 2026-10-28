@@ -1,7 +1,9 @@
 import { useEffect, useRef, useState } from "react";
+import { RouteAlternativesDialog, ROUTE_ALTERNATIVES } from "@/components/RouteAlternativesDialog";
 
 const MAP_SRC = `${import.meta.env.BASE_URL}anti-atlas-map.html`;
 const MESSAGE_TYPE = "ax-anti-atlas:resize";
+const ALTS_TYPE = "ax-anti-atlas:alternatives";
 const MIN_HEIGHT = 480;
 const MAX_HEIGHT = 6000;
 
@@ -14,6 +16,8 @@ const MAX_HEIGHT = 6000;
 export function AntiAtlasMap() {
   const iframeRef = useRef<HTMLIFrameElement>(null);
   const [height, setHeight] = useState<number>(1180);
+  const [altDay, setAltDay] = useState<number | null>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     const expectedOrigin = window.location.origin;
@@ -21,8 +25,17 @@ export function AntiAtlasMap() {
       const frame = iframeRef.current;
       if (!frame || event.source !== frame.contentWindow) return;
       if (event.origin !== expectedOrigin) return;
-      const data = event.data as { type?: unknown; height?: unknown } | null;
-      if (!data || typeof data !== "object" || data.type !== MESSAGE_TYPE) return;
+      const data = event.data as { type?: unknown; height?: unknown; day?: unknown } | null;
+      if (!data || typeof data !== "object") return;
+      if (data.type === ALTS_TYPE) {
+        const d = Number(data.day);
+        if (!Number.isInteger(d) || !ROUTE_ALTERNATIVES[d]) return;
+        const active = frame.contentDocument?.activeElement;
+        returnFocusRef.current = active && "focus" in active ? active as HTMLElement : null;
+        setAltDay(d);
+        return;
+      }
+      if (data.type !== MESSAGE_TYPE) return;
       const h = Number(data.height);
       if (!Number.isFinite(h)) return;
       setHeight(Math.min(MAX_HEIGHT, Math.max(MIN_HEIGHT, Math.ceil(h))));
@@ -31,7 +44,18 @@ export function AntiAtlasMap() {
     return () => window.removeEventListener("message", onMessage);
   }, []);
 
+  const closeAlts = () => {
+    setAltDay(null);
+    const el = returnFocusRef.current;
+    window.setTimeout(() => {
+      iframeRef.current?.focus();
+      el?.focus();
+    }, 0);
+  };
+
   return (
+    <>
+    <RouteAlternativesDialog day={altDay} onClose={closeAlts} />
     <div
       className="w-full rounded-lg overflow-hidden border border-white/10"
       style={{ background: "transparent" }}
@@ -47,5 +71,6 @@ export function AntiAtlasMap() {
         style={{ height, background: "transparent", colorScheme: "dark" }}
       />
     </div>
+    </>
   );
 }

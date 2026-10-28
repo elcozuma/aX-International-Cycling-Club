@@ -26,6 +26,12 @@ Keep the organiser's final daily distance, elevation gain and riding-time figure
 
 **How to apply:** Use GPX elevations and cumulative track distance for profile shapes and axes. Do not silently recalculate the advertised daily or expedition totals from new tracks.
 
+Route alternatives are comparisons, not changes to the official itinerary. Keep organiser-published default statistics alongside the PDF's estimated alternative figures, with their different sources clearly identified.
+
+**Why:** The user approved day-card links opening a separate comparison panel, rather than route selectors that change the itinerary or headline totals.
+
+**How to apply:** Do not replace default figures with the PDF's precise estimates or draw alternative routes/profiles without their GPX data.
+
 Day 0 ends with an overnight stay in Tiznit, followed by a short transfer to Anezi the next morning.
 
 **Why:** The user corrected the initial arrival itinerary; Anezi is the riding start, not the Day 0 overnight destination.

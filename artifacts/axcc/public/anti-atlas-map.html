@@ -196,6 +196,7 @@ html,body{background:transparent!important}
 }
 @media(max-width:950px){.axm-expedition .axm-map-wrap .axm-detail.is-location{display:block;bottom:74px;right:16px;padding:8px 10px}.axm-expedition .axm-map-wrap .axm-detail.is-location h3{margin:0 0 4px;font-size:12px}}
 @media(max-width:520px){.axm-expedition .axm-map-wrap .axm-detail.is-location{bottom:66px}}
+.axm-has-alts{position:relative}.axm-has-alts>.axm-day{padding-bottom:30px}.axm-days>li{display:flex}.axm-days>li>.axm-day{flex:1}.axm-alts-btn{position:absolute;right:8px;bottom:7px;font:inherit;font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;line-height:1;padding:5px 8px;border-radius:3px;border:1px solid var(--stage-colour);color:#f5f1e9;background:rgba(20,20,18,.7);cursor:pointer;transition:background .15s}.axm-alts-btn:hover{background:rgba(137,152,42,.25)}.axm-alts-btn:focus-visible{outline:2px solid #f5f1e9;outline-offset:2px}
 </style>
 </head>
 <body style="margin:0;background:#1d1f21">
@@ -323,7 +324,8 @@ html,body{background:transparent!important}
       const stage=data.stages.find(s=>s.id===entry.riding_stage_id);
       const stats=stage?`, ${stage.duration_hours} hours, ${stage.distance_km} kilometres, ${stage.ascent_m.toLocaleString('en-GB')} metres ascent, difficulty ${stage.difficulty_score.toFixed(1)} out of 10`:'';
       const label=`D${entry.day}, ${entry.date_label}: ${entry.title}${stats}. ${entry.note||''}`;
-      return `<li><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${stage?`<span class="axm-day-stats">${stage.duration_hours} hrs · ${stage.distance_km} km · ${stage.ascent_m.toLocaleString('en-GB')} m</span>${difficultyMarkup(stage)}${elevationMarkup(stage)}`:''}${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button></li>`;
+      const altN=({1:10,2:2,3:4,4:3,5:1})[entry.day]||0;
+      return `<li${altN?' class="axm-has-alts"':''}><button type="button" class="axm-day" data-stage-id="${entry.id}" aria-pressed="false" style="--stage-colour:${entry.colour}" aria-label="${esc(label)}"><span class="axm-day-number" aria-hidden="true">D${entry.day}</span><span class="axm-day-copy"><span class="axm-day-route">${esc(entry.title)}</span>${stage?`<span class="axm-day-stats">${stage.duration_hours} hrs · ${stage.distance_km} km · ${stage.ascent_m.toLocaleString('en-GB')} m</span>${difficultyMarkup(stage)}${elevationMarkup(stage)}`:''}${entry.note?`<em class="axm-day-note">${esc(entry.note)}</em>`:''}</span><span class="axm-day-date">${esc(entry.date_label)}</span></button>${altN?`<button type="button" class="axm-alts-btn" data-alts-day="${entry.day}" style="--stage-colour:${entry.colour}" aria-haspopup="dialog" aria-label="Compare ${altN} route alternative${altN>1?'s':''} for Day ${entry.day}">${altN} alt${altN>1?'s':''}</button>`:''}</li>`;
     }).join('');
   }
   global.AXMapCore={render,projection,esc,merc,itineraryMarkup,difficultyMarkup};
@@ -459,6 +461,7 @@ html,body{background:transparent!important}
   days.innerHTML=AXMapCore.itineraryMarkup(data);root.classList.add('axm-enabled');draw();update();
   // Buttons handle map interaction. Normal page scrolling is never intercepted.
   if('ResizeObserver' in window){const observer=new ResizeObserver(()=>window.requestAnimationFrame(draw));observer.observe(map);}else window.addEventListener('resize',draw,{passive:true});
+  days.addEventListener('click',ev=>{const b=ev.target.closest?.('[data-alts-day]');if(!b||!days.contains(b))return;ev.stopPropagation();if(window.parent!==window)window.parent.postMessage({type:'ax-anti-atlas:alternatives',day:Number(b.dataset.altsDay)},window.location.origin);});
   function reportHeight(){if(window.parent!==window)window.parent.postMessage({type:'ax-anti-atlas:resize',height:Math.ceil(root.getBoundingClientRect().height)},window.location.origin);}
   if('ResizeObserver' in window){const observer=new ResizeObserver(()=>window.requestAnimationFrame(reportHeight));observer.observe(root);}reportHeight();
   function validate(next){
